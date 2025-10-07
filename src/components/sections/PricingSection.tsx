@@ -6,6 +6,7 @@ const PricingSection = () => {
   const packages = [
     {
       name: 'Базовый',
+      subtitle: 'Ораторское мастерство с нуля',
       duration: '8 занятий',
       price: '15 900',
       oldPrice: '19 900',
@@ -64,6 +65,7 @@ const PricingSection = () => {
               )}
               <CardHeader className="text-center pb-4">
                 <CardTitle className="text-3xl mb-2">{pkg.name}</CardTitle>
+                {pkg.subtitle && <p className="text-lg font-semibold text-primary mb-2">{pkg.subtitle}</p>}
                 <CardDescription className="text-lg">{pkg.duration}</CardDescription>
                 <div className="mt-6">
                   <div className="flex items-center justify-center gap-3 mb-2">
