@@ -69,7 +69,7 @@ const PricingSection = () => {
                 <div className="mt-6">
                   <div className="flex items-center justify-center gap-3 mb-2">
                     <span className="text-4xl md:text-5xl font-bold text-primary">15900</span>
-                    <span className="text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>
+                    <span className="text-2xl text-muted-foreground line-through">19900</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Специальная цена для первых участников</p>
                 </div>
