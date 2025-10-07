@@ -30,9 +30,7 @@ const GallerySection = () => {
     <section className="py-20 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Наши выпускники</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg">
-          Гордимся каждым, кто прошел путь от первого занятия до выпускного спектакля
-        </p>
+        <p className="text-center text-muted-foreground mb-12 text-lg">Гордимся каждым, кто прошел путь от первого занятия до выпускного вечера</p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {images.map((image, index) => (
