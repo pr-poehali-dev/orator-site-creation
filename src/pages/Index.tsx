@@ -15,10 +15,12 @@ import FAQSection from '@/components/sections/FAQSection';
 import ContactSection from '@/components/sections/ContactSection';
 import SignUpSection from '@/components/sections/SignUpSection';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import StructuredData from '@/components/SEO/StructuredData';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <StructuredData />
       <Header />
       <HeroSection />
       <AudienceSection />
