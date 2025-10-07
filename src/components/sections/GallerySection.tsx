@@ -31,7 +31,7 @@ const GallerySection = () => {
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Наши выпускники</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg">
-          Более 500 человек уже прошли курс и получили сертификаты
+          Гордимся каждым, кто прошел путь от первого занятия до выпускного спектакля
         </p>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
