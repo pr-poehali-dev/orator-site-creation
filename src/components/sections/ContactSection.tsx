@@ -75,6 +75,16 @@ const ContactSection = () => {
                 <Icon name="MapPin" size={20} className="text-primary" />
                 <span className="text-lg">Краснодар</span>
               </div>
+              <div className="flex justify-center mt-6">
+                <iframe 
+                  src="https://yandex.ru/sprav/widget/rating-badge/108893235678?type=rating" 
+                  width="150" 
+                  height="50" 
+                  frameBorder="0"
+                  title="Рейтинг на Яндекс"
+                  className="rounded-lg"
+                ></iframe>
+              </div>
             </div>
           </CardContent>
         </Card>
