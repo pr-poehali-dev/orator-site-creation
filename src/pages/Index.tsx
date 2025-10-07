@@ -140,11 +140,17 @@ const Index = () => {
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
+              <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
+                <span className="text-white font-semibold text-sm">🎯 Уникальный курс в Краснодаре</span>
+              </div>
               <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-fade-in">
                 Раскройте силу своего голоса
               </h2>
-              <p className="text-xl md:text-2xl text-muted-foreground mb-8">
-                Научитесь говорить так, чтобы вас слушали. Профессиональное обучение ораторскому искусству с практикой и реальными результатами.
+              <p className="text-xl md:text-2xl text-muted-foreground mb-6">
+                Единственный в Краснодаре ораторский курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником.
+              </p>
+              <p className="text-lg text-muted-foreground mb-8">
+                Профессиональное обучение ораторскому искусству с практикой и реальными результатами.
               </p>
               <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
