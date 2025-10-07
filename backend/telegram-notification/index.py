@@ -41,7 +41,10 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         phone = body_data.get('phone', '')
         message = body_data.get('message', '')
         
+        print(f"Received form data: name={name}, phone={phone}")
+        
         if not name or not phone:
+            print("ERROR: Name or phone is missing")
             return {
                 'statusCode': 400,
                 'headers': {
@@ -54,7 +57,10 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
         chat_id = os.environ.get('TELEGRAM_CHAT_ID')
         
+        print(f"Bot token exists: {bool(bot_token)}, Chat ID exists: {bool(chat_id)}")
+        
         if not bot_token or not chat_id:
+            print("ERROR: Telegram credentials not configured")
             return {
                 'statusCode': 500,
                 'headers': {
@@ -81,10 +87,14 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             headers={'Content-Type': 'application/json'}
         )
         
+        print(f"Sending message to Telegram...")
         with urllib.request.urlopen(req) as response:
             telegram_response = json.loads(response.read().decode('utf-8'))
         
+        print(f"Telegram response: {telegram_response}")
+        
         if telegram_response.get('ok'):
+            print("SUCCESS: Message sent to Telegram")
             return {
                 'statusCode': 200,
                 'headers': {
@@ -94,6 +104,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'body': json.dumps({'success': True, 'message': 'Заявка успешно отправлена'})
             }
         else:
+            print(f"ERROR: Telegram API returned error: {telegram_response}")
             return {
                 'statusCode': 500,
                 'headers': {
@@ -104,6 +115,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             }
     
     except Exception as e:
+        print(f"EXCEPTION: {str(e)}")
         return {
             'statusCode': 500,
             'headers': {
