@@ -32,9 +32,9 @@ const Index = () => {
       <PricingSection />
       <GallerySection />
       <TestimonialsSection />
-      <TheaterSection />
       <FAQSection />
       <SignUpSection />
+      <TheaterSection />
       <ContactSection />
       <Footer />
       <WhatsAppButton />
