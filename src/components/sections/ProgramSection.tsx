@@ -4,34 +4,42 @@ import Icon from '@/components/ui/icon';
 const ProgramSection = () => {
   const program = [
     {
-      title: 'Работа с телом и жестами',
-      description: 'Язык тела, постановка осанки, управление жестикуляцией',
-      icon: 'Users'
+      title: 'Секреты ораторского искусства',
+      icon: 'Lightbulb',
+      items: [
+        'Управляем страхом публичных выступлений, вырабатываем новый условный рефлекс "публичное выступление - это удовольствие"',
+        'Учимся структурировать речь и говорить так, чтобы тебя слышали',
+        'Узнаём крючки привлечения внимания публики и психотрюки переговоров',
+        'Повышаем словарный запас, избавляемся от слов-паразитов',
+        'Развиваем чувство уверенности и свободы',
+        'Управляем эмоциями и стрессом',
+        'Трансформируем ограничивающие убеждения по поводу своих ораторских способностей',
+        'Работаем с профессиональным стилистом над имиджем оратора'
+      ]
     },
     {
-      title: 'Голос и дикция',
-      description: 'Постановка голоса, дыхание, артикуляция, интонации',
-      icon: 'Mic'
+      title: 'Голос. Речь. Дикция',
+      icon: 'Mic',
+      items: [
+        'Постановка голоса и дыхания',
+        'Техники создания харизматичного и уверенного голоса',
+        'Интонация',
+        'Сила и подача голоса',
+        'Изучаем законы устной речи',
+        'Создаём голос эксперта'
+      ]
     },
     {
-      title: 'Психология выступлений',
-      description: 'Работа со страхами, уверенность, контакт с аудиторией',
-      icon: 'Brain'
-    },
-    {
-      title: 'Риторика',
-      description: 'Структура речи, аргументация, импровизация',
-      icon: 'MessageSquare'
-    },
-    {
-      title: 'Практика',
-      description: 'Видеосъемка, разбор выступлений, реальные кейсы',
-      icon: 'Video'
-    },
-    {
-      title: 'Индивидуальный подход',
-      description: 'Персональная работа с каждым участником',
-      icon: 'UserCheck'
+      title: 'Импровизация и актёрское мастерство',
+      icon: 'Sparkles',
+      items: [
+        'Спонтанность, выход из шаблонов мышления',
+        'Развиваем словесную гибкость',
+        'Учимся импровизировать',
+        'Повышаем скорость креативного мышления, спонтанность и остроумие',
+        'Практикуем умение действовать эффективно «здесь и сейчас»',
+        'Выступаем с театральным монологом'
+      ]
     }
   ];
 
@@ -46,25 +54,28 @@ const ProgramSection = () => {
 
   return (
     <section id="program" className="py-20 px-4">
-      <div className="container mx-auto">
+      <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Программа курса</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
-          Комплексный подход к развитию ораторского мастерства
+          Три основных блока для комплексного развития
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          {program.map((item, index) => (
-            <Card key={index} className="hover:shadow-xl transition-shadow">
-              <CardHeader>
-                <div className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name={item.icon as any} size={24} className="text-white" />
-                  </div>
-                  <div>
-                    <CardTitle className="text-lg mb-2">{item.title}</CardTitle>
-                    <CardDescription className="text-base">{item.description}</CardDescription>
-                  </div>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+          {program.map((block, index) => (
+            <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-1">
+              <CardHeader className="pb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-4">
+                  <Icon name={block.icon as any} size={32} className="text-white" />
                 </div>
+                <CardTitle className="text-2xl mb-4">{block.title}</CardTitle>
               </CardHeader>
+              <div className="px-6 pb-6 space-y-3">
+                {block.items.map((item, itemIndex) => (
+                  <div key={itemIndex} className="flex items-start gap-2">
+                    <Icon name="Check" size={18} className="text-primary flex-shrink-0 mt-0.5" />
+                    <CardDescription className="text-sm leading-relaxed">{item}</CardDescription>
+                  </div>
+                ))}
+              </div>
             </Card>
           ))}
         </div>
