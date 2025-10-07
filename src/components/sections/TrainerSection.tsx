@@ -41,13 +41,18 @@ const TrainerSection = () => {
           Профессионал с уникальным сочетанием компетенций
         </p>
         
-        <div className="mb-12">
-          <h3 className="text-4xl md:text-5xl font-bold text-center mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+        <div className="mb-12 max-w-4xl mx-auto">
+          <h3 className="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Светлана Алексеевна Кузикова
           </h3>
+          <p className="text-xl text-muted-foreground text-center leading-relaxed">
+            Театральный режиссёр и профессиональный психолог. Создатель театра «Комильфо», 
+            в котором играют мои выпускники. Автор уникальной методики, которая объединяет 
+            театральную педагогику с глубинной психологической работой.
+          </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
           <div>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
@@ -60,12 +65,8 @@ const TrainerSection = () => {
           </div>
           
           <div>
-            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
-              Театральный режиссёр и профессиональный психолог с подготовкой по ораторскому мастерству в ГИТИСе. 
-              Автор уникальной методики, которая объединяет театральную педагогику с глубинной психологической работой.
-            </p>
             
-            <div className="space-y-4 mb-8">
+            <div className="space-y-4">
               {achievements.map((item, index) => (
                 <div key={index} className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
@@ -75,17 +76,17 @@ const TrainerSection = () => {
                 </div>
               ))}
             </div>
-
-            <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-none">
-              <CardContent className="p-6">
-                <p className="text-lg italic">
-                  "Моя миссия — помочь каждому человеку раскрыть свой ораторский потенциал 
-                  и получать искреннее удовольствие от публичных выступлений"
-                </p>
-              </CardContent>
-            </Card>
           </div>
         </div>
+
+        <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-none max-w-4xl mx-auto">
+          <CardContent className="p-8">
+            <p className="text-xl italic text-center leading-relaxed">
+              "Моя миссия — помочь каждому человеку раскрыть свой ораторский потенциал 
+              и получать искреннее удовольствие от публичных выступлений"
+            </p>
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
