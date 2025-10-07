@@ -23,7 +23,7 @@ const Header = () => {
               <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 KUZIKOVA SCHOOL
               </h1>
-              <p className="text-xs text-muted-foreground">Ораторское искусство</p>
+              <p className="text-xs text-muted-foreground">Школа ораторского искусства и импровизации</p>
             </div>
           </div>
           
