@@ -1,6 +1,6 @@
 const TheaterSection = () => {
   return (
-    <section id="theater" className="py-20 px-4 bg-white">
+    <section id="theater" className="py-14 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">
           Театр «Комильфо»

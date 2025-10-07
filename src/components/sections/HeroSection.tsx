@@ -3,7 +3,7 @@ import Icon from '@/components/ui/icon';
 
 const HeroSection = () => {
   return (
-    <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
+    <section className="pt-24 pb-14 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">

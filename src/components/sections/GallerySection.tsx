@@ -27,7 +27,7 @@ const GallerySection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
+    <section className="py-14 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Наши выпускники</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg">Гордимся каждым, кто прошел путь от первого занятия до выпускного вечера</p>

@@ -3,7 +3,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 const ContactSection = () => {
   return (
-    <section className="py-20 px-4 bg-white">
+    <section className="py-14 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Контакты</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg">

@@ -39,7 +39,7 @@ const AudienceSection = () => {
   ];
 
   return (
-    <section className="py-20 px-4 bg-gradient-to-b from-gray-50 to-white">
+    <section className="py-14 px-4 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Для кого этот курс</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">

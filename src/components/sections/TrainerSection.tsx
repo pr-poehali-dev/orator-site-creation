@@ -34,7 +34,7 @@ const TrainerSection = () => {
   ];
 
   return (
-    <section id="trainer" className="py-20 px-4 bg-white">
+    <section id="trainer" className="py-14 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Ваш преподаватель</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg">

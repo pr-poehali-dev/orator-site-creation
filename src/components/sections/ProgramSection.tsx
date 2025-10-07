@@ -53,7 +53,7 @@ const ProgramSection = () => {
   ];
 
   return (
-    <section id="program" className="py-20 px-4">
+    <section id="program" className="py-14 px-4">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Программа курса</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
