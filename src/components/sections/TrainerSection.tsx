@@ -5,6 +5,10 @@ const TrainerSection = () => {
   const achievements = [
     {
       icon: 'GraduationCap',
+      text: 'Подготовка по ораторскому мастерству в ГИТИС'
+    },
+    {
+      icon: 'Theater',
       text: 'Театральный режиссёр с многолетним опытом'
     },
     {
@@ -37,8 +41,14 @@ const TrainerSection = () => {
           Профессионал с уникальным сочетанием компетенций
         </p>
         
+        <div className="mb-12">
+          <h3 className="text-4xl md:text-5xl font-bold text-center mb-2 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Светлана Алексеевна Кузикова
+          </h3>
+        </div>
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
+          <div>
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
               <img 
@@ -49,13 +59,10 @@ const TrainerSection = () => {
             </div>
           </div>
           
-          <div className="order-1 lg:order-2">
-            <h3 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Светлана Алексеевна Кузикова
-            </h3>
-            <p className="text-xl text-muted-foreground mb-8">
-              Театральный режиссёр и профессиональный психолог. Автор уникальной методики, 
-              которая объединяет театральную педагогику с глубинной психологической работой.
+          <div>
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
+              Театральный режиссёр и профессиональный психолог с подготовкой по ораторскому мастерству в ГИТИСе. 
+              Автор уникальной методики, которая объединяет театральную педагогику с глубинной психологической работой.
             </p>
             
             <div className="space-y-4 mb-8">
