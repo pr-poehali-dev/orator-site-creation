@@ -137,22 +137,35 @@ const Index = () => {
       </nav>
 
       <section id="home" className="pt-32 pb-20 px-4">
-        <div className="container mx-auto text-center">
-          <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-fade-in">
-            Раскройте силу своего голоса
-          </h2>
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
-            Научитесь говорить так, чтобы вас слушали. Профессиональное обучение ораторскому искусству с практикой и реальными результатами.
-          </p>
-          <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
-              <Icon name="Sparkles" size={20} className="mr-2" />
-              Начать обучение
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-              <Icon name="PlayCircle" size={20} className="mr-2" />
-              Смотреть видео
-            </Button>
+        <div className="container mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="text-center lg:text-left">
+              <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-fade-in">
+                Раскройте силу своего голоса
+              </h2>
+              <p className="text-xl md:text-2xl text-muted-foreground mb-8">
+                Научитесь говорить так, чтобы вас слушали. Профессиональное обучение ораторскому искусству с практикой и реальными результатами.
+              </p>
+              <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
+                  <Icon name="Sparkles" size={20} className="mr-2" />
+                  Начать обучение
+                </Button>
+                <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 border-primary text-primary hover:bg-primary hover:text-white">
+                  <Icon name="PlayCircle" size={20} className="mr-2" />
+                  Смотреть видео
+                </Button>
+              </div>
+            </div>
+            
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
+              <img 
+                src="https://cdn.poehali.dev/files/b3205ba1-dee0-4d9e-82cb-e6b4d0a97505.jpg" 
+                alt="Профессиональный оратор с микрофоном"
+                className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
+              />
+            </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto">
