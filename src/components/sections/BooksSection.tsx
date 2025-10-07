@@ -5,19 +5,26 @@ const BooksSection = () => {
   return (
     <section className="py-20 px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Авторские книги в подарок</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Электронные книги в подарок</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg max-w-3xl mx-auto">
-          Каждый участник курса получает авторские книги-тренинги Светланы Кузиковой с практическими упражнениями
+          Каждый участник курса получает электронные книги-тренинги Светланы Кузиковой с практическими упражнениями
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
-            <img 
-              src="https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800&q=80" 
-              alt="Авторские книги Светланы Кузиковой"
-              className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
-            />
+            <div className="relative grid grid-cols-2 gap-6">
+              <img 
+                src="https://cdn.poehali.dev/files/9209eed7-dd98-462d-895f-1707e50dc481.png" 
+                alt="Рабочая тетрадь - Речевая креативность"
+                className="rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+              />
+              <img 
+                src="https://cdn.poehali.dev/files/c851bfe2-7e13-411b-a297-8be6ca26b397.png" 
+                alt="Публичные выступления: 7 шагов к успеху"
+                className="rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+              />
+            </div>
           </div>
 
           <div className="space-y-6">
@@ -32,7 +39,7 @@ const BooksSection = () => {
                   <div>
                     <h3 className="font-bold text-xl mb-2">«Речевая креативность»</h3>
                     <p className="text-muted-foreground">
-                      Практическое руководство по развитию творческого мышления в публичных выступлениях
+                      Рабочая тетрадь: Говори красиво! Выступай легко! Импровизируй! Новый уровень вербального интеллекта
                     </p>
                   </div>
                 </div>
@@ -48,9 +55,9 @@ const BooksSection = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl mb-2">Книга-тренинг с упражнениями</h3>
+                    <h3 className="font-bold text-xl mb-2">«Публичные выступления: 7 шагов к успеху»</h3>
                     <p className="text-muted-foreground">
-                      Пошаговые практические задания для самостоятельной работы над речью и уверенностью
+                      Практическое руководство оратора с упражнениями и техниками для успешных выступлений
                     </p>
                   </div>
                 </div>
