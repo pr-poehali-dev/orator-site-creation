@@ -23,6 +23,7 @@ const PricingSection = () => {
     },
     {
       name: 'Расширенный',
+      subtitle: 'Ораторский курс "Своя игра"',
       duration: '16 занятий',
       price: '39 000',
       oldPrice: '45 000',
