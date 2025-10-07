@@ -44,12 +44,12 @@ const ProgramSection = () => {
   ];
 
   const results = [
-    'Уверенно выступаете перед любой аудиторией',
-    'Говорите чётко, внятно и выразительно',
-    'Удерживаете внимание слушателей',
-    'Убеждаете и вдохновляете людей',
-    'Импровизируете и отвечаете на вопросы',
-    'Получаете удовольствие от выступлений'
+    { icon: 'Users', text: 'Уверенно выступать перед любой аудиторией' },
+    { icon: 'MessageCircle', text: 'Говорить чётко, внятно и выразительно' },
+    { icon: 'Eye', text: 'Удерживать внимание слушателей' },
+    { icon: 'Sparkles', text: 'Убеждать и вдохновлять людей' },
+    { icon: 'Zap', text: 'Импровизировать и отвечать на вопросы' },
+    { icon: 'Heart', text: 'Получать удовольствие от выступлений' }
   ];
 
   return (
@@ -80,15 +80,15 @@ const ProgramSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
-          <h3 className="text-3xl font-bold mb-6 text-center">После курса вы сможете</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="mt-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 md:p-12 max-w-5xl mx-auto">
+          <h3 className="text-3xl md:text-4xl font-bold mb-8 text-center">После курса вы сможете</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {results.map((result, index) => (
-              <div key={index} className="flex items-start gap-3">
-                <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <Icon name="Check" size={16} className="text-white" />
+              <div key={index} className="flex items-start gap-4 bg-white/70 p-4 rounded-xl hover:shadow-lg transition-all">
+                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon name={result.icon as any} size={20} className="text-white" />
                 </div>
-                <p className="text-lg">{result}</p>
+                <p className="text-lg font-medium mt-1.5">{result.text}</p>
               </div>
             ))}
           </div>
