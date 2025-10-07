@@ -42,7 +42,7 @@ const TrainerSection = () => {
             <div className="relative">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
               <img 
-                src="https://cdn.poehali.dev/files/b3205ba1-dee0-4d9e-82cb-e6b4d0a97505.jpg"
+                src="https://cdn.poehali.dev/files/b6fd0c25-ceb9-47e2-8e1e-b7de9dbdfd3a.jpg"
                 alt="Светлана Алексеевна Кузикова - преподаватель курса ораторского мастерства"
                 className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
               />
