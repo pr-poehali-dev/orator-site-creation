@@ -11,9 +11,11 @@ const ContactSection = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     
-    const text = `Здравствуйте! Хочу записаться на курс ораторского мастерства.%0A%0AИмя: ${formData.name}%0AТелефон: ${formData.phone}${formData.message ? `%0AКомментарий: ${formData.message}` : ''}`;
+    const message = `Новая заявка с сайта!%0A%0AИмя: ${formData.name}%0AТелефон: ${formData.phone}${formData.message ? `%0AКомментарий: ${formData.message}` : ''}`;
     
-    window.open(`https://wa.me/79183111712?text=${text}`, '_blank');
+    window.open(`https://wa.me/79183111712?text=${message}`, '_blank');
+    
+    setFormData({ name: '', phone: '', message: '' });
   };
 
   return (
