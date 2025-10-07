@@ -7,8 +7,8 @@ const PricingSection = () => {
     {
       name: 'Базовый',
       duration: '8 занятий',
-      price: '25 000',
-      oldPrice: '30 000',
+      price: '15 900',
+      oldPrice: '19 900',
       features: [
         '8 групповых тренингов',
         '4 индивидуальных занятия',
@@ -24,8 +24,8 @@ const PricingSection = () => {
     {
       name: 'Расширенный',
       duration: '16 занятий',
-      price: '40 000',
-      oldPrice: '50 000',
+      price: '39 000',
+      oldPrice: '45 000',
       features: [
         '16 групповых тренингов',
         '4 индивидуальных занятия',
@@ -68,10 +68,10 @@ const PricingSection = () => {
                 <CardDescription className="text-lg">{pkg.duration}</CardDescription>
                 <div className="mt-6">
                   <div className="flex items-center justify-center gap-3 mb-2">
-                    <span className="text-4xl md:text-5xl font-bold text-primary">15900</span>
-                    <span className="text-2xl text-muted-foreground line-through">19900</span>
+                    <span className="text-4xl md:text-5xl font-bold text-primary">{pkg.price}</span>
+                    <span className="text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">Специальная цена для первых участников</p>
+                  <p className="text-sm text-muted-foreground">Возможна оплата в 2 этапа</p>
                 </div>
               </CardHeader>
               <CardContent>
