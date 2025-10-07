@@ -15,7 +15,7 @@ const Footer = () => {
               <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
                 KUZIKOVA SCHOOL
               </h3>
-              <p className="text-sm text-gray-400">Ораторское искусство «Своя игра»</p>
+              <p className="text-sm text-gray-400">Школа ораторского искусства и импровизации</p>
             </div>
           </div>
           <p className="text-gray-400 mb-6">Уникальный курс в Краснодаре</p>
