@@ -76,14 +76,21 @@ const ContactSection = () => {
                 <span className="text-lg">Краснодар</span>
               </div>
               <div className="flex justify-center mt-6">
-                <iframe 
-                  src="https://yandex.ru/sprav/widget/rating-badge/108893235678?type=rating" 
-                  width="150" 
-                  height="50" 
-                  frameBorder="0"
-                  title="Рейтинг на Яндекс"
-                  className="rounded-lg"
-                ></iframe>
+                <a 
+                  href="https://yandex.ru/profile/108893235678?intent=reviews" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-block hover:opacity-80 transition-opacity"
+                >
+                  <iframe 
+                    src="https://yandex.ru/sprav/widget/rating-badge/108893235678?type=rating" 
+                    width="150" 
+                    height="50" 
+                    frameBorder="0"
+                    title="Рейтинг на Яндекс"
+                    className="rounded-lg pointer-events-none"
+                  ></iframe>
+                </a>
               </div>
             </div>
           </CardContent>
