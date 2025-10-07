@@ -19,6 +19,10 @@ const GallerySection = () => {
     {
       url: 'https://cdn.poehali.dev/files/13bda4aa-17e4-48b2-b08e-e918a8a8207b.JPG',
       alt: 'Выпускной спектакль курса ораторского мастерства'
+    },
+    {
+      url: 'https://cdn.poehali.dev/files/e887b55a-daeb-4e60-81f1-d356f61321d8.jpg',
+      alt: 'Выпускники курса импровизации с сертификатами'
     }
   ];
 
