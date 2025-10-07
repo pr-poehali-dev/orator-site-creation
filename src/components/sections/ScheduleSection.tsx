@@ -13,11 +13,11 @@ const ScheduleSection = () => {
       color: 'from-primary to-primary/80'
     },
     {
-      name: 'Мастерство импровизации',
-      startDate: 'Февраль 2025',
-      duration: '6 недель',
-      schedule: 'Сб, 11:00-14:00',
-      spots: 'Осталось 6 мест',
+      name: 'Ораторский курс "Своя игра" (расширенный)',
+      startDate: '19 января 2026',
+      duration: '2 месяца',
+      schedule: 'Понедельник и Среда, 19:00-21:00',
+      spots: 'Набор открыт',
       color: 'from-secondary to-secondary/80'
     },
     {
