@@ -5,11 +5,11 @@ import Icon from '@/components/ui/icon';
 const ScheduleSection = () => {
   const courses = [
     {
-      name: 'Ораторское искусство "Своя игра"',
-      startDate: 'Январь 2025',
-      duration: '2 месяца',
-      schedule: 'Вт и Чт, 19:00-21:30',
-      spots: 'Осталось 4 места',
+      name: 'Ораторское мастерство с нуля (базовый курс)',
+      startDate: '26 октября 2025',
+      duration: '1 месяц',
+      schedule: 'Суббота, 11:00-13:00',
+      spots: 'Набор открыт',
       color: 'from-primary to-primary/80'
     },
     {
