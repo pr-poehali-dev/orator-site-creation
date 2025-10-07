@@ -7,105 +7,108 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Icon from '@/components/ui/icon';
 
 const Index = () => {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
 
-  const courses = [
+  const benefits = [
     {
-      title: 'Основы ораторского мастерства',
-      description: 'Научитесь уверенно выступать перед аудиторией',
-      duration: '8 недель',
-      level: 'Начальный',
-      icon: 'Mic2'
+      title: 'Уверенность',
+      description: 'Избавьтесь от страха публичных выступлений',
+      icon: 'Zap'
     },
     {
-      title: 'Искусство убеждения',
-      description: 'Овладейте техниками влияния и аргументации',
-      duration: '6 недель',
-      level: 'Средний',
-      icon: 'MessageSquare'
+      title: 'Дикция',
+      description: 'Улучшите чёткость и выразительность речи',
+      icon: 'Volume2'
     },
     {
-      title: 'Публичные выступления PRO',
-      description: 'Продвинутые навыки для профессионалов',
-      duration: '10 недель',
-      level: 'Продвинутый',
-      icon: 'TrendingUp'
+      title: 'Харизма',
+      description: 'Развивайте артистизм и обаяние',
+      icon: 'Star'
     },
     {
-      title: 'Деловая риторика',
-      description: 'Эффективная коммуникация в бизнесе',
-      duration: '7 недель',
-      level: 'Средний',
-      icon: 'Briefcase'
+      title: 'Убеждение',
+      description: 'Овладейте техниками влияния',
+      icon: 'Target'
     }
   ];
 
-  const teachers = [
+  const program = [
     {
-      name: 'Анна Волкова',
-      role: 'Главный преподаватель',
-      experience: '15 лет опыта в ораторском искусстве',
-      description: 'Эксперт по публичным выступлениям, автор бестселлера "Говори и убеждай"'
+      title: 'Работа с телом и жестами',
+      description: 'Язык тела, постановка осанки, управление жестикуляцией',
+      icon: 'Users'
     },
     {
-      name: 'Михаил Соколов',
-      role: 'Преподаватель',
-      experience: '10 лет опыта',
-      description: 'Специалист по деловой коммуникации и презентациям'
+      title: 'Голос и дикция',
+      description: 'Постановка голоса, дыхание, артикуляция, интонации',
+      icon: 'Mic'
     },
     {
-      name: 'Елена Петрова',
-      role: 'Тренер по дикции',
-      experience: '12 лет опыта',
-      description: 'Профессиональный актёр и педагог по сценической речи'
+      title: 'Психология выступлений',
+      description: 'Работа со страхами, уверенность, контакт с аудиторией',
+      icon: 'Brain'
+    },
+    {
+      title: 'Риторика',
+      description: 'Структура речи, аргументация, импровизация',
+      icon: 'MessageSquare'
+    },
+    {
+      title: 'Практика',
+      description: 'Видеосъемка, разбор выступлений, реальные кейсы',
+      icon: 'Video'
+    },
+    {
+      title: 'Индивидуальный подход',
+      description: 'Персональная работа с каждым участником',
+      icon: 'UserCheck'
     }
+  ];
+
+  const results = [
+    'Уверенно выступаете перед любой аудиторией',
+    'Говорите чётко, внятно и выразительно',
+    'Удерживаете внимание слушателей',
+    'Убеждаете и вдохновляете людей',
+    'Импровизируете и отвечаете на вопросы',
+    'Получаете удовольствие от выступлений'
   ];
 
   const testimonials = [
     {
-      name: 'Дмитрий К.',
-      role: 'Предприниматель',
-      text: 'После курса моя уверенность на переговорах выросла в разы. Теперь я легко провожу презентации для инвесторов!'
+      name: 'Елена',
+      text: 'Тренинг превзошёл все ожидания! Алёна — профессионал высочайшего уровня. Атмосфера невероятная, все раскрываются и растут прямо на глазах.'
     },
     {
-      name: 'Мария С.',
-      role: 'Менеджер',
-      text: 'Школа Виля помогла мне преодолеть страх публичных выступлений. Спасибо за профессионализм!'
+      name: 'Дмитрий',
+      text: 'Спасибо огромное за курс! Я преодолел страх выступлений, который мучил меня годами. Теперь провожу презентации легко и с удовольствием.'
     },
     {
-      name: 'Алексей П.',
-      role: 'Студент',
-      text: 'Отличные преподаватели и атмосфера. Каждое занятие — это новый уровень мастерства.'
+      name: 'Анна',
+      text: 'Лучший курс ораторского мастерства в Краснодаре! Индивидуальный подход к каждому, много практики, конкретные техники. Результат виден сразу!'
     }
-  ];
-
-  const gallery = [
-    { title: 'Выпускной вечер 2024', category: 'События' },
-    { title: 'Мастер-класс по риторике', category: 'Обучение' },
-    { title: 'Конференция выпускников', category: 'События' },
-    { title: 'Практические занятия', category: 'Обучение' }
   ];
 
   const faqs = [
     {
-      question: 'Какой уровень подготовки нужен для начала обучения?',
-      answer: 'Никакой специальной подготовки не требуется. У нас есть курсы для всех уровней — от новичков до опытных ораторов.'
+      question: 'Какой формат занятий?',
+      answer: 'Уникальное сочетание групповых тренингов и индивидуальных занятий с каждым участником. Это позволяет работать над общими навыками в группе и прорабатывать личные особенности индивидуально.'
     },
     {
-      question: 'Сколько длится обучение?',
-      answer: 'Продолжительность зависит от выбранного курса: от 6 до 10 недель. Занятия проходят 2-3 раза в неделю.'
+      question: 'Сколько длится курс?',
+      answer: 'Базовый курс длится 8 занятий по 3 часа. Занятия проходят 1-2 раза в неделю. Также есть интенсивы и индивидуальные программы.'
     },
     {
-      question: 'Можно ли учиться онлайн?',
-      answer: 'Да, мы предлагаем как очный, так и онлайн формат обучения. Качество материала одинаково высокое в обоих форматах.'
+      question: 'Нужна ли специальная подготовка?',
+      answer: 'Нет, никакой подготовки не требуется. Курс подходит как для новичков, так и для опытных ораторов, желающих усовершенствовать навыки.'
     },
     {
-      question: 'Выдаётся ли сертификат?',
-      answer: 'Да, по окончании курса все студенты получают сертификат о прохождении обучения.'
+      question: 'Сколько человек в группе?',
+      answer: 'Не более 10 человек. Малые группы позволяют уделить внимание каждому участнику и создать комфортную атмосферу для практики.'
     },
     {
-      question: 'Есть ли практические занятия?',
-      answer: 'Конечно! 70% времени отводится на практику: выступления, дебаты, ролевые игры и реальные презентации.'
+      question: 'Что будет на занятиях?',
+      answer: '70% времени — практика: выступления перед камерой, импровизации, ролевые игры. 30% — теория и разбор видеозаписей. Каждое занятие — реальный прогресс.'
     }
   ];
 
@@ -113,7 +116,7 @@ const Index = () => {
     e.preventDefault();
     console.log('Form submitted:', formData);
     alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-    setFormData({ name: '', email: '', message: '' });
+    setFormData({ name: '', phone: '', message: '' });
   };
 
   return (
@@ -121,45 +124,49 @@ const Index = () => {
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Kuzikova School</h1>
-            <div className="hidden md:flex gap-8">
-              <a href="#home" className="text-foreground hover:text-primary transition-colors">Главная</a>
-              <a href="#courses" className="text-foreground hover:text-primary transition-colors">Курсы</a>
-              <a href="#teachers" className="text-foreground hover:text-primary transition-colors">Преподаватели</a>
-              <a href="#testimonials" className="text-foreground hover:text-primary transition-colors">Отзывы</a>
-              <a href="#gallery" className="text-foreground hover:text-primary transition-colors">Галерея</a>
-              <a href="#contact" className="text-foreground hover:text-primary transition-colors">Контакты</a>
-              <a href="#faq" className="text-foreground hover:text-primary transition-colors">FAQ</a>
+            <div className="flex items-center gap-2">
+              <Icon name="Mic2" size={28} className="text-primary" />
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                Ораторское искусство
+              </h1>
             </div>
-            <Button className="hidden md:block bg-primary hover:bg-primary/90">Записаться</Button>
+            <div className="hidden md:flex gap-8 items-center">
+              <a href="#about" className="text-foreground hover:text-primary transition-colors">О курсе</a>
+              <a href="#program" className="text-foreground hover:text-primary transition-colors">Программа</a>
+              <a href="#teacher" className="text-foreground hover:text-primary transition-colors">Преподаватель</a>
+              <a href="#testimonials" className="text-foreground hover:text-primary transition-colors">Отзывы</a>
+              <a href="#faq" className="text-foreground hover:text-primary transition-colors">Вопросы</a>
+              <Button className="bg-primary hover:bg-primary/90">Записаться</Button>
+            </div>
           </div>
         </div>
       </nav>
 
-      <section id="home" className="pt-32 pb-20 px-4">
+      <section className="pt-32 pb-20 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
         <div className="container mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-center lg:text-left">
               <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
                 <span className="text-white font-semibold text-sm">🎯 Уникальный курс в Краснодаре</span>
               </div>
-              <h2 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent animate-fade-in">
-                Раскройте силу своего голоса
+              <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
+                  Ораторское искусство
+                </span>
+                <br />
+                <span className="text-foreground text-4xl md:text-5xl">«Своя игра»</span>
               </h2>
               <p className="text-xl md:text-2xl text-muted-foreground mb-6">
-                Единственный в Краснодаре ораторский курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником.
-              </p>
-              <p className="text-lg text-muted-foreground mb-8">
-                Профессиональное обучение ораторскому искусству с практикой и реальными результатами.
+                Единственный в Краснодаре курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником
               </p>
               <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
                   <Icon name="Sparkles" size={20} className="mr-2" />
-                  Начать обучение
+                  Записаться на курс
                 </Button>
-                <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2 border-primary text-primary hover:bg-primary hover:text-white">
-                  <Icon name="PlayCircle" size={20} className="mr-2" />
-                  Смотреть видео
+                <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2">
+                  <Icon name="Phone" size={20} className="mr-2" />
+                  +7 918 123-45-67
                 </Button>
               </div>
             </div>
@@ -168,68 +175,31 @@ const Index = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
               <img 
                 src="https://cdn.poehali.dev/files/b3205ba1-dee0-4d9e-82cb-e6b4d0a97505.jpg" 
-                alt="Профессиональный оратор с микрофоном"
+                alt="Ораторское искусство - курс в Краснодаре"
                 className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
               />
             </div>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto">
-            <div className="text-center p-6 rounded-lg bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon name="Users" size={32} className="text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-primary mb-2">500+</h3>
-              <p className="text-muted-foreground">Выпускников</p>
-            </div>
-            <div className="text-center p-6 rounded-lg bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-gradient-to-br from-secondary to-primary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon name="Award" size={32} className="text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-primary mb-2">15 лет</h3>
-              <p className="text-muted-foreground">Опыт работы</p>
-            </div>
-            <div className="text-center p-6 rounded-lg bg-white shadow-lg hover:shadow-xl transition-shadow">
-              <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                <Icon name="Star" size={32} className="text-white" />
-              </div>
-              <h3 className="text-3xl font-bold text-primary mb-2">98%</h3>
-              <p className="text-muted-foreground">Довольных студентов</p>
-            </div>
-          </div>
         </div>
       </section>
 
-      <section id="courses" className="py-20 px-4 bg-white">
+      <section id="about" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Наши курсы</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Что вы получите</h2>
           <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
-            Выберите программу, которая подходит именно вам
+            Развивайте навыки, которые изменят вашу жизнь
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {courses.map((course, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all duration-300 hover:-translate-y-2 border-2 border-transparent hover:border-primary">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
+            {benefits.map((benefit, index) => (
+              <Card key={index} className="text-center hover:shadow-xl transition-all hover:-translate-y-2">
                 <CardHeader>
-                  <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center mb-4">
-                    <Icon name={course.icon as any} size={28} className="text-white" />
+                  <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon name={benefit.icon as any} size={32} className="text-white" />
                   </div>
-                  <CardTitle className="text-xl">{course.title}</CardTitle>
-                  <CardDescription className="text-base">{course.description}</CardDescription>
+                  <CardTitle className="text-xl">{benefit.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Icon name="Clock" size={16} className="text-primary" />
-                      <span>{course.duration}</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Icon name="BarChart" size={16} className="text-primary" />
-                      <span>{course.level}</span>
-                    </div>
-                  </div>
-                  <Button className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90">
-                    Подробнее
-                  </Button>
+                  <p className="text-muted-foreground">{benefit.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -237,37 +207,92 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="teachers" className="py-20 px-4">
+      <section id="program" className="py-20 px-4">
         <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Преподаватели</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Программа курса</h2>
           <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
-            Учитесь у лучших экспертов в области ораторского искусства
+            Комплексный подход к развитию ораторского мастерства
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            {teachers.map((teacher, index) => (
-              <Card key={index} className="text-center hover:shadow-xl transition-shadow">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+            {program.map((item, index) => (
+              <Card key={index} className="hover:shadow-xl transition-shadow">
                 <CardHeader>
-                  <div className="w-24 h-24 bg-gradient-to-br from-primary to-secondary rounded-full mx-auto mb-4 flex items-center justify-center">
-                    <Icon name="User" size={48} className="text-white" />
+                  <div className="flex items-start gap-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+                      <Icon name={item.icon as any} size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <CardTitle className="text-lg mb-2">{item.title}</CardTitle>
+                      <CardDescription className="text-base">{item.description}</CardDescription>
+                    </div>
                   </div>
-                  <CardTitle className="text-xl">{teacher.name}</CardTitle>
-                  <CardDescription className="text-primary font-semibold">{teacher.role}</CardDescription>
                 </CardHeader>
-                <CardContent>
-                  <p className="text-sm font-semibold text-muted-foreground mb-2">{teacher.experience}</p>
-                  <p className="text-sm text-muted-foreground">{teacher.description}</p>
-                </CardContent>
               </Card>
             ))}
+          </div>
+
+          <div className="mt-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 md:p-12 max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold mb-6 text-center">После курса вы сможете</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {results.map((result, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <div className="w-6 h-6 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                    <Icon name="Check" size={16} className="text-white" />
+                  </div>
+                  <p className="text-lg">{result}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
 
-      <section id="testimonials" className="py-20 px-4 bg-white">
+      <section id="teacher" className="py-20 px-4 bg-white">
+        <div className="container mx-auto max-w-5xl">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Ваш преподаватель</h2>
+          <Card className="overflow-hidden shadow-2xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
+              <div className="relative h-80 md:h-auto bg-gradient-to-br from-primary to-secondary">
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <Icon name="User" size={120} className="text-white/30" />
+                </div>
+              </div>
+              <div className="p-8 md:p-12">
+                <CardHeader className="p-0 mb-6">
+                  <CardTitle className="text-3xl mb-2">Алёна Дикопольцева</CardTitle>
+                  <CardDescription className="text-lg text-primary font-semibold">
+                    Эксперт по ораторскому искусству
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="p-0 space-y-4">
+                  <div className="flex items-start gap-3">
+                    <Icon name="Award" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Профессиональный тренер по риторике и актёрскому мастерству</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Icon name="Users" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Более 500 выпускников в Краснодаре</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Icon name="Star" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Авторская методика сочетания групповой и индивидуальной работы</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Icon name="Heart" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Индивидуальный подход к каждому студенту</p>
+                  </div>
+                </CardContent>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
+      <section id="testimonials" className="py-20 px-4">
         <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Отзывы</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Отзывы выпускников</h2>
           <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
-            Что говорят наши выпускники
+            Реальные истории успеха наших студентов
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
             {testimonials.map((testimonial, index) => (
@@ -277,10 +302,7 @@ const Index = () => {
                     <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
                       <Icon name="User" size={24} className="text-white" />
                     </div>
-                    <div>
-                      <CardTitle className="text-lg">{testimonial.name}</CardTitle>
-                      <CardDescription>{testimonial.role}</CardDescription>
-                    </div>
+                    <CardTitle className="text-lg">{testimonial.name}</CardTitle>
                   </div>
                 </CardHeader>
                 <CardContent>
@@ -300,31 +322,11 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="gallery" className="py-20 px-4">
-        <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Галерея</h2>
-          <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
-            Моменты из жизни нашей школы
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {gallery.map((item, index) => (
-              <div key={index} className="group relative overflow-hidden rounded-lg aspect-square bg-gradient-to-br from-primary to-secondary hover:shadow-xl transition-all cursor-pointer">
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/60 transition-all flex flex-col items-center justify-center p-6 text-white">
-                  <Icon name="Image" size={48} className="mb-4 opacity-80" />
-                  <h3 className="text-lg font-bold text-center mb-2">{item.title}</h3>
-                  <span className="text-sm opacity-90">{item.category}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section id="faq" className="py-20 px-4 bg-white">
         <div className="container mx-auto max-w-3xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Вопросы и ответы</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Частые вопросы</h2>
           <p className="text-center text-muted-foreground mb-12 text-lg">
-            Ответы на часто задаваемые вопросы
+            Ответы на популярные вопросы о курсе
           </p>
           <Accordion type="single" collapsible className="w-full">
             {faqs.map((faq, index) => (
@@ -341,21 +343,17 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contact" className="py-20 px-4">
+      <section id="contact" className="py-20 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
         <div className="container mx-auto max-w-2xl">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Контакты</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Записаться на курс</h2>
           <p className="text-center text-muted-foreground mb-12 text-lg">
-            Свяжитесь с нами, и мы ответим на все ваши вопросы
+            Оставьте заявку, и мы свяжемся с вами в ближайшее время
           </p>
-          <Card className="shadow-xl">
-            <CardHeader>
-              <CardTitle>Оставьте заявку</CardTitle>
-              <CardDescription>Мы свяжемся с вами в течение 24 часов</CardDescription>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+          <Card className="shadow-2xl">
+            <CardContent className="pt-6">
+              <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
-                  <label className="block text-sm font-medium mb-2">Имя</label>
+                  <label className="block text-sm font-medium mb-2">Ваше имя</label>
                   <Input
                     placeholder="Введите ваше имя"
                     value={formData.name}
@@ -364,23 +362,22 @@ const Index = () => {
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Email</label>
+                  <label className="block text-sm font-medium mb-2">Телефон</label>
                   <Input
-                    type="email"
-                    placeholder="your@email.com"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    type="tel"
+                    placeholder="+7 (___) ___-__-__"
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium mb-2">Сообщение</label>
+                  <label className="block text-sm font-medium mb-2">Комментарий (необязательно)</label>
                   <Textarea
                     placeholder="Расскажите, что вас интересует"
                     value={formData.message}
                     onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    required
-                    rows={5}
+                    rows={4}
                   />
                 </div>
                 <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6">
@@ -390,17 +387,20 @@ const Index = () => {
               </form>
               
               <div className="mt-8 pt-8 border-t space-y-4">
-                <div className="flex items-center gap-3">
-                  <Icon name="Mail" size={20} className="text-primary" />
-                  <span>info@shkola-vilya.ru</span>
+                <div className="text-center mb-4">
+                  <p className="font-semibold text-lg mb-2">Контакты</p>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 justify-center">
                   <Icon name="Phone" size={20} className="text-primary" />
-                  <span>+7 (495) 123-45-67</span>
+                  <span className="text-lg">+7 918 123-45-67</span>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 justify-center">
+                  <Icon name="Instagram" size={20} className="text-primary" />
+                  <a href="#" className="text-lg hover:text-primary transition-colors">@orator_krasnodar</a>
+                </div>
+                <div className="flex items-center gap-3 justify-center">
                   <Icon name="MapPin" size={20} className="text-primary" />
-                  <span>Москва, ул. Примерная, д. 10</span>
+                  <span className="text-lg">Краснодар</span>
                 </div>
               </div>
             </CardContent>
@@ -410,14 +410,14 @@ const Index = () => {
 
       <footer className="bg-gray-900 text-white py-12 px-4">
         <div className="container mx-auto text-center">
-          <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Школа Виля
-          </h3>
-          <p className="text-gray-400 mb-6">Раскройте силу своего голоса</p>
+          <div className="flex items-center justify-center gap-2 mb-4">
+            <Icon name="Mic2" size={28} className="text-primary" />
+            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Ораторское искусство «Своя игра»
+            </h3>
+          </div>
+          <p className="text-gray-400 mb-6">Уникальный курс в Краснодаре</p>
           <div className="flex justify-center gap-6 mb-6">
-            <a href="#" className="hover:text-primary transition-colors">
-              <Icon name="Facebook" size={24} />
-            </a>
             <a href="#" className="hover:text-primary transition-colors">
               <Icon name="Instagram" size={24} />
             </a>
@@ -425,10 +425,10 @@ const Index = () => {
               <Icon name="Youtube" size={24} />
             </a>
             <a href="#" className="hover:text-primary transition-colors">
-              <Icon name="Linkedin" size={24} />
+              <Icon name="MessageCircle" size={24} />
             </a>
           </div>
-          <p className="text-gray-500 text-sm">© 2024 Школа Виля. Все права защищены.</p>
+          <p className="text-gray-500 text-sm">© 2024 Алёна Дикопольцева. Все права защищены.</p>
         </div>
       </footer>
     </div>
