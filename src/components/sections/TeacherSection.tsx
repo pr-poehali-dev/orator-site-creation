@@ -12,10 +12,12 @@ const TeacherSection = () => {
         
         <Card className="overflow-hidden shadow-2xl mb-12">
           <div className="grid grid-cols-1 md:grid-cols-5 gap-0">
-            <div className="relative h-80 md:h-auto md:col-span-2 bg-gradient-to-br from-primary to-secondary">
-              <div className="absolute inset-0 flex items-center justify-center">
-                <Icon name="User" size={120} className="text-white/30" />
-              </div>
+            <div className="relative h-80 md:h-auto md:col-span-2 overflow-hidden">
+              <img 
+                src="https://cdn.poehali.dev/files/42fb71e4-6ec4-495f-9748-b5f6e4364b90.jpg" 
+                alt="Светлана Кузикова - преподаватель ораторского искусства"
+                className="w-full h-full object-cover"
+              />
             </div>
             <div className="p-8 md:p-10 md:col-span-3">
               <CardHeader className="p-0 mb-6">
