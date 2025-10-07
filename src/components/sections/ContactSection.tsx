@@ -8,14 +8,30 @@ import Icon from '@/components/ui/icon';
 const ContactSection = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    const message = `Новая заявка с сайта!%0A%0AИмя: ${formData.name}%0AТелефон: ${formData.phone}${formData.message ? `%0AКомментарий: ${formData.message}` : ''}`;
-    
-    window.open(`https://wa.me/79183111712?text=${message}`, '_blank');
-    
-    setFormData({ name: '', phone: '', message: '' });
+    try {
+      const response = await fetch('https://functions.poehali.dev/2708494c-3d0e-4905-b18f-86093217671b', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok) {
+        alert('✅ Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        setFormData({ name: '', phone: '', message: '' });
+      } else {
+        alert('❌ Произошла ошибка. Попробуйте позвонить нам напрямую.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('❌ Произошла ошибка. Попробуйте позвонить нам напрямую.');
+    }
   };
 
   return (
