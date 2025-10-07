@@ -90,6 +90,7 @@ const PricingSection = () => {
                       : 'bg-primary hover:bg-primary/90'
                   }`}
                   size="lg"
+                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
                   <Icon name="Sparkles" size={20} className="mr-2" />
                   Записаться на курс

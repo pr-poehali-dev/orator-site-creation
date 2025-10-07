@@ -35,13 +35,24 @@ const HeroSection = () => {
               </div>
             </div>
             <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-lg px-8 py-6"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
                 <Icon name="Sparkles" size={20} className="mr-2" />
                 Записаться на курс
               </Button>
-              <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2">
-                <Icon name="Phone" size={20} className="mr-2" />
-                Узнать подробнее
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="text-lg px-8 py-6 border-2"
+                asChild
+              >
+                <a href="tel:+79183111712" className="inline-flex items-center">
+                  <Icon name="Phone" size={20} className="mr-2" />
+                  Узнать подробнее
+                </a>
               </Button>
             </div>
           </div>

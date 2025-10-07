@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const AboutSection = () => {
@@ -120,6 +121,16 @@ const AboutSection = () => {
                 </div>
               </div>
             ))}
+          </div>
+          <div className="mt-8 text-center">
+            <Button 
+              size="lg" 
+              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 py-6"
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            >
+              <Icon name="Sparkles" size={20} className="mr-2" />
+              Записаться на курс
+            </Button>
           </div>
         </div>
       </div>
