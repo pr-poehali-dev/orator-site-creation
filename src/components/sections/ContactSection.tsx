@@ -84,7 +84,7 @@ const ContactSection = () => {
               </div>
               <div className="flex items-center gap-3 justify-center">
                 <Icon name="Phone" size={20} className="text-primary" />
-                <span className="text-lg">+7 918 123-45-67</span>
+                <span className="text-lg">+7 918 311-17-12</span>
               </div>
               <div className="flex items-center gap-3 justify-center">
                 <Icon name="Instagram" size={20} className="text-primary" />
