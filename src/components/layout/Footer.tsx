@@ -5,11 +5,18 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white py-12 px-4">
       <div className="container mx-auto">
         <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <Icon name="Mic2" size={28} className="text-primary" />
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Ораторское искусство «Своя игра»
-            </h3>
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <img 
+              src="https://cdn.poehali.dev/files/7e98268b-4991-45ff-8a16-bc95b72168b3.png" 
+              alt="KUZIKOVA SCHOOL Logo" 
+              className="h-16 w-16 object-contain"
+            />
+            <div>
+              <h3 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+                KUZIKOVA SCHOOL
+              </h3>
+              <p className="text-sm text-gray-400">Ораторское искусство «Своя игра»</p>
+            </div>
           </div>
           <p className="text-gray-400 mb-6">Уникальный курс в Краснодаре</p>
           <div className="flex justify-center gap-6 mb-6">
