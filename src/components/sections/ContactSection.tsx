@@ -10,9 +10,10 @@ const ContactSection = () => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    alert('Спасибо! Мы свяжемся с вами в ближайшее время.');
-    setFormData({ name: '', phone: '', message: '' });
+    
+    const text = `Здравствуйте! Хочу записаться на курс ораторского мастерства.%0A%0AИмя: ${formData.name}%0AТелефон: ${formData.phone}${formData.message ? `%0AКомментарий: ${formData.message}` : ''}`;
+    
+    window.open(`https://wa.me/79183111712?text=${text}`, '_blank');
   };
 
   return (
