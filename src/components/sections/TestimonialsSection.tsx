@@ -1,4 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const TestimonialsSection = () => {
@@ -60,13 +61,31 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 text-center space-y-6">
           <div className="inline-block bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8">
             <p className="text-2xl font-bold mb-2">⭐⭐⭐⭐⭐</p>
             <p className="text-lg">
               <span className="font-bold text-primary">4.9/5</span> — средняя оценка курса
             </p>
             <p className="text-muted-foreground mt-2">по отзывам выпускников</p>
+          </div>
+          
+          <div>
+            <Button 
+              asChild
+              size="lg"
+              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+            >
+              <a 
+                href="https://yandex.ru/profile/108893235678?intent=reviews" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2"
+              >
+                Все отзывы на Яндекс
+                <Icon name="ExternalLink" size={18} />
+              </a>
+            </Button>
           </div>
         </div>
       </div>
