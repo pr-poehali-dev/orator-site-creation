@@ -21,10 +21,10 @@ const ScheduleSection = () => {
       color: 'from-secondary to-secondary/80'
     },
     {
-      name: 'Актёрское мастерство',
-      startDate: 'Март 2025',
+      name: 'Актерский психологический курс "Перформанс-терапия"',
+      startDate: '28 ноября 2025',
       duration: '3 месяца',
-      schedule: 'Пн и Ср, 18:30-21:00',
+      schedule: 'Пн, Ср, Пт, 19:00-21:00',
       spots: 'Набор открыт',
       color: 'from-primary to-secondary'
     }
