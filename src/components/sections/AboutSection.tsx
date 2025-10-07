@@ -5,9 +5,9 @@ import Icon from '@/components/ui/icon';
 const AboutSection = () => {
   const uniqueApproach = [
     {
-      title: 'Театральный подход',
-      description: 'Методики театральной педагогики от профессионального режиссёра',
-      icon: 'Drama'
+      title: 'Гарантия результата',
+      description: 'Методики театральной педагогики от профессионального психолога',
+      icon: 'Award'
     },
     {
       title: 'Психологическая глубина',
@@ -15,9 +15,9 @@ const AboutSection = () => {
       icon: 'Brain'
     },
     {
-      title: 'Групповая динамика',
-      description: '8 или 16 тренингов в комфортной атмосфере единомышленников',
-      icon: 'Users'
+      title: 'Комфортная атмосфера',
+      description: 'Осваиваем навык с усилием, но без насилия в кругу единомышленников',
+      icon: 'Heart'
     },
     {
       title: 'Личный прогресс',
