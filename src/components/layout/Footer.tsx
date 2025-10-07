@@ -130,7 +130,7 @@ const Footer = () => {
           </div>
 
           <div className="text-center pt-6 border-t border-gray-800">
-            <p className="text-gray-500 text-sm">© 2024 Светлана Кузикова. Все права защищены.</p>
+            <p className="text-gray-500 text-sm">© 2018 Светлана Кузикова. Все права защищены.</p>
           </div>
         </div>
       </div>
