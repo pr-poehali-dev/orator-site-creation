@@ -121,9 +121,7 @@ const Index = () => {
       <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Школа Виля
-            </h1>
+            <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Kuzikova School</h1>
             <div className="hidden md:flex gap-8">
               <a href="#home" className="text-foreground hover:text-primary transition-colors">Главная</a>
               <a href="#courses" className="text-foreground hover:text-primary transition-colors">Курсы</a>
