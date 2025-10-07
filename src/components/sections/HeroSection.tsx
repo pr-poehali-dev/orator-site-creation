@@ -17,9 +17,23 @@ const HeroSection = () => {
               <br />
               <span className="text-foreground text-4xl md:text-5xl">«Своя игра»</span>
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-6">
+            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
               Единственный в Краснодаре курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником
             </p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-2xl mx-auto lg:mx-0">
+              <div className="flex items-center gap-2">
+                <Icon name="CheckCircle" className="text-primary" size={24} />
+                <span className="font-semibold">8 или 16 занятий</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="CheckCircle" className="text-primary" size={24} />
+                <span className="font-semibold">4 индивидуальных</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="CheckCircle" className="text-primary" size={24} />
+                <span className="font-semibold">Сертификат</span>
+              </div>
+            </div>
             <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
               <Button size="lg" className="bg-primary hover:bg-primary/90 text-lg px-8 py-6">
                 <Icon name="Sparkles" size={20} className="mr-2" />
@@ -27,7 +41,7 @@ const HeroSection = () => {
               </Button>
               <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-2">
                 <Icon name="Phone" size={20} className="mr-2" />
-                +7 918 123-45-67
+                Узнать подробнее
               </Button>
             </div>
           </div>

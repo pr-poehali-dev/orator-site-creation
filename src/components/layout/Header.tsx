@@ -15,10 +15,10 @@ const Header = () => {
           <div className="hidden md:flex gap-8 items-center">
             <a href="#about" className="text-foreground hover:text-primary transition-colors">О курсе</a>
             <a href="#program" className="text-foreground hover:text-primary transition-colors">Программа</a>
-            <a href="#teacher" className="text-foreground hover:text-primary transition-colors">Преподаватель</a>
+            <a href="#trainer" className="text-foreground hover:text-primary transition-colors">Преподаватель</a>
+            <a href="#pricing" className="text-foreground hover:text-primary transition-colors">Стоимость</a>
             <a href="#testimonials" className="text-foreground hover:text-primary transition-colors">Отзывы</a>
-            <a href="#faq" className="text-foreground hover:text-primary transition-colors">Вопросы</a>
-            <Button className="bg-primary hover:bg-primary/90">Записаться</Button>
+            <Button className="bg-primary hover:bg-primary/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Записаться</Button>
           </div>
         </div>
       </div>
