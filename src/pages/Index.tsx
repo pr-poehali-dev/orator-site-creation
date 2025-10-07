@@ -9,26 +9,77 @@ import Icon from '@/components/ui/icon';
 const Index = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
 
-  const benefits = [
+  const uniqueApproach = [
     {
-      title: 'Уверенность',
-      description: 'Избавьтесь от страха публичных выступлений',
-      icon: 'Zap'
+      title: 'Театральный подход',
+      description: 'Методики театральной педагогики от профессионального режиссёра',
+      icon: 'Drama'
     },
     {
-      title: 'Дикция',
-      description: 'Улучшите чёткость и выразительность речи',
-      icon: 'Volume2'
+      title: 'Психологическая глубина',
+      description: 'Работа с внутренними блоками и страхами от дипломированного психолога',
+      icon: 'Brain'
     },
     {
-      title: 'Харизма',
-      description: 'Развивайте артистизм и обаяние',
-      icon: 'Star'
+      title: 'Групповая динамика',
+      description: '8 или 16 тренингов в комфортной атмосфере единомышленников',
+      icon: 'Users'
     },
     {
-      title: 'Убеждение',
-      description: 'Овладейте техниками влияния',
-      icon: 'Target'
+      title: 'Личный прогресс',
+      description: '4 индивидуальных занятия для проработки именно ваших особенностей',
+      icon: 'UserCheck'
+    }
+  ];
+
+  const courseIncludes = [
+    {
+      title: 'Групповые тренинги',
+      description: '8 или 16 занятий (базовый или расширенный курс)',
+      icon: 'Users',
+      type: 'main'
+    },
+    {
+      title: 'Индивидуальные занятия',
+      description: '4 персональных сессии с преподавателем',
+      icon: 'UserCheck',
+      type: 'main'
+    },
+    {
+      title: 'Имидж оратора',
+      description: 'Мастер-класс от профессионального стилиста',
+      icon: 'Sparkles',
+      type: 'masterclass'
+    },
+    {
+      title: 'Работа с убеждениями',
+      description: 'Мастер-класс по проработке ограничивающих убеждений',
+      icon: 'Lock',
+      type: 'masterclass'
+    },
+    {
+      title: 'Видеокурс',
+      description: '🎁 «Речевая креативность» + книга-тренинг с упражнениями',
+      icon: 'Gift',
+      type: 'bonus'
+    },
+    {
+      title: 'Антистресс техники',
+      description: '🎁 Запись вебинара с техниками снятия страха перед публикой',
+      icon: 'Heart',
+      type: 'bonus'
+    },
+    {
+      title: 'Импровизация',
+      description: '🎁 Два тренинга «Джем» по импровизации',
+      icon: 'Zap',
+      type: 'bonus'
+    },
+    {
+      title: 'Выпускной',
+      description: '🎓 Финальное выступление при реальных зрителях + Сертификат',
+      icon: 'Award',
+      type: 'final'
     }
   ];
 
@@ -185,24 +236,48 @@ const Index = () => {
 
       <section id="about" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Что вы получите</h2>
-          <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
-            Развивайте навыки, которые изменят вашу жизнь
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Уникальность подхода</h2>
+          <p className="text-center text-muted-foreground mb-12 text-lg max-w-3xl mx-auto">
+            Курс ведёт <span className="font-bold text-primary">Светлана Алексеевна Кузикова</span> — театральный режиссёр и профессиональный психолог
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto">
-            {benefits.map((benefit, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
+            {uniqueApproach.map((item, index) => (
               <Card key={index} className="text-center hover:shadow-xl transition-all hover:-translate-y-2">
                 <CardHeader>
                   <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon name={benefit.icon as any} size={32} className="text-white" />
+                    <Icon name={item.icon as any} size={32} className="text-white" />
                   </div>
-                  <CardTitle className="text-xl">{benefit.title}</CardTitle>
+                  <CardTitle className="text-xl">{item.title}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <p className="text-muted-foreground">{benefit.description}</p>
+                  <p className="text-muted-foreground">{item.description}</p>
                 </CardContent>
               </Card>
             ))}
+          </div>
+
+          <div className="bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 rounded-3xl p-8 md:p-12 max-w-5xl mx-auto">
+            <h3 className="text-3xl font-bold mb-8 text-center">Что входит в курс</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              {courseIncludes.map((item, index) => (
+                <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
+                  <div className="flex items-start gap-4">
+                    <div className={`w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                      item.type === 'main' ? 'bg-gradient-to-br from-primary to-secondary' :
+                      item.type === 'masterclass' ? 'bg-gradient-to-br from-purple-500 to-pink-500' :
+                      item.type === 'bonus' ? 'bg-gradient-to-br from-green-500 to-emerald-500' :
+                      'bg-gradient-to-br from-yellow-500 to-orange-500'
+                    }`}>
+                      <Icon name={item.icon as any} size={24} className="text-white" />
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-lg mb-1">{item.title}</h4>
+                      <p className="text-muted-foreground text-sm">{item.description}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -259,15 +334,19 @@ const Index = () => {
               </div>
               <div className="p-8 md:p-12">
                 <CardHeader className="p-0 mb-6">
-                  <CardTitle className="text-3xl mb-2">Алёна Дикопольцева</CardTitle>
+                  <CardTitle className="text-3xl mb-2">Светлана Алексеевна Кузикова</CardTitle>
                   <CardDescription className="text-lg text-primary font-semibold">
-                    Эксперт по ораторскому искусству
+                    Театральный режиссёр и профессиональный психолог
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="p-0 space-y-4">
                   <div className="flex items-start gap-3">
-                    <Icon name="Award" size={20} className="text-primary mt-1 flex-shrink-0" />
-                    <p className="text-muted-foreground">Профессиональный тренер по риторике и актёрскому мастерству</p>
+                    <Icon name="Drama" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Профессиональный театральный режиссёр с многолетним опытом</p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Icon name="Brain" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <p className="text-muted-foreground">Дипломированный психолог, эксперт по работе со страхами и убеждениями</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <Icon name="Users" size={20} className="text-primary mt-1 flex-shrink-0" />
@@ -275,7 +354,7 @@ const Index = () => {
                   </div>
                   <div className="flex items-start gap-3">
                     <Icon name="Star" size={20} className="text-primary mt-1 flex-shrink-0" />
-                    <p className="text-muted-foreground">Авторская методика сочетания групповой и индивидуальной работы</p>
+                    <p className="text-muted-foreground">Авторская методика сочетания театральной педагогики и психологии</p>
                   </div>
                   <div className="flex items-start gap-3">
                     <Icon name="Heart" size={20} className="text-primary mt-1 flex-shrink-0" />
