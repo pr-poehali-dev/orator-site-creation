@@ -18,7 +18,7 @@ const Footer = () => {
               <p className="text-sm text-gray-400">Школа ораторского искусства и импровизации</p>
             </div>
           </div>
-          <p className="text-gray-400 mb-6">Уникальный курс в Краснодаре</p>
+          <p className="text-gray-400 mb-6">Уникальный ораторский курс в Краснодаре от театрального режиссера и психолога</p>
           <div className="flex justify-center gap-6 mb-6">
             <a 
               href="https://t.me/svetlana_kuzikova" 
