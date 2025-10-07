@@ -105,13 +105,34 @@ const PricingSection = () => {
             Свяжитесь с нами любым удобным способом, мы с радостью ответим на все ваши вопросы
           </p>
           <div className="flex gap-4 justify-center flex-wrap">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              <Icon name="MessageCircle" size={20} className="mr-2" />
-              Написать в WhatsApp
+            <Button 
+              asChild
+              size="lg" 
+              className="bg-primary hover:bg-primary/90"
+            >
+              <a 
+                href="https://wa.me/message/FKFHPRMEDBRYP1" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center"
+              >
+                <Icon name="MessageCircle" size={20} className="mr-2" />
+                Написать в WhatsApp
+              </a>
             </Button>
-            <Button size="lg" variant="outline" className="border-2">
-              <Icon name="Phone" size={20} className="mr-2" />
-              Позвонить
+            <Button 
+              asChild
+              size="lg" 
+              variant="outline" 
+              className="border-2"
+            >
+              <a 
+                href="tel:+79183111712"
+                className="inline-flex items-center"
+              >
+                <Icon name="Phone" size={20} className="mr-2" />
+                Позвонить
+              </a>
             </Button>
           </div>
         </div>
