@@ -15,7 +15,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-3">
             <img 
-              src="https://cdn.poehali.dev/files/7e98268b-4991-45ff-8a16-bc95b72168b3.png" 
+              src="https://cdn.poehali.dev/files/2ea5ed8d-8969-4c9c-aea1-487cb2508c90.jpg" 
               alt="KUZIKOVA SCHOOL Logo" 
               className="h-12 w-12 object-contain"
             />
