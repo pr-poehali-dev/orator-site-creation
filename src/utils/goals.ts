@@ -6,7 +6,7 @@ declare global {
 
 export const trackGoal = (goalName: string) => {
   if (typeof window !== 'undefined' && window.ym) {
-    window.ym(101026698, 'reachGoal', goalName);
+    window.ym(104476166, 'reachGoal', goalName);
     console.log(`Goal tracked: ${goalName}`);
   }
 };
