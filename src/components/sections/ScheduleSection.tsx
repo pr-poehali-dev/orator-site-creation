@@ -88,22 +88,17 @@ const ScheduleSection = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8">
-          <Icon name="Info" size={32} className="mx-auto mb-4 text-primary" />
-          <p className="text-lg mb-2">
-            <span className="font-bold">Не нашли подходящее время?</span>
-          </p>
-          <p className="text-muted-foreground mb-4">
-            Свяжитесь с нами, и мы подберем удобный формат обучения специально для вас
+        <div className="mt-8 text-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-6">
+          <p className="text-base mb-3">
+            <span className="font-bold">Не нашли подходящее время?</span> Свяжитесь с нами
           </p>
           <Button 
-            variant="outline" 
-            size="lg"
+            variant="outline"
             asChild
           >
             <a href="tel:+79183111712" className="inline-flex items-center gap-2">
               <Icon name="Phone" size={18} />
-              Позвонить нам
+              Позвонить
             </a>
           </Button>
         </div>
