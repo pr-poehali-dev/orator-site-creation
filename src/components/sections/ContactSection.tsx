@@ -1,5 +1,6 @@
 import Icon from '@/components/ui/icon';
 import { Card, CardContent } from '@/components/ui/card';
+import { trackGoal, GOALS } from '@/utils/goals';
 
 const ContactSection = () => {
   return (
@@ -19,7 +20,11 @@ const ContactSection = () => {
                 </div>
               </div>
               <h3 className="font-semibold text-sm mb-1">Телефон</h3>
-              <a href="tel:+79183111712" className="text-primary hover:underline text-xs">
+              <a 
+                href="tel:+79183111712" 
+                className="text-primary hover:underline text-xs"
+                onClick={() => trackGoal(GOALS.PHONE_CLICK)}
+              >
                 +7 918 311-17-12
               </a>
             </CardContent>
@@ -61,6 +66,7 @@ const ContactSection = () => {
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-primary hover:underline text-xs"
+                onClick={() => trackGoal(GOALS.WHATSAPP_CLICK)}
               >
                 Написать
               </a>

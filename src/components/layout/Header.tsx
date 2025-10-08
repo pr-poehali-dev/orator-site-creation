@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { trackGoal, GOALS } from '@/utils/goals';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,11 +63,15 @@ const Header = () => {
                 href="tel:+79183111712"
                 className="p-2 hover:bg-primary/10 rounded-full transition-colors"
                 aria-label="Телефон"
+                onClick={() => trackGoal(GOALS.PHONE_CLICK)}
               >
                 <Icon name="Phone" size={20} className="text-primary" />
               </a>
             </div>
-            <Button className="bg-primary hover:bg-primary/90" onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}>Записаться</Button>
+            <Button className="bg-primary hover:bg-primary/90" onClick={() => {
+              trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+              document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+            }}>Записаться</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -146,6 +151,7 @@ const Header = () => {
                 href="tel:+79183111712"
                 className="p-2 hover:bg-primary/10 rounded-full transition-colors"
                 aria-label="Телефон"
+                onClick={() => trackGoal(GOALS.PHONE_CLICK)}
               >
                 <Icon name="Phone" size={24} className="text-primary" />
               </a>
@@ -154,6 +160,7 @@ const Header = () => {
             <Button 
               className="w-full bg-primary hover:bg-primary/90 mt-4" 
               onClick={() => {
+                trackGoal(GOALS.COURSE_SIGNUP_CLICK);
                 handleLinkClick();
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}

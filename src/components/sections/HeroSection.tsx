@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { trackGoal, GOALS } from '@/utils/goals';
 
 const HeroSection = () => {
   return (
@@ -38,7 +39,10 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 className="bg-primary hover:bg-primary/90 text-lg px-8 py-6"
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                onClick={() => {
+                  trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
                 <Icon name="Sparkles" size={20} className="mr-2" />
                 Записаться на курс
@@ -49,7 +53,11 @@ const HeroSection = () => {
                 className="text-lg px-8 py-6 border-2"
                 asChild
               >
-                <a href="tel:+79183111712" className="inline-flex items-center">
+                <a 
+                  href="tel:+79183111712" 
+                  className="inline-flex items-center"
+                  onClick={() => trackGoal(GOALS.PHONE_CLICK)}
+                >
                   <Icon name="Phone" size={20} className="mr-2" />
                   Узнать подробнее
                 </a>

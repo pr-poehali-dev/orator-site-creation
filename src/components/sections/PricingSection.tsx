@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import { trackGoal, GOALS } from '@/utils/goals';
 
 const PricingSection = () => {
   const packages = [
@@ -92,7 +93,10 @@ const PricingSection = () => {
                       : 'bg-primary hover:bg-primary/90'
                   }`}
                   size="lg"
-                  onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+                  onClick={() => {
+                    trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
                 >
                   <Icon name="Sparkles" size={20} className="mr-2" />
                   Записаться на курс
@@ -118,6 +122,7 @@ const PricingSection = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="inline-flex items-center"
+                onClick={() => trackGoal(GOALS.WHATSAPP_CLICK)}
               >
                 <Icon name="MessageCircle" size={20} className="mr-2" />
                 Написать в WhatsApp
@@ -132,6 +137,7 @@ const PricingSection = () => {
               <a 
                 href="tel:+79183111712"
                 className="inline-flex items-center"
+                onClick={() => trackGoal(GOALS.PHONE_CLICK)}
               >
                 <Icon name="Phone" size={20} className="mr-2" />
                 Позвонить

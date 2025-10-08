@@ -4,6 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Icon from '@/components/ui/icon';
+import { trackGoal, GOALS } from '@/utils/goals';
 
 const SignUpSection = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
@@ -23,6 +24,7 @@ const SignUpSection = () => {
       const result = await response.json();
       
       if (response.ok) {
+        trackGoal(GOALS.CONTACT_FORM_SUBMIT);
         alert('✅ Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
         setFormData({ name: '', phone: '', message: '' });
       } else {

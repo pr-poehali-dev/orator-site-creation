@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { trackGoal, GOALS } from '@/utils/goals';
 
 const ScheduleSection = () => {
   const courses = [
@@ -79,7 +80,7 @@ const ScheduleSection = () => {
                   className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90"
                   asChild
                 >
-                  <a href="#contact">
+                  <a href="#contact" onClick={() => trackGoal(GOALS.COURSE_SIGNUP_CLICK)}>
                     Записаться на курс
                   </a>
                 </Button>
@@ -96,7 +97,11 @@ const ScheduleSection = () => {
             variant="outline"
             asChild
           >
-            <a href="tel:+79183111712" className="inline-flex items-center gap-2">
+            <a 
+              href="tel:+79183111712" 
+              className="inline-flex items-center gap-2"
+              onClick={() => trackGoal(GOALS.PHONE_CLICK)}
+            >
               <Icon name="Phone" size={18} />
               Позвонить
             </a>
