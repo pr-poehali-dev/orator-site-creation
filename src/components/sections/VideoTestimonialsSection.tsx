@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const VideoTestimonialsSection = () => {
-  const [expandedVideos, setExpandedVideos] = useState(3);
+  const [expandedVideos, setExpandedVideos] = useState(4);
 
   const videos = [
     {
@@ -61,9 +61,9 @@ const VideoTestimonialsSection = () => {
           Смотрите, что говорят наши выпускники о курсе
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {videos.slice(0, expandedVideos).map((video, index) => (
-            <Card key={index} className="overflow-hidden hover:shadow-xl transition-all">
+            <Card key={index} className="overflow-hidden hover:shadow-lg transition-all">
               <CardContent className="p-0">
                 <div className="relative pb-[177.78%]">
                   <iframe
