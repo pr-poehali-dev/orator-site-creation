@@ -125,6 +125,16 @@ const Footer = () => {
                     Согласие на обработку персональных данных
                   </a>
                 </p>
+                <p>
+                  <a 
+                    href="/refund" 
+                    target="_blank" 
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    <Icon name="FileText" size={16} />
+                    Политика возврата и отмены
+                  </a>
+                </p>
               </div>
             </div>
           </div>
