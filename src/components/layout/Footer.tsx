@@ -1,5 +1,6 @@
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
+import VisitorCounter from '@/components/VisitorCounter';
 
 const Footer = () => {
   return (
@@ -128,7 +129,8 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="text-center pt-6 border-t border-gray-800">
+          <div className="text-center pt-6 border-t border-gray-800 space-y-4">
+            <VisitorCounter />
             <p className="text-gray-500 text-sm">© 2018 Светлана Кузикова. Все права защищены.</p>
           </div>
         </div>
