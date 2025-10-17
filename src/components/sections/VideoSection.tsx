@@ -28,7 +28,7 @@ const VideoSection = () => {
                   <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
                     <Icon name="Video" size={20} className="text-white" />
                   </div>
-                  <h3 className="font-bold text-xl">Фрагмент с занятий</h3>
+                  <h3 className="font-bold text-xl">Фрагменты занятий</h3>
                 </div>
                 <p className="text-muted-foreground">
                   Смотрите, как проходят тренинги по ораторскому искусству в нашей школе
