@@ -10,42 +10,42 @@ const VideoTestimonialsSection = () => {
     {
       id: 'df80c189cc7835ed33cd2afead793ccd',
       type: 'shorts',
-      title: 'Видео-отзыв №1'
+      name: 'Стрига Татьяна'
     },
     {
       id: '086abbd212ff10ffc78b02c920afc102',
       type: 'shorts',
-      title: 'Видео-отзыв №2'
+      name: 'Положай Людмила'
     },
     {
       id: '0c0295a0e96e2f38ed49da7a2a05a6e4',
       type: 'shorts',
-      title: 'Видео-отзыв №3'
+      name: 'Мясникова Юлия'
     },
     {
       id: '381bf00193882d05e255e53a470b4c18',
       type: 'shorts',
-      title: 'Видео-отзыв №4'
+      name: 'Ломакина Эльмира'
     },
     {
       id: '9190cf226f0aef491105168f20bd33c0',
       type: 'shorts',
-      title: 'Видео-отзыв №5'
+      name: 'Выпускник 5'
     },
     {
       id: '5047baa1ea33da813635b03dd94079ca',
       type: 'video',
-      title: 'Видео-отзыв №6'
+      name: 'Выпускник 6'
     },
     {
       id: '8a66fd70aa9683b0be9470d91f472801',
       type: 'video',
-      title: 'Видео-отзыв №7'
+      name: 'Выпускник 7'
     },
     {
       id: 'f07aafca3200696f18d9bd8fdb72042b',
       type: 'video',
-      title: 'Видео-отзыв №8'
+      name: 'Выпускник 8'
     }
   ];
 
@@ -72,8 +72,11 @@ const VideoTestimonialsSection = () => {
                     frameBorder="0"
                     allow="clipboard-write; autoplay"
                     allowFullScreen
-                    title={video.title}
+                    title={video.name}
                   />
+                </div>
+                <div className="p-3 text-center">
+                  <p className="text-sm font-medium text-foreground">{video.name}</p>
                 </div>
               </CardContent>
             </Card>
