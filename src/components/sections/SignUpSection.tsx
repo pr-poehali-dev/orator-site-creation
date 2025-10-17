@@ -3,11 +3,13 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
 
 const SignUpSection = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
+  const [consent, setConsent] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -74,7 +76,32 @@ const SignUpSection = () => {
                   rows={4}
                 />
               </div>
-              <Button type="submit" className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6">
+              <div className="flex items-start space-x-3">
+                <Checkbox 
+                  id="consent" 
+                  checked={consent}
+                  onCheckedChange={(checked) => setConsent(checked as boolean)}
+                  required
+                />
+                <label 
+                  htmlFor="consent" 
+                  className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
+                >
+                  Я согласен на обработку персональных данных и принимаю условия{' '}
+                  <a 
+                    href="/privacy" 
+                    target="_blank" 
+                    className="text-primary hover:underline"
+                  >
+                    политики конфиденциальности
+                  </a>
+                </label>
+              </div>
+              <Button 
+                type="submit" 
+                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6"
+                disabled={!consent}
+              >
                 <Icon name="Send" size={20} className="mr-2" />
                 Отправить заявку
               </Button>
