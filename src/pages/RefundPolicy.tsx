@@ -54,7 +54,7 @@ const RefundPolicy = () => {
             <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">3. Порядок оформления возврата</h2>
             <p>Для оформления возврата необходимо:</p>
             <ol className="list-decimal pl-6 space-y-2">
-              <li>Направить заявление на возврат по электронной почте: <a href="mailto:kuzikova-s-a@yandex.ru" className="text-primary hover:underline">kuzikova-s-a@yandex.ru</a></li>
+              <li>Направить заявление на возврат по электронной почте: <a href="mailto:s_kuzikova@mail.ru" className="text-primary hover:underline">s_kuzikova@mail.ru</a></li>
               <li>В заявлении указать:
                 <ul className="list-disc pl-6 mt-2 space-y-1">
                   <li>ФИО плательщика</li>
@@ -102,9 +102,9 @@ const RefundPolicy = () => {
             <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">8. Контактная информация</h2>
             <p>По вопросам возврата и отмены обращайтесь:</p>
             <ul className="list-none space-y-2 mt-4">
-              <li><strong>Email:</strong> <a href="mailto:kuzikova-s-a@yandex.ru" className="text-primary hover:underline">kuzikova-s-a@yandex.ru</a></li>
-              <li><strong>Телефон:</strong> <a href="tel:+79043419999" className="text-primary hover:underline">+7 (904) 341-99-99</a></li>
-              <li><strong>WhatsApp:</strong> <a href="https://wa.me/79043419999" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">+7 (904) 341-99-99</a></li>
+              <li><strong>Email:</strong> <a href="mailto:s_kuzikova@mail.ru" className="text-primary hover:underline">s_kuzikova@mail.ru</a></li>
+              <li><strong>Телефон:</strong> <a href="tel:+79183111712" className="text-primary hover:underline">+7 (918) 311-17-12</a></li>
+              <li><strong>WhatsApp:</strong> <a href="https://wa.me/79183111712" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">+7 (918) 311-17-12</a></li>
             </ul>
 
             <p className="text-sm text-gray-500 mt-8 pt-8 border-t">
