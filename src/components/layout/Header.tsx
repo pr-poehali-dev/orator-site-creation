@@ -68,6 +68,17 @@ const Header = () => {
                 <Icon name="Phone" size={20} className="text-primary" />
               </a>
             </div>
+            <Button 
+              variant="outline" 
+              className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all"
+              onClick={() => {
+                trackGoal(GOALS.WHATSAPP_CLICK);
+                window.open('https://wa.me/79183111712?text=Здравствуйте!%20Хочу%20получить%20бесплатную%20консультацию', '_blank');
+              }}
+            >
+              <Icon name="MessageCircle" size={18} className="mr-2" />
+              Бесплатная консультация
+            </Button>
             <Button className="bg-primary hover:bg-primary/90" onClick={() => {
               trackGoal(GOALS.COURSE_SIGNUP_CLICK);
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -158,7 +169,19 @@ const Header = () => {
             </div>
 
             <Button 
-              className="w-full bg-primary hover:bg-primary/90 mt-4" 
+              variant="outline"
+              className="w-full border-2 border-secondary text-secondary hover:bg-secondary hover:text-white mt-4" 
+              onClick={() => {
+                trackGoal(GOALS.WHATSAPP_CLICK);
+                handleLinkClick();
+                window.open('https://wa.me/79183111712?text=Здравствуйте!%20Хочу%20получить%20бесплатную%20консультацию', '_blank');
+              }}
+            >
+              <Icon name="MessageCircle" size={18} className="mr-2" />
+              Бесплатная консультация
+            </Button>
+            <Button 
+              className="w-full bg-primary hover:bg-primary/90 mt-3" 
               onClick={() => {
                 trackGoal(GOALS.COURSE_SIGNUP_CLICK);
                 handleLinkClick();

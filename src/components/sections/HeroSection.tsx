@@ -50,17 +50,14 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-lg px-8 py-6 border-2"
-                asChild
+                className="text-lg px-8 py-6 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all"
+                onClick={() => {
+                  trackGoal(GOALS.WHATSAPP_CLICK);
+                  window.open('https://wa.me/79183111712?text=Здравствуйте!%20Хочу%20получить%20бесплатную%20консультацию', '_blank');
+                }}
               >
-                <a 
-                  href="tel:+79183111712" 
-                  className="inline-flex items-center"
-                  onClick={() => trackGoal(GOALS.PHONE_CLICK)}
-                >
-                  <Icon name="Phone" size={20} className="mr-2" />
-                  Узнать подробнее
-                </a>
+                <Icon name="MessageCircle" size={20} className="mr-2" />
+                Бесплатная консультация
               </Button>
             </div>
           </div>
