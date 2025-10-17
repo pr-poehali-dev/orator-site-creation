@@ -96,9 +96,8 @@ const Footer = () => {
               <div className="space-y-2 text-gray-400 text-sm">
                 <p>
                   <a 
-                    href="https://disk.yandex.ru/i/uYn3_o7baO2GSw" 
+                    href="/privacy" 
                     target="_blank" 
-                    rel="noopener noreferrer"
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     <Icon name="FileText" size={16} />
@@ -107,9 +106,8 @@ const Footer = () => {
                 </p>
                 <p>
                   <a 
-                    href="https://disk.yandex.ru/i/-bYRWaWj_7bgCg" 
+                    href="/offer" 
                     target="_blank" 
-                    rel="noopener noreferrer"
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     <Icon name="FileText" size={16} />
@@ -118,9 +116,8 @@ const Footer = () => {
                 </p>
                 <p>
                   <a 
-                    href="https://disk.yandex.ru/i/OaR47K7F_Z_l_A" 
+                    href="/consent" 
                     target="_blank" 
-                    rel="noopener noreferrer"
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
                     <Icon name="FileText" size={16} />

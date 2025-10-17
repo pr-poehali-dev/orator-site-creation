@@ -87,7 +87,15 @@ const SignUpSection = () => {
                   htmlFor="consent" 
                   className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
                 >
-                  Я согласен на обработку персональных данных и принимаю условия{' '}
+                  Я согласен на{' '}
+                  <a 
+                    href="/consent" 
+                    target="_blank" 
+                    className="text-primary hover:underline"
+                  >
+                    обработку персональных данных
+                  </a>
+                  {' '}и принимаю условия{' '}
                   <a 
                     href="/privacy" 
                     target="_blank" 
