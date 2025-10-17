@@ -11,6 +11,7 @@ import PricingSection from '@/components/sections/PricingSection';
 import ScheduleSection from '@/components/sections/ScheduleSection';
 import GallerySection from '@/components/sections/GallerySection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
+import VideoTestimonialsSection from '@/components/sections/VideoTestimonialsSection';
 import TheaterSection from '@/components/sections/TheaterSection';
 import FAQSection from '@/components/sections/FAQSection';
 import ContactSection from '@/components/sections/ContactSection';
@@ -35,6 +36,7 @@ const Index = () => {
       <ScheduleSection />
       <GallerySection />
       <TestimonialsSection />
+      <VideoTestimonialsSection />
       <FAQSection />
       <SignUpSection />
       <TheaterSection />
