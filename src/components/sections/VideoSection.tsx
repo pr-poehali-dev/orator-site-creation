@@ -5,7 +5,7 @@ const VideoSection = () => {
   return (
     <section className="py-14 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Видео с курса</h2>
+        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Видео занятий курса</h2>
         <p className="text-center text-muted-foreground mb-12 text-lg max-w-3xl mx-auto">
           Посмотрите, как проходят занятия, и узнайте больше об авторе курса
         </p>
