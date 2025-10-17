@@ -30,22 +30,22 @@ const VideoTestimonialsSection = () => {
     {
       id: '9190cf226f0aef491105168f20bd33c0',
       type: 'shorts',
-      name: 'Выпускник 5'
+      name: 'Успеньев Алексей'
     },
     {
       id: '5047baa1ea33da813635b03dd94079ca',
       type: 'video',
-      name: 'Выпускник 6'
+      name: 'Федорова Елена'
     },
     {
       id: '8a66fd70aa9683b0be9470d91f472801',
       type: 'video',
-      name: 'Выпускник 7'
+      name: 'Васильева Анастасия'
     },
     {
       id: 'f07aafca3200696f18d9bd8fdb72042b',
       type: 'video',
-      name: 'Выпускник 8'
+      name: 'Годяцкая Наталья'
     }
   ];
 
