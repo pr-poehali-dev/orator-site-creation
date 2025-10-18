@@ -65,7 +65,7 @@ const Materials = () => {
         { label: 'Купить видеокурс', url: 'https://kuzikova.robo.market/pro100reche', icon: 'Play', variant: 'default' }
       ],
       bonus: 'В подарок участникам курса',
-      badge: 'Видеокурс'
+      badge: 'Скидка 50%'
     }
   ];
 
