@@ -167,7 +167,11 @@ const Blog = () => {
           <p className="text-lg text-muted-foreground mb-8">
             Запишитесь на авторский курс по ораторскому мастерству и актёрскому искусству
           </p>
-          <Button size="lg" className="group">
+          <Button 
+            size="lg" 
+            className="group"
+            onClick={() => navigate('/#contact')}
+          >
             Записаться на курс
             <Icon name="ArrowRight" size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
