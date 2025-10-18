@@ -69,7 +69,7 @@ const ArticlePage = () => {
                 className="group"
               >
                 <Icon name="ArrowLeft" size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
-                К блогу
+                К материалам
               </Button>
             </div>
             <Button 

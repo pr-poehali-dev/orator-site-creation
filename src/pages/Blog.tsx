@@ -44,10 +44,10 @@ const Blog = () => {
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-6">
             <Icon name="BookOpen" size={40} className="text-primary" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Блог об ораторском искусстве</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Полезные материалы</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Практические советы, упражнения и секреты мастерства от Светланы Кузиковой — 
-            педагога с 25-летним опытом преподавания риторики и актерского мастерства
+            Практические советы, упражнения и секреты ораторского мастерства от Светланы Кузиковой — 
+            педагога с 25-летним опытом. Читайте статьи, применяйте на практике и развивайте свои навыки!
           </p>
         </div>
       </section>
