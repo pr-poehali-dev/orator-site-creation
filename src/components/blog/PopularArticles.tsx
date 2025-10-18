@@ -13,7 +13,7 @@ const PopularArticles = ({ articles }: PopularArticlesProps) => {
   if (articles.length === 0) return null;
 
   return (
-    <div className="bg-gradient-to-br from-primary/5 to-purple-50 rounded-xl p-6 sticky top-24">
+    <div className="bg-gradient-to-br from-primary/5 to-purple-50 rounded-xl p-6">
       <div className="flex items-center gap-2 mb-6">
         <Icon name="TrendingUp" size={24} className="text-primary" />
         <h3 className="text-xl font-bold">Популярное</h3>

@@ -192,7 +192,7 @@ const Blog = () => {
 
       <section className="py-16 px-4">
         <div className="container mx-auto max-w-6xl">
-          <CTABlock variant="materials" />
+          <CTABlock variant="course" />
         </div>
       </section>
 
