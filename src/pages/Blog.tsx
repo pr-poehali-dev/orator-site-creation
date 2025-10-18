@@ -13,10 +13,24 @@ const Blog = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('Все');
   const [searchQuery, setSearchQuery] = useState('');
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
 
   const categories = ['Все', 'Видео', 'Психология', 'Практика', 'Риторика', 'Техника', 'Подготовка', 'Мастерство'];
 
@@ -184,6 +198,16 @@ const Blog = () => {
 
       <Footer />
       <WhatsAppButton />
+      
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-24 right-6 z-40 p-4 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 hover:scale-110 transition-all duration-300 group"
+          aria-label="Наверх"
+        >
+          <Icon name="ArrowUp" size={24} className="group-hover:-translate-y-1 transition-transform" />
+        </button>
+      )}
     </div>
   );
 };
