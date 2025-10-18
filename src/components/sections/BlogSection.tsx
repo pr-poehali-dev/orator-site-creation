@@ -15,9 +15,11 @@ const BlogSection = () => {
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-4">
             <Icon name="BookOpen" size={32} className="text-primary" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Блог</h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 bg-gradient-to-r from-primary via-secondary to-orange bg-clip-text text-transparent leading-tight">
             Бесплатные статьи, видео и упражнения для развития навыков публичных выступлений
+          </h2>
+          <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto font-medium">
+            Изучайте материалы в удобном темпе и практикуйте техники ораторского мастерства
           </p>
         </div>
 
