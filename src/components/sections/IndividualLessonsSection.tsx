@@ -31,7 +31,7 @@ const IndividualLessonsSection = () => {
     },
     {
       icon: 'MessageSquare',
-      title: 'Консультация по ораторству',
+      title: 'Консультация ораторскому мастерству',
       description: 'Разбор ваших выступлений, рекомендации, план развития'
     },
     {
