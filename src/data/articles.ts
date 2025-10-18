@@ -19,7 +19,7 @@ export const articles: Article[] = [
     category: 'Психология',
     readTime: '5 мин',
     icon: 'Heart',
-    date: '15 октября 2024',
+    date: '15 октября 2025',
     author: 'Светлана Кузикова',
     tags: ['страх', 'уверенность', 'психология', 'волнение', 'сцена'],
     content: [
@@ -46,7 +46,7 @@ export const articles: Article[] = [
     category: 'Практика',
     readTime: '7 мин',
     icon: 'Mic',
-    date: '12 октября 2024',
+    date: '12 октября 2025',
     author: 'Светлана Кузикова',
     tags: ['голос', 'дикция', 'упражнения', 'практика', 'тембр'],
     content: [
@@ -130,7 +130,7 @@ export const articles: Article[] = [
     category: 'Риторика',
     readTime: '10 мин',
     icon: 'MessageCircle',
-    date: '8 октября 2024',
+    date: '8 октября 2025',
     author: 'Светлана Кузикова',
     tags: ['риторика', 'убеждение', 'структура', 'аргументация', 'презентация'],
     content: [
@@ -208,7 +208,7 @@ export const articles: Article[] = [
     category: 'Техника',
     readTime: '8 мин',
     icon: 'Users',
-    date: '5 октября 2024',
+    date: '5 октября 2025',
     author: 'Светлана Кузикова',
     tags: ['жесты', 'мимика', 'язык тела', 'невербалика'],
     content: [
@@ -257,7 +257,7 @@ export const articles: Article[] = [
     category: 'Практика',
     readTime: '9 мин',
     icon: 'Target',
-    date: '2 октября 2024',
+    date: '2 октября 2025',
     author: 'Светлана Кузикова',
     tags: ['аудитория', 'возражения', 'конфликты', 'управление'],
     content: [
