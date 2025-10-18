@@ -7,6 +7,9 @@ import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import ShareButtons from '@/components/ui/ShareButtons';
+import RelatedArticles from '@/components/blog/RelatedArticles';
+import ArticleNavigation from '@/components/blog/ArticleNavigation';
+import CTABlock from '@/components/blog/CTABlock';
 import { articles } from '@/data/articles';
 
 const ArticlePage = () => {
@@ -87,6 +90,10 @@ const ArticlePage = () => {
       </div>
     );
   }
+
+  const currentIndex = articles.findIndex(a => a.id === article.id);
+  const prevArticle = currentIndex > 0 ? articles[currentIndex - 1] : undefined;
+  const nextArticle = currentIndex < articles.length - 1 ? articles[currentIndex + 1] : undefined;
 
   const relatedArticles = articles
     .filter(a => a.id !== article.id && a.category === article.category)
@@ -292,79 +299,16 @@ const ArticlePage = () => {
             </div>
           </div>
 
-          <Card className="mt-12 p-8 bg-gradient-to-r from-primary/5 to-purple-50 border-primary/20">
-            <div className="flex flex-col md:flex-row items-center gap-6">
-              <div className="flex-shrink-0">
-                <div className="w-20 h-20 bg-primary/10 rounded-full flex items-center justify-center">
-                  <Icon name="GraduationCap" size={40} className="text-primary" />
-                </div>
-              </div>
-              <div className="flex-1 text-center md:text-left">
-                <h3 className="text-2xl font-bold mb-2">Хотите узнать больше?</h3>
-                <p className="text-muted-foreground mb-4">
-                  Запишитесь на бесплатный урок и получите практические навыки от Светланы Кузиковой
-                </p>
-                <Button 
-                  size="lg" 
-                  className="group"
-                  onClick={() => window.open('https://kuzikova.com/urok', '_blank')}
-                >
-                  Записаться на бесплатный урок
-                  <Icon name="ArrowRight" size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </div>
-            </div>
-          </Card>
+          <ArticleNavigation prevArticle={prevArticle} nextArticle={nextArticle} />
+          
+          <CTABlock variant="course" />
         </div>
       </article>
 
       {recommendedVideos.length > 0 && (
         <section className="py-16 px-4 bg-gradient-to-r from-purple-50 to-primary/5">
           <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-8">
-              <div className="inline-block p-3 bg-primary/10 rounded-full mb-4">
-                <Icon name="Play" size={32} className="text-primary" />
-              </div>
-              <h2 className="text-3xl font-bold mb-2">Рекомендуем посмотреть</h2>
-              <p className="text-muted-foreground">Практические видео от Светланы Кузиковой</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {recommendedVideos.map((video) => (
-                <Card 
-                  key={video.id}
-                  onClick={() => navigate(`/blog/${video.id}`)}
-                  className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group p-6 bg-white"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-red-50 rounded-lg group-hover:bg-red-100 transition-colors">
-                      <Icon name="Video" size={24} className="text-red-600" />
-                    </div>
-                    <span className="text-xs font-medium text-red-600 bg-red-50 px-3 py-1 rounded-full">
-                      Видео
-                    </span>
-                  </div>
-                  
-                  <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors line-clamp-2">
-                    {video.title}
-                  </h3>
-
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-2">
-                    {video.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <Icon name="Clock" size={14} />
-                      <span>{video.readTime}</span>
-                    </div>
-                    <div className="flex items-center gap-1 text-red-600 font-medium group-hover:gap-2 transition-all text-sm">
-                      <span>Смотреть</span>
-                      <Icon name="Play" size={14} />
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
+            <RelatedArticles articles={recommendedVideos} title="Рекомендуем посмотреть" />
           </div>
         </section>
       )}
@@ -372,37 +316,16 @@ const ArticlePage = () => {
       {relatedArticles.length > 0 && (
         <section className="py-16 px-4 bg-gray-50">
           <div className="container mx-auto max-w-6xl">
-            <h2 className="text-3xl font-bold mb-8 text-center">Похожие статьи</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {relatedArticles.map((related) => (
-                <Card 
-                  key={related.id}
-                  onClick={() => navigate(`/blog/${related.id}`)}
-                  className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group p-6"
-                >
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                      <Icon name={related.icon as any} size={24} className="text-primary" />
-                    </div>
-                    <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-                      {related.category}
-                    </span>
-                  </div>
-                  
-                  <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">
-                    {related.title}
-                  </h3>
-                  
-                  <div className="flex items-center gap-1 text-primary font-medium group-hover:gap-2 transition-all text-sm">
-                    <span>{related.isVideo ? 'Смотреть' : 'Читать'}</span>
-                    <Icon name={related.isVideo ? 'Play' : 'ArrowRight'} size={14} />
-                  </div>
-                </Card>
-              ))}
-            </div>
+            <RelatedArticles articles={relatedArticles} title="Похожие статьи" />
           </div>
         </section>
       )}
+      
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <CTABlock variant="contact" />
+        </div>
+      </section>
 
       <Footer />
       <WhatsAppButton />

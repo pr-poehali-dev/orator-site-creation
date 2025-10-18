@@ -7,6 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import PopularArticles from '@/components/blog/PopularArticles';
+import CTABlock from '@/components/blog/CTABlock';
 import { articles } from '@/data/articles';
 
 const Blog = () => {
@@ -111,49 +113,58 @@ const Blog = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredArticles.map((article, index) => (
-              <Card 
-                key={index} 
-                onClick={() => navigate(`/blog/${article.id}`)}
-                className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group"
-              >
-                <CardContent className="p-6">
-                  <div className="flex items-start justify-between mb-4">
-                    <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
-                      <Icon name={article.icon as any} size={24} className="text-primary" />
-                    </div>
-                    <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-                      {article.category}
-                    </span>
-                  </div>
-                  
-                  <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">
-                    {article.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
-                    {article.description}
-                  </p>
-                  
-                  <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
-                    <div className="flex items-center gap-1">
-                      <Icon name="Calendar" size={14} />
-                      <span>{article.date}</span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <Icon name="Clock" size={14} />
-                      <span>{article.readTime}</span>
-                    </div>
-                  </div>
-                  
-                  <div className="flex items-center gap-1 text-primary font-medium group-hover:gap-2 transition-all text-sm">
-                    <span>{article.isVideo ? 'Смотреть видео' : 'Читать статью'}</span>
-                    <Icon name={article.isVideo ? 'Play' : 'ArrowRight'} size={14} />
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+            <div className="lg:col-span-3">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {filteredArticles.map((article, index) => (
+                  <Card 
+                    key={index} 
+                    onClick={() => navigate(`/blog/${article.id}`)}
+                    className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group"
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex items-start justify-between mb-4">
+                        <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
+                          <Icon name={article.icon as any} size={24} className="text-primary" />
+                        </div>
+                        <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                          {article.category}
+                        </span>
+                      </div>
+                      
+                      <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">
+                        {article.title}
+                      </h3>
+                      
+                      <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                        {article.description}
+                      </p>
+                      
+                      <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                        <div className="flex items-center gap-1">
+                          <Icon name="Calendar" size={14} />
+                          <span>{article.date}</span>
+                        </div>
+                        <div className="flex items-center gap-1">
+                          <Icon name="Clock" size={14} />
+                          <span>{article.readTime}</span>
+                        </div>
+                      </div>
+                      
+                      <div className="flex items-center gap-1 text-primary font-medium group-hover:gap-2 transition-all text-sm">
+                        <span>{article.isVideo ? 'Смотреть видео' : 'Читать статью'}</span>
+                        <Icon name={article.isVideo ? 'Play' : 'ArrowRight'} size={14} />
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+            
+            <div className="lg:col-span-1">
+              <PopularArticles articles={articles.slice(0, 5)} />
+              <CTABlock variant="course" className="mt-8" />
+            </div>
           </div>
 
           {filteredArticles.length === 0 && (
@@ -179,20 +190,9 @@ const Blog = () => {
         </div>
       </section>
 
-      <section className="py-16 px-4 bg-gradient-to-r from-primary/5 to-purple-50">
-        <div className="container mx-auto max-w-4xl text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">Хотите научиться выступать уверенно?</h2>
-          <p className="text-lg text-muted-foreground mb-8">
-            Запишитесь на авторский курс по ораторскому мастерству и импровизации
-          </p>
-          <Button 
-            size="lg" 
-            className="group"
-            onClick={() => navigate('/#contact')}
-          >
-            Записаться на курс
-            <Icon name="ArrowRight" size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
-          </Button>
+      <section className="py-16 px-4">
+        <div className="container mx-auto max-w-6xl">
+          <CTABlock variant="materials" />
         </div>
       </section>
 
