@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -7,6 +8,9 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import ScrollToTop from '@/components/ui/scroll-to-top';
 
 const Materials = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const materials = [
     {
       id: 1,
