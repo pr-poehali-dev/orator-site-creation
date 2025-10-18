@@ -42,10 +42,10 @@ const TrainerSection = () => {
         </p>
         
         <div className="mb-12 max-w-4xl mx-auto">
-          <h3 className="text-4xl md:text-5xl font-bold text-center mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+          <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 md:mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Светлана Алексеевна Кузикова
           </h3>
-          <p className="text-xl text-muted-foreground text-center leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-muted-foreground text-center leading-relaxed px-4">
             Театральный режиссёр и профессиональный психолог. Создатель театра «Комильфо», 
             в котором играют мои выпускники. Автор уникальной методики, которая объединяет 
             театральную педагогику с глубинной психологической работой.
@@ -80,8 +80,8 @@ const TrainerSection = () => {
         </div>
 
         <Card className="bg-gradient-to-br from-primary/10 to-secondary/10 border-none max-w-4xl mx-auto">
-          <CardContent className="p-8">
-            <p className="text-xl italic text-center leading-relaxed">
+          <CardContent className="p-4 md:p-6 lg:p-8">
+            <p className="text-base md:text-lg lg:text-xl italic text-center leading-relaxed">
               "Моя миссия — помочь каждому человеку раскрыть свой ораторский потенциал 
               и получать искреннее удовольствие от публичных выступлений"
             </p>

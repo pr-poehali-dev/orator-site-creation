@@ -34,16 +34,16 @@ const ScheduleSection = () => {
   return (
     <section id="schedule" className="py-14 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Расписание ближайших курсов</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Расписание ближайших курсов</h2>
+        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg px-4">
           Выберите удобное время и запишитесь уже сегодня
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {courses.map((course, index) => (
             <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2">
-              <CardHeader className={`bg-gradient-to-r ${course.color} text-white rounded-t-lg pb-6`}>
-                <CardTitle className="text-xl">{course.name}</CardTitle>
+              <CardHeader className={`bg-gradient-to-r ${course.color} text-white rounded-t-lg pb-4 md:pb-6`}>
+                <CardTitle className="text-lg md:text-xl">{course.name}</CardTitle>
               </CardHeader>
               <CardContent className="pt-6 space-y-4">
                 <div className="flex items-start gap-3">

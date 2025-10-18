@@ -137,8 +137,8 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
     <section className="py-12 px-4 bg-white" id="individual">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8">
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">Индивидуальные занятия</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-3">Индивидуальные занятия</h2>
+          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto px-4">
             Персональная работа с педагогом — самый эффективный способ развития ораторских навыков. 
             Занятия проходят онлайн или оффлайн в удобное для вас время
           </p>
@@ -162,10 +162,10 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
           <CardContent className="p-6 md:p-8">
             <div className="grid md:grid-cols-2 gap-6 items-center">
               <div>
-                <h3 className="text-2xl font-bold mb-3">Стоимость занятия</h3>
-                <div className="flex items-baseline gap-3 mb-4">
-                  <span className="text-4xl font-bold text-primary">4 000 ₽</span>
-                  <span className="text-xl text-muted-foreground line-through">5 000 ₽</span>
+                <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Стоимость занятия</h3>
+                <div className="flex items-baseline gap-2 md:gap-3 mb-3 md:mb-4">
+                  <span className="text-3xl md:text-4xl font-bold text-primary">4 000 ₽</span>
+                  <span className="text-lg md:text-xl text-muted-foreground line-through">5 000 ₽</span>
                 </div>
                 <div className="space-y-2 mb-4">
                   <div className="flex items-start gap-2">

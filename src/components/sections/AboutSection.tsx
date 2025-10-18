@@ -80,8 +80,8 @@ const AboutSection = () => {
   return (
     <section id="about" className="py-14 px-4 bg-white">
       <div className="container mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Уникальность подхода</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg max-w-3xl mx-auto">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Уникальность подхода</h2>
+        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg max-w-3xl mx-auto px-4">
           Курс ведёт <span className="font-bold text-primary">Светлана Алексеевна Кузикова</span> — театральный режиссёр и профессиональный психолог
         </p>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
@@ -100,8 +100,8 @@ const AboutSection = () => {
           ))}
         </div>
 
-        <div className="bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 rounded-3xl p-8 md:p-12 max-w-5xl mx-auto">
-          <h3 className="text-3xl font-bold mb-8 text-center">Что входит в курс</h3>
+        <div className="bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 rounded-2xl md:rounded-3xl p-4 md:p-8 lg:p-12 max-w-5xl mx-auto">
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">Что входит в курс</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {courseIncludes.map((item, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow">
@@ -122,10 +122,10 @@ const AboutSection = () => {
               </div>
             ))}
           </div>
-          <div className="mt-8 text-center">
+          <div className="mt-6 md:mt-8 text-center">
             <Button 
               size="lg" 
-              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 py-6"
+              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 w-full sm:w-auto"
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             >
               <Icon name="Sparkles" size={20} className="mr-2" />

@@ -55,8 +55,8 @@ const SignUpSection = () => {
   return (
     <section id="contact" className="py-14 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
       <div className="container mx-auto max-w-2xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Записаться на курс</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Записаться на курс</h2>
+        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg px-4">
           Оставьте заявку, и мы свяжемся с вами в ближайшее время
         </p>
         <Card className="shadow-2xl">
@@ -121,7 +121,7 @@ const SignUpSection = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6"
+                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-base md:text-lg py-5 md:py-6"
                 disabled={!consent}
               >
                 <Icon name="Send" size={20} className="mr-2" />

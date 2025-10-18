@@ -5,8 +5,8 @@ const BooksSection = () => {
   return (
     <section className="py-12 px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl font-bold text-center mb-3">Подарки участникам</h2>
-        <p className="text-center text-muted-foreground mb-8 max-w-3xl mx-auto">
+        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-2 md:mb-3">Подарки участникам</h2>
+        <p className="text-center text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-4 text-sm md:text-base">
           Каждый участник курса получает ценные бонусы: электронные книги и видеокурс от Светланы Кузиковой
         </p>
 
@@ -36,9 +36,9 @@ const BooksSection = () => {
                   className="rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
-              <div className="text-center bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-4 border-2 border-green-200">
-                <p className="text-green-800 font-bold mb-1">Все подарки бесплатно для участников</p>
-                <p className="text-green-700 text-sm">Все материалы входят в стоимость обучения и остаются с вами навсегда. Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Материалы"</a></p>
+              <div className="text-center bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl md:rounded-2xl p-3 md:p-4 border-2 border-green-200">
+                <p className="text-green-800 font-bold mb-1 text-sm md:text-base">Все подарки бесплатно для участников</p>
+                <p className="text-green-700 text-xs md:text-sm">Все материалы входят в стоимость обучения и остаются с вами навсегда. Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Материалы"</a></p>
               </div>
             </div>
           </div>

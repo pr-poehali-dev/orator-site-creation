@@ -47,8 +47,8 @@ const PricingSection = () => {
   return (
     <section id="pricing" className="py-14 px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Стоимость курса</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Стоимость курса</h2>
+        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg max-w-2xl mx-auto px-4">
           Выберите удобный для вас формат обучения
         </p>
         
@@ -66,13 +66,13 @@ const PricingSection = () => {
                 </div>
               )}
               <CardHeader className="text-center pb-4">
-                <CardTitle className="text-3xl mb-2">{pkg.name}</CardTitle>
-                {pkg.subtitle && <p className="text-lg font-semibold text-primary mb-2">{pkg.subtitle}</p>}
-                <CardDescription className="text-lg">{pkg.duration}</CardDescription>
-                <div className="mt-6">
-                  <div className="flex items-center justify-center gap-3 mb-2">
-                    <span className="text-4xl md:text-5xl font-bold text-primary">{pkg.price}</span>
-                    <span className="text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>
+                <CardTitle className="text-2xl md:text-3xl mb-2">{pkg.name}</CardTitle>
+                {pkg.subtitle && <p className="text-base md:text-lg font-semibold text-primary mb-2">{pkg.subtitle}</p>}
+                <CardDescription className="text-base md:text-lg">{pkg.duration}</CardDescription>
+                <div className="mt-4 md:mt-6">
+                  <div className="flex items-center justify-center gap-2 md:gap-3 mb-2">
+                    <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary">{pkg.price}</span>
+                    <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Возможна оплата в 2 этапа</p>
                 </div>

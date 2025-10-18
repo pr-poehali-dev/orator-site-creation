@@ -14,14 +14,14 @@ const HeroSection = () => {
             <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
               <span className="text-white font-semibold text-sm">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-5 leading-tight">
               <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                 Ораторское искусство
               </span>
               <br />
-              <span className="text-foreground text-3xl md:text-4xl lg:text-5xl">«Своя игра»</span>
+              <span className="text-foreground text-2xl md:text-3xl lg:text-4xl xl:text-5xl">«Своя игра»</span>
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-6 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-5 md:mb-6 max-w-2xl mx-auto lg:mx-0 px-2 lg:px-0">
               Единственный в Краснодаре курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 max-w-2xl mx-auto lg:mx-0 text-base">
@@ -38,26 +38,26 @@ const HeroSection = () => {
                 <span className="font-semibold whitespace-nowrap">Сертификат</span>
               </div>
             </div>
-            <div className="flex gap-3 justify-center lg:justify-start">
+            <div className="flex flex-col sm:flex-row gap-3 justify-center lg:justify-start">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-base sm:text-lg px-6 py-6 whitespace-nowrap"
+                className="bg-primary hover:bg-primary/90 text-sm sm:text-base md:text-lg px-4 sm:px-6 py-5 sm:py-6 w-full sm:w-auto"
                 onClick={() => {
                   trackGoal(GOALS.COURSE_SIGNUP_CLICK);
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                <Icon name="Sparkles" size={18} className="mr-2" />
-                Записаться на курс
+                <Icon name="Sparkles" size={18} className="mr-2 flex-shrink-0" />
+                <span className="truncate">Записаться на курс</span>
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-base sm:text-lg px-6 py-6 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all whitespace-nowrap"
+                className="text-sm sm:text-base md:text-lg px-4 sm:px-6 py-5 sm:py-6 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all w-full sm:w-auto"
                 onClick={() => setIsConsultDialogOpen(true)}
               >
-                <Icon name="MessageCircle" size={18} className="mr-2" />
-                Бесплатная консультация
+                <Icon name="MessageCircle" size={18} className="mr-2 flex-shrink-0" />
+                <span className="truncate">Бесплатная консультация</span>
               </Button>
             </div>
           </div>
