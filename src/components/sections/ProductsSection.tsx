@@ -31,11 +31,12 @@ const ProductsSection = () => {
       id: 3,
       title: 'Курс «Речевая креативность за 7 дней»',
       description: 'Видеокурс для развития навыков креативного мышления и спонтанной речи',
-      price: '990 ₽',
+      price: '2 450 ₽',
+      oldPrice: '4 900 ₽',
       links: [
-        { label: 'Купить курс', url: 'http://kuzikova.robo.market/buy/133943/', icon: 'Play' }
+        { label: 'Купить курс', url: 'https://kuzikova.robo.market/pro100reche', icon: 'Play' }
       ],
-      badge: 'Видеокурс',
+      badge: 'Скидка 50%',
       icon: 'Video'
     }
   ];
@@ -74,7 +75,12 @@ const ProductsSection = () => {
                 <p className="text-gray-600 text-sm mb-4 flex-grow">{product.description}</p>
                 
                 <div className="mt-auto">
-                  <div className="text-2xl font-bold text-primary mb-4">{product.price}</div>
+                  <div className="mb-4">
+                    {product.oldPrice && (
+                      <div className="text-sm text-gray-400 line-through">{product.oldPrice}</div>
+                    )}
+                    <div className="text-2xl font-bold text-primary">{product.price}</div>
+                  </div>
                   
                   <div className="space-y-2">
                     {product.links.map((link, index) => (
