@@ -44,14 +44,24 @@ const ArticlePage = () => {
       
       <article className="py-12 px-4">
         <div className="container mx-auto max-w-4xl">
-          <Button 
-            variant="ghost" 
-            onClick={() => navigate('/blog')}
-            className="mb-8 group"
-          >
-            <Icon name="ArrowLeft" size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
-            Вернуться к блогу
-          </Button>
+          <div className="flex flex-wrap gap-3 mb-8">
+            <Button 
+              variant="ghost" 
+              onClick={() => navigate('/')}
+              className="group"
+            >
+              <Icon name="Home" size={20} className="mr-2 group-hover:scale-110 transition-transform" />
+              На главную
+            </Button>
+            <Button 
+              variant="ghost" 
+              onClick={() => navigate('/blog')}
+              className="group"
+            >
+              <Icon name="ArrowLeft" size={20} className="mr-2 group-hover:-translate-x-1 transition-transform" />
+              К блогу
+            </Button>
+          </div>
 
           <div className="mb-8">
             <div className="flex flex-wrap items-center gap-4 mb-6 text-sm text-muted-foreground">
