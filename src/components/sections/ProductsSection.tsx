@@ -26,6 +26,7 @@ const ProductsSection = () => {
       links: [
         { label: 'Купить', url: 'http://kuzikova.robo.market/buy/133929/', icon: 'ShoppingCart' }
       ],
+      badge: 'Скидка 33%',
       icon: 'Lightbulb'
     },
     {

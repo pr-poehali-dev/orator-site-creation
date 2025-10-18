@@ -47,7 +47,8 @@ const Materials = () => {
       links: [
         { label: 'Купить на Робомаркет', url: 'http://kuzikova.robo.market/buy/133929/', icon: 'ShoppingCart', variant: 'default' }
       ],
-      bonus: 'В подарок участникам курса'
+      bonus: 'В подарок участникам курса',
+      badge: 'Скидка 33%'
     },
     {
       id: 3,
