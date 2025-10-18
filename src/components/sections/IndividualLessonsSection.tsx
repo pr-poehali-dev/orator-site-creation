@@ -91,8 +91,23 @@ const IndividualLessonsSection = () => {
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">Индивидуальные занятия</h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Персональная работа с педагогом — самый эффективный способ развития ораторских навыков
+            Персональная работа с педагогом — самый эффективный способ развития ораторских навыков. 
+            Занятия проходят онлайн или оффлайн в удобное для вас время
           </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          {services.map((service, index) => (
+            <Card key={index} className="hover:shadow-lg transition-shadow">
+              <CardContent className="p-4 text-center">
+                <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
+                  <Icon name={service.icon as any} size={24} className="text-primary" />
+                </div>
+                <h3 className="font-bold text-base mb-2">{service.title}</h3>
+                <p className="text-xs text-muted-foreground">{service.description}</p>
+              </CardContent>
+            </Card>
+          ))}
         </div>
 
         <Card className="bg-gradient-to-r from-primary/5 to-purple-50 border-primary/20">
@@ -107,51 +122,57 @@ const IndividualLessonsSection = () => {
                 <div className="space-y-2 mb-4">
                   <div className="flex items-start gap-2">
                     <Icon name="Clock" size={18} className="text-primary mt-0.5" />
-                    <span className="text-sm">60 минут</span>
+                    <span className="text-sm">Продолжительность: 60 минут</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Icon name="Monitor" size={18} className="text-primary mt-0.5" />
-                    <span className="text-sm">Онлайн или очно</span>
+                    <span className="text-sm">Формат: онлайн или очно в Москве</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Icon name="Calendar" size={18} className="text-primary mt-0.5" />
-                    <span className="text-sm">Гибкий график</span>
+                    <span className="text-sm">Гибкий график: выбирайте удобное время</span>
                   </div>
                 </div>
 
                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
                   <div className="flex items-start gap-2">
                     <Icon name="Sparkles" size={18} className="text-yellow-600 mt-0.5" />
-                    <p className="text-sm text-yellow-700">
-                      Скидка 1000 ₽ до конца месяца
-                    </p>
+                    <div>
+                      <p className="font-semibold text-yellow-800 text-sm mb-1">Специальное предложение</p>
+                      <p className="text-xs text-yellow-700">
+                        Скидка 1000 ₽ действует до конца месяца. Успейте записаться по выгодной цене!
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div>
                 <div className="bg-white rounded-lg p-4 shadow-sm mb-4">
-                  <h4 className="font-bold text-lg mb-3">Что вы получите</h4>
+                  <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
+                    <Icon name="Target" size={20} className="text-primary" />
+                    Что вы получите
+                  </h4>
                   <ul className="space-y-2 text-sm">
                     <li className="flex items-start gap-2">
                       <Icon name="Check" size={16} className="text-primary mt-0.5" />
-                      <span>Персональный план развития</span>
+                      <span>Персональный план развития навыков</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="Check" size={16} className="text-primary mt-0.5" />
-                      <span>Практические упражнения</span>
+                      <span>Практические упражнения и техники</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="Check" size={16} className="text-primary mt-0.5" />
-                      <span>Анализ ошибок</span>
+                      <span>Анализ и работа над ошибками</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="Check" size={16} className="text-primary mt-0.5" />
-                      <span>Запись занятия</span>
+                      <span>Запись занятия для самостоятельной работы</span>
                     </li>
                     <li className="flex items-start gap-2">
                       <Icon name="Check" size={16} className="text-primary mt-0.5" />
-                      <span>Домашнее задание</span>
+                      <span>Домашнее задание с проверкой</span>
                     </li>
                   </ul>
                 </div>
