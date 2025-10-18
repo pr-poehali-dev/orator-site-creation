@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -13,9 +13,18 @@ const ArticlePage = () => {
   const { id } = useParams();
   const navigate = useNavigate();
   const article = articles.find(a => a.id === id);
+  const [viewCount, setViewCount] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    
+    if (id) {
+      const key = `article_views_${id}`;
+      const currentViews = parseInt(localStorage.getItem(key) || '0');
+      const newViews = currentViews + 1;
+      localStorage.setItem(key, newViews.toString());
+      setViewCount(newViews);
+    }
   }, [id]);
 
   if (!article) {
@@ -97,6 +106,10 @@ const ArticlePage = () => {
               <span className="flex items-center gap-1">
                 <Icon name="Clock" size={16} />
                 {article.readTime}
+              </span>
+              <span className="flex items-center gap-1">
+                <Icon name="Eye" size={16} />
+                {viewCount} {viewCount === 1 ? 'просмотр' : viewCount < 5 ? 'просмотра' : 'просмотров'}
               </span>
               <span className="flex items-center gap-1">
                 <Icon name="User" size={16} />
