@@ -51,7 +51,7 @@ const ArticlePage = () => {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Header />
       
-      <article className="pt-24 pb-12 px-4">
+      <article className="pt-32 pb-12 px-4">
         <div className="container mx-auto max-w-4xl">
           <div className="flex flex-wrap items-center justify-between gap-3 mb-8">
             <div className="flex flex-wrap gap-3">
