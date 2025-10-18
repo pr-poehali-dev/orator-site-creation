@@ -1,9 +1,10 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import Icon from '@/components/ui/icon';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import { articles } from '@/data/articles';
@@ -11,12 +12,28 @@ import { articles } from '@/data/articles';
 const Blog = () => {
   const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('Все');
+  const [searchQuery, setSearchQuery] = useState('');
 
   const categories = ['Все', 'Психология', 'Практика', 'Риторика', 'Техника', 'Подготовка', 'Мастерство'];
 
-  const filteredArticles = selectedCategory === 'Все' 
-    ? articles 
-    : articles.filter(article => article.category === selectedCategory);
+  const filteredArticles = useMemo(() => {
+    let filtered = articles;
+
+    if (selectedCategory !== 'Все') {
+      filtered = filtered.filter(article => article.category === selectedCategory);
+    }
+
+    if (searchQuery.trim()) {
+      const query = searchQuery.toLowerCase();
+      filtered = filtered.filter(article =>
+        article.title.toLowerCase().includes(query) ||
+        article.description.toLowerCase().includes(query) ||
+        article.tags.some(tag => tag.toLowerCase().includes(query))
+      );
+    }
+
+    return filtered;
+  }, [selectedCategory, searchQuery]);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
@@ -37,6 +54,32 @@ const Blog = () => {
 
       <section className="py-12 px-4">
         <div className="container mx-auto max-w-6xl">
+          <div className="mb-8 max-w-2xl mx-auto">
+            <div className="relative">
+              <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                type="text"
+                placeholder="Поиск по статьям, тегам..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 pr-10 h-12 text-base"
+              />
+              {searchQuery && (
+                <button
+                  onClick={() => setSearchQuery('')}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  <Icon name="X" size={20} />
+                </button>
+              )}
+            </div>
+            {searchQuery && (
+              <p className="text-sm text-muted-foreground mt-3 text-center">
+                Найдено статей: {filteredArticles.length}
+              </p>
+            )}
+          </div>
+
           <div className="flex flex-wrap gap-3 justify-center mb-12">
             {categories.map((category) => (
               <Button
@@ -98,7 +141,21 @@ const Blog = () => {
           {filteredArticles.length === 0 && (
             <div className="text-center py-20">
               <Icon name="Search" size={48} className="text-muted-foreground mx-auto mb-4" />
-              <p className="text-xl text-muted-foreground">Статей в этой категории пока нет</p>
+              <p className="text-xl text-muted-foreground mb-2">
+                {searchQuery ? 'По вашему запросу ничего не найдено' : 'Статей в этой категории пока нет'}
+              </p>
+              {searchQuery && (
+                <Button
+                  variant="outline"
+                  onClick={() => {
+                    setSearchQuery('');
+                    setSelectedCategory('Все');
+                  }}
+                  className="mt-4"
+                >
+                  Сбросить фильтры
+                </Button>
+              )}
             </div>
           )}
         </div>
