@@ -1,11 +1,13 @@
 import { useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isConsultDialogOpen, setIsConsultDialogOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -83,10 +85,7 @@ const Header = () => {
             <Button 
               variant="outline" 
               className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all"
-              onClick={() => {
-                trackGoal(GOALS.WHATSAPP_CLICK);
-                window.open('https://wa.me/79183111712?text=Здравствуйте!%20Хочу%20получить%20бесплатную%20консультацию', '_blank');
-              }}
+              onClick={() => setIsConsultDialogOpen(true)}
             >
               <Icon name="MessageCircle" size={18} className="mr-2" />
               Бесплатная консультация
@@ -193,9 +192,8 @@ const Header = () => {
               variant="outline"
               className="w-full border-2 border-secondary text-secondary hover:bg-secondary hover:text-white mt-4" 
               onClick={() => {
-                trackGoal(GOALS.WHATSAPP_CLICK);
                 handleLinkClick();
-                window.open('https://wa.me/79183111712?text=Здравствуйте!%20Хочу%20получить%20бесплатную%20консультацию', '_blank');
+                setIsConsultDialogOpen(true);
               }}
             >
               <Icon name="MessageCircle" size={18} className="mr-2" />
@@ -214,6 +212,71 @@ const Header = () => {
           </div>
         )}
       </div>
+
+      <Dialog open={isConsultDialogOpen} onOpenChange={setIsConsultDialogOpen}>
+        <DialogContent className="max-w-md">
+          <DialogHeader>
+            <DialogTitle className="text-2xl text-center">Выберите удобный способ связи</DialogTitle>
+          </DialogHeader>
+          <div className="space-y-3 mt-4">
+            <Button
+              size="lg"
+              className="w-full bg-green-600 hover:bg-green-700 text-white text-lg py-6"
+              onClick={() => {
+                trackGoal(GOALS.WHATSAPP_CLICK);
+                window.open('https://wa.me/79183111712?text=Здравствуйте!%20Хочу%20получить%20бесплатную%20консультацию', '_blank');
+                setIsConsultDialogOpen(false);
+              }}
+            >
+              <Icon name="MessageCircle" size={24} className="mr-2" />
+              WhatsApp
+            </Button>
+            
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full border-2 text-lg py-6"
+              onClick={() => {
+                trackGoal(GOALS.PHONE_CLICK);
+                window.location.href = 'tel:+79183111712';
+                setIsConsultDialogOpen(false);
+              }}
+            >
+              <Icon name="Phone" size={24} className="mr-2" />
+              Позвонить: +7 918 311-17-12
+            </Button>
+            
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full border-2 border-blue-500 text-blue-600 hover:bg-blue-50 text-lg py-6"
+              onClick={() => {
+                window.open('https://t.me/svetlana_kuzikova', '_blank');
+                setIsConsultDialogOpen(false);
+              }}
+            >
+              <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+              </svg>
+              Telegram
+            </Button>
+            
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full border-2 text-lg py-6"
+              onClick={() => {
+                trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+                setIsConsultDialogOpen(false);
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              <Icon name="Send" size={24} className="mr-2" />
+              Оставить заявку на сайте
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
     </nav>
   );
 };
