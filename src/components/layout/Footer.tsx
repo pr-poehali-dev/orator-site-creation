@@ -58,11 +58,11 @@ const Footer = () => {
               </svg>
             </a>
             <a 
-              href="https://youtube.com/@kuzikova_school?si=R44ul5a4I0twihLm" 
+              href="https://rutube.ru/channel/27062031/" 
               target="_blank" 
               rel="noopener noreferrer"
               className="hover:text-primary transition-colors"
-              aria-label="YouTube"
+              aria-label="Rutube"
             >
               <Icon name="Youtube" size={24} />
             </a>

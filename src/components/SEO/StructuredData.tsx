@@ -28,7 +28,7 @@ const StructuredData = () => {
       "sameAs": [
         "https://t.me/svetlana_kuzikova",
         "https://vk.com/svetlana_kuzikova",
-        "https://youtube.com/@kuzikova_school"
+        "https://rutube.ru/channel/27062031/"
       ],
       "founder": {
         "@type": "Person",

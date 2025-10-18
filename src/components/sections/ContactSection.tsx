@@ -114,9 +114,9 @@ const ContactSection = () => {
                   <Icon name="Youtube" size={20} className="text-primary" />
                 </div>
               </div>
-              <h3 className="font-semibold text-sm mb-1">YouTube</h3>
+              <h3 className="font-semibold text-sm mb-1">Rutube</h3>
               <a 
-                href="https://youtube.com/@kuzikova_school?si=R44ul5a4I0twihLm" 
+                href="https://rutube.ru/channel/27062031/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-primary hover:underline text-xs"
