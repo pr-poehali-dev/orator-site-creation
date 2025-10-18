@@ -127,21 +127,6 @@ const ContactSection = () => {
           </Card>
         </div>
 
-        <div className="mt-16">
-          <h3 className="text-3xl font-bold text-center mb-8">Как нас найти</h3>
-          <div className="rounded-3xl overflow-hidden shadow-2xl">
-            <iframe 
-              src="https://yandex.ru/map-widget/v1/?ll=38.975313%2C45.035470&mode=search&ol=geo&ouri=ymapsbm1%3A%2F%2Fgeo%3Fdata%3DCgg1NjgyMDU5NRJd0KDQvtGB0YHQuNGPLCDQmtGA0LDRgdC90L7QtNCw0YAsINGD0LvQuNGG0LAg0JPQvtGA0YzQutC-0LPQviwgMTA0LCDQvtGE0LjRgSAyNiIKDZFREkIVVxxbQg%2C%2C&z=16.5" 
-              width="100%" 
-              height="400" 
-              frameBorder="0"
-              allowFullScreen={true}
-              title="Карта с адресом офиса"
-              className="w-full"
-            ></iframe>
-          </div>
-        </div>
-
         <div className="flex justify-center mt-12">
           <a 
             href="https://yandex.ru/profile/108893235678?intent=reviews" 
