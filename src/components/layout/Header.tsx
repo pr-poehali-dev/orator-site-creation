@@ -25,7 +25,7 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div 
-            className="flex items-center gap-3 cursor-pointer group" 
+            className="flex items-center gap-3 cursor-pointer group shrink-0" 
             onClick={handleLogoClick}
           >
             <img 
@@ -33,7 +33,7 @@ const Header = () => {
               alt="KUZIKOVA SCHOOL Logo" 
               className="h-12 w-12 object-contain group-hover:scale-105 transition-transform"
             />
-            <div>
+            <div className="hidden lg:block">
               <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:from-secondary group-hover:to-primary transition-all">
                 KUZIKOVA SCHOOL
               </h1>
@@ -42,7 +42,7 @@ const Header = () => {
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-6 items-center">
+          <div className="hidden md:flex gap-6 items-center flex-wrap">
             <a href="#about" className="text-foreground hover:text-primary transition-colors">О курсе</a>
             <a href="#program" className="text-foreground hover:text-primary transition-colors">Программа</a>
             <a href="#trainer" className="text-foreground hover:text-primary transition-colors">Преподаватель</a>
