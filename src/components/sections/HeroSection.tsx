@@ -7,21 +7,21 @@ import { trackGoal, GOALS } from '@/utils/goals';
 const HeroSection = () => {
   const [isConsultDialogOpen, setIsConsultDialogOpen] = useState(false);
   return (
-    <section className="pt-24 pb-14 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
+    <section className="pt-32 pb-14 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <div className="text-center lg:text-left">
             <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
               <span className="text-white font-semibold text-sm">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
             </div>
-            <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
               <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                 Ораторское искусство
               </span>
               <br />
-              <span className="text-foreground text-4xl md:text-5xl">«Своя игра»</span>
+              <span className="text-foreground text-3xl md:text-4xl">«Своя игра»</span>
             </h2>
-            <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
               Единственный в Краснодаре курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником
             </p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-2xl mx-auto lg:mx-0">
