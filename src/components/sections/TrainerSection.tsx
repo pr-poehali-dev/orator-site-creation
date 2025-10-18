@@ -53,11 +53,11 @@ const TrainerSection = () => {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
-          <div>
-            <div className="relative">
+          <div className="flex justify-center">
+            <div className="relative max-w-md w-full">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
               <img 
-                src="https://cdn.poehali.dev/files/b6fd0c25-ceb9-47e2-8e1e-b7de9dbdfd3a.jpg"
+                src="https://cdn.poehali.dev/files/594be6ce-b623-4a96-8f8b-44c2056f3bbf.JPG"
                 alt="Светлана Алексеевна Кузикова - преподаватель курса ораторского мастерства"
                 className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
               />
