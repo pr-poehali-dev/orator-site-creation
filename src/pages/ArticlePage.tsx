@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import ShareButtons from '@/components/ui/ShareButtons';
 import { articles } from '@/data/articles';
 
 const ArticlePage = () => {
@@ -81,7 +82,15 @@ const ArticlePage = () => {
             </p>
           </div>
 
-          <div className="w-full h-1 bg-gradient-to-r from-primary/20 via-primary to-primary/20 rounded-full mb-12"></div>
+          <div className="w-full h-1 bg-gradient-to-r from-primary/20 via-primary to-primary/20 rounded-full mb-8"></div>
+
+          <div className="mb-12">
+            <ShareButtons 
+              url={`/blog/${article.id}`}
+              title={article.title}
+              description={article.description}
+            />
+          </div>
 
           <div className="prose prose-lg max-w-none">
             {article.content.map((paragraph, index) => {
@@ -122,7 +131,7 @@ const ArticlePage = () => {
             })}
           </div>
 
-          <div className="mt-12 pt-8 border-t">
+          <div className="mt-12 pt-8 border-t space-y-8">
             <div className="flex flex-wrap gap-2">
               {article.tags.map((tag, index) => (
                 <span 
@@ -132,6 +141,14 @@ const ArticlePage = () => {
                   #{tag}
                 </span>
               ))}
+            </div>
+
+            <div className="pt-6 border-t">
+              <ShareButtons 
+                url={`/blog/${article.id}`}
+                title={article.title}
+                description={article.description}
+              />
             </div>
           </div>
 
