@@ -70,7 +70,40 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 pt-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div className="text-left">
+              <h4 className="text-lg font-bold mb-4 text-primary">Полезное</h4>
+              <div className="space-y-2 text-gray-400 text-sm">
+                <p>
+                  <a 
+                    href="/materials" 
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    <Icon name="ShoppingBag" size={16} />
+                    Материалы
+                  </a>
+                </p>
+                <p>
+                  <a 
+                    href="/blog" 
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    <Icon name="BookOpen" size={16} />
+                    Блог
+                  </a>
+                </p>
+                <p>
+                  <a 
+                    href="/#contact" 
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    <Icon name="MessageCircle" size={16} />
+                    Бесплатная консультация
+                  </a>
+                </p>
+              </div>
+            </div>
+
             <div className="text-left">
               <h4 className="text-lg font-bold mb-4 text-primary">Реквизиты</h4>
               <div className="space-y-2 text-gray-400 text-sm">
