@@ -14,18 +14,49 @@ const ArticlePage = () => {
   const navigate = useNavigate();
   const article = articles.find(a => a.id === id);
   const [viewCount, setViewCount] = useState(0);
+  const [likeCount, setLikeCount] = useState(0);
+  const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
     
     if (id) {
-      const key = `article_views_${id}`;
-      const currentViews = parseInt(localStorage.getItem(key) || '0');
+      const viewKey = `article_views_${id}`;
+      const currentViews = parseInt(localStorage.getItem(viewKey) || '0');
       const newViews = currentViews + 1;
-      localStorage.setItem(key, newViews.toString());
+      localStorage.setItem(viewKey, newViews.toString());
       setViewCount(newViews);
+
+      const likeKey = `article_likes_${id}`;
+      const currentLikes = parseInt(localStorage.getItem(likeKey) || '0');
+      setLikeCount(currentLikes);
+
+      const likedKey = `article_liked_${id}`;
+      const hasLiked = localStorage.getItem(likedKey) === 'true';
+      setIsLiked(hasLiked);
     }
   }, [id]);
+
+  const handleLike = () => {
+    if (!id) return;
+    
+    const likeKey = `article_likes_${id}`;
+    const likedKey = `article_liked_${id}`;
+    
+    if (isLiked) {
+      const newLikes = Math.max(0, likeCount - 1);
+      setLikeCount(newLikes);
+      localStorage.setItem(likeKey, newLikes.toString());
+      localStorage.setItem(likedKey, 'false');
+      setIsLiked(false);
+    } else {
+      const newLikes = likeCount + 1;
+      setLikeCount(newLikes);
+      localStorage.setItem(likeKey, newLikes.toString());
+      localStorage.setItem(likedKey, 'true');
+      setIsLiked(true);
+    }
+  };
 
   if (!article) {
     return (
@@ -115,6 +146,17 @@ const ArticlePage = () => {
                 <Icon name="Eye" size={16} />
                 {viewCount} {viewCount === 1 ? 'просмотр' : viewCount < 5 ? 'просмотра' : 'просмотров'}
               </span>
+              <button
+                onClick={handleLike}
+                className={`flex items-center gap-1 px-3 py-1 rounded-full transition-all ${
+                  isLiked 
+                    ? 'bg-red-50 text-red-600' 
+                    : 'hover:bg-gray-100 text-muted-foreground'
+                }`}
+              >
+                <Icon name={isLiked ? 'Heart' : 'Heart'} size={16} className={isLiked ? 'fill-red-600' : ''} />
+                {likeCount > 0 && <span className="font-medium">{likeCount}</span>}
+              </button>
               <span className="flex items-center gap-1">
                 <Icon name="User" size={16} />
                 {article.author}
@@ -195,15 +237,36 @@ const ArticlePage = () => {
           </div>
 
           <div className="mt-12 pt-8 border-t space-y-8">
-            <div className="flex flex-wrap gap-2">
-              {article.tags.map((tag, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
-                >
-                  #{tag}
-                </span>
-              ))}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div className="flex flex-wrap gap-2">
+                {article.tags.map((tag, index) => (
+                  <span 
+                    key={index}
+                    className="px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-sm"
+                  >
+                    #{tag}
+                  </span>
+                ))}
+              </div>
+              
+              <Button
+                onClick={handleLike}
+                variant={isLiked ? "default" : "outline"}
+                size="lg"
+                className={`group ${
+                  isLiked 
+                    ? 'bg-red-600 hover:bg-red-700 text-white' 
+                    : 'border-2 border-red-200 text-red-600 hover:bg-red-50'
+                }`}
+              >
+                <Icon 
+                  name="Heart" 
+                  size={20} 
+                  className={`mr-2 group-hover:scale-110 transition-transform ${isLiked ? 'fill-white' : ''}`} 
+                />
+                {isLiked ? 'Нравится' : 'Мне нравится'}
+                {likeCount > 0 && <span className="ml-2 font-bold">({likeCount})</span>}
+              </Button>
             </div>
 
             <div className="pt-6 border-t">
