@@ -183,7 +183,7 @@ const Blog = () => {
         <div className="container mx-auto max-w-4xl text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">Хотите научиться выступать уверенно?</h2>
           <p className="text-lg text-muted-foreground mb-8">
-            Запишитесь на авторский курс по ораторскому мастерству и актёрскому искусству
+            Запишитесь на авторский курс по ораторскому мастерству и импровизации
           </p>
           <Button 
             size="lg" 
