@@ -20,6 +20,7 @@ import SignUpSection from '@/components/sections/SignUpSection';
 import BlogSection from '@/components/sections/BlogSection';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import CookieConsent from '@/components/ui/CookieConsent';
+import ScrollToTop from '@/components/ui/scroll-to-top';
 import StructuredData from '@/components/SEO/StructuredData';
 
 const Index = () => {
@@ -47,6 +48,7 @@ const Index = () => {
       <ContactSection />
       <Footer />
       <WhatsAppButton />
+      <ScrollToTop />
       <CookieConsent />
     </div>
   );
