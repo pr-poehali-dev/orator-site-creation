@@ -26,12 +26,16 @@ const Guide = () => {
 
       <div className="max-w-4xl mx-auto p-8 md:p-12 print:p-8">
         <div className="text-center mb-12 print:mb-8">
-          <div className="flex items-center justify-center gap-4 mb-6">
+          <div className="flex flex-col items-center justify-center gap-3 mb-6">
             <img 
               src="https://cdn.poehali.dev/files/ecc5e6e8-0ee3-4150-821f-c092246ec57f.png" 
               alt="Kuzikova School" 
               className="h-20 w-20 object-contain"
             />
+            <div>
+              <p className="text-sm text-gray-500">Школа ораторского искусства и импровизации</p>
+              <p className="text-lg font-semibold text-gray-700">KUZIKOVA SCHOOL</p>
+            </div>
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent print:text-black">
             7 СЕКРЕТОВ ХАРИЗМАТИЧНОГО ОРАТОРА
@@ -46,8 +50,6 @@ const Guide = () => {
             или Как сделать своё выступление незабываемым и достичь цели
           </p>
           <div className="mt-6 pt-6 border-t border-gray-200">
-            <p className="text-sm text-gray-500">Школа ораторского искусства и импровизации</p>
-            <p className="text-lg font-semibold text-gray-700">KUZIKOVA SCHOOL</p>
           </div>
         </div>
 
