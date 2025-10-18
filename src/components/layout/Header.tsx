@@ -42,15 +42,15 @@ const Header = () => {
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden md:flex gap-6 items-center flex-wrap">
-            <a href="#about" className="text-foreground hover:text-primary transition-colors">О курсе</a>
-            <a href="#program" className="text-foreground hover:text-primary transition-colors">Программа</a>
-            <a href="#trainer" className="text-foreground hover:text-primary transition-colors">Преподаватель</a>
-            <a href="#pricing" className="text-foreground hover:text-primary transition-colors">Стоимость</a>
-            <a href="#testimonials" className="text-foreground hover:text-primary transition-colors">Отзывы</a>
-            <button onClick={() => navigate('/blog')} className="text-foreground hover:text-primary transition-colors font-medium">Блог</button>
-            <button onClick={() => navigate('/materials')} className="text-foreground hover:text-primary transition-colors font-medium">Материалы</button>
-            <div className="flex gap-2 items-center border-l pl-4">
+          <div className="hidden lg:flex gap-4 xl:gap-6 items-center text-sm">
+            <a href="#about" className="text-foreground hover:text-primary transition-colors whitespace-nowrap">О курсе</a>
+            <a href="#program" className="text-foreground hover:text-primary transition-colors whitespace-nowrap">Программа</a>
+            <a href="#trainer" className="text-foreground hover:text-primary transition-colors whitespace-nowrap">Преподаватель</a>
+            <a href="#pricing" className="text-foreground hover:text-primary transition-colors whitespace-nowrap">Стоимость</a>
+            <a href="#testimonials" className="text-foreground hover:text-primary transition-colors whitespace-nowrap">Отзывы</a>
+            <button onClick={() => navigate('/blog')} className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">Блог</button>
+            <button onClick={() => navigate('/materials')} className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">Материалы</button>
+            <div className="flex gap-2 items-center border-l pl-3">
               <a 
                 href="https://t.me/svetlana_kuzikova" 
                 target="_blank" 
@@ -85,13 +85,14 @@ const Header = () => {
             </div>
             <Button 
               variant="outline" 
-              className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all"
+              size="sm"
+              className="border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all whitespace-nowrap"
               onClick={() => setIsConsultDialogOpen(true)}
             >
-              <Icon name="MessageCircle" size={18} className="mr-2" />
-              Бесплатная консультация
+              <Icon name="MessageCircle" size={16} className="mr-2" />
+              Консультация
             </Button>
-            <Button className="bg-primary hover:bg-primary/90" onClick={() => {
+            <Button size="sm" className="bg-primary hover:bg-primary/90 whitespace-nowrap" onClick={() => {
               trackGoal(GOALS.COURSE_SIGNUP_CLICK);
               document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
             }}>Записаться</Button>
