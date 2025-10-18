@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
       <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-8">
           <div 
             className="flex items-center gap-2 sm:gap-3 cursor-pointer group shrink-0" 
             onClick={handleLogoClick}
@@ -42,8 +42,8 @@ const Header = () => {
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden lg:flex flex-col gap-2 text-base">
-            <div className="flex gap-5 xl:gap-7 items-center justify-end">
+          <div className="hidden lg:flex flex-col gap-2 text-lg">
+            <div className="flex gap-6 xl:gap-8 items-center justify-end">
               <a href="#about" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">О курсе</a>
               <a href="#program" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Программа</a>
               <a href="#trainer" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Преподаватель</a>
