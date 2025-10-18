@@ -6,19 +6,23 @@ import { articles } from '@/data/articles';
 
 const BlogSection = () => {
   const navigate = useNavigate();
+  const latestArticles = [...articles].reverse().slice(0, 6);
 
   return (
     <section className="py-14 px-4 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-12">
+          <div className="inline-block p-3 bg-primary/10 rounded-full mb-4">
+            <Icon name="BookOpen" size={32} className="text-primary" />
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Полезные материалы</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Бесплатные статьи и советы по ораторскому искусству от Светланы Кузиковой
+            Практические советы и упражнения для развития ваших навыков публичных выступлений
           </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {articles.slice(0, 6).map((article) => (
+          {latestArticles.map((article) => (
             <Card 
               key={article.id} 
               className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group"
@@ -59,8 +63,8 @@ const BlogSection = () => {
 
         <div className="text-center mt-12">
           <Button size="lg" variant="outline" className="group" onClick={() => navigate('/blog')}>
-            Все статьи блога
-            <Icon name="BookOpen" size={18} className="ml-2 group-hover:scale-110 transition-transform" />
+            Смотреть все материалы
+            <Icon name="ArrowRight" size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
       </div>
