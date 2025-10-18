@@ -28,7 +28,12 @@ const BooksSection = () => {
                 <img 
                   src="https://cdn.poehali.dev/files/1e1c8073-4bbb-4d7a-9c51-c40fe25e52c2.png" 
                   alt="Видеокурс - Речевая креативность за 7 дней"
-                  className="rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-300 col-span-1"
+                  className="rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
+                />
+                <img 
+                  src="https://cdn.poehali.dev/files/8a1bf09b-c647-4937-8325-66b55c1ba93f.png" 
+                  alt="Антистресс-путеводитель на каждый день"
+                  className="rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
                 />
               </div>
             </div>
@@ -89,6 +94,24 @@ const BooksSection = () => {
               </CardContent>
             </Card>
 
+            <Card className="shadow-lg hover:shadow-xl transition-shadow">
+              <CardContent className="pt-4 pb-4">
+                <div className="flex gap-3">
+                  <div className="flex-shrink-0">
+                    <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-amber-500 rounded-lg flex items-center justify-center">
+                      <Icon name="Heart" size={20} className="text-white" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-bold text-lg mb-1">«Антистресс-путеводитель на каждый день»</h3>
+                    <p className="text-muted-foreground text-sm">
+                      Сборник упражнений для эмоциональной саморегуляции и управления стрессом
+                    </p>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
             <Card className="shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
               <CardContent className="pt-4 pb-4">
                 <div className="flex gap-3">
@@ -100,7 +123,7 @@ const BooksSection = () => {
                   <div>
                     <h3 className="font-bold text-lg mb-1 text-green-800">Все подарки бесплатно для участников</h3>
                     <p className="text-green-700 mb-1 text-sm">
-                      Книги и видеокурс входят в стоимость обучения и остаются с вами навсегда
+                      Все материалы входят в стоимость обучения и остаются с вами навсегда
                     </p>
                     <p className="text-sm text-green-600/80">
                       💡 Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Материалы"</a>
