@@ -183,10 +183,9 @@ const Guide = () => {
           <div className="mb-6">
             <p className="text-lg font-semibold text-gray-700 mb-3">Контакты</p>
             <p className="mb-2">📱 Телефон: +7 (918) 311-17-12</p>
-            <p className="mb-2">📧 Email: svk.pio@yandex.ru</p>
+            <p className="mb-2">📧 Email: s_kuzikova@mail.ru</p>
             <p className="mb-2">💬 Telegram: @svetlana_kuzikova</p>
             <p className="mb-2">💚 WhatsApp: +7 (918) 311-17-12</p>
-            <p className="mb-2">🌐 Сайт: kuzikova.school</p>
           </div>
           <p className="text-sm text-gray-500 mt-4">© 2024 Kuzikova School. Все права защищены.</p>
         </div>
