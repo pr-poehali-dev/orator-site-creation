@@ -89,7 +89,7 @@ const BooksSection = () => {
               </CardContent>
             </Card>
 
-            <Card className="shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-green-50 to-emerald-50">
+            <Card className="shadow-lg hover:shadow-xl transition-shadow bg-gradient-to-br from-green-50 to-emerald-50 border-2 border-green-200">
               <CardContent className="pt-6">
                 <div className="flex gap-4">
                   <div className="flex-shrink-0">
@@ -98,9 +98,12 @@ const BooksSection = () => {
                     </div>
                   </div>
                   <div>
-                    <h3 className="font-bold text-xl mb-2 text-green-800">Все подарки бесплатно</h3>
-                    <p className="text-green-700">
+                    <h3 className="font-bold text-xl mb-2 text-green-800">Все подарки бесплатно для участников</h3>
+                    <p className="text-green-700 mb-2">
                       Книги и видеокурс входят в стоимость обучения и остаются с вами навсегда
+                    </p>
+                    <p className="text-sm text-green-600/80">
+                      💡 Материалы также можно приобрести отдельно в разделе "Полезные материалы"
                     </p>
                   </div>
                 </div>
