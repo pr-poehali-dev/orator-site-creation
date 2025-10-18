@@ -178,15 +178,6 @@ const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
                           )}
                         </Button>
                       </div>
-                      <Button 
-                        onClick={handleViewGuide} 
-                        variant="outline"
-                        size="lg"
-                        className="w-full"
-                      >
-                        <Icon name="Eye" size={18} className="mr-2" />
-                        Посмотреть все правила онлайн
-                      </Button>
                     </div>
                     {error && (
                       <p className="text-red-600 text-sm mt-2 text-center">{error}</p>
