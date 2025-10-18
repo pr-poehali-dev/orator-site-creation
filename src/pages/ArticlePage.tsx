@@ -16,6 +16,7 @@ const ArticlePage = () => {
   const [viewCount, setViewCount] = useState(0);
   const [likeCount, setLikeCount] = useState(0);
   const [isLiked, setIsLiked] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -56,6 +57,19 @@ const ArticlePage = () => {
       localStorage.setItem(likedKey, 'true');
       setIsLiked(true);
     }
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setShowScrollTop(window.scrollY > 400);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   if (!article) {
@@ -392,6 +406,16 @@ const ArticlePage = () => {
 
       <Footer />
       <WhatsAppButton />
+      
+      {showScrollTop && (
+        <button
+          onClick={scrollToTop}
+          className="fixed bottom-24 right-6 z-40 p-4 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 hover:scale-110 transition-all duration-300 group"
+          aria-label="Наверх"
+        >
+          <Icon name="ArrowUp" size={24} className="group-hover:-translate-y-1 transition-transform" />
+        </button>
+      )}
     </div>
   );
 };
