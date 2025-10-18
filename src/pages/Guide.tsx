@@ -7,7 +7,7 @@ const Guide = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handlePrint = () => {
+  const handleDownload = () => {
     window.print();
   };
 
@@ -18,9 +18,9 @@ const Guide = () => {
           <Icon name="ArrowLeft" size={18} className="mr-2" />
           Назад
         </Button>
-        <Button onClick={handlePrint} size="lg" className="bg-gradient-to-r from-primary to-secondary">
-          <Icon name="Download" size={18} className="mr-2" />
-          Скачать PDF
+        <Button onClick={handleDownload} size="lg" className="bg-gradient-to-r from-primary to-secondary">
+          <Icon name="FileDown" size={18} className="mr-2" />
+          Сохранить как PDF
         </Button>
       </div>
 
