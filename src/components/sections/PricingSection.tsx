@@ -101,28 +101,10 @@ const PricingSection = () => {
           {packages.map((pkg, index) => (
             <Card 
               key={index} 
-              className={`group relative hover:shadow-2xl transition-all duration-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${
-                pkg.popular ? 'border-primary border-2 shadow-xl lg:scale-105' : ''
+              className={`group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${
+                pkg.popular ? 'border-primary border-2 shadow-xl lg:scale-105 hover:scale-[1.08]' : 'hover:scale-[1.02]'
               }`}
-              style={{ 
-                transitionDelay: `${index * 150}ms`,
-                transformStyle: 'preserve-3d'
-              }}
-              onMouseMove={(e) => {
-                const card = e.currentTarget;
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-                const rotateX = (y - centerY) / 15;
-                const rotateY = (centerX - x) / 15;
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-12px) ${pkg.popular ? 'scale(1.08)' : 'scale(1.03)'}`;
-              }}
-              onMouseLeave={(e) => {
-                const card = e.currentTarget;
-                card.style.transform = pkg.popular ? 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1.05)' : 'perspective(1000px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-              }}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-primary to-secondary rounded-full whitespace-nowrap z-10">
