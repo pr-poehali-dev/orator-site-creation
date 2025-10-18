@@ -1,7 +1,32 @@
 import { Card, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import { useEffect, useRef, useState } from 'react';
 
 const ProgramSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const program = [
     {
       title: 'Секреты ораторского искусства',
@@ -53,15 +78,21 @@ const ProgramSection = () => {
   ];
 
   return (
-    <section id="program" className="py-10 md:py-14 px-3 md:px-4">
+    <section ref={sectionRef} id="program" className="py-10 md:py-14 px-3 md:px-4">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Программа курса</h2>
-        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
-          Три основных блока для комплексного развития
-        </p>
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Программа курса</h2>
+          <p className="text-center text-muted-foreground mb-8 md:mb-12 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
+            Три основных блока для комплексного развития
+          </p>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-10 md:mb-16">
           {program.map((block, index) => (
-            <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-1">
+            <Card 
+              key={index} 
+              className={`hover:shadow-2xl transition-all hover:-translate-y-1 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 150}ms` }}
+            >
               <CardHeader className="pb-3 md:pb-4">
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-3 md:mb-4">
                   <Icon name={block.icon as any} size={24} className="text-white md:w-8 md:h-8" />
@@ -80,11 +111,15 @@ const ProgramSection = () => {
           ))}
         </div>
 
-        <div className="mt-10 md:mt-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl md:rounded-3xl p-4 md:p-8 lg:p-12 max-w-5xl mx-auto">
+        <div className={`mt-10 md:mt-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl md:rounded-3xl p-4 md:p-8 lg:p-12 max-w-5xl mx-auto transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8 text-center">После курса вы сможете</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
             {results.map((result, index) => (
-              <div key={index} className="flex items-start gap-3 md:gap-4 bg-white/70 p-3 md:p-4 rounded-xl hover:shadow-lg transition-all">
+              <div 
+                key={index} 
+                className={`flex items-start gap-3 md:gap-4 bg-white/70 p-3 md:p-4 rounded-xl hover:shadow-lg transition-all ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                style={{ transitionDelay: `${500 + index * 100}ms` }}
+              >
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
                   <Icon name={result.icon as any} size={18} className="text-white md:w-5 md:h-5" />
                 </div>

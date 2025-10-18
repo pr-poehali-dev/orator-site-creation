@@ -1,8 +1,33 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { useEffect, useRef, useState } from 'react';
 
 const TestimonialsSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const testimonials = [
     {
       name: 'Мария Савицкая',
@@ -31,16 +56,22 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-10 md:py-14 px-3 md:px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
+    <section ref={sectionRef} id="testimonials" className="py-10 md:py-14 px-3 md:px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Отзывы выпускников</h2>
-        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
-          Более 500 человек уже прошли курс и изменили свою жизнь
-        </p>
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Отзывы выпускников</h2>
+          <p className="text-center text-muted-foreground mb-8 md:mb-12 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
+            Более 500 человек уже прошли курс и изменили свою жизнь
+          </p>
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {testimonials.map((testimonial, index) => (
-            <Card key={index} className="hover:shadow-xl transition-all hover:-translate-y-1">
+            <Card 
+              key={index} 
+              className={`hover:shadow-xl transition-all hover:-translate-y-1 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              style={{ transitionDelay: `${index * 100}ms` }}
+            >
               <CardHeader className="pb-2 md:pb-3">
                 <div className="flex items-start justify-between mb-2 md:mb-3">
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
@@ -61,7 +92,7 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center space-y-6">
+        <div className={`mt-12 text-center space-y-6 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8">
             <p className="text-2xl font-bold mb-2">⭐⭐⭐⭐⭐</p>
             <p className="text-lg">

@@ -2,8 +2,33 @@ import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import { Link } from 'react-router-dom';
+import { useEffect, useRef, useState } from 'react';
 
 const ProductsSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const products = [
     {
       id: 1,
@@ -44,9 +69,9 @@ const ProductsSection = () => {
   ];
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
+    <section ref={sectionRef} className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-12">
+        <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Материалы для самостоятельного обучения
           </h2>
@@ -60,8 +85,8 @@ const ProductsSection = () => {
         </div>
 
         <div className="grid md:grid-cols-3 gap-6 mb-8">
-          {products.map((product) => (
-            <Card key={product.id} className="p-6 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-primary/20 relative group">
+          {products.map((product, index) => (
+            <Card key={product.id} className={`p-6 hover:shadow-xl transition-all duration-300 border-2 border-transparent hover:border-primary/20 relative group ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} style={{ transitionDelay: `${index * 150}ms` }}>
               {product.badge && (
                 <div className="absolute -top-3 -right-3 bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
                   {product.badge}
@@ -109,7 +134,7 @@ const ProductsSection = () => {
           ))}
         </div>
 
-        <div className="text-center">
+        <div className={`text-center transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <Link to="/materials">
             <Button variant="outline" size="lg" className="group">
               Подробнее о материалах

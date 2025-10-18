@@ -2,8 +2,33 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
+import { useEffect, useRef, useState } from 'react';
 
 const PricingSection = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current);
+      }
+    };
+  }, []);
+
   const packages = [
     {
       name: 'Базовый',
@@ -45,20 +70,23 @@ const PricingSection = () => {
   ];
 
   return (
-    <section id="pricing" className="py-14 px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5">
+    <section ref={sectionRef} id="pricing" className="py-14 px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Стоимость курса</h2>
-        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg max-w-2xl mx-auto px-4">
-          Выберите удобный для вас формат обучения
-        </p>
+        <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Стоимость курса</h2>
+          <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg max-w-2xl mx-auto px-4">
+            Выберите удобный для вас формат обучения
+          </p>
+        </div>
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
           {packages.map((pkg, index) => (
             <Card 
               key={index} 
-              className={`relative hover:shadow-2xl transition-all ${
+              className={`relative hover:shadow-2xl transition-all ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${
                 pkg.popular ? 'border-primary border-2 shadow-xl lg:scale-105' : ''
               }`}
+              style={{ transitionDelay: `${index * 150}ms` }}
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-primary to-secondary rounded-full whitespace-nowrap z-10">
@@ -106,7 +134,7 @@ const PricingSection = () => {
           ))}
         </div>
 
-        <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-3xl p-8 md:p-12 text-center">
+        <div className={`bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-3xl p-8 md:p-12 text-center transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h3 className="text-2xl md:text-3xl font-bold mb-4">Есть вопросы по программе?</h3>
           <p className="text-lg text-muted-foreground mb-6 max-w-2xl mx-auto">
             Свяжитесь с нами любым удобным способом, мы с радостью ответим на все ваши вопросы
