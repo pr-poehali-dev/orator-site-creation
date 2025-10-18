@@ -24,18 +24,18 @@ const HeroSection = () => {
             <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
               Единственный в Краснодаре курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 max-w-2xl mx-auto lg:mx-0">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto lg:mx-0 text-sm">
               <div className="flex items-center gap-2">
-                <Icon name="CheckCircle" className="text-primary" size={24} />
-                <span className="font-semibold">8 или 16 занятий</span>
+                <Icon name="CheckCircle" className="text-primary" size={20} />
+                <span className="font-semibold whitespace-nowrap">8 или 16 занятий</span>
               </div>
               <div className="flex items-center gap-2">
-                <Icon name="CheckCircle" className="text-primary" size={24} />
-                <span className="font-semibold">4 индивидуальных</span>
+                <Icon name="CheckCircle" className="text-primary" size={20} />
+                <span className="font-semibold whitespace-nowrap">4 индивидуальных</span>
               </div>
               <div className="flex items-center gap-2">
-                <Icon name="CheckCircle" className="text-primary" size={24} />
-                <span className="font-semibold">Сертификат</span>
+                <Icon name="CheckCircle" className="text-primary" size={20} />
+                <span className="font-semibold whitespace-nowrap">Сертификат</span>
               </div>
             </div>
             <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
