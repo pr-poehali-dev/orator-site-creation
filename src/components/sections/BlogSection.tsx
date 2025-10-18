@@ -9,6 +9,7 @@ const BlogSection = () => {
   const navigate = useNavigate();
   const latestArticles = [...articles].reverse().slice(0, 6);
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -21,20 +22,37 @@ const BlogSection = () => {
       { threshold: 0.1 }
     );
 
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
   return (
-    <section ref={sectionRef} className="py-14 px-4 bg-gradient-to-b from-white to-gray-50">
-      <div className="container mx-auto max-w-6xl">
+    <section ref={sectionRef} className="py-14 px-4 bg-gradient-to-b from-white to-gray-50 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute w-[600px] h-[600px] bg-gradient-to-br from-primary/8 via-secondary/8 to-orange/8 rounded-full blur-3xl top-1/4 -left-32"
+          style={{ transform: `translate3d(0, ${scrollY * 0.28}px, 0)` }}
+        />
+        <div
+          className="absolute w-[500px] h-[500px] bg-gradient-to-br from-orange/8 to-secondary/8 rounded-full blur-3xl bottom-1/4 -right-32"
+          style={{ transform: `translate3d(0, ${scrollY * -0.2}px, 0)` }}
+        />
+      </div>
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-4 animate-bounce">
             <Icon name="BookOpen" size={32} className="text-primary" />

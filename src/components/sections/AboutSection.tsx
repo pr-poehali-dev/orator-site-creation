@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -17,14 +18,21 @@ const AboutSection = () => {
       { threshold: 0.1 }
     );
 
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -103,8 +111,18 @@ const AboutSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="about" className="py-14 px-4 bg-white">
-      <div className="container mx-auto">
+    <section ref={sectionRef} id="about" className="py-14 px-4 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute w-[600px] h-[600px] bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-3xl -top-48 -right-48"
+          style={{ transform: `translate3d(0, ${scrollY * 0.2}px, 0)` }}
+        />
+        <div
+          className="absolute w-[500px] h-[500px] bg-gradient-to-br from-orange/5 to-primary/5 rounded-full blur-3xl -bottom-48 -left-48"
+          style={{ transform: `translate3d(0, ${scrollY * -0.15}px, 0)` }}
+        />
+      </div>
+      <div className="container mx-auto relative z-10">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Уникальность подхода</h2>
           <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg max-w-3xl mx-auto px-4">

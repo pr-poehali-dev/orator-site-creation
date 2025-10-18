@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
@@ -6,9 +6,33 @@ import { trackGoal, GOALS } from '@/utils/goals';
 
 const HeroSection = () => {
   const [isConsultDialogOpen, setIsConsultDialogOpen] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section className="pt-32 pb-14 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
-      <div className="container mx-auto">
+    <section className="pt-32 pb-14 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute w-[500px] h-[500px] bg-primary/10 rounded-full blur-3xl -top-32 -left-32"
+          style={{ transform: `translate3d(0, ${scrollY * 0.3}px, 0)` }}
+        />
+        <div
+          className="absolute w-[400px] h-[400px] bg-secondary/10 rounded-full blur-3xl top-20 right-0"
+          style={{ transform: `translate3d(0, ${scrollY * -0.2}px, 0)` }}
+        />
+        <div
+          className="absolute w-[300px] h-[300px] bg-orange/10 rounded-full blur-3xl bottom-0 left-1/3"
+          style={{ transform: `translate3d(0, ${scrollY * 0.15}px, 0)` }}
+        />
+      </div>
+      <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
           <div className="text-center lg:text-left">
             <div className="inline-block mb-3 md:mb-4 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-primary to-secondary rounded-full">

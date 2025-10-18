@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const PricingSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -18,14 +19,21 @@ const PricingSection = () => {
       { threshold: 0.1 }
     );
 
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -70,8 +78,18 @@ const PricingSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="pricing" className="py-14 px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5">
-      <div className="container mx-auto max-w-6xl">
+    <section ref={sectionRef} id="pricing" className="py-14 px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute w-[700px] h-[700px] bg-gradient-to-br from-primary/10 to-secondary/10 rounded-full blur-3xl -top-64 left-1/4"
+          style={{ transform: `translate3d(0, ${scrollY * 0.22}px, 0)` }}
+        />
+        <div
+          className="absolute w-[500px] h-[500px] bg-gradient-to-br from-orange/10 to-primary/10 rounded-full blur-3xl -bottom-32 right-1/4"
+          style={{ transform: `translate3d(0, ${scrollY * -0.16}px, 0)` }}
+        />
+      </div>
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Стоимость курса</h2>
           <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg max-w-2xl mx-auto px-4">

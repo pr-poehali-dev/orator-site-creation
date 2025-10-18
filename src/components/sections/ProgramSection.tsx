@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const ProgramSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
@@ -16,14 +17,21 @@ const ProgramSection = () => {
       { threshold: 0.1 }
     );
 
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
     if (sectionRef.current) {
       observer.observe(sectionRef.current);
     }
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
 
     return () => {
       if (sectionRef.current) {
         observer.unobserve(sectionRef.current);
       }
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -78,8 +86,18 @@ const ProgramSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="program" className="py-10 md:py-14 px-3 md:px-4">
-      <div className="container mx-auto max-w-6xl">
+    <section ref={sectionRef} id="program" className="py-10 md:py-14 px-3 md:px-4 relative overflow-hidden">
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div
+          className="absolute w-[550px] h-[550px] bg-gradient-to-br from-secondary/8 to-orange/8 rounded-full blur-3xl top-0 left-0"
+          style={{ transform: `translate3d(0, ${scrollY * 0.25}px, 0)` }}
+        />
+        <div
+          className="absolute w-[450px] h-[450px] bg-gradient-to-br from-primary/8 to-secondary/8 rounded-full blur-3xl bottom-0 right-0"
+          style={{ transform: `translate3d(0, ${scrollY * -0.18}px, 0)` }}
+        />
+      </div>
+      <div className="container mx-auto max-w-6xl relative z-10">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Программа курса</h2>
           <p className="text-center text-muted-foreground mb-8 md:mb-12 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
