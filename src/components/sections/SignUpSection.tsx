@@ -15,12 +15,26 @@ const SignUpSection = () => {
     e.preventDefault();
     
     try {
+      const now = new Date();
+      const timestamp = now.toLocaleString('ru-RU', { 
+        day: '2-digit', 
+        month: '2-digit', 
+        year: 'numeric',
+        hour: '2-digit', 
+        minute: '2-digit'
+      });
+
+      const messageWithTime = `⏰ Время заявки: ${timestamp}${formData.message ? '\n\n' + formData.message : ''}`;
+
       const response = await fetch('https://functions.poehali.dev/2708494c-3d0e-4905-b18f-86093217671b', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          message: messageWithTime
+        }),
       });
       
       const result = await response.json();
