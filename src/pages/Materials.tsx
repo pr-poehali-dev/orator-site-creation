@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -6,12 +6,47 @@ import { Card } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import ScrollToTop from '@/components/ui/scroll-to-top';
+import GuideModal from '@/components/materials/GuideModal';
 
 const Materials = () => {
+  const [isGuideModalOpen, setIsGuideModalOpen] = useState(false);
+  
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const handleHash = () => {
+      if (window.location.hash === '#download-guide') {
+        setIsGuideModalOpen(true);
+      }
+    };
+    
+    handleHash();
+    window.addEventListener('hashchange', handleHash);
+    return () => window.removeEventListener('hashchange', handleHash);
+  }, []);
   const materials = [
+    {
+      id: 0,
+      title: 'Бесплатный гайд «7 секретов харизматичного оратора»',
+      image: 'https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/files/a7ae11bd-c39c-4562-acc2-c3889e4bba70.jpg',
+      description: 'Семь важных правил, которые помогут сделать ваше выступление незабываемым и достичь цели. Практические советы от Школы ораторского искусства.',
+      price: 'Бесплатно',
+      features: [
+        '7 ключевых правил оратора',
+        'Техники создания харизмы',
+        'Работа с голосом и энергетикой',
+        'Секреты контакта с аудиторией',
+        'Правила постановки на публике',
+        'Готов к скачиванию в PDF'
+      ],
+      links: [
+        { label: 'Скачать бесплатно', url: '#download-guide', icon: 'Download', variant: 'default', isModal: true }
+      ],
+      bonus: 'Бесплатно для всех',
+      badge: 'Бесплатно'
+    },
     {
       id: 1,
       title: 'Книга-тренинг «Публичные выступления: 7 шагов к успеху»',
@@ -152,24 +187,40 @@ const Materials = () => {
                         <div className="text-3xl font-bold text-primary">{material.price}</div>
                       </div>
                       <div className="flex flex-col sm:flex-row gap-3">
-                        {material.links.map((link, idx) => (
-                          <a
-                            key={idx}
-                            href={link.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex-1"
-                          >
-                            <Button 
-                              className="w-full"
-                              variant={link.variant as any}
-                              size="lg"
+                        {material.links.map((link, idx) => {
+                          if ((link as any).isModal) {
+                            return (
+                              <Button
+                                key={idx}
+                                onClick={() => setIsGuideModalOpen(true)}
+                                className="flex-1"
+                                variant={link.variant as any}
+                                size="lg"
+                              >
+                                <Icon name={link.icon} size={18} className="mr-2" />
+                                {link.label}
+                              </Button>
+                            );
+                          }
+                          return (
+                            <a
+                              key={idx}
+                              href={link.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex-1"
                             >
-                              <Icon name={link.icon} size={18} className="mr-2" />
-                              {link.label}
-                            </Button>
-                          </a>
-                        ))}
+                              <Button 
+                                className="w-full"
+                                variant={link.variant as any}
+                                size="lg"
+                              >
+                                <Icon name={link.icon} size={18} className="mr-2" />
+                                {link.label}
+                              </Button>
+                            </a>
+                          );
+                        })}
                       </div>
                     </div>
                   </div>
@@ -198,6 +249,7 @@ const Materials = () => {
       <Footer />
       <WhatsAppButton />
       <ScrollToTop />
+      <GuideModal isOpen={isGuideModalOpen} onClose={() => setIsGuideModalOpen(false)} />
     </div>
   );
 };
