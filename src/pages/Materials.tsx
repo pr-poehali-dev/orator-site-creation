@@ -42,7 +42,8 @@ const Materials = () => {
         'Готов к скачиванию в PDF'
       ],
       links: [
-        { label: 'Скачать бесплатно', url: '#download-guide', icon: 'Download', variant: 'default', isModal: true }
+        { label: 'Скачать бесплатно', url: '#download-guide', icon: 'Download', variant: 'default', isModal: true },
+        { label: 'Читать онлайн', url: '/guide', icon: 'Eye', variant: 'outline' }
       ],
       bonus: 'Бесплатно для всех',
       badge: 'Бесплатно'

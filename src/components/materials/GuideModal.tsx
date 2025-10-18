@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
@@ -8,6 +9,7 @@ interface GuideModalProps {
 }
 
 const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [downloaded, setDownloaded] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -47,6 +49,11 @@ const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleViewGuide = () => {
+    onClose();
+    navigate('/guide');
   };
 
   return (
@@ -140,34 +147,45 @@ const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
                   <div className="bg-white rounded-xl p-6 text-gray-900">
                     <h4 className="text-xl font-bold mb-4 text-center">Получите полный гайд бесплатно</h4>
                     <p className="text-gray-600 mb-4 text-center">Оставьте свою почту, и мы отправим вам PDF с полной версией</p>
-                    <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-                      <input
-                        type="email"
-                        placeholder="Ваш email"
-                        value={email}
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                          setError('');
-                        }}
-                        className="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary outline-none"
-                      />
+                    <div className="flex flex-col gap-3 max-w-md mx-auto">
+                      <div className="flex flex-col sm:flex-row gap-3">
+                        <input
+                          type="email"
+                          placeholder="Ваш email"
+                          value={email}
+                          onChange={(e) => {
+                            setEmail(e.target.value);
+                            setError('');
+                          }}
+                          className="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary outline-none"
+                        />
+                        <Button 
+                          onClick={handleDownload} 
+                          size="lg" 
+                          className="whitespace-nowrap bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                          disabled={loading}
+                        >
+                          {loading ? (
+                            <>
+                              <Icon name="Loader2" size={18} className="mr-2 animate-spin" />
+                              Отправка...
+                            </>
+                          ) : (
+                            <>
+                              <Icon name="Download" size={18} className="mr-2" />
+                              Получить гайд
+                            </>
+                          )}
+                        </Button>
+                      </div>
                       <Button 
-                        onClick={handleDownload} 
-                        size="lg" 
-                        className="whitespace-nowrap bg-gradient-to-r from-primary to-secondary hover:opacity-90"
-                        disabled={loading}
+                        onClick={handleViewGuide} 
+                        variant="outline"
+                        size="lg"
+                        className="w-full"
                       >
-                        {loading ? (
-                          <>
-                            <Icon name="Loader2" size={18} className="mr-2 animate-spin" />
-                            Отправка...
-                          </>
-                        ) : (
-                          <>
-                            <Icon name="Download" size={18} className="mr-2" />
-                            Получить гайд
-                          </>
-                        )}
+                        <Icon name="Eye" size={18} className="mr-2" />
+                        Посмотреть все правила онлайн
                       </Button>
                     </div>
                     {error && (
