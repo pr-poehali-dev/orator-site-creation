@@ -13,7 +13,7 @@ const BooksSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
-            <div className="relative space-y-4">
+            <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 <img 
                   src="https://cdn.poehali.dev/files/9209eed7-dd98-462d-895f-1707e50dc481.png" 
@@ -25,12 +25,12 @@ const BooksSection = () => {
                   alt="Публичные выступления: 7 шагов к успеху"
                   className="rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
                 />
+                <img 
+                  src="https://cdn.poehali.dev/files/1e1c8073-4bbb-4d7a-9c51-c40fe25e52c2.png" 
+                  alt="Видеокурс - Речевая креативность за 7 дней"
+                  className="rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-300 col-span-1"
+                />
               </div>
-              <img 
-                src="https://cdn.poehali.dev/files/1e1c8073-4bbb-4d7a-9c51-c40fe25e52c2.png" 
-                alt="Видеокурс - Речевая креативность за 7 дней"
-                className="rounded-2xl shadow-2xl w-full h-auto object-cover hover:scale-105 transition-transform duration-300"
-              />
             </div>
           </div>
 
