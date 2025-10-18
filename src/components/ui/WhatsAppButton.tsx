@@ -4,7 +4,7 @@ const WhatsAppButton = () => {
       href="https://wa.me/79183111712"
       target="_blank"
       rel="noopener noreferrer"
-      className="fixed bottom-24 right-6 z-[9999] flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300 group"
+      className="fixed bottom-6 right-6 z-[9999] flex items-center justify-center w-16 h-16 bg-[#25D366] text-white rounded-full shadow-lg hover:shadow-2xl hover:scale-110 transition-all duration-300 group"
       aria-label="Написать в WhatsApp"
     >
       <svg 
