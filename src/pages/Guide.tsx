@@ -28,9 +28,9 @@ const Guide = () => {
         <div className="text-center mb-12 print:mb-8">
           <div className="flex items-center justify-center gap-4 mb-6">
             <img 
-              src="https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/files/1a4c70ab-a0f4-4c5a-87b6-b4abf9ea78b6.png" 
+              src="https://cdn.poehali.dev/files/ecc5e6e8-0ee3-4150-821f-c092246ec57f.png" 
               alt="Kuzikova School" 
-              className="h-16"
+              className="h-20 w-20 object-contain"
             />
           </div>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent print:text-black">
@@ -180,9 +180,14 @@ const Guide = () => {
         </div>
 
         <div className="mt-8 pt-8 border-t border-gray-200 text-center text-gray-600 print:text-sm">
-          <p className="mb-2">Телефон: +7 (912) 345-67-89</p>
-          <p className="mb-2">Email: info@kuzikova.school</p>
-          <p className="mb-2">Сайт: kuzikova.school</p>
+          <div className="mb-6">
+            <p className="text-lg font-semibold text-gray-700 mb-3">Контакты</p>
+            <p className="mb-2">📱 Телефон: +7 (918) 311-17-12</p>
+            <p className="mb-2">📧 Email: svk.pio@yandex.ru</p>
+            <p className="mb-2">💬 Telegram: @svetlana_kuzikova</p>
+            <p className="mb-2">💚 WhatsApp: +7 (918) 311-17-12</p>
+            <p className="mb-2">🌐 Сайт: kuzikova.school</p>
+          </div>
           <p className="text-sm text-gray-500 mt-4">© 2024 Kuzikova School. Все права защищены.</p>
         </div>
       </div>
