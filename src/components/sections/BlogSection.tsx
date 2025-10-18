@@ -1,8 +1,10 @@
+import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
 const BlogSection = () => {
+  const navigate = useNavigate();
   const articles = [
     {
       title: 'Как побороть страх публичных выступлений',
@@ -95,7 +97,7 @@ const BlogSection = () => {
         </div>
 
         <div className="text-center mt-12">
-          <Button size="lg" variant="outline" className="group">
+          <Button size="lg" variant="outline" className="group" onClick={() => navigate('/blog')}>
             Все статьи блога
             <Icon name="BookOpen" size={18} className="ml-2 group-hover:scale-110 transition-transform" />
           </Button>
