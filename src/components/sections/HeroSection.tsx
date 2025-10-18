@@ -65,7 +65,7 @@ const HeroSection = () => {
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
             <img 
-              src="https://cdn.poehali.dev/files/b3205ba1-dee0-4d9e-82cb-e6b4d0a97505.jpg" 
+              src="https://cdn.poehali.dev/files/cdb16129-8438-4096-836c-d31dff16e716.JPG" 
               alt="Ораторское искусство - курс в Краснодаре"
               className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
             />
