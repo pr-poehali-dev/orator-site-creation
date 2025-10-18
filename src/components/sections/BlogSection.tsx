@@ -17,7 +17,7 @@ const BlogSection = () => {
           </div>
           <h2 className="text-4xl md:text-5xl font-bold mb-4">Полезные материалы</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Практические советы и упражнения для развития ваших навыков публичных выступлений
+            Практические советы, упражнения и видео для развития ваших навыков публичных выступлений
           </p>
         </div>
 
