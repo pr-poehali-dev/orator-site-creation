@@ -126,7 +126,7 @@ const IndividualLessonsSection = () => {
                   </div>
                   <div className="flex items-start gap-2">
                     <Icon name="Monitor" size={18} className="text-primary mt-0.5" />
-                    <span className="text-sm">Формат: онлайн или очно в Москве</span>
+                    <span className="text-sm">Формат: онлайн или очно в Краснодаре</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Icon name="Calendar" size={18} className="text-primary mt-0.5" />
@@ -230,13 +230,13 @@ const IndividualLessonsSection = () => {
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="online" id="online" />
                             <Label htmlFor="online" className="font-normal cursor-pointer">
-                              Онлайн (Zoom / Skype)
+                              Онлайн (WhatsApp, Zoom, Skype и др.)
                             </Label>
                           </div>
                           <div className="flex items-center space-x-2">
                             <RadioGroupItem value="offline" id="offline" />
                             <Label htmlFor="offline" className="font-normal cursor-pointer">
-                              Оффлайн (Москва)
+                              Оффлайн (Краснодар)
                             </Label>
                           </div>
                         </RadioGroup>
