@@ -25,19 +25,19 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
           <div 
-            className="flex items-center gap-3 cursor-pointer group shrink-0" 
+            className="flex items-center gap-2 sm:gap-3 cursor-pointer group shrink-0" 
             onClick={handleLogoClick}
           >
             <img 
               src="https://cdn.poehali.dev/files/ecc5e6e8-0ee3-4150-821f-c092246ec57f.png" 
               alt="KUZIKOVA SCHOOL Logo" 
-              className="h-12 w-12 object-contain group-hover:scale-105 transition-transform"
+              className="h-10 w-10 sm:h-12 sm:w-12 object-contain group-hover:scale-105 transition-transform"
             />
-            <div className="hidden lg:block">
-              <h1 className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:from-secondary group-hover:to-primary transition-all">
-                KUZIKOVA SCHOOL
+            <div>
+              <h1 className="text-sm sm:text-base lg:text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:from-secondary group-hover:to-primary transition-all leading-tight">
+                KUZIKOVA<br className="sm:hidden" /> SCHOOL
               </h1>
-              <p className="text-xs text-muted-foreground">Школа ораторского искусства и импровизации</p>
+              <p className="hidden sm:block text-xs text-muted-foreground">Школа ораторского искусства и импровизации</p>
             </div>
           </div>
           
@@ -100,48 +100,48 @@ const Header = () => {
 
           {/* Mobile Menu Button */}
           <button 
-            className="md:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
+            className="lg:hidden p-2 hover:bg-gray-100 rounded-lg transition-colors"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Меню"
           >
-            <Icon name={isMenuOpen ? "X" : "Menu"} size={24} className="text-foreground" />
+            <Icon name={isMenuOpen ? "X" : "Menu"} size={28} className="text-foreground" />
           </button>
         </div>
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden mt-4 py-4 border-t space-y-4 animate-in slide-in-from-top">
+          <div className="lg:hidden mt-4 py-4 border-t space-y-3 animate-in slide-in-from-top">
             <a 
               href="#about" 
-              className="block text-foreground hover:text-primary transition-colors py-2"
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium"
               onClick={handleLinkClick}
             >
               О курсе
             </a>
             <a 
               href="#program" 
-              className="block text-foreground hover:text-primary transition-colors py-2"
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium"
               onClick={handleLinkClick}
             >
               Программа
             </a>
             <a 
               href="#trainer" 
-              className="block text-foreground hover:text-primary transition-colors py-2"
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium"
               onClick={handleLinkClick}
             >
               Преподаватель
             </a>
             <a 
               href="#pricing" 
-              className="block text-foreground hover:text-primary transition-colors py-2"
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium"
               onClick={handleLinkClick}
             >
               Стоимость
             </a>
             <a 
               href="#testimonials" 
-              className="block text-foreground hover:text-primary transition-colors py-2"
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium"
               onClick={handleLinkClick}
             >
               Отзывы
@@ -151,7 +151,7 @@ const Header = () => {
                 navigate('/blog');
                 handleLinkClick();
               }}
-              className="block text-foreground hover:text-primary transition-colors py-2 text-left font-medium"
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base text-left font-medium"
             >
               Блог
             </button>
@@ -160,66 +160,70 @@ const Header = () => {
                 navigate('/materials');
                 handleLinkClick();
               }}
-              className="block text-foreground hover:text-primary transition-colors py-2 text-left font-medium"
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base text-left font-medium"
             >
               Материалы
             </button>
             
-            <div className="flex gap-4 items-center pt-4 border-t">
-              <a 
-                href="https://t.me/svetlana_kuzikova" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 hover:bg-primary/10 rounded-full transition-colors"
-                aria-label="Telegram"
+            <div className="pt-4 border-t space-y-3">
+              <Button 
+                variant="outline"
+                size="lg"
+                className="w-full border-2 border-secondary text-secondary hover:bg-secondary hover:text-white" 
+                onClick={() => {
+                  handleLinkClick();
+                  setIsConsultDialogOpen(true);
+                }}
               >
-                <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
-                </svg>
-              </a>
-              <a 
-                href="https://vk.com/svetlana_kuzikova" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="p-2 hover:bg-primary/10 rounded-full transition-colors"
-                aria-label="VKontakte"
+                <Icon name="MessageCircle" size={20} className="mr-2" />
+                Бесплатная консультация
+              </Button>
+              <Button 
+                size="lg"
+                className="w-full bg-primary hover:bg-primary/90" 
+                onClick={() => {
+                  trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+                  handleLinkClick();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
               >
-                <svg className="w-6 h-6 text-primary" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.9 11.54c-.24.71-.72 1.19-1.43 1.43-1.45.39-7.29.39-7.29.39s-5.84 0-7.29-.39c-.71-.24-1.19-.72-1.43-1.43C1 12.09 1 12 1 12s0-.09.04-.54c.24-.71.72-1.19 1.43-1.43C3.92 9.64 9.76 9.64 9.76 9.64s5.84 0 7.29.39c.71.24 1.19.72 1.43 1.43.04.45.04.54.04.54s0 .09-.04.54z"/>
-                  <path d="M12.5 15.5v-7l6 3.5z"/>
-                </svg>
-              </a>
-              <a 
-                href="tel:+79183111712"
-                className="p-2 hover:bg-primary/10 rounded-full transition-colors"
-                aria-label="Телефон"
-                onClick={() => trackGoal(GOALS.PHONE_CLICK)}
-              >
-                <Icon name="Phone" size={24} className="text-primary" />
-              </a>
+                Записаться на курс
+              </Button>
+              
+              <div className="flex gap-4 items-center justify-center pt-2">
+                <a 
+                  href="https://t.me/svetlana_kuzikova" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 hover:bg-primary/10 rounded-full transition-colors"
+                  aria-label="Telegram"
+                >
+                  <svg className="w-7 h-7 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221l-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.446 1.394c-.14.18-.357.295-.6.295-.002 0-.003 0-.005 0l.213-3.054 5.56-5.022c.24-.213-.054-.334-.373-.121l-6.869 4.326-2.96-.924c-.64-.203-.658-.64.135-.954l11.566-4.458c.538-.196 1.006.128.832.941z"/>
+                  </svg>
+                </a>
+                <a 
+                  href="https://vk.com/svetlana_kuzikova" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="p-3 hover:bg-primary/10 rounded-full transition-colors"
+                  aria-label="VKontakte"
+                >
+                  <svg className="w-7 h-7 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M15.07 2H8.93C3.33 2 2 3.33 2 8.93v6.14C2 20.67 3.33 22 8.93 22h6.14c5.6 0 6.93-1.33 6.93-6.93V8.93C22 3.33 20.67 2 15.07 2zm3.9 11.54c-.24.71-.72 1.19-1.43 1.43-1.45.39-7.29.39-7.29.39s-5.84 0-7.29-.39c-.71-.24-1.19-.72-1.43-1.43C1 12.09 1 12 1 12s0-.09.04-.54c.24-.71.72-1.19 1.43-1.43C3.92 9.64 9.76 9.64 9.76 9.64s5.84 0 7.29.39c.71.24 1.19.72 1.43 1.43.04.45.04.54.04.54s0 .09-.04.54z"/>
+                    <path d="M12.5 15.5v-7l6 3.5z"/>
+                  </svg>
+                </a>
+                <a 
+                  href="tel:+79183111712"
+                  className="p-3 hover:bg-primary/10 rounded-full transition-colors"
+                  aria-label="Телефон"
+                  onClick={() => trackGoal(GOALS.PHONE_CLICK)}
+                >
+                  <Icon name="Phone" size={28} className="text-primary" />
+                </a>
+              </div>
             </div>
-
-            <Button 
-              variant="outline"
-              className="w-full border-2 border-secondary text-secondary hover:bg-secondary hover:text-white mt-4" 
-              onClick={() => {
-                handleLinkClick();
-                setIsConsultDialogOpen(true);
-              }}
-            >
-              <Icon name="MessageCircle" size={18} className="mr-2" />
-              Бесплатная консультация
-            </Button>
-            <Button 
-              className="w-full bg-primary hover:bg-primary/90 mt-3" 
-              onClick={() => {
-                trackGoal(GOALS.COURSE_SIGNUP_CLICK);
-                handleLinkClick();
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-              }}
-            >
-              Записаться на курс
-            </Button>
           </div>
         )}
       </div>
