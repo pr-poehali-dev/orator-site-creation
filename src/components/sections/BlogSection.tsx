@@ -2,53 +2,10 @@ import { useNavigate } from 'react-router-dom';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import { articles } from '@/data/articles';
 
 const BlogSection = () => {
   const navigate = useNavigate();
-  const articles = [
-    {
-      title: 'Как побороть страх публичных выступлений',
-      description: 'Практические советы и упражнения для преодоления волнения перед аудиторией',
-      category: 'Психология',
-      readTime: '5 мин',
-      icon: 'Heart'
-    },
-    {
-      title: '10 упражнений для развития голоса',
-      description: 'Эффективные техники для улучшения дикции и силы голоса',
-      category: 'Практика',
-      readTime: '7 мин',
-      icon: 'Mic'
-    },
-    {
-      title: 'Секреты убедительной речи',
-      description: 'Как структурировать выступление, чтобы зацепить слушателей',
-      category: 'Риторика',
-      readTime: '6 мин',
-      icon: 'MessageCircle'
-    },
-    {
-      title: 'Невербальное общение в публичных выступлениях',
-      description: 'Язык тела, жесты и мимика — как использовать их правильно',
-      category: 'Техника',
-      readTime: '8 мин',
-      icon: 'Users'
-    },
-    {
-      title: 'Как готовиться к важному выступлению',
-      description: 'Пошаговый план подготовки к презентации или докладу',
-      category: 'Подготовка',
-      readTime: '10 мин',
-      icon: 'BookOpen'
-    },
-    {
-      title: 'Импровизация в публичной речи',
-      description: 'Техники быстрого мышления и умение отвечать на неожиданные вопросы',
-      category: 'Мастерство',
-      readTime: '6 мин',
-      icon: 'Zap'
-    }
-  ];
 
   return (
     <section className="py-14 px-4 bg-gradient-to-b from-white to-gray-50">
@@ -61,8 +18,12 @@ const BlogSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {articles.map((article, index) => (
-            <Card key={index} className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group">
+          {articles.slice(0, 6).map((article) => (
+            <Card 
+              key={article.id} 
+              className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group"
+              onClick={() => navigate(`/blog/${article.id}`)}
+            >
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-4">
                   <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
