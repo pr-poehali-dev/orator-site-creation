@@ -19,9 +19,10 @@ const ProductsSection = () => {
     },
     {
       id: 2,
-      title: 'Речевая креативность',
-      description: 'Электронная рабочая тетрадь. Развитие креативного мышления и импровизации',
-      price: '490 ₽',
+      title: 'Книга-тренинг «Речевая креативность»',
+      description: 'Электронная книга. Развитие креативного мышления и импровизации',
+      price: '300 ₽',
+      oldPrice: '450 ₽',
       links: [
         { label: 'Купить', url: 'http://kuzikova.robo.market/buy/133929/', icon: 'ShoppingCart' }
       ],
