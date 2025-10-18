@@ -8,6 +8,7 @@ import TrainerSection from '@/components/sections/TrainerSection';
 import BooksSection from '@/components/sections/BooksSection';
 import VideoSection from '@/components/sections/VideoSection';
 import PricingSection from '@/components/sections/PricingSection';
+import IndividualLessonsSection from '@/components/sections/IndividualLessonsSection';
 import ScheduleSection from '@/components/sections/ScheduleSection';
 import GallerySection from '@/components/sections/GallerySection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
@@ -34,6 +35,7 @@ const Index = () => {
       <BooksSection />
       <VideoSection />
       <PricingSection />
+      <IndividualLessonsSection />
       <ScheduleSection />
       <GallerySection />
       <TestimonialsSection />
