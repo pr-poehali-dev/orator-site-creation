@@ -2,7 +2,7 @@ User-agent: *
 Allow: /
 
 # Карта сайта
-Sitemap: https://kuzikova-school.ru/sitemap.xml
+Sitemap: https://orator-site-creation--preview.poehali.dev/sitemap.xml
 
 # Яндекс
 User-agent: Yandex
