@@ -1,114 +1,18 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
+import { articles } from '@/data/articles';
 
 const Blog = () => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState('Все');
 
   const categories = ['Все', 'Психология', 'Практика', 'Риторика', 'Техника', 'Подготовка', 'Мастерство'];
-
-  const articles = [
-    {
-      title: 'Как побороть страх публичных выступлений',
-      description: 'Практические советы и упражнения для преодоления волнения перед аудиторией. Узнайте, как справиться с тревогой и выступать уверенно.',
-      category: 'Психология',
-      readTime: '5 мин',
-      icon: 'Heart',
-      date: '15 октября 2024'
-    },
-    {
-      title: '10 упражнений для развития голоса',
-      description: 'Эффективные техники для улучшения дикции и силы голоса. Ежедневные упражнения для развития речевого аппарата.',
-      category: 'Практика',
-      readTime: '7 мин',
-      icon: 'Mic',
-      date: '12 октября 2024'
-    },
-    {
-      title: 'Секреты убедительной речи',
-      description: 'Как структурировать выступление, чтобы зацепить слушателей. Приемы аргументации и композиция речи.',
-      category: 'Риторика',
-      readTime: '6 мин',
-      icon: 'MessageCircle',
-      date: '8 октября 2024'
-    },
-    {
-      title: 'Невербальное общение в публичных выступлениях',
-      description: 'Язык тела, жесты и мимика — как использовать их правильно. Создавайте нужное впечатление через невербалику.',
-      category: 'Техника',
-      readTime: '8 мин',
-      icon: 'Users',
-      date: '5 октября 2024'
-    },
-    {
-      title: 'Как готовиться к важному выступлению',
-      description: 'Пошаговый план подготовки к презентации или докладу. От анализа аудитории до репетиции.',
-      category: 'Подготовка',
-      readTime: '10 мин',
-      icon: 'BookOpen',
-      date: '1 октября 2024'
-    },
-    {
-      title: 'Импровизация в публичной речи',
-      description: 'Техники быстрого мышления и умение отвечать на неожиданные вопросы. Развивайте спонтанность в речи.',
-      category: 'Мастерство',
-      readTime: '6 мин',
-      icon: 'Zap',
-      date: '28 сентября 2024'
-    },
-    {
-      title: 'Работа с возражениями аудитории',
-      description: 'Как правильно реагировать на сложные вопросы и критику. Превращайте возражения в диалог.',
-      category: 'Мастерство',
-      readTime: '7 мин',
-      icon: 'Shield',
-      date: '25 сентября 2024'
-    },
-    {
-      title: 'Дыхательные упражнения для оратора',
-      description: 'Правильное дыхание — основа сильного голоса. Техники диафрагмального дыхания и контроля выдоха.',
-      category: 'Практика',
-      readTime: '5 мин',
-      icon: 'Wind',
-      date: '22 сентября 2024'
-    },
-    {
-      title: 'Как удерживать внимание аудитории',
-      description: 'Приемы вовлечения слушателей на протяжении всего выступления. Работа с энергией зала.',
-      category: 'Риторика',
-      readTime: '8 мин',
-      icon: 'Eye',
-      date: '18 сентября 2024'
-    },
-    {
-      title: 'Преодоление синдрома самозванца',
-      description: 'Психологические техники для повышения уверенности в себе как спикере. Работа с внутренним критиком.',
-      category: 'Психология',
-      readTime: '6 мин',
-      icon: 'Award',
-      date: '15 сентября 2024'
-    },
-    {
-      title: 'Техника storytelling в публичных выступлениях',
-      description: 'Как рассказывать истории, которые запоминаются. Структура повествования и эмоциональные якоря.',
-      category: 'Риторика',
-      readTime: '9 мин',
-      icon: 'BookMarked',
-      date: '10 сентября 2024'
-    },
-    {
-      title: 'Подготовка голоса перед выступлением',
-      description: 'Разминка речевого аппарата: что делать за час до выхода на сцену. Практические упражнения.',
-      category: 'Подготовка',
-      readTime: '4 мин',
-      icon: 'Timer',
-      date: '5 сентября 2024'
-    }
-  ];
 
   const filteredArticles = selectedCategory === 'Все' 
     ? articles 
@@ -148,7 +52,11 @@ const Blog = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredArticles.map((article, index) => (
-              <Card key={index} className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group">
+              <Card 
+                key={index} 
+                onClick={() => navigate(`/blog/${article.id}`)}
+                className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group"
+              >
                 <CardContent className="p-6">
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
