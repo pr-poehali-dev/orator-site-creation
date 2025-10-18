@@ -30,7 +30,7 @@ const Materials = () => {
     {
       id: 0,
       title: 'Бесплатный гайд «7 секретов харизматичного оратора»',
-      image: 'https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/files/a7ae11bd-c39c-4562-acc2-c3889e4bba70.jpg',
+      image: 'https://cdn.poehali.dev/files/20421d46-9aee-4297-9bcb-ab517acb9812.PNG',
       description: 'Семь важных правил, которые помогут сделать ваше выступление незабываемым и достичь цели. Практические советы от Школы ораторского искусства.',
       price: 'Бесплатно',
       features: [
