@@ -162,10 +162,14 @@ const ArticlePage = () => {
               <div className="flex-1 text-center md:text-left">
                 <h3 className="text-2xl font-bold mb-2">Хотите узнать больше?</h3>
                 <p className="text-muted-foreground mb-4">
-                  Запишитесь на курс ораторского мастерства и получите практические навыки от Светланы Кузиковой
+                  Запишитесь на бесплатный урок и получите практические навыки от Светланы Кузиковой
                 </p>
-                <Button size="lg" className="group">
-                  Записаться на курс
+                <Button 
+                  size="lg" 
+                  className="group"
+                  onClick={() => window.open('https://kuzikova.com/urok', '_blank')}
+                >
+                  Записаться на бесплатный урок
                   <Icon name="ArrowRight" size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </div>
