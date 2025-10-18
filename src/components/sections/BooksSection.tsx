@@ -103,7 +103,7 @@ const BooksSection = () => {
                       Книги и видеокурс входят в стоимость обучения и остаются с вами навсегда
                     </p>
                     <p className="text-sm text-green-600/80">
-                      💡 Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Книги и курсы"</a>
+                      💡 Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Материалы"</a>
                     </p>
                   </div>
                 </div>
