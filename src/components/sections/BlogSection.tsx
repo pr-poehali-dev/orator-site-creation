@@ -15,9 +15,9 @@ const BlogSection = () => {
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-4">
             <Icon name="BookOpen" size={32} className="text-primary" />
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Полезные материалы</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">Блог</h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Практические советы, упражнения и видео для развития ваших навыков публичных выступлений
+            Бесплатные статьи, видео и упражнения для развития навыков публичных выступлений
           </p>
         </div>
 
@@ -63,7 +63,7 @@ const BlogSection = () => {
 
         <div className="text-center mt-12">
           <Button size="lg" variant="outline" className="group" onClick={() => navigate('/blog')}>
-            Смотреть все материалы
+            Все статьи блога
             <Icon name="ArrowRight" size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
         </div>
