@@ -10,11 +10,43 @@ interface GuideModalProps {
 const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
   const [email, setEmail] = useState('');
   const [downloaded, setDownloaded] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
 
   if (!isOpen) return null;
 
-  const handleDownload = () => {
-    setDownloaded(true);
+  const handleDownload = async () => {
+    if (!email || !email.includes('@')) {
+      setError('Введите корректный email');
+      return;
+    }
+
+    setLoading(true);
+    setError('');
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/2708494c-3d0e-4905-b18f-86093217671b', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: 'Заявка на гайд',
+          email: email,
+          message: 'Запросил бесплатный гайд "7 секретов харизматичного оратора"'
+        }),
+      });
+
+      if (response.ok) {
+        setDownloaded(true);
+      } else {
+        setError('Произошла ошибка. Попробуйте позже.');
+      }
+    } catch (err) {
+      setError('Произошла ошибка. Попробуйте позже.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -174,20 +206,40 @@ const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
                   type="email"
                   placeholder="Ваш email"
                   value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                    setError('');
+                  }}
                   className="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary outline-none"
                 />
-                <Button onClick={handleDownload} size="lg" className="whitespace-nowrap">
-                  <Icon name="Download" size={18} className="mr-2" />
-                  Скачать гайд
+                <Button 
+                  onClick={handleDownload} 
+                  size="lg" 
+                  className="whitespace-nowrap"
+                  disabled={loading}
+                >
+                  {loading ? (
+                    <>
+                      <Icon name="Loader2" size={18} className="mr-2 animate-spin" />
+                      Отправка...
+                    </>
+                  ) : (
+                    <>
+                      <Icon name="Download" size={18} className="mr-2" />
+                      Скачать гайд
+                    </>
+                  )}
                 </Button>
               </div>
+              {error && (
+                <p className="text-red-600 text-sm mt-2 text-center">{error}</p>
+              )}
             </div>
           ) : (
             <div className="bg-green-50 rounded-xl p-6 text-center border-2 border-green-200">
               <Icon name="CheckCircle2" size={48} className="text-green-600 mx-auto mb-3" />
               <h3 className="text-xl font-bold text-green-700 mb-2">Спасибо!</h3>
-              <p className="text-gray-700">Гайд отправлен на вашу почту. Проверьте входящие письма.</p>
+              <p className="text-gray-700">Ваша заявка принята! Мы свяжемся с вами и отправим гайд на указанную почту.</p>
             </div>
           )}
         </div>
