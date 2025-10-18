@@ -11,8 +11,8 @@ const HeroSection = () => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
           <div className="text-center lg:text-left">
-            <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
-              <span className="text-white font-semibold text-sm">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
+            <div className="inline-block mb-3 md:mb-4 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
+              <span className="text-white font-semibold text-xs sm:text-sm">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-5 leading-tight">
               <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
@@ -24,7 +24,7 @@ const HeroSection = () => {
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-5 md:mb-6 max-w-2xl mx-auto lg:mx-0 px-2 lg:px-0">
               Единственный в Краснодаре курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 max-w-2xl mx-auto lg:mx-0 text-base">
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-5 md:mb-6 max-w-2xl mx-auto lg:mx-0 text-sm md:text-base">
               <div className="flex items-center gap-2">
                 <Icon name="CheckCircle" className="text-primary" size={22} />
                 <span className="font-semibold whitespace-nowrap">8 или 16 занятий</span>

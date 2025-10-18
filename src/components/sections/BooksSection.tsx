@@ -3,18 +3,18 @@ import Icon from '@/components/ui/icon';
 
 const BooksSection = () => {
   return (
-    <section className="py-12 px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5">
+    <section className="py-8 md:py-12 px-3 md:px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-2 md:mb-3">Подарки участникам</h2>
         <p className="text-center text-muted-foreground mb-6 md:mb-8 max-w-3xl mx-auto px-4 text-sm md:text-base">
           Каждый участник курса получает ценные бонусы: электронные книги и видеокурс от Светланы Кузиковой
         </p>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 md:gap-6 items-start">
           <div className="relative">
             <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
             <div className="relative">
-              <div className="grid grid-cols-2 gap-4 mb-4">
+              <div className="grid grid-cols-2 gap-2 md:gap-4 mb-3 md:mb-4">
                 <img 
                   src="https://cdn.poehali.dev/files/9209eed7-dd98-462d-895f-1707e50dc481.png" 
                   alt="Рабочая тетрадь - Речевая креативность"
@@ -43,7 +43,7 @@ const BooksSection = () => {
             </div>
           </div>
 
-          <div className="space-y-4">
+          <div className="space-y-3 md:space-y-4">
             <Card className="shadow-lg hover:shadow-xl transition-shadow">
               <CardContent className="pt-4 pb-4">
                 <div className="flex gap-3">

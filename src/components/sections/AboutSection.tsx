@@ -84,17 +84,17 @@ const AboutSection = () => {
         <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg max-w-3xl mx-auto px-4">
           Курс ведёт <span className="font-bold text-primary">Светлана Алексеевна Кузикова</span> — театральный режиссёр и профессиональный психолог
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-6xl mx-auto mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto mb-12 md:mb-16">
           {uniqueApproach.map((item, index) => (
             <Card key={index} className="text-center hover:shadow-xl transition-all hover:-translate-y-2">
-              <CardHeader>
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name={item.icon as any} size={32} className="text-white" />
+              <CardHeader className="pb-3">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4">
+                  <Icon name={item.icon as any} size={24} className="text-white md:w-8 md:h-8" />
                 </div>
-                <CardTitle className="text-xl">{item.title}</CardTitle>
+                <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground">{item.description}</p>
+              <CardContent className="pt-0">
+                <p className="text-sm md:text-base text-muted-foreground">{item.description}</p>
               </CardContent>
             </Card>
           ))}

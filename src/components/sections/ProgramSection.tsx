@@ -53,22 +53,22 @@ const ProgramSection = () => {
   ];
 
   return (
-    <section id="program" className="py-14 px-4">
+    <section id="program" className="py-10 md:py-14 px-3 md:px-4">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Программа курса</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Программа курса</h2>
+        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
           Три основных блока для комплексного развития
         </p>
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 mb-10 md:mb-16">
           {program.map((block, index) => (
             <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-1">
-              <CardHeader className="pb-4">
-                <div className="w-16 h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-4">
-                  <Icon name={block.icon as any} size={32} className="text-white" />
+              <CardHeader className="pb-3 md:pb-4">
+                <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-primary to-secondary rounded-xl flex items-center justify-center mb-3 md:mb-4">
+                  <Icon name={block.icon as any} size={24} className="text-white md:w-8 md:h-8" />
                 </div>
-                <CardTitle className="text-2xl mb-4">{block.title}</CardTitle>
+                <CardTitle className="text-lg md:text-xl lg:text-2xl mb-3 md:mb-4">{block.title}</CardTitle>
               </CardHeader>
-              <div className="px-6 pb-6 space-y-3">
+              <div className="px-4 md:px-6 pb-4 md:pb-6 space-y-2 md:space-y-3">
                 {block.items.map((item, itemIndex) => (
                   <div key={itemIndex} className="flex items-start gap-2">
                     <Icon name="Check" size={18} className="text-primary flex-shrink-0 mt-0.5" />
@@ -80,15 +80,15 @@ const ProgramSection = () => {
           ))}
         </div>
 
-        <div className="mt-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-3xl p-8 md:p-12 max-w-5xl mx-auto">
-          <h3 className="text-3xl md:text-4xl font-bold mb-8 text-center">После курса вы сможете</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="mt-10 md:mt-16 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-2xl md:rounded-3xl p-4 md:p-8 lg:p-12 max-w-5xl mx-auto">
+          <h3 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-6 md:mb-8 text-center">После курса вы сможете</h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-6">
             {results.map((result, index) => (
-              <div key={index} className="flex items-start gap-4 bg-white/70 p-4 rounded-xl hover:shadow-lg transition-all">
-                <div className="w-10 h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Icon name={result.icon as any} size={20} className="text-white" />
+              <div key={index} className="flex items-start gap-3 md:gap-4 bg-white/70 p-3 md:p-4 rounded-xl hover:shadow-lg transition-all">
+                <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Icon name={result.icon as any} size={18} className="text-white md:w-5 md:h-5" />
                 </div>
-                <p className="text-lg font-medium mt-1.5">{result.text}</p>
+                <p className="text-sm md:text-base lg:text-lg font-medium mt-1 md:mt-1.5">{result.text}</p>
               </div>
             ))}
           </div>

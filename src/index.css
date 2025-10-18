@@ -107,6 +107,13 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Open Sans", sans-serif;
+    font-size: 14px;
+  }
+
+  @media (min-width: 640px) {
+    body {
+      font-size: 16px;
+    }
   }
 
   h1,
@@ -116,6 +123,13 @@
   h5,
   h6 {
     font-family: "Montserrat", sans-serif;
+  }
+
+  @media (max-width: 374px) {
+    .container {
+      padding-left: 0.75rem;
+      padding-right: 0.75rem;
+    }
   }
 }
 

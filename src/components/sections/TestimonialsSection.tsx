@@ -31,20 +31,20 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section id="testimonials" className="py-14 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
+    <section id="testimonials" className="py-10 md:py-14 px-3 md:px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Отзывы выпускников</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Отзывы выпускников</h2>
+        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
           Более 500 человек уже прошли курс и изменили свою жизнь
         </p>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="hover:shadow-xl transition-all hover:-translate-y-1">
-              <CardHeader className="pb-3">
-                <div className="flex items-start justify-between mb-3">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
-                    <Icon name="User" size={24} className="text-white" />
+              <CardHeader className="pb-2 md:pb-3">
+                <div className="flex items-start justify-between mb-2 md:mb-3">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center">
+                    <Icon name="User" size={20} className="text-white md:w-6 md:h-6" />
                   </div>
                   <div className="flex gap-1">
                     {[...Array(5)].map((_, i) => (
@@ -52,10 +52,10 @@ const TestimonialsSection = () => {
                     ))}
                   </div>
                 </div>
-                <CardTitle className="text-lg">{testimonial.name}</CardTitle>
+                <CardTitle className="text-base md:text-lg">{testimonial.name}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="text-muted-foreground leading-relaxed">{testimonial.text}</p>
+              <CardContent className="pt-0">
+                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{testimonial.text}</p>
               </CardContent>
             </Card>
           ))}

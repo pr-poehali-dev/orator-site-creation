@@ -4,7 +4,7 @@ import VisitorCounter from '@/components/VisitorCounter';
 
 const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-white py-12 px-4">
+    <footer className="bg-gray-900 text-white py-8 md:py-12 px-3 md:px-4">
       <div className="container mx-auto">
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 md:gap-3 mb-3 md:mb-4">
@@ -20,8 +20,8 @@ const Footer = () => {
               <p className="text-sm text-gray-400">Школа ораторского искусства и импровизации</p>
             </div>
           </div>
-          <p className="text-gray-400 mb-6">Уникальный ораторский курс в Краснодаре от театрального режиссера и психолога</p>
-          <div className="flex justify-center gap-6 mb-6">
+          <p className="text-sm md:text-base text-gray-400 mb-4 md:mb-6 px-2">Уникальный ораторский курс в Краснодаре от театрального режиссера и психолога</p>
+          <div className="flex justify-center gap-4 md:gap-6 mb-4 md:mb-6">
             <a 
               href="https://t.me/svetlana_kuzikova" 
               target="_blank" 

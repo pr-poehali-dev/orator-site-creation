@@ -22,8 +22,8 @@ const Header = () => {
 
   return (
     <nav className="fixed top-0 w-full bg-white/95 backdrop-blur-sm shadow-sm z-50">
-      <div className="container mx-auto px-4 py-4">
-        <div className="flex items-center justify-between gap-8">
+      <div className="container mx-auto px-3 md:px-4 py-3 md:py-4">
+        <div className="flex items-center justify-between gap-3 md:gap-8">
           <div 
             className="flex items-center gap-2 sm:gap-3 cursor-pointer group shrink-0" 
             onClick={handleLogoClick}
@@ -31,13 +31,13 @@ const Header = () => {
             <img 
               src="https://cdn.poehali.dev/files/ecc5e6e8-0ee3-4150-821f-c092246ec57f.png" 
               alt="KUZIKOVA SCHOOL Logo" 
-              className="h-10 w-10 sm:h-12 sm:w-12 object-contain group-hover:scale-105 transition-transform"
+              className="h-9 w-9 sm:h-10 sm:w-10 md:h-12 md:w-12 object-contain group-hover:scale-105 transition-transform"
             />
             <div>
-              <h1 className="text-sm sm:text-base lg:text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:from-secondary group-hover:to-primary transition-all leading-tight">
+              <h1 className="text-xs sm:text-sm md:text-base lg:text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent group-hover:from-secondary group-hover:to-primary transition-all leading-tight">
                 KUZIKOVA<br className="sm:hidden" /> SCHOOL
               </h1>
-              <p className="hidden sm:block text-xs text-muted-foreground">Школа ораторского искусства и импровизации</p>
+              <p className="hidden sm:block text-[10px] md:text-xs text-muted-foreground">Школа ораторского искусства и импровизации</p>
             </div>
           </div>
           

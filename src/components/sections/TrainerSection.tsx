@@ -52,7 +52,7 @@ const TrainerSection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center mb-8 md:mb-12">
           <div className="flex justify-center">
             <div className="relative max-w-md w-full">
               <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-2xl"></div>
@@ -66,13 +66,13 @@ const TrainerSection = () => {
           
           <div>
             
-            <div className="space-y-4">
+            <div className="space-y-3 md:space-y-4">
               {achievements.map((item, index) => (
-                <div key={index} className="flex items-start gap-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
-                    <Icon name={item.icon as any} size={24} className="text-white" />
+                <div key={index} className="flex items-start gap-3 md:gap-4">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Icon name={item.icon as any} size={20} className="text-white md:w-6 md:h-6" />
                   </div>
-                  <p className="text-lg pt-2">{item.text}</p>
+                  <p className="text-sm md:text-base lg:text-lg pt-1 md:pt-2">{item.text}</p>
                 </div>
               ))}
             </div>

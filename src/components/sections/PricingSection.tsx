@@ -52,27 +52,27 @@ const PricingSection = () => {
           Выберите удобный для вас формат обучения
         </p>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
           {packages.map((pkg, index) => (
             <Card 
               key={index} 
               className={`relative hover:shadow-2xl transition-all ${
-                pkg.popular ? 'border-primary border-2 shadow-xl scale-105' : ''
+                pkg.popular ? 'border-primary border-2 shadow-xl lg:scale-105' : ''
               }`}
             >
               {pkg.popular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 px-6 py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
-                  <span className="text-white font-bold text-sm">🔥 ПОПУЛЯРНЫЙ</span>
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-primary to-secondary rounded-full whitespace-nowrap z-10">
+                  <span className="text-white font-bold text-xs sm:text-sm">🔥 ПОПУЛЯРНЫЙ</span>
                 </div>
               )}
-              <CardHeader className="text-center pb-4">
-                <CardTitle className="text-2xl md:text-3xl mb-2">{pkg.name}</CardTitle>
+              <CardHeader className="text-center pb-4 pt-6">
+                <CardTitle className="text-xl sm:text-2xl md:text-3xl mb-2">{pkg.name}</CardTitle>
                 {pkg.subtitle && <p className="text-base md:text-lg font-semibold text-primary mb-2">{pkg.subtitle}</p>}
                 <CardDescription className="text-base md:text-lg">{pkg.duration}</CardDescription>
                 <div className="mt-4 md:mt-6">
                   <div className="flex items-center justify-center gap-2 md:gap-3 mb-2">
-                    <span className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary">{pkg.price}</span>
-                    <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>
+                    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">{pkg.price}</span>
+                    <span className="text-lg sm:text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>
                   </div>
                   <p className="text-sm text-muted-foreground">Возможна оплата в 2 этапа</p>
                 </div>
@@ -87,7 +87,7 @@ const PricingSection = () => {
                   ))}
                 </ul>
                 <Button 
-                  className={`w-full py-6 text-lg ${
+                  className={`w-full py-5 md:py-6 text-base md:text-lg ${
                     pkg.popular 
                       ? 'bg-gradient-to-r from-primary to-secondary hover:opacity-90' 
                       : 'bg-primary hover:bg-primary/90'

@@ -39,13 +39,13 @@ const ScheduleSection = () => {
           Выберите удобное время и запишитесь уже сегодня
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {courses.map((course, index) => (
             <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2">
               <CardHeader className={`bg-gradient-to-r ${course.color} text-white rounded-t-lg pb-4 md:pb-6`}>
                 <CardTitle className="text-lg md:text-xl">{course.name}</CardTitle>
               </CardHeader>
-              <CardContent className="pt-6 space-y-4">
+              <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-sm md:text-base">
                 <div className="flex items-start gap-3">
                   <Icon name="Calendar" size={20} className="text-primary mt-1 flex-shrink-0" />
                   <div>

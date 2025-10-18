@@ -134,7 +134,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
   };
 
   return (
-    <section className="py-12 px-4 bg-white" id="individual">
+    <section className="py-8 md:py-12 px-3 md:px-4 bg-white" id="individual">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-3">Индивидуальные занятия</h2>
@@ -144,7 +144,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4 mb-6 md:mb-8">
           {services.map((service, index) => (
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardContent className="p-4 text-center">
@@ -159,7 +159,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
         </div>
 
         <Card className="bg-gradient-to-r from-primary/5 to-purple-50 border-primary/20">
-          <CardContent className="p-6 md:p-8">
+          <CardContent className="p-4 md:p-6 lg:p-8">
             <div className="grid md:grid-cols-2 gap-6 items-center">
               <div>
                 <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Стоимость занятия</h3>
