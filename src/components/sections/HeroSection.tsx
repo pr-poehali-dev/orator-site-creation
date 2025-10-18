@@ -9,39 +9,39 @@ const HeroSection = () => {
   return (
     <section className="pt-32 pb-14 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
           <div className="text-center lg:text-left">
             <div className="inline-block mb-4 px-4 py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
               <span className="text-white font-semibold text-sm">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
             </div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-5 leading-tight">
               <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                 Ораторское искусство
               </span>
               <br />
-              <span className="text-foreground text-3xl md:text-4xl">«Своя игра»</span>
+              <span className="text-foreground text-3xl md:text-4xl lg:text-5xl">«Своя игра»</span>
             </h2>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto lg:mx-0">
+            <p className="text-lg md:text-xl text-muted-foreground mb-6 max-w-2xl mx-auto lg:mx-0">
               Единственный в Краснодаре курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником
             </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto lg:mx-0 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6 max-w-2xl mx-auto lg:mx-0 text-base">
               <div className="flex items-center gap-2">
-                <Icon name="CheckCircle" className="text-primary" size={20} />
+                <Icon name="CheckCircle" className="text-primary" size={22} />
                 <span className="font-semibold whitespace-nowrap">8 или 16 занятий</span>
               </div>
               <div className="flex items-center gap-2">
-                <Icon name="CheckCircle" className="text-primary" size={20} />
+                <Icon name="CheckCircle" className="text-primary" size={22} />
                 <span className="font-semibold whitespace-nowrap">4 индивидуальных</span>
               </div>
               <div className="flex items-center gap-2">
-                <Icon name="CheckCircle" className="text-primary" size={20} />
+                <Icon name="CheckCircle" className="text-primary" size={22} />
                 <span className="font-semibold whitespace-nowrap">Сертификат</span>
               </div>
             </div>
             <div className="flex gap-3 justify-center lg:justify-start">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-base px-6 py-6 whitespace-nowrap"
+                className="bg-primary hover:bg-primary/90 text-base sm:text-lg px-6 py-6 whitespace-nowrap"
                 onClick={() => {
                   trackGoal(GOALS.COURSE_SIGNUP_CLICK);
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -53,7 +53,7 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-base px-6 py-6 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all whitespace-nowrap"
+                className="text-base sm:text-lg px-6 py-6 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all whitespace-nowrap"
                 onClick={() => setIsConsultDialogOpen(true)}
               >
                 <Icon name="MessageCircle" size={18} className="mr-2" />
@@ -62,13 +62,15 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="relative">
-            <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
-            <img 
-              src="https://cdn.poehali.dev/files/cdb16129-8438-4096-836c-d31dff16e716.JPG" 
-              alt="Ораторское искусство - курс в Краснодаре"
-              className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
-            />
+          <div className="relative flex justify-center lg:justify-end">
+            <div className="relative max-w-md w-full">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
+              <img 
+                src="https://cdn.poehali.dev/files/cdb16129-8438-4096-836c-d31dff16e716.JPG" 
+                alt="Ораторское искусство - курс в Краснодаре"
+                className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
+              />
+            </div>
           </div>
         </div>
       </div>
