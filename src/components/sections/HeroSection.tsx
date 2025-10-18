@@ -38,25 +38,25 @@ const HeroSection = () => {
                 <span className="font-semibold whitespace-nowrap">Сертификат</span>
               </div>
             </div>
-            <div className="flex gap-4 justify-center lg:justify-start flex-wrap">
+            <div className="flex gap-3 justify-center lg:justify-start">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-lg px-8 py-6"
+                className="bg-primary hover:bg-primary/90 text-base px-6 py-6 whitespace-nowrap"
                 onClick={() => {
                   trackGoal(GOALS.COURSE_SIGNUP_CLICK);
                   document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                 }}
               >
-                <Icon name="Sparkles" size={20} className="mr-2" />
+                <Icon name="Sparkles" size={18} className="mr-2" />
                 Записаться на курс
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="text-lg px-8 py-6 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all"
+                className="text-base px-6 py-6 border-2 border-secondary text-secondary hover:bg-secondary hover:text-white transition-all whitespace-nowrap"
                 onClick={() => setIsConsultDialogOpen(true)}
               >
-                <Icon name="MessageCircle" size={20} className="mr-2" />
+                <Icon name="MessageCircle" size={18} className="mr-2" />
                 Бесплатная консультация
               </Button>
             </div>
