@@ -48,6 +48,7 @@ const Header = () => {
             <a href="#trainer" className="text-foreground hover:text-primary transition-colors">Преподаватель</a>
             <a href="#pricing" className="text-foreground hover:text-primary transition-colors">Стоимость</a>
             <a href="#testimonials" className="text-foreground hover:text-primary transition-colors">Отзывы</a>
+            <button onClick={() => navigate('/blog')} className="text-foreground hover:text-primary transition-colors font-medium">Блог</button>
             <button onClick={() => navigate('/materials')} className="text-foreground hover:text-primary transition-colors font-medium">Материалы</button>
             <div className="flex gap-2 items-center border-l pl-4">
               <a 
@@ -144,6 +145,15 @@ const Header = () => {
             >
               Отзывы
             </a>
+            <button 
+              onClick={() => {
+                navigate('/blog');
+                handleLinkClick();
+              }}
+              className="block text-foreground hover:text-primary transition-colors py-2 text-left font-medium"
+            >
+              Блог
+            </button>
             <button 
               onClick={() => {
                 navigate('/materials');
