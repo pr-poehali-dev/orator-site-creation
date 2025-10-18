@@ -14,7 +14,7 @@ const Blog = () => {
   const [selectedCategory, setSelectedCategory] = useState('Все');
   const [searchQuery, setSearchQuery] = useState('');
 
-  const categories = ['Все', 'Психология', 'Практика', 'Риторика', 'Техника', 'Подготовка', 'Мастерство'];
+  const categories = ['Все', 'Видео', 'Психология', 'Практика', 'Риторика', 'Техника', 'Подготовка', 'Мастерство'];
 
   const filteredArticles = useMemo(() => {
     let filtered = articles;
@@ -130,8 +130,8 @@ const Blog = () => {
                   </div>
                   
                   <div className="flex items-center gap-1 text-primary font-medium group-hover:gap-2 transition-all text-sm">
-                    <span>Читать статью</span>
-                    <Icon name="ArrowRight" size={14} />
+                    <span>{article.isVideo ? 'Смотреть видео' : 'Читать статью'}</span>
+                    <Icon name={article.isVideo ? 'Play' : 'ArrowRight'} size={14} />
                   </div>
                 </CardContent>
               </Card>

@@ -52,8 +52,8 @@ const BlogSection = () => {
                     <span>{article.readTime}</span>
                   </div>
                   <div className="flex items-center gap-1 text-primary font-medium group-hover:gap-2 transition-all">
-                    <span>Читать</span>
-                    <Icon name="ArrowRight" size={14} />
+                    <span>{article.isVideo ? 'Смотреть' : 'Читать'}</span>
+                    <Icon name={article.isVideo ? 'Play' : 'ArrowRight'} size={14} />
                   </div>
                 </div>
               </CardContent>

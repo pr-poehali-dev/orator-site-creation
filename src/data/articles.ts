@@ -9,6 +9,8 @@ export interface Article {
   author: string;
   tags: string[];
   content: string[];
+  videoUrl?: string;
+  isVideo?: boolean;
 }
 
 export const articles: Article[] = [
@@ -305,6 +307,102 @@ export const articles: Article[] = [
       '"Кто еще хочет высказаться по этому поводу?" (распределяет напряжение)',
       '**Практическое задание:**',
       'Попросите друга сыграть роль агрессивного слушателя. Практикуйте техники работы с провокациями. Записывайте на видео и анализируйте.'
+    ]
+  },
+  {
+    id: 'kak-snyat-strah-pered-kameroy',
+    title: 'Как снять страх перед камерой',
+    description: 'Практическое упражнение от Светланы Кузиковой, которое поможет вам чувствовать себя уверенно перед камерой',
+    category: 'Видео',
+    readTime: '1 мин',
+    icon: 'Video',
+    date: '18 октября 2025',
+    author: 'Светлана Кузикова',
+    tags: ['видео', 'страх', 'камера', 'практика'],
+    videoUrl: 'https://rutube.ru/shorts/c46e81f3586fa7b261c4e449b89cf450/?r=wd',
+    isVideo: true,
+    content: [
+      'Смотрите видео с практическим упражнением, которое поможет вам побороть страх перед камерой.'
+    ]
+  },
+  {
+    id: 'krasivyy-golos-praktika-rechevogo-dyhaniya',
+    title: 'Красивый голос. Практика речевого дыхания',
+    description: 'Эффективная техника развития речевого дыхания для красивого и сильного голоса',
+    category: 'Видео',
+    readTime: '3 мин',
+    icon: 'Video',
+    date: '17 октября 2025',
+    author: 'Светлана Кузикова',
+    tags: ['видео', 'голос', 'дыхание', 'практика'],
+    videoUrl: 'https://rutube.ru/video/3a89c863bd645357063d67153fc570c4/',
+    isVideo: true,
+    content: [
+      'Узнайте, как правильно дышать для красивого голоса. Практическое видео с упражнением.'
+    ]
+  },
+  {
+    id: 'kak-izbavitsya-ot-slov-parazitov',
+    title: 'Как избавиться от слов-паразитов',
+    description: 'Простая и эффективная техника для избавления от слов-паразитов в речи',
+    category: 'Видео',
+    readTime: '1 мин',
+    icon: 'Video',
+    date: '16 октября 2025',
+    author: 'Светлана Кузикова',
+    tags: ['видео', 'слова-паразиты', 'речь', 'практика'],
+    videoUrl: 'https://rutube.ru/shorts/07fb961c872f7e208fd1841cd5e8f0a9/',
+    isVideo: true,
+    content: [
+      'Практическая техника, которая поможет вам очистить речь от слов-паразитов.'
+    ]
+  },
+  {
+    id: 'glavnoe-pravilo-kremlevskoy-shkoly-peregovorov',
+    title: 'Главное правило Кремлевской школы переговоров',
+    description: 'Узнайте ключевой принцип ведения переговоров от Кремлевской школы',
+    category: 'Видео',
+    readTime: '1 мин',
+    icon: 'Video',
+    date: '15 октября 2025',
+    author: 'Светлана Кузикова',
+    tags: ['видео', 'переговоры', 'коммуникация', 'техника'],
+    videoUrl: 'https://rutube.ru/shorts/a235bda0b589d27ad00963b97e22e29c/',
+    isVideo: true,
+    content: [
+      'Главное правило эффективных переговоров, которое используют профессионалы.'
+    ]
+  },
+  {
+    id: 'kak-nauchitsya-govorit-bez-podgotovki',
+    title: 'Как научиться говорить без подготовки',
+    description: 'Техника импровизации в речи: говорите уверенно в любой ситуации',
+    category: 'Видео',
+    readTime: '1 мин',
+    icon: 'Video',
+    date: '14 октября 2025',
+    author: 'Светлана Кузикова',
+    tags: ['видео', 'импровизация', 'речь', 'практика'],
+    videoUrl: 'https://rutube.ru/shorts/8ea167e67b80f67c49d32363eef17601/',
+    isVideo: true,
+    content: [
+      'Научитесь говорить уверенно без предварительной подготовки. Практическая техника.'
+    ]
+  },
+  {
+    id: 'kak-popolnit-slovarnyy-zapas',
+    title: 'Как пополнить словарный запас',
+    description: 'Эффективный метод расширения словарного запаса для яркой и богатой речи',
+    category: 'Видео',
+    readTime: '1 мин',
+    icon: 'Video',
+    date: '13 октября 2025',
+    author: 'Светлана Кузикова',
+    tags: ['видео', 'словарный запас', 'речь', 'развитие'],
+    videoUrl: 'https://rutube.ru/shorts/3ec1a2c2e90cab03f6ddfac504c6010e/',
+    isVideo: true,
+    content: [
+      'Простой и действенный способ пополнить словарный запас для красивой речи.'
     ]
   }
 ];

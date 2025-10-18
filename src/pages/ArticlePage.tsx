@@ -136,6 +136,21 @@ const ArticlePage = () => {
             />
           </div>
 
+          {article.isVideo && article.videoUrl && (
+            <div className="mb-12">
+              <div className="relative w-full rounded-lg overflow-hidden shadow-2xl" style={{ paddingBottom: '56.25%' }}>
+                <iframe
+                  src={article.videoUrl}
+                  className="absolute top-0 left-0 w-full h-full"
+                  frameBorder="0"
+                  allow="clipboard-write; autoplay"
+                  allowFullScreen
+                  title={article.title}
+                ></iframe>
+              </div>
+            </div>
+          )}
+
           <div className="prose prose-lg max-w-none">
             {article.content.map((paragraph, index) => {
               if (paragraph.startsWith('**') && paragraph.endsWith('**')) {
