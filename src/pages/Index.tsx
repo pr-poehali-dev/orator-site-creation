@@ -32,17 +32,17 @@ const Index = () => {
       <AudienceSection />
       <AboutSection />
       <ProgramSection />
-      <IndividualLessonsSection />
-      <TrainerSection />
       <BooksSection />
+      <TrainerSection />
       <VideoSection />
       <PricingSection />
+      <IndividualLessonsSection />
+      <FAQSection />
       <ScheduleSection />
       <GallerySection />
       <TestimonialsSection />
       <VideoTestimonialsSection />
       <BlogSection />
-      <FAQSection />
       <SignUpSection />
       <TheaterSection />
       <ContactSection />
