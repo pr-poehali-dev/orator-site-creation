@@ -39,19 +39,20 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         body_data = json.loads(event.get('body', '{}'))
         name = body_data.get('name', '')
         phone = body_data.get('phone', '')
+        email = body_data.get('email', '')
         message = body_data.get('message', '')
         
-        print(f"Received form data: name={name}, phone={phone}")
+        print(f"Received form data: name={name}, phone={phone}, email={email}")
         
-        if not name or not phone:
-            print("ERROR: Name or phone is missing")
+        if not name or (not phone and not email):
+            print("ERROR: Name or contact info is missing")
             return {
                 'statusCode': 400,
                 'headers': {
                     'Content-Type': 'application/json',
                     'Access-Control-Allow-Origin': '*'
                 },
-                'body': json.dumps({'error': 'Name and phone are required'})
+                'body': json.dumps({'error': 'Name and phone or email are required'})
             }
         
         bot_token = os.environ.get('TELEGRAM_BOT_TOKEN')
@@ -70,7 +71,11 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'body': json.dumps({'error': 'Telegram credentials not configured'})
             }
         
-        telegram_message = f"🎯 Новая заявка с сайта!\n\n👤 Имя: {name}\n📱 Телефон: {phone}"
+        telegram_message = f"🎯 Новая заявка с сайта!\n\n👤 Имя: {name}"
+        if phone:
+            telegram_message += f"\n📱 Телефон: {phone}"
+        if email:
+            telegram_message += f"\n📧 Email: {email}"
         if message:
             telegram_message += f"\n💬 Комментарий: {message}"
         
