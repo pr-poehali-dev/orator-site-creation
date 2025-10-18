@@ -14,12 +14,18 @@ const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
   const [downloaded, setDownloaded] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [agreedToTerms, setAgreedToTerms] = useState(false);
 
   if (!isOpen) return null;
 
   const handleDownload = async () => {
     if (!email || !email.includes('@')) {
       setError('Введите корректный email');
+      return;
+    }
+
+    if (!agreedToTerms) {
+      setError('Необходимо согласие на обработку персональных данных');
       return;
     }
 
@@ -148,40 +154,55 @@ const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
                     <h4 className="text-xl font-bold mb-4 text-center">Получите полный гайд бесплатно</h4>
                     <p className="text-gray-600 mb-4 text-center">Оставьте свою почту, и мы отправим вам PDF с полной версией</p>
                     <div className="flex flex-col gap-3 max-w-md mx-auto">
-                      <div className="flex flex-col sm:flex-row gap-3">
+                      <input
+                        type="email"
+                        placeholder="Ваш email"
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          setError('');
+                        }}
+                        className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary outline-none"
+                      />
+                      
+                      <label className="flex items-start gap-2 cursor-pointer text-sm text-gray-700">
                         <input
-                          type="email"
-                          placeholder="Ваш email"
-                          value={email}
+                          type="checkbox"
+                          checked={agreedToTerms}
                           onChange={(e) => {
-                            setEmail(e.target.value);
+                            setAgreedToTerms(e.target.checked);
                             setError('');
                           }}
-                          className="flex-1 px-4 py-3 rounded-lg border-2 border-gray-300 focus:border-primary outline-none"
+                          className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
                         />
-                        <Button 
-                          onClick={handleDownload} 
-                          size="lg" 
-                          className="whitespace-nowrap bg-gradient-to-r from-primary to-secondary hover:opacity-90"
-                          disabled={loading}
-                        >
-                          {loading ? (
-                            <>
-                              <Icon name="Loader2" size={18} className="mr-2 animate-spin" />
-                              Отправка...
-                            </>
-                          ) : (
-                            <>
-                              <Icon name="Download" size={18} className="mr-2" />
-                              Получить гайд
-                            </>
-                          )}
-                        </Button>
-                      </div>
+                        <span>
+                          Согласен с <a href="/privacy" className="text-primary underline hover:text-secondary" onClick={(e) => { e.preventDefault(); window.open('/privacy', '_blank'); }}>политикой конфиденциальности</a> и на обработку персональных данных
+                        </span>
+                      </label>
+
+                      <Button 
+                        onClick={handleDownload} 
+                        size="lg" 
+                        className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                        disabled={loading}
+                      >
+                        {loading ? (
+                          <>
+                            <Icon name="Loader2" size={18} className="mr-2 animate-spin" />
+                            Отправка...
+                          </>
+                        ) : (
+                          <>
+                            <Icon name="Download" size={18} className="mr-2" />
+                            Получить гайд
+                          </>
+                        )}
+                      </Button>
+                      
+                      {error && (
+                        <p className="text-red-600 text-sm mt-2 text-center">{error}</p>
+                      )}
                     </div>
-                    {error && (
-                      <p className="text-red-600 text-sm mt-2 text-center">{error}</p>
-                    )}
                   </div>
                 </div>
               </div>
