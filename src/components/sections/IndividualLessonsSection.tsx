@@ -59,26 +59,64 @@ const IndividualLessonsSection = () => {
     '19:00 - 20:00'
   ];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    toast({
-      title: "Заявка отправлена!",
-      description: "Мы свяжемся с вами в ближайшее время для уточнения деталей занятия.",
-    });
-    
-    setFormData({
-      name: '',
-      phone: '',
-      email: '',
-      format: 'online',
-      topic: '',
-      preferredDate: '',
-      preferredTime: '',
-      message: ''
-    });
-    
-    setIsOpen(false);
+    try {
+      const formatText = formData.format === 'online' ? 'Онлайн (WhatsApp, Zoom, Skype и др.)' : 'Оффлайн (Краснодар)';
+      const message = `📝 ИНДИВИДУАЛЬНОЕ ЗАНЯТИЕ
+
+Формат: ${formatText}
+Тема: ${formData.topic}
+${formData.preferredDate ? `Желаемая дата: ${formData.preferredDate}` : ''}
+${formData.preferredTime ? `Желаемое время: ${formData.preferredTime}` : ''}
+${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
+
+      const response = await fetch('https://functions.poehali.dev/2708494c-3d0e-4905-b18f-86093217671b', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          phone: formData.phone,
+          message: message
+        }),
+      });
+      
+      if (response.ok) {
+        toast({
+          title: "Заявка отправлена!",
+          description: "Мы свяжемся с вами в ближайшее время для уточнения деталей занятия.",
+        });
+        
+        setFormData({
+          name: '',
+          phone: '',
+          email: '',
+          format: 'online',
+          topic: '',
+          preferredDate: '',
+          preferredTime: '',
+          message: ''
+        });
+        
+        setIsOpen(false);
+      } else {
+        toast({
+          title: "Ошибка отправки",
+          description: "Попробуйте позже или свяжитесь с нами через WhatsApp",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      toast({
+        title: "Ошибка отправки",
+        description: "Попробуйте позже или свяжитесь с нами через WhatsApp",
+        variant: "destructive"
+      });
+    }
   };
 
   const handleChange = (field: string, value: string) => {
