@@ -51,16 +51,18 @@ const Materials = () => {
       title: 'Видеокурс «Речевая креативность за 7 дней»',
       image: 'https://cdn.poehali.dev/files/1e1c8073-4bbb-4d7a-9c51-c40fe25e52c2.png',
       description: 'Интенсивный мини-курс для развития навыков креативного мышления и спонтанной речи за одну неделю.',
-      price: '990 ₽',
+      price: '2 450 ₽',
+      oldPrice: '4 900 ₽',
       features: [
         '7 видеоуроков',
         'Ежедневные практические задания',
         'Техники импровизации',
         'Методики развития словарного запаса',
+        'Поддержка тренера в чате',
         'Доступ навсегда'
       ],
       links: [
-        { label: 'Купить видеокурс', url: 'http://kuzikova.robo.market/buy/133943/', icon: 'Play', variant: 'default' }
+        { label: 'Купить видеокурс', url: 'https://kuzikova.robo.market/pro100reche', icon: 'Play', variant: 'default' }
       ],
       bonus: 'В подарок участникам курса',
       badge: 'Видеокурс'
@@ -135,7 +137,12 @@ const Materials = () => {
                     </div>
 
                     <div className="mt-auto">
-                      <div className="text-3xl font-bold text-primary mb-4">{material.price}</div>
+                      <div className="mb-4">
+                        {material.oldPrice && (
+                          <div className="text-lg text-gray-400 line-through mb-1">{material.oldPrice}</div>
+                        )}
+                        <div className="text-3xl font-bold text-primary">{material.price}</div>
+                      </div>
                       <div className="flex flex-col sm:flex-row gap-3">
                         {material.links.map((link, idx) => (
                           <a
