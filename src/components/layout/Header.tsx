@@ -42,13 +42,13 @@ const Header = () => {
           </div>
           
           {/* Desktop Menu */}
-          <div className="hidden lg:flex flex-col gap-2 text-sm">
-            <div className="flex gap-4 xl:gap-6 items-center justify-end">
-              <a href="#about" className="text-foreground hover:text-primary transition-colors whitespace-nowrap">О курсе</a>
-              <a href="#program" className="text-foreground hover:text-primary transition-colors whitespace-nowrap">Программа</a>
-              <a href="#trainer" className="text-foreground hover:text-primary transition-colors whitespace-nowrap">Преподаватель</a>
-              <a href="#pricing" className="text-foreground hover:text-primary transition-colors whitespace-nowrap">Стоимость</a>
-              <a href="#testimonials" className="text-foreground hover:text-primary transition-colors whitespace-nowrap">Отзывы</a>
+          <div className="hidden lg:flex flex-col gap-2 text-base">
+            <div className="flex gap-5 xl:gap-7 items-center justify-end">
+              <a href="#about" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">О курсе</a>
+              <a href="#program" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Программа</a>
+              <a href="#trainer" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Преподаватель</a>
+              <a href="#pricing" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Стоимость</a>
+              <a href="#testimonials" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Отзывы</a>
               <button onClick={() => navigate('/blog')} className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">Блог</button>
               <button onClick={() => navigate('/materials')} className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">Материалы</button>
               <div className="flex gap-2 items-center border-l pl-3">
