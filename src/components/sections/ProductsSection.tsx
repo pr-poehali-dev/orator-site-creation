@@ -40,7 +40,7 @@ const ProductsSection = () => {
         { label: 'Купить', url: 'http://kuzikova.robo.market/buy/133928/', icon: 'ShoppingCart' }
       ],
       badge: 'Бестселлер',
-      icon: 'BookMarked'
+      image: 'https://cv4.litres.ru/pub/c/cover_415/71829709.webp'
     },
     {
       id: 2,
@@ -52,7 +52,7 @@ const ProductsSection = () => {
         { label: 'Купить', url: 'http://kuzikova.robo.market/buy/133929/', icon: 'ShoppingCart' }
       ],
       badge: 'Скидка 33%',
-      icon: 'Lightbulb'
+      image: 'https://cv1.litres.ru/pub/c/cover_415/71829715.webp'
     },
     {
       id: 3,
@@ -64,73 +64,53 @@ const ProductsSection = () => {
         { label: 'Купить курс', url: 'https://kuzikova.robo.market/pro100reche', icon: 'Play' }
       ],
       badge: 'Скидка 50%',
-      icon: 'Video'
+      image: 'https://i.ytimg.com/vi/1JqR3GVqib4/maxresdefault.jpg'
     }
   ];
 
   return (
-    <section ref={sectionRef} className="py-16 px-4 bg-gradient-to-b from-gray-50 to-white">
+    <section ref={sectionRef} className="py-12 px-4 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto max-w-6xl">
-        <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-            Материалы для самостоятельного обучения
+        <div className={`text-center mb-8 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <h2 className="text-2xl md:text-3xl font-bold mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+            Подарки участникам курса
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
-            Не готовы к полному курсу? Начните с наших книг и видеокурсов
+          <p className="text-gray-600 text-sm max-w-2xl mx-auto">
+            Все материалы бесплатно при покупке программы обучения
           </p>
-          <div className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-primary/10 rounded-full text-sm text-primary">
-            <Icon name="Gift" size={16} />
-            <span className="font-medium">Участники курса получают бесплатно</span>
-          </div>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
+        <div className="grid md:grid-cols-3 gap-4 mb-6">
           {products.map((product, index) => (
             <Card 
               key={product.id} 
-              className={`p-6 hover:shadow-xl transition-all duration-500 border-2 border-transparent hover:border-primary/20 relative group hover:-translate-y-2 hover:scale-[1.03] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} 
-              style={{ transitionDelay: `${index * 150}ms` }}
+              className={`p-4 hover:shadow-lg transition-all duration-500 border border-gray-200 hover:border-primary/30 relative group hover:-translate-y-1 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`} 
+              style={{ transitionDelay: `${index * 100}ms` }}
             >
               {product.badge && (
-                <div className="absolute -top-3 -right-3 bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg">
+                <div className="absolute -top-2 -right-2 bg-gradient-to-r from-primary to-secondary text-white px-2 py-0.5 rounded-full text-[10px] font-bold shadow-md z-10">
                   {product.badge}
                 </div>
               )}
               
-              <div className="flex flex-col h-full">
-                <div className="mb-4 p-3 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg w-fit group-hover:scale-110 transition-transform">
-                  <Icon name={product.icon} size={32} className="text-primary" />
+              <div className="flex gap-3 items-start">
+                <div className="w-16 h-20 flex-shrink-0 rounded overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
+                  <img 
+                    src={product.image} 
+                    alt={product.title}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 
-                <h3 className="font-bold text-lg mb-2 min-h-[3.5rem]">{product.title}</h3>
-                <p className="text-gray-600 text-sm mb-4 flex-grow">{product.description}</p>
-                
-                <div className="mt-auto">
-                  <div className="mb-4">
-                    {product.oldPrice && (
-                      <div className="text-sm text-gray-400 line-through">{product.oldPrice}</div>
-                    )}
-                    <div className="text-2xl font-bold text-primary">{product.price}</div>
-                  </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-sm mb-1 line-clamp-2">{product.title}</h3>
+                  <p className="text-gray-500 text-xs mb-2 line-clamp-2">{product.description}</p>
                   
-                  <div className="space-y-2">
-                    {product.links.map((link, index) => (
-                      <a
-                        key={index}
-                        href={link.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="block"
-                      >
-                        <Button 
-                          className="w-full group/btn"
-                          variant={index === 0 ? "default" : "outline"}
-                        >
-                          <Icon name={link.icon} size={16} className="mr-2" />
-                          {link.label}
-                        </Button>
-                      </a>
-                    ))}
+                  <div className="flex items-baseline gap-2">
+                    {product.oldPrice && (
+                      <div className="text-[10px] text-gray-400 line-through">{product.oldPrice}</div>
+                    )}
+                    <div className="text-sm font-bold text-primary">{product.price}</div>
                   </div>
                 </div>
               </div>
@@ -138,11 +118,11 @@ const ProductsSection = () => {
           ))}
         </div>
 
-        <div className={`text-center transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`text-center transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <Link to="/materials">
-            <Button variant="outline" size="lg" className="group">
+            <Button variant="outline" size="sm" className="group text-xs">
               Подробнее о материалах
-              <Icon name="ArrowRight" size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+              <Icon name="ArrowRight" size={14} className="ml-1 group-hover:translate-x-1 transition-transform" />
             </Button>
           </Link>
         </div>
