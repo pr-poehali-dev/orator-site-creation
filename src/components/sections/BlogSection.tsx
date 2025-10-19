@@ -54,6 +54,9 @@ const BlogSection = () => {
       </div>
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <p className="text-sm md:text-base font-semibold text-primary/80 mb-3 tracking-wide uppercase">
+            Материалы для самостоятельного обучения
+          </p>
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-4 animate-bounce">
             <Icon name="BookOpen" size={32} className="text-primary" />
           </div>
