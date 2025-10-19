@@ -17,7 +17,6 @@ import TheaterSection from '@/components/sections/TheaterSection';
 import FAQSection from '@/components/sections/FAQSection';
 import ContactSection from '@/components/sections/ContactSection';
 import SignUpSection from '@/components/sections/SignUpSection';
-import ProductsSection from '@/components/sections/ProductsSection';
 import BlogSection from '@/components/sections/BlogSection';
 import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import CookieConsent from '@/components/ui/CookieConsent';
@@ -43,7 +42,6 @@ const Index = () => {
       <GallerySection />
       <TestimonialsSection />
       <VideoTestimonialsSection />
-      <ProductsSection />
       <BlogSection />
       <SignUpSection />
       <TheaterSection />
