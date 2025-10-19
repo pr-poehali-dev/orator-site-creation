@@ -54,9 +54,12 @@ const BlogSection = () => {
       </div>
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <p className="text-sm md:text-base font-semibold text-primary/80 mb-3 tracking-wide uppercase">
-            Материалы для самостоятельного обучения
-          </p>
+          <div className="inline-flex items-center gap-3 mb-6 px-6 py-3 bg-gradient-to-r from-primary/15 via-secondary/15 to-orange/15 rounded-2xl border-2 border-primary/30 shadow-lg">
+            <Icon name="GraduationCap" size={28} className="text-primary" />
+            <h3 className="text-xl md:text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Материалы для самостоятельного обучения
+            </h3>
+          </div>
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-4 animate-bounce">
             <Icon name="BookOpen" size={32} className="text-primary" />
           </div>
