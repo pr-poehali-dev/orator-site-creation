@@ -51,7 +51,7 @@ const StructuredData = () => {
         {
           "@type": "Offer",
           "name": "Базовый курс",
-          "price": "19900",
+          "price": "19500",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
           "validFrom": "2018-01-01"
