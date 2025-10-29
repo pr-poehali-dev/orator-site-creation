@@ -28,26 +28,6 @@ const Materials = () => {
   }, []);
   const materials = [
     {
-      id: 0,
-      title: 'Бесплатный гайд «7 секретов харизматичного оратора»',
-      image: 'https://cdn.poehali.dev/files/20421d46-9aee-4297-9bcb-ab517acb9812.PNG',
-      description: 'Семь важных правил, которые помогут сделать ваше выступление незабываемым и достичь цели. Практические советы от Школы ораторского искусства.',
-      price: 'Бесплатно',
-      features: [
-        '7 ключевых правил оратора',
-        'Техники создания харизмы',
-        'Работа с голосом и энергетикой',
-        'Секреты контакта с аудиторией',
-        'Правила постановки на публике',
-        'Готов к скачиванию в PDF'
-      ],
-      links: [
-        { label: 'Читать онлайн', url: '/guide', icon: 'Eye', variant: 'default' }
-      ],
-      bonus: 'Бесплатно для всех',
-      badge: 'Бесплатно'
-    },
-    {
       id: 1,
       title: 'Книга-тренинг «Публичные выступления: 7 шагов к успеху»',
       image: 'https://cdn.poehali.dev/files/c851bfe2-7e13-411b-a297-8be6ca26b397.png',
@@ -120,7 +100,7 @@ const Materials = () => {
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
-              Полезные материалы
+              Магазин
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
               Книги и видеокурсы от Светланы Кузиковой для самостоятельного развития навыков публичных выступлений
@@ -129,11 +109,11 @@ const Materials = () => {
             <div className="inline-flex flex-col sm:flex-row gap-4 items-center justify-center">
               <div className="flex items-center gap-2 px-6 py-3 bg-green-50 border-2 border-green-200 rounded-full">
                 <Icon name="Gift" size={20} className="text-green-600" />
-                <span className="font-semibold text-green-700">Бесплатно для участников курса</span>
+                <span className="font-semibold text-green-700">Подарок участникам курса</span>
               </div>
-              <div className="flex items-center gap-2 px-6 py-3 bg-blue-50 border-2 border-blue-200 rounded-full">
-                <Icon name="ShoppingBag" size={20} className="text-blue-600" />
-                <span className="font-semibold text-blue-700">Доступны для отдельной покупки</span>
+              <div className="flex items-center gap-2 px-6 py-3 bg-primary/10 border-2 border-primary/30 rounded-full">
+                <Icon name="ShoppingCart" size={20} className="text-primary" />
+                <span className="font-semibold text-primary">Покупка онлайн</span>
               </div>
             </div>
           </div>

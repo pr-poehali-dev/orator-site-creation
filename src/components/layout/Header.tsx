@@ -49,8 +49,8 @@ const Header = () => {
               <a href="#trainer" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Преподаватель</a>
               <a href="#pricing" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Стоимость</a>
               <a href="#testimonials" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Отзывы</a>
-              <button onClick={() => navigate('/blog')} className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">Блог</button>
-              <button onClick={() => navigate('/materials')} className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">Материалы</button>
+              <button onClick={() => navigate('/blog')} className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">Бесплатно</button>
+              <button onClick={() => navigate('/materials')} className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">Магазин</button>
               <div className="flex gap-2 items-center border-l pl-3">
                 <a 
                   href="https://t.me/svetlana_kuzikova" 
@@ -157,7 +157,7 @@ const Header = () => {
               }}
               className="block text-foreground hover:text-primary transition-colors py-3 text-base text-left font-medium"
             >
-              Блог
+              Бесплатно
             </button>
             <button 
               onClick={() => {
@@ -166,7 +166,7 @@ const Header = () => {
               }}
               className="block text-foreground hover:text-primary transition-colors py-3 text-base text-left font-medium"
             >
-              Материалы
+              Магазин
             </button>
             
             <div className="pt-4 border-t space-y-3">

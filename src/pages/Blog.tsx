@@ -64,16 +64,69 @@ const Blog = () => {
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-6">
             <Icon name="BookOpen" size={40} className="text-primary" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Полезные материалы</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Бесплатные материалы</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Практические советы, упражнения, видео и секреты ораторского мастерства от Светланы Кузиковой — 
-            педагога с 25-летним опытом. Читайте статьи, применяйте на практике и развивайте свои навыки!
+            Практические советы, упражнения, видео, гайды и секреты ораторского мастерства от Светланы Кузиковой. 
+            Все материалы в открытом доступе!
           </p>
         </div>
       </section>
 
       <section className="py-12 px-4">
         <div className="container mx-auto max-w-6xl">
+          <Card className="mb-12 overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-2xl bg-gradient-to-br from-white to-primary/5">
+            <div className="grid md:grid-cols-2 gap-8 p-8">
+              <div className="relative">
+                <div className="absolute -top-4 -right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-10">
+                  Бесплатно
+                </div>
+                <img 
+                  src="https://cdn.poehali.dev/files/20421d46-9aee-4297-9bcb-ab517acb9812.PNG" 
+                  alt="Бесплатный гайд «7 секретов харизматичного оратора»"
+                  className="w-full h-auto rounded-xl shadow-lg hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <div className="flex flex-col justify-center">
+                <h2 className="text-2xl md:text-3xl font-bold mb-4">Бесплатный гайд «7 секретов харизматичного оратора»</h2>
+                <p className="text-gray-600 mb-6 text-lg">Семь важных правил, которые помогут сделать ваше выступление незабываемым и достичь цели. Практические советы от Школы ораторского искусства.</p>
+                
+                <div className="mb-6">
+                  <h3 className="font-semibold mb-3 text-lg">Что внутри:</h3>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">7 ключевых правил оратора</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Техники создания харизмы</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Работа с голосом и энергетикой</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-700">Секреты контакта с аудиторией</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="mt-auto">
+                  <Button 
+                    size="lg" 
+                    className="w-full bg-primary hover:bg-primary/90"
+                    onClick={() => navigate('/guide')}
+                  >
+                    <Icon name="Eye" size={20} className="mr-2" />
+                    Читать онлайн
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </Card>
+
           <div className="mb-8 max-w-2xl mx-auto">
             <div className="relative">
               <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
