@@ -76,20 +76,20 @@ const Footer = () => {
               <div className="space-y-2 text-gray-400 text-sm">
                 <p>
                   <a 
-                    href="/materials" 
+                    href="/blog" 
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
-                    <Icon name="ShoppingBag" size={16} />
-                    Материалы
+                    <Icon name="Gift" size={16} />
+                    Бесплатно
                   </a>
                 </p>
                 <p>
                   <a 
-                    href="/blog" 
+                    href="/materials" 
                     className="hover:text-primary transition-colors flex items-center gap-2"
                   >
-                    <Icon name="BookOpen" size={16} />
-                    Блог
+                    <Icon name="ShoppingCart" size={16} />
+                    Магазин
                   </a>
                 </p>
                 <p>

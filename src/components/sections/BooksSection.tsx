@@ -63,7 +63,7 @@ const BooksSection = () => {
 
         <div className="text-center bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-3 border-2 border-green-200">
           <p className="text-green-800 font-bold mb-1 text-sm">Все подарки бесплатно для участников курса</p>
-          <p className="text-green-700 text-xs">Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Материалы"</a></p>
+          <p className="text-green-700 text-xs">Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Магазин"</a></p>
         </div>
       </div>
     </section>
