@@ -127,45 +127,6 @@ const Blog = () => {
             </div>
           </Card>
 
-          <div className="mb-8 max-w-2xl mx-auto">
-            <div className="relative">
-              <Icon name="Search" size={20} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
-              <Input
-                type="text"
-                placeholder="Поиск по статьям, тегам..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 pr-10 h-12 text-base"
-              />
-              {searchQuery && (
-                <button
-                  onClick={() => setSearchQuery('')}
-                  className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
-                >
-                  <Icon name="X" size={20} />
-                </button>
-              )}
-            </div>
-            {searchQuery && (
-              <p className="text-sm text-muted-foreground mt-3 text-center">
-                Найдено статей: {filteredArticles.length}
-              </p>
-            )}
-          </div>
-
-          <div className="flex flex-wrap gap-3 justify-center mb-12">
-            {categories.map((category) => (
-              <Button
-                key={category}
-                variant={selectedCategory === category ? 'default' : 'outline'}
-                onClick={() => setSelectedCategory(category)}
-                className="rounded-full"
-              >
-                {category}
-              </Button>
-            ))}
-          </div>
-
           <div className="grid grid-cols-1 gap-8">
             <div>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -215,7 +176,7 @@ const Blog = () => {
             </div>
           </div>
 
-          {filteredArticles.length === 0 && (
+          {filteredArticles.length === 0 && searchQuery && (
             <div className="text-center py-20">
               <Icon name="Search" size={48} className="text-muted-foreground mx-auto mb-4" />
               <p className="text-xl text-muted-foreground mb-2">
@@ -235,6 +196,49 @@ const Blog = () => {
               )}
             </div>
           )}
+
+          <div className="mt-16 pt-8 border-t">
+            <h3 className="text-lg font-semibold mb-4 text-center">Поиск по материалам</h3>
+            <div className="max-w-md mx-auto mb-6">
+              <div className="relative">
+                <Icon name="Search" size={18} className="absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" />
+                <Input
+                  type="text"
+                  placeholder="Поиск по статьям, тегам..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="pl-9 pr-9 h-10 text-sm"
+                />
+                {searchQuery && (
+                  <button
+                    onClick={() => setSearchQuery('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <Icon name="X" size={16} />
+                  </button>
+                )}
+              </div>
+              {searchQuery && (
+                <p className="text-xs text-muted-foreground mt-2 text-center">
+                  Найдено: {filteredArticles.length}
+                </p>
+              )}
+            </div>
+
+            <div className="flex flex-wrap gap-2 justify-center">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={selectedCategory === category ? 'default' : 'outline'}
+                  onClick={() => setSelectedCategory(category)}
+                  size="sm"
+                  className="rounded-full text-xs"
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
