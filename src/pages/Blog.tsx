@@ -59,7 +59,7 @@ const Blog = () => {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Header />
       
-      <section className="pt-28 pb-20 px-4 bg-gradient-to-r from-primary/10 via-purple-50 to-primary/10">
+      <section className="pt-28 pb-20 px-4 bg-gradient-to-r from-primary/10 via-purple-50 to-primary/10 animate-in fade-in duration-700">
         <div className="container mx-auto max-w-6xl text-center">
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-6">
             <Icon name="BookOpen" size={40} className="text-primary" />
@@ -74,7 +74,7 @@ const Blog = () => {
 
       <section className="py-12 px-4">
         <div className="container mx-auto max-w-6xl">
-          <Card className="mb-12 overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-2xl bg-gradient-to-br from-white to-primary/5">
+          <Card className="mb-12 overflow-hidden border-2 border-primary/20 hover:border-primary/40 transition-all hover:shadow-2xl bg-gradient-to-br from-white to-primary/5 animate-in fade-in slide-in-from-bottom-4 duration-700">
             <div className="grid md:grid-cols-2 gap-8 p-8">
               <div className="relative">
                 <div className="absolute -top-4 -right-4 bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-10">
@@ -134,7 +134,8 @@ const Blog = () => {
                   <Card 
                     key={index} 
                     onClick={() => navigate(`/blog/${article.id}`)}
-                    className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group"
+                    className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group animate-in fade-in slide-in-from-bottom-4 duration-500"
+                    style={{ animationDelay: `${index * 50}ms` }}
                   >
                     <CardContent className="p-6">
                       <div className="flex items-start justify-between mb-4">

@@ -96,7 +96,7 @@ const Materials = () => {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Header />
       
-      <section className="pt-28 pb-20 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
+      <section className="pt-28 pb-20 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5 animate-in fade-in duration-700">
         <div className="container mx-auto max-w-6xl">
           <div className="text-center mb-16">
             <h1 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
@@ -120,7 +120,11 @@ const Materials = () => {
 
           <div className="space-y-12">
             {materials.map((material, index) => (
-              <Card key={material.id} className="overflow-hidden border-2 hover:border-primary/30 transition-all duration-300 hover:shadow-2xl">
+              <Card 
+                key={material.id} 
+                className="overflow-hidden border-2 hover:border-primary/30 transition-all duration-300 hover:shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700"
+                style={{ animationDelay: `${index * 150}ms` }}
+              >
                 <div className={`grid md:grid-cols-2 gap-8 p-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                   <div className={`relative ${index % 2 === 1 ? 'md:order-2' : ''}`}>
                     {material.badge && (
