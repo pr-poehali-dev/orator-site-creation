@@ -64,7 +64,7 @@ const Blog = () => {
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-6">
             <Icon name="BookOpen" size={40} className="text-primary" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Бесплатные материалы</h1>
+          <h1 className="text-5xl md:text-6xl font-bold mb-6">Бесплатные материалы для самостоятельного обучения</h1>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
             Практические советы, упражнения, видео, гайды и секреты ораторского мастерства от Светланы Кузиковой. 
             Все материалы в открытом доступе!
@@ -166,9 +166,9 @@ const Blog = () => {
             ))}
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            <div className="lg:col-span-3">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 gap-8">
+            <div>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredArticles.map((article, index) => (
                   <Card 
                     key={index} 
@@ -212,11 +212,6 @@ const Blog = () => {
                   </Card>
                 ))}
               </div>
-            </div>
-            
-            <div className="lg:col-span-1">
-              <PopularArticles articles={articles.slice(0, 5)} />
-              <CTABlock variant="course" className="mt-8" />
             </div>
           </div>
 
