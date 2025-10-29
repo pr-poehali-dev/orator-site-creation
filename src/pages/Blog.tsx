@@ -59,7 +59,7 @@ const Blog = () => {
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <Header />
       
-      <section className="py-20 px-4 bg-gradient-to-r from-primary/10 via-purple-50 to-primary/10">
+      <section className="pt-28 pb-20 px-4 bg-gradient-to-r from-primary/10 via-purple-50 to-primary/10">
         <div className="container mx-auto max-w-6xl text-center">
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-6">
             <Icon name="BookOpen" size={40} className="text-primary" />
