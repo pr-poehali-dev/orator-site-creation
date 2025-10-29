@@ -64,6 +64,11 @@ const Blog = () => {
         <meta property="og:title" content="Бесплатные материалы для самостоятельного обучения | KUZIKOVA SCHOOL" />
         <meta property="og:description" content="Практические советы, упражнения, видео, гайды и секреты ораторского мастерства от Светланы Кузиковой. Все материалы в открытом доступе." />
         <meta property="og:url" content="https://kuzikova-school.ru/blog" />
+        <meta property="og:image" content="https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/files/18a55943-cca4-4f6d-8d4a-ae4243344fe1.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/files/18a55943-cca4-4f6d-8d4a-ae4243344fe1.jpg" />
         <link rel="canonical" href="https://kuzikova-school.ru/blog" />
       </Helmet>
       <Header />

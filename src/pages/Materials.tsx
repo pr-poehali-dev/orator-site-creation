@@ -101,6 +101,11 @@ const Materials = () => {
         <meta property="og:title" content="Магазин — книги и видеокурсы по ораторскому мастерству | KUZIKOVA SCHOOL" />
         <meta property="og:description" content="Книги-тренинги и видеокурсы от Светланы Кузиковой для самостоятельного развития навыков публичных выступлений." />
         <meta property="og:url" content="https://kuzikova-school.ru/materials" />
+        <meta property="og:image" content="https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/files/a22d0a23-7ff2-41bc-a848-1c3bd6548bab.jpg" />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content="https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/files/a22d0a23-7ff2-41bc-a848-1c3bd6548bab.jpg" />
         <link rel="canonical" href="https://kuzikova-school.ru/materials" />
       </Helmet>
       <Header />
