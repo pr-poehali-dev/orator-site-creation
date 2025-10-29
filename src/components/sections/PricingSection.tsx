@@ -43,6 +43,7 @@ const PricingSection = () => {
       subtitle: 'Ораторское мастерство с нуля',
       duration: '8 занятий',
       price: '17 500',
+      oldPrice: '19 900',
       features: [
         '8 групповых тренингов',
         '2 индивидуальных занятия',
