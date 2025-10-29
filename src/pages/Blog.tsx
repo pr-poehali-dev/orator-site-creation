@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Card, CardContent } from '@/components/ui/card';
@@ -57,6 +58,14 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <Helmet>
+        <title>Бесплатные материалы для самостоятельного обучения | KUZIKOVA SCHOOL</title>
+        <meta name="description" content="Практические советы, упражнения, видео, гайды и секреты ораторского мастерства от Светланы Кузиковой. Все материалы в открытом доступе для самостоятельного обучения." />
+        <meta property="og:title" content="Бесплатные материалы для самостоятельного обучения | KUZIKOVA SCHOOL" />
+        <meta property="og:description" content="Практические советы, упражнения, видео, гайды и секреты ораторского мастерства от Светланы Кузиковой. Все материалы в открытом доступе." />
+        <meta property="og:url" content="https://kuzikova-school.ru/blog" />
+        <link rel="canonical" href="https://kuzikova-school.ru/blog" />
+      </Helmet>
       <Header />
       
       <section className="pt-28 pb-20 px-4 bg-gradient-to-r from-primary/10 via-purple-50 to-primary/10 animate-in fade-in duration-700">

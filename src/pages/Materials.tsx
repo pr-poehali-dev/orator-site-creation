@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -94,6 +95,14 @@ const Materials = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <Helmet>
+        <title>Магазин — книги и видеокурсы по ораторскому мастерству | KUZIKOVA SCHOOL</title>
+        <meta name="description" content="Книги-тренинги и видеокурсы от Светланы Кузиковой для самостоятельного развития навыков публичных выступлений. Специальные подарки участникам курсов." />
+        <meta property="og:title" content="Магазин — книги и видеокурсы по ораторскому мастерству | KUZIKOVA SCHOOL" />
+        <meta property="og:description" content="Книги-тренинги и видеокурсы от Светланы Кузиковой для самостоятельного развития навыков публичных выступлений." />
+        <meta property="og:url" content="https://kuzikova-school.ru/materials" />
+        <link rel="canonical" href="https://kuzikova-school.ru/materials" />
+      </Helmet>
       <Header />
       
       <section className="pt-28 pb-20 px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5 animate-in fade-in duration-700">
