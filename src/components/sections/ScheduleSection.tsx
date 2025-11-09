@@ -60,6 +60,20 @@ const ScheduleSection = () => {
       spots: 'Набор открыт',
       color: 'from-orange to-primary',
       isCoaching: true
+    },
+    {
+      name: 'Тренинги для корпоративных заказчиков',
+      description: 'Интенсивный курс ораторского искусства и импровизации для менеджеров, руководителей и всех специалистов, которые занимаются продажами, проводят презентации, выступают перед партнерами и клиентами.',
+      duration: 'От 4 до 16+ академических часов',
+      schedule: 'Однодневные/двухдневные тренинги с 10:00 до 17:00',
+      benefits: [
+        'Подготовиться к выступлению и структурировать речь',
+        'Управлять страхами публичных выступлений',
+        'Приобрести навыки для выступления перед сложной аудиторией'
+      ],
+      spots: 'Формат по запросу',
+      color: 'from-green-600 to-teal-600',
+      isCorporate: true
     }
   ];
 
@@ -108,11 +122,17 @@ const ScheduleSection = () => {
                 <CardTitle className="text-lg md:text-xl">{course.name}</CardTitle>
               </CardHeader>
               <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-sm md:text-base">
-                <div>
-                  <div className="flex items-center gap-2 mb-3">
-                    <Icon name="Calendar" size={20} className="text-primary" />
-                    <p className="font-semibold">{course.isCoaching ? 'Выберите формат:' : 'Выберите дату старта:'}</p>
+                {course.description && (
+                  <div className="mb-4">
+                    <p className="text-muted-foreground leading-relaxed">{course.description}</p>
                   </div>
+                )}
+                {!course.isCorporate && (
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <Icon name="Calendar" size={20} className="text-primary" />
+                      <p className="font-semibold">{course.isCoaching ? 'Выберите формат:' : 'Выберите дату старта:'}</p>
+                    </div>
                   {course.startDate2 ? (
                     <div className="flex flex-col gap-2">
                       <Button
@@ -143,6 +163,7 @@ const ScheduleSection = () => {
                     </Button>
                   )}
                 </div>
+                )}
                 
                 <div className="flex items-start gap-3">
                   <Icon name="Clock" size={20} className="text-primary mt-1 flex-shrink-0" />
@@ -160,6 +181,20 @@ const ScheduleSection = () => {
                   </div>
                 </div>
 
+                {course.benefits && (
+                  <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4">
+                    <p className="font-semibold mb-2">Подходит тем, кто хочет:</p>
+                    <ul className="space-y-2">
+                      {course.benefits.map((benefit, idx) => (
+                        <li key={idx} className="flex items-start gap-2">
+                          <Icon name="Check" size={18} className="text-primary flex-shrink-0 mt-0.5" />
+                          <span className="text-sm">{benefit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+
                 <div className="pt-2 pb-2">
                   <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
                     ✓ {course.spots}
@@ -167,31 +202,46 @@ const ScheduleSection = () => {
                 </div>
 
                 <div className="pt-2">
-                  <p className="text-xs text-muted-foreground text-center mb-3">
-                    {course.isCoaching ? 'Выберите формат и узнайте подробности' : 'Выберите дату выше, чтобы записаться'}
-                  </p>
-                  {course.isCoaching ? (
+                  {course.isCorporate ? (
                     <Button
-                      variant="outline"
-                      className="w-full border-primary text-primary hover:bg-primary hover:text-white"
-                      asChild
+                      className="w-full bg-primary hover:bg-primary/90"
+                      onClick={() => {
+                        trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+                        handleDateSelect(course.name, 'Формат по запросу');
+                      }}
                     >
-                      <a href="#individual">
-                        <Icon name="Info" size={18} className="mr-2" />
-                        Подробнее
-                      </a>
+                      <Icon name="UserPlus" size={18} className="mr-2" />
+                      Записаться
                     </Button>
                   ) : (
-                    <Button
-                      variant="outline"
-                      className="w-full border-primary text-primary hover:bg-primary hover:text-white"
-                      asChild
-                    >
-                      <a href="#pricing">
-                        <Icon name="DollarSign" size={18} className="mr-2" />
-                        Узнать стоимость
-                      </a>
-                    </Button>
+                    <>
+                      <p className="text-xs text-muted-foreground text-center mb-3">
+                        {course.isCoaching ? 'Выберите формат и узнайте подробности' : 'Выберите дату выше, чтобы записаться'}
+                      </p>
+                      {course.isCoaching ? (
+                        <Button
+                          variant="outline"
+                          className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                          asChild
+                        >
+                          <a href="#individual">
+                            <Icon name="Info" size={18} className="mr-2" />
+                            Подробнее
+                          </a>
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="outline"
+                          className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                          asChild
+                        >
+                          <a href="#pricing">
+                            <Icon name="DollarSign" size={18} className="mr-2" />
+                            Узнать стоимость
+                          </a>
+                        </Button>
+                      )}
+                    </>
                   )}
                 </div>
               </CardContent>
