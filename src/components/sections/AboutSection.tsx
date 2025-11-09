@@ -184,7 +184,7 @@ const AboutSection = () => {
               onClick={() => setModalOpen(true)}
             >
               <Icon name="Sparkles" size={20} className="mr-2" />
-              Записаться на курс
+              Записаться на пробное бесплатно
             </Button>
           </div>
         </div>
