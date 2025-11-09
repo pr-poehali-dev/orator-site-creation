@@ -63,14 +63,14 @@ const AboutSection = () => {
 
   const courseIncludes = [
     {
-      title: 'Групповые тренинги',
-      description: '8 или 16 занятий (базовый или расширенный курс)',
+      title: 'Базовый и полный ораторский курс',
+      description: '10 или 20 занятий (базовый или полный курс)',
       icon: 'Users',
       type: 'main'
     },
     {
-      title: 'Индивидуальные занятия',
-      description: '4 персональных сессии с преподавателем',
+      title: 'Персональные сессии с преподавателем',
+      description: '1-2 индивидуальных занятия для проработки ваших особенностей',
       icon: 'UserCheck',
       type: 'main'
     },
@@ -152,7 +152,7 @@ const AboutSection = () => {
         </div>
 
         <div className={`bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 rounded-2xl md:rounded-3xl p-4 md:p-8 lg:p-12 max-w-5xl mx-auto transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <h3 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">Что входит в курс</h3>
+          <h3 className="text-2xl md:text-3xl font-bold mb-6 md:mb-8 text-center">Что входит в ораторский курс?</h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {courseIncludes.map((item, index) => (
               <div 
