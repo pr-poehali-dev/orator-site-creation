@@ -98,7 +98,9 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                   <div>
                     <p className="font-semibold text-sm text-muted-foreground">Вы выбрали:</p>
                     <p className="font-bold text-base">{courseName}</p>
-                    <p className="text-sm text-primary font-semibold mt-1">Старт: {courseDate}</p>
+                    {courseDate && courseDate !== 'Выбрать удобную дату' && (
+                      <p className="text-sm text-primary font-semibold mt-1">Старт: {courseDate}</p>
+                    )}
                   </div>
                 </div>
               </div>
