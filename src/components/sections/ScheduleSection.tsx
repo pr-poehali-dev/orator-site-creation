@@ -50,6 +50,16 @@ const ScheduleSection = () => {
       schedule: 'Понедельник, Среда, 19:00-21:00',
       spots: 'Набор открыт',
       color: 'from-primary to-secondary'
+    },
+    {
+      name: 'Индивидуальный ораторский коучинг',
+      startDate: 'Онлайн',
+      startDate2: 'Офлайн',
+      duration: 'Программа корректируется по запросу',
+      schedule: 'По согласованию',
+      spots: 'Набор открыт',
+      color: 'from-orange to-primary',
+      isCoaching: true
     }
   ];
 
@@ -101,7 +111,7 @@ const ScheduleSection = () => {
                 <div>
                   <div className="flex items-center gap-2 mb-3">
                     <Icon name="Calendar" size={20} className="text-primary" />
-                    <p className="font-semibold">Выберите дату старта:</p>
+                    <p className="font-semibold">{course.isCoaching ? 'Выберите формат:' : 'Выберите дату старта:'}</p>
                   </div>
                   {index === 0 && course.startDate2 ? (
                     <div className="flex flex-col gap-2">
