@@ -142,7 +142,7 @@ const Materials = () => {
                 <div className={`grid md:grid-cols-2 gap-8 p-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
                   <div className={`relative ${index % 2 === 1 ? 'md:order-2' : ''}`}>
                     {material.badge && (
-                      <div className="absolute -top-4 -right-4 bg-gradient-to-r from-primary to-secondary text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg z-10">
+                      <div className="absolute -top-4 -right-4 bg-gradient-to-r from-primary to-secondary text-white px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-xs sm:text-sm font-bold shadow-lg z-10">
                         {material.badge}
                       </div>
                     )}
@@ -153,7 +153,7 @@ const Materials = () => {
                     />
                     {material.bonus && (
                       <div className="mt-4 p-3 bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg">
-                        <div className="flex items-center gap-2 text-green-700 font-medium">
+                        <div className="flex items-center gap-2 text-green-700 font-medium text-sm sm:text-base">
                           <Icon name="Gift" size={18} />
                           <span>{material.bonus}</span>
                         </div>
@@ -162,16 +162,16 @@ const Materials = () => {
                   </div>
 
                   <div className={`flex flex-col justify-center ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                    <h2 className="text-2xl md:text-3xl font-bold mb-4">{material.title}</h2>
-                    <p className="text-gray-600 mb-6 text-lg">{material.description}</p>
+                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">{material.title}</h2>
+                    <p className="text-gray-600 mb-6 text-base sm:text-lg">{material.description}</p>
                     
                     <div className="mb-6">
-                      <h3 className="font-semibold mb-3 text-lg">Что внутри:</h3>
+                      <h3 className="font-semibold mb-3 text-base sm:text-lg">Что внутри:</h3>
                       <ul className="space-y-2">
                         {material.features.map((feature, idx) => (
                           <li key={idx} className="flex items-start gap-2">
                             <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-700">{feature}</span>
+                            <span className="text-gray-700 text-sm sm:text-base">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -180,9 +180,9 @@ const Materials = () => {
                     <div className="mt-auto">
                       <div className="mb-4">
                         {material.oldPrice && (
-                          <div className="text-lg text-gray-400 line-through mb-1">{material.oldPrice}</div>
+                          <div className="text-base sm:text-lg text-gray-400 line-through mb-1">{material.oldPrice}</div>
                         )}
-                        <div className="text-3xl font-bold text-primary">{material.price}</div>
+                        <div className="text-2xl sm:text-3xl font-bold text-primary">{material.price}</div>
                       </div>
                       <div className="flex flex-col sm:flex-row gap-3">
                         {material.links.map((link, idx) => {

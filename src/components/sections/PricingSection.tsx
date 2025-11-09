@@ -128,7 +128,7 @@ const PricingSection = () => {
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-2">
                       <Icon name="Check" className="text-primary flex-shrink-0 mt-0.5" size={20} />
-                      <span>{feature}</span>
+                      <span className="text-sm sm:text-base">{feature}</span>
                     </li>
                   ))}
                 </ul>

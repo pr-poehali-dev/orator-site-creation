@@ -156,33 +156,33 @@ const Blog = () => {
                         <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                           <Icon name={article.icon as any} size={24} className="text-primary" />
                         </div>
-                        <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                        <span className="text-xs sm:text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
                           {article.category}
                         </span>
                       </div>
                       
-                      <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">
+                      <h3 className="font-bold text-lg sm:text-xl md:text-xl mb-3 group-hover:text-primary transition-colors">
                         {article.title}
                       </h3>
                       
-                      <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                      <p className="text-muted-foreground text-sm sm:text-base mb-4 line-clamp-3">
                         {article.description}
                       </p>
                       
-                      <div className="flex items-center justify-between text-xs text-muted-foreground mb-3">
+                      <div className="flex items-center justify-between text-xs sm:text-sm text-muted-foreground mb-3">
                         <div className="flex items-center gap-1">
-                          <Icon name="Calendar" size={14} />
+                          <Icon name="Calendar" size={16} />
                           <span>{article.date}</span>
                         </div>
                         <div className="flex items-center gap-1">
-                          <Icon name="Clock" size={14} />
+                          <Icon name="Clock" size={16} />
                           <span>{article.readTime}</span>
                         </div>
                       </div>
                       
-                      <div className="flex items-center gap-1 text-primary font-medium group-hover:gap-2 transition-all text-sm">
+                      <div className="flex items-center gap-1 text-primary font-medium group-hover:gap-2 transition-all text-sm sm:text-base">
                         <span>{article.isVideo ? 'Смотреть видео' : 'Читать статью'}</span>
-                        <Icon name={article.isVideo ? 'Play' : 'ArrowRight'} size={14} />
+                        <Icon name={article.isVideo ? 'Play' : 'ArrowRight'} size={16} />
                       </div>
                     </CardContent>
                   </Card>
