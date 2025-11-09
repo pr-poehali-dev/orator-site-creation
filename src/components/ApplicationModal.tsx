@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
 
@@ -17,6 +18,7 @@ interface ApplicationModalProps {
 const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: ApplicationModalProps) => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [consent, setConsent] = useState(false);
   const [showContacts, setShowContacts] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -25,7 +27,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (name && phone) {
+    if (name && phone && consent) {
       setIsSubmitting(true);
       
       try {
@@ -132,10 +134,38 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                   />
                 </div>
 
+                <div className="flex items-start gap-3 pt-2">
+                  <Checkbox
+                    id="consent"
+                    checked={consent}
+                    onCheckedChange={(checked) => setConsent(checked as boolean)}
+                    className="mt-1"
+                  />
+                  <Label htmlFor="consent" className="text-sm leading-relaxed cursor-pointer">
+                    Я согласен с{' '}
+                    <a href="/privacy" target="_blank" className="text-primary hover:underline">
+                      политикой конфиденциальности
+                    </a>
+                    ,{' '}
+                    <a href="/consent" target="_blank" className="text-primary hover:underline">
+                      согласием на обработку персональных данных
+                    </a>
+                    ,{' '}
+                    <a href="/offer" target="_blank" className="text-primary hover:underline">
+                      публичной офертой
+                    </a>
+                    {' '}и{' '}
+                    <a href="/refund" target="_blank" className="text-primary hover:underline">
+                      политикой возврата
+                    </a>
+                    {' '}*
+                  </Label>
+                </div>
+
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-base py-6"
-                  disabled={isSubmitting}
+                  disabled={isSubmitting || !consent}
                 >
                   {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
                   {!isSubmitting && <Icon name="Send" size={20} className="ml-2" />}
