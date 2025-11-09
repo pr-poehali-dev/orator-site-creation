@@ -113,14 +113,14 @@ const ScheduleSection = () => {
                     <Icon name="Calendar" size={20} className="text-primary" />
                     <p className="font-semibold">{course.isCoaching ? 'Выберите формат:' : 'Выберите дату старта:'}</p>
                   </div>
-                  {index === 0 && course.startDate2 ? (
+                  {course.startDate2 ? (
                     <div className="flex flex-col gap-2">
                       <Button
                         variant="outline"
                         className="w-full justify-start bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300 hover:from-blue-100 hover:to-blue-200 hover:border-blue-400 text-blue-900 font-semibold"
                         onClick={() => handleDateSelect(course.name, course.startDate)}
                       >
-                        <Icon name="Calendar" size={18} className="mr-2" />
+                        <Icon name={course.isCoaching ? "Monitor" : "Calendar"} size={18} className="mr-2" />
                         {course.startDate}
                       </Button>
                       <Button
@@ -128,7 +128,7 @@ const ScheduleSection = () => {
                         className="w-full justify-start bg-gradient-to-r from-purple-50 to-purple-100 border-purple-300 hover:from-purple-100 hover:to-purple-200 hover:border-purple-400 text-purple-900 font-semibold"
                         onClick={() => handleDateSelect(course.name, course.startDate2)}
                       >
-                        <Icon name="Calendar" size={18} className="mr-2" />
+                        <Icon name={course.isCoaching ? "MapPin" : "Calendar"} size={18} className="mr-2" />
                         {course.startDate2}
                       </Button>
                     </div>
