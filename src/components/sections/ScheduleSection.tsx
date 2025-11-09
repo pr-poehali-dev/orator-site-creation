@@ -26,6 +26,15 @@ const ScheduleSection = () => {
       color: 'from-primary to-primary/80'
     },
     {
+      name: 'Ораторское мастерство с нуля (базовый курс)',
+      startDate: '16 января 2026',
+      duration: '8 занятий',
+      schedule: 'Вечерняя группа: Пятница, 18:00-20:00',
+      spots: 'Набор открыт',
+      color: 'from-primary to-primary/80',
+      isEvening: true
+    },
+    {
       name: 'Ораторский курс "Своя игра" (расширенный)',
       startDate: '19 января 2026',
       duration: '2 месяца',
@@ -60,6 +69,16 @@ const ScheduleSection = () => {
                     <div className="flex items-center gap-2">
                       <Icon name="Sun" size={16} />
                       <span className="font-bold text-sm whitespace-nowrap">Дневная группа</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {course.isEvening && (
+                <div className="absolute -top-3 -left-3 z-10">
+                  <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Moon" size={16} />
+                      <span className="font-bold text-sm whitespace-nowrap">Вечерняя группа</span>
                     </div>
                   </div>
                 </div>
