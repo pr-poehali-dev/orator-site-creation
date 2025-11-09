@@ -21,7 +21,7 @@ const ScheduleSection = () => {
       startDate: '24 ноября 2025',
       startDate2: '19 января 2026',
       duration: '8 занятий',
-      schedule: 'Дневная группа: Пн, Ср, 13:00-15:00',
+      schedule: 'Дневная группа: Понедельник, Среда, 13:00-15:00',
       spots: 'Набор открыт',
       color: 'from-primary to-primary/80'
     },
