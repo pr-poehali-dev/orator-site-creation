@@ -74,12 +74,12 @@ const HeroSection = () => {
                 }}
               >
                 <Icon name="Sparkles" size={18} className="mr-2 flex-shrink-0" />
-                <span className="truncate">Записаться на курс</span>
+                <span className="truncate">Записаться на пробное бесплатно</span>
               </Button>
               <ApplicationModal
                 isOpen={modalOpen}
                 onClose={() => setModalOpen(false)}
-                courseName="Ораторское мастерство «Своя игра»"
+                courseName="Пробное занятие (бесплатно)"
                 courseDate="Выбрать удобную дату"
               />
               <Button 
@@ -89,7 +89,7 @@ const HeroSection = () => {
                 onClick={() => setIsConsultDialogOpen(true)}
               >
                 <Icon name="MessageCircle" size={18} className="mr-2 flex-shrink-0" />
-                <span className="truncate">Бесплатная консультация</span>
+                <span className="truncate">Задать вопрос</span>
               </Button>
             </div>
           </div>
