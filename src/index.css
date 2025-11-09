@@ -107,12 +107,18 @@
   body {
     @apply bg-background text-foreground;
     font-family: "Open Sans", sans-serif;
-    font-size: 14px;
+    font-size: 16px;
   }
 
-  @media (min-width: 640px) {
+  @media (min-width: 768px) {
     body {
-      font-size: 16px;
+      font-size: 17px;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    body {
+      font-size: 18px;
     }
   }
 

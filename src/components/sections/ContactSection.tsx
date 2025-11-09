@@ -60,12 +60,12 @@ const ContactSection = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="font-semibold text-sm mb-1">WhatsApp</h3>
+              <h3 className="font-semibold text-sm sm:text-base mb-1">WhatsApp</h3>
               <a 
                 href="https://wa.me/79183111712" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-xs"
+                className="text-primary hover:underline text-sm"
                 onClick={() => trackGoal(GOALS.WHATSAPP_CLICK)}
               >
                 Написать
@@ -83,12 +83,12 @@ const ContactSection = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="font-semibold text-sm mb-1">VKontakte</h3>
+              <h3 className="font-semibold text-sm sm:text-base mb-1">VKontakte</h3>
               <a 
                 href="https://vk.com/svetlana_kuzikova" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-xs"
+                className="text-primary hover:underline text-sm"
               >
                 Страница
               </a>
@@ -102,8 +102,8 @@ const ContactSection = () => {
                   <Icon name="MapPin" size={20} className="text-primary" />
                 </div>
               </div>
-              <h3 className="font-semibold text-sm mb-1">Адрес</h3>
-              <p className="text-muted-foreground text-xs">Краснодар,<br />Горького, 104</p>
+              <h3 className="font-semibold text-sm sm:text-base mb-1">Адрес</h3>
+              <p className="text-muted-foreground text-sm">Краснодар,<br />Горького, 104</p>
             </CardContent>
           </Card>
 

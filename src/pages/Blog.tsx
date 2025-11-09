@@ -78,8 +78,8 @@ const Blog = () => {
           <div className="inline-block p-3 bg-primary/10 rounded-full mb-6">
             <Icon name="BookOpen" size={40} className="text-primary" />
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">Бесплатные материалы для самостоятельного обучения</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6">Бесплатные материалы для самостоятельного обучения</h1>
+          <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
             Практические советы, упражнения, видео, гайды и секреты ораторского мастерства от Светланы Кузиковой. 
             Все материалы в открытом доступе!
           </p>
@@ -161,7 +161,7 @@ const Blog = () => {
                         </span>
                       </div>
                       
-                      <h3 className="font-bold text-lg sm:text-xl md:text-xl mb-3 group-hover:text-primary transition-colors">
+                      <h3 className="font-bold text-lg md:text-xl mb-3 group-hover:text-primary transition-colors">
                         {article.title}
                       </h3>
                       

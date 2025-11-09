@@ -72,8 +72,8 @@ const Footer = () => {
         <div className="border-t border-gray-800 pt-6 md:pt-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
             <div className="text-left">
-              <h4 className="text-lg font-bold mb-4 text-primary">Полезное</h4>
-              <div className="space-y-2 text-gray-400 text-sm">
+              <h4 className="text-base sm:text-lg font-bold mb-4 text-primary">Полезное</h4>
+              <div className="space-y-2 text-gray-400 text-sm sm:text-base">
                 <p>
                   <a 
                     href="/blog" 
@@ -105,8 +105,8 @@ const Footer = () => {
             </div>
 
             <div className="text-left">
-              <h4 className="text-lg font-bold mb-4 text-primary">Реквизиты</h4>
-              <div className="space-y-2 text-gray-400 text-sm">
+              <h4 className="text-base sm:text-lg font-bold mb-4 text-primary">Реквизиты</h4>
+              <div className="space-y-2 text-gray-400 text-sm sm:text-base">
                 <p className="font-semibold text-white">ИП Кузикова Светлана Алексеевна</p>
                 <p>ИНН: 260103234389</p>
                 <p>ОГРН: 318237500160591</p>
@@ -126,8 +126,8 @@ const Footer = () => {
             </div>
 
             <div className="text-left">
-              <h4 className="text-lg font-bold mb-4 text-primary">Документы</h4>
-              <div className="space-y-2 text-gray-400 text-sm">
+              <h4 className="text-base sm:text-lg font-bold mb-4 text-primary">Документы</h4>
+              <div className="space-y-2 text-gray-400 text-sm sm:text-base">
                 <p>
                   <a 
                     href="/privacy" 
