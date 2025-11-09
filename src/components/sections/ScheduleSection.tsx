@@ -35,12 +35,13 @@ const ScheduleSection = () => {
       isEvening: true
     },
     {
-      name: 'Полный курс ораторского искусства. Своя игра',
+      name: 'Полный курс ораторского искусства "Своя игра"',
       startDate: '11 марта - 13 мая 2026',
-      duration: '2 месяца',
-      schedule: 'Понедельник и Среда, 19:00-21:00',
+      duration: '2 месяца, 40 часов практики',
+      schedule: 'Вечерняя группа: Понедельник и Среда, 19:00-21:00',
       spots: 'Набор открыт',
-      color: 'from-secondary to-secondary/80'
+      color: 'from-secondary to-secondary/80',
+      isPopular: true
     },
     {
       name: 'Актерский психологический курс "Перформанс-терапия"',
@@ -73,12 +74,22 @@ const ScheduleSection = () => {
                   </div>
                 </div>
               )}
-              {course.isEvening && (
+              {course.isEvening && !course.isPopular && (
                 <div className="absolute -top-3 -left-3 z-10">
                   <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
                     <div className="flex items-center gap-2">
                       <Icon name="Moon" size={16} />
                       <span className="font-bold text-sm whitespace-nowrap">Вечерняя группа</span>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {course.isPopular && (
+                <div className="absolute -top-3 -left-3 z-10">
+                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Star" size={16} />
+                      <span className="font-bold text-sm whitespace-nowrap">Популярный курс</span>
                     </div>
                   </div>
                 </div>
