@@ -44,16 +44,6 @@ const ScheduleSection = () => {
       isPopular: true
     },
     {
-      name: 'Актерский психологический курс "Перформанс-терапия"',
-      startDate: '30 ноября - 4 марта 2026',
-      duration: '3 месяца',
-      schedule: 'Понедельник, Среда, 19:00-21:00',
-      spots: 'Набор открыт',
-      color: 'from-primary to-secondary',
-      isTheater: true,
-      externalLink: 'https://performance-therapy-landing--preview.poehali.dev/'
-    },
-    {
       name: 'Индивидуальный ораторский коучинг',
       startDate: 'Онлайн',
       startDate2: 'Офлайн',
@@ -71,6 +61,17 @@ const ScheduleSection = () => {
       spots: 'Формат по запросу',
       color: 'from-green-600 to-teal-600',
       isCorporate: true
+    },
+    {
+      name: 'Актерский психологический курс "Перформанс-терапия"',
+      description: 'Решаем психологические задачи творческим самовыражением через публичное выступление',
+      startDate: '30 ноября - 4 марта 2026',
+      duration: '3 месяца',
+      schedule: 'Понедельник, Среда, 19:00-21:00',
+      spots: 'Набор открыт',
+      color: 'from-primary to-secondary',
+      isTheater: true,
+      externalLink: 'https://performance-therapy-landing--preview.poehali.dev/'
     }
   ];
 
