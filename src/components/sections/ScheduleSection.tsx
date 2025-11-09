@@ -41,7 +41,18 @@ const ScheduleSection = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {courses.map((course, index) => (
-            <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2">
+            <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2 relative overflow-visible">
+              {index === 0 && (
+                <div className="absolute -top-3 -right-3 z-10">
+                  <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full shadow-lg transform rotate-3 hover:rotate-0 transition-transform">
+                    <div className="flex items-center gap-2">
+                      <Icon name="Sun" size={16} />
+                      <span className="font-bold text-sm whitespace-nowrap">Дневная группа</span>
+                    </div>
+                    <div className="text-xs text-center mt-0.5">с 24 ноября</div>
+                  </div>
+                </div>
+              )}
               <CardHeader className={`bg-gradient-to-r ${course.color} text-white rounded-t-lg pb-4 md:pb-6`}>
                 <CardTitle className="text-lg md:text-xl">{course.name}</CardTitle>
               </CardHeader>
