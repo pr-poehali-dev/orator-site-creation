@@ -168,9 +168,20 @@ const ScheduleSection = () => {
 
                 <div className="pt-2">
                   <p className="text-xs text-muted-foreground text-center mb-3">
-                    Выберите дату выше, чтобы записаться
+                    {course.isCoaching ? 'Выберите формат и узнайте подробности' : 'Выберите дату выше, чтобы записаться'}
                   </p>
-                  {!course.isCoaching && (
+                  {course.isCoaching ? (
+                    <Button
+                      variant="outline"
+                      className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                      asChild
+                    >
+                      <a href="#individual">
+                        <Icon name="Info" size={18} className="mr-2" />
+                        Подробнее
+                      </a>
+                    </Button>
+                  ) : (
                     <Button
                       variant="outline"
                       className="w-full border-primary text-primary hover:bg-primary hover:text-white"
