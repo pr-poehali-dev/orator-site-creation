@@ -44,13 +44,12 @@ const ScheduleSection = () => {
           {courses.map((course, index) => (
             <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2 relative overflow-visible">
               {index === 0 && (
-                <div className="absolute -top-3 -right-3 z-10">
-                  <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full shadow-lg transform rotate-3 hover:rotate-0 transition-transform">
+                <div className="absolute -top-3 -left-3 z-10">
+                  <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
                     <div className="flex items-center gap-2">
                       <Icon name="Sun" size={16} />
                       <span className="font-bold text-sm whitespace-nowrap">Дневная группа</span>
                     </div>
-                    <div className="text-xs text-center mt-0.5">с 24 ноября</div>
                   </div>
                 </div>
               )}
@@ -64,7 +63,7 @@ const ScheduleSection = () => {
                     <p className="font-semibold">Старт курса</p>
                     <p className="text-muted-foreground">{course.startDate}</p>
                     {course.startDate2 && (
-                      <p className="text-muted-foreground mt-1">или {course.startDate2}</p>
+                      <p className="text-muted-foreground mt-1">{course.startDate2}</p>
                     )}
                   </div>
                 </div>
