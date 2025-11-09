@@ -251,23 +251,10 @@ const ScheduleSection = () => {
           courseDate={selectedCourse.date}
         />
 
-        <div className="mt-8 text-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-6">
-          <p className="text-base mb-3">
-            <span className="font-bold">Не нашли подходящее время?</span> Свяжитесь с нами
+        <div className="mt-8 text-center">
+          <p className="text-muted-foreground mb-3">
+            Не нашли подходящее время? <a href="tel:+79183111712" className="text-primary font-semibold hover:underline" onClick={() => trackGoal(GOALS.PHONE_CLICK)}>Позвоните нам</a> или <a href="https://wa.me/message/FKFHPRMEDBRYP1" target="_blank" rel="noopener noreferrer" className="text-primary font-semibold hover:underline" onClick={() => trackGoal(GOALS.WHATSAPP_CLICK)}>напишите в WhatsApp</a>
           </p>
-          <Button 
-            variant="outline"
-            asChild
-          >
-            <a 
-              href="tel:+79183111712" 
-              className="inline-flex items-center gap-2"
-              onClick={() => trackGoal(GOALS.PHONE_CLICK)}
-            >
-              <Icon name="Phone" size={18} />
-              Позвонить
-            </a>
-          </Button>
         </div>
       </div>
     </section>
