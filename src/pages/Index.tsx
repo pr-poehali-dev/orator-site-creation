@@ -29,6 +29,7 @@ const Index = () => {
       <StructuredData />
       <Header />
       <HeroSection />
+      <ScheduleSection />
       <AudienceSection />
       <AboutSection />
       <ProgramSection />
@@ -38,7 +39,6 @@ const Index = () => {
       <PricingSection />
       <IndividualLessonsSection />
       <FAQSection />
-      <ScheduleSection />
       <GallerySection />
       <TestimonialsSection />
       <VideoTestimonialsSection />
