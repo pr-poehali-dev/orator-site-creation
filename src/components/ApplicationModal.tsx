@@ -4,7 +4,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
-import funcUrls from '../../../backend/func2url.json';
+
+const TELEGRAM_NOTIFICATION_URL = 'https://functions.poehali.dev/2708494c-3d0e-4905-b18f-86093217671b';
 
 interface ApplicationModalProps {
   isOpen: boolean;
@@ -28,7 +29,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
       setIsSubmitting(true);
       
       try {
-        const response = await fetch(funcUrls['telegram-notification'], {
+        const response = await fetch(TELEGRAM_NOTIFICATION_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
