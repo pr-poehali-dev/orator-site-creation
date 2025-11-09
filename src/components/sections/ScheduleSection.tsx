@@ -3,19 +3,16 @@ import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
 import { useState } from 'react';
+import ApplicationModal from '@/components/ApplicationModal';
 
 const ScheduleSection = () => {
-  const [selectedDate, setSelectedDate] = useState<{course: string, date: string} | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedCourse, setSelectedCourse] = useState({ name: '', date: '' });
 
   const handleDateSelect = (courseName: string, date: string) => {
-    setSelectedDate({ course: courseName, date });
+    setSelectedCourse({ name: courseName, date });
+    setModalOpen(true);
     trackGoal(GOALS.COURSE_SIGNUP_CLICK);
-    const contactSection = document.getElementById('contact');
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: 'smooth' });
-      contactSection.setAttribute('data-course', courseName);
-      contactSection.setAttribute('data-date', date);
-    }
   };
 
   const courses = [
@@ -138,6 +135,13 @@ const ScheduleSection = () => {
             </Card>
           ))}
         </div>
+
+        <ApplicationModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          courseName={selectedCourse.name}
+          courseDate={selectedCourse.date}
+        />
 
         <div className="mt-8 text-center bg-gradient-to-r from-primary/10 to-secondary/10 rounded-xl p-6">
           <p className="text-base mb-3">
