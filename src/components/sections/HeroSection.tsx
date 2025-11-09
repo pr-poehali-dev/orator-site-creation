@@ -42,10 +42,10 @@ const HeroSection = () => {
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-5 leading-tight">
               <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
-                Ораторское искусство
+                Курсы ораторского искусства и импровизации
               </span>
               <br />
-              <span className="text-foreground text-2xl md:text-3xl lg:text-4xl xl:text-5xl">«Своя игра»</span>
+              <span className="text-foreground text-2xl md:text-3xl lg:text-4xl xl:text-5xl">для карьеры, бизнеса и жизни</span>
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-5 md:mb-6 max-w-2xl mx-auto lg:mx-0 px-2 lg:px-0">
               Единственный в Краснодаре курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником
