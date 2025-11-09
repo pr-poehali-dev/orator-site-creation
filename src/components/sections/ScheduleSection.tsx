@@ -28,7 +28,7 @@ const ScheduleSection = () => {
     {
       name: 'Ораторское мастерство с нуля (базовый курс)',
       startDate: '16 января 2026',
-      duration: 'Полтора месяца, 8 занятий',
+      duration: '1,5 месяца, 8 занятий',
       schedule: 'Вечерняя группа: Пятница, 18:00-20:00',
       spots: 'Набор открыт',
       color: 'from-primary to-primary/80',
