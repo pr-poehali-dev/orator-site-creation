@@ -1,14 +1,52 @@
 import Icon from '@/components/ui/icon';
 import { Card, CardContent } from '@/components/ui/card';
 import { trackGoal, GOALS } from '@/utils/goals';
+import { useEffect, useState } from 'react';
 
 const ContactSection = () => {
+  const [selectedCourse, setSelectedCourse] = useState<{course: string, date: string} | null>(null);
+
+  useEffect(() => {
+    const section = document.getElementById('contact');
+    const observer = new MutationObserver(() => {
+      const course = section?.getAttribute('data-course');
+      const date = section?.getAttribute('data-date');
+      if (course && date) {
+        setSelectedCourse({ course, date });
+      }
+    });
+
+    if (section) {
+      observer.observe(section, { attributes: true, attributeFilter: ['data-course', 'data-date'] });
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="py-14 px-4 bg-white">
+    <section id="contact" className="py-14 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Контакты</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg">
+        <p className="text-center text-muted-foreground mb-4 text-lg">
           Свяжитесь с нами удобным для вас способом
+        </p>
+        {selectedCourse && (
+          <div className="max-w-2xl mx-auto mb-8 p-4 bg-gradient-to-r from-blue-50 to-purple-50 border-2 border-blue-200 rounded-xl">
+            <div className="flex items-start gap-3">
+              <div className="p-2 bg-white rounded-lg">
+                <Icon name="Check" size={24} className="text-green-600" />
+              </div>
+              <div>
+                <h3 className="font-bold text-lg mb-1">Вы выбрали курс:</h3>
+                <p className="text-base font-semibold text-primary mb-1">{selectedCourse.course}</p>
+                <p className="text-sm text-muted-foreground">Дата старта: <span className="font-semibold">{selectedCourse.date}</span></p>
+                <p className="text-sm text-muted-foreground mt-2">Свяжитесь с нами любым удобным способом ниже, чтобы завершить запись</p>
+              </div>
+            </div>
+          </div>
+        )}
+        <p className="text-center text-muted-foreground mb-12 text-base">
+          {selectedCourse ? 'Выберите удобный способ связи:' : 'Или свяжитесь с нами для консультации'}
         </p>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">

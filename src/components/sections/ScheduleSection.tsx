@@ -2,8 +2,22 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
+import { useState } from 'react';
 
 const ScheduleSection = () => {
+  const [selectedDate, setSelectedDate] = useState<{course: string, date: string} | null>(null);
+
+  const handleDateSelect = (courseName: string, date: string) => {
+    setSelectedDate({ course: courseName, date });
+    trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+    const contactSection = document.getElementById('contact');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+      contactSection.setAttribute('data-course', courseName);
+      contactSection.setAttribute('data-date', date);
+    }
+  };
+
   const courses = [
     {
       name: 'Ораторское мастерство с нуля (базовый курс)',
@@ -57,15 +71,40 @@ const ScheduleSection = () => {
                 <CardTitle className="text-lg md:text-xl">{course.name}</CardTitle>
               </CardHeader>
               <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-sm md:text-base">
-                <div className="flex items-start gap-3">
-                  <Icon name="Calendar" size={20} className="text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold">Старт курса</p>
-                    <p className="text-muted-foreground">{course.startDate}</p>
-                    {course.startDate2 && (
-                      <p className="text-muted-foreground mt-1">{course.startDate2}</p>
-                    )}
+                <div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Icon name="Calendar" size={20} className="text-primary" />
+                    <p className="font-semibold">Выберите дату старта:</p>
                   </div>
+                  {index === 0 && course.startDate2 ? (
+                    <div className="flex flex-col gap-2">
+                      <Button
+                        variant="outline"
+                        className="w-full justify-start bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300 hover:from-blue-100 hover:to-blue-200 hover:border-blue-400 text-blue-900 font-semibold"
+                        onClick={() => handleDateSelect(course.name, course.startDate)}
+                      >
+                        <Icon name="Calendar" size={18} className="mr-2" />
+                        {course.startDate}
+                      </Button>
+                      <Button
+                        variant="outline"
+                        className="w-full justify-start bg-gradient-to-r from-purple-50 to-purple-100 border-purple-300 hover:from-purple-100 hover:to-purple-200 hover:border-purple-400 text-purple-900 font-semibold"
+                        onClick={() => handleDateSelect(course.name, course.startDate2)}
+                      >
+                        <Icon name="Calendar" size={18} className="mr-2" />
+                        {course.startDate2}
+                      </Button>
+                    </div>
+                  ) : (
+                    <Button
+                      variant="outline"
+                      className="w-full justify-start bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300 hover:from-blue-100 hover:to-blue-200 hover:border-blue-400 text-blue-900 font-semibold"
+                      onClick={() => handleDateSelect(course.name, course.startDate)}
+                    >
+                      <Icon name="Calendar" size={18} className="mr-2" />
+                      {course.startDate}
+                    </Button>
+                  )}
                 </div>
                 
                 <div className="flex items-start gap-3">
@@ -90,14 +129,11 @@ const ScheduleSection = () => {
                   </div>
                 </div>
 
-                <Button 
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90"
-                  asChild
-                >
-                  <a href="#contact" onClick={() => trackGoal(GOALS.COURSE_SIGNUP_CLICK)}>
-                    Записаться на курс
-                  </a>
-                </Button>
+                <div className="pt-2">
+                  <p className="text-xs text-muted-foreground text-center mb-2">
+                    Выберите дату выше, чтобы записаться
+                  </p>
+                </div>
               </CardContent>
             </Card>
           ))}
