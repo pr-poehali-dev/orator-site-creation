@@ -4,7 +4,7 @@ import { trackGoal, GOALS } from '@/utils/goals';
 
 const QuestionsSection = () => {
   return (
-    <section className="py-14 px-4 bg-white">
+    <section className="py-10 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <div className="bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-3xl p-8 md:p-12 text-center">
           <h3 className="text-2xl md:text-3xl font-bold mb-4">Есть вопросы по программе?</h3>

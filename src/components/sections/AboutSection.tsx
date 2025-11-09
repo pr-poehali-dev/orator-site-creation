@@ -113,7 +113,7 @@ const AboutSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="about" className="py-14 px-4 bg-white relative overflow-hidden">
+    <section ref={sectionRef} id="about" className="py-10 px-4 bg-white relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute w-[600px] h-[600px] bg-gradient-to-br from-primary/5 to-secondary/5 rounded-full blur-3xl -top-48 -right-48"

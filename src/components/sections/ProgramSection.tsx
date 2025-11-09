@@ -86,7 +86,7 @@ const ProgramSection = () => {
   ];
 
   return (
-    <section ref={sectionRef} id="program" className="py-10 md:py-14 px-3 md:px-4 relative overflow-hidden">
+    <section ref={sectionRef} id="program" className="py-10 px-3 md:px-4 relative overflow-hidden">
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         <div
           className="absolute w-[550px] h-[550px] bg-gradient-to-br from-secondary/8 to-orange/8 rounded-full blur-3xl top-0 left-0"
