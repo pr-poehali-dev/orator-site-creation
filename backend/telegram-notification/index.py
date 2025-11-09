@@ -41,8 +41,10 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         phone = body_data.get('phone', '')
         email = body_data.get('email', '')
         message = body_data.get('message', '')
+        course = body_data.get('course', '')
+        date = body_data.get('date', '')
         
-        print(f"Received form data: name={name}, phone={phone}, email={email}")
+        print(f"Received form data: name={name}, phone={phone}, email={email}, course={course}, date={date}")
         
         if not name or (not phone and not email):
             print("ERROR: Name or contact info is missing")
@@ -71,13 +73,20 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'body': json.dumps({'error': 'Telegram credentials not configured'})
             }
         
-        telegram_message = f"🎯 Новая заявка с сайта!\n\n👤 Имя: {name}"
-        if phone:
-            telegram_message += f"\n📱 Телефон: {phone}"
-        if email:
-            telegram_message += f"\n📧 Email: {email}"
-        if message:
-            telegram_message += f"\n💬 Комментарий: {message}"
+        if course and date:
+            telegram_message = f"🎓 Новая заявка на курс!\n\n👤 Имя: {name}"
+            if phone:
+                telegram_message += f"\n📱 Телефон: {phone}"
+            telegram_message += f"\n📚 Курс: {course}"
+            telegram_message += f"\n📅 Дата старта: {date}"
+        else:
+            telegram_message = f"🎯 Новая заявка с сайта!\n\n👤 Имя: {name}"
+            if phone:
+                telegram_message += f"\n📱 Телефон: {phone}"
+            if email:
+                telegram_message += f"\n📧 Email: {email}"
+            if message:
+                telegram_message += f"\n💬 Комментарий: {message}"
         
         url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
         data = {

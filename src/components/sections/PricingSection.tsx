@@ -3,11 +3,14 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
 import { useEffect, useRef, useState } from 'react';
+import ApplicationModal from '@/components/ApplicationModal';
 
 const PricingSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState({ name: '', subtitle: '' });
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -141,7 +144,8 @@ const PricingSection = () => {
                   size="lg"
                   onClick={() => {
                     trackGoal(GOALS.COURSE_SIGNUP_CLICK);
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    setSelectedPackage({ name: pkg.subtitle, subtitle: pkg.name });
+                    setModalOpen(true);
                   }}
                 >
                   <Icon name="Sparkles" size={20} className="mr-2" />
@@ -151,6 +155,13 @@ const PricingSection = () => {
             </Card>
           ))}
         </div>
+
+        <ApplicationModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          courseName={selectedPackage.name}
+          courseDate="Выбрать удобную дату"
+        />
 
         <div className={`bg-gradient-to-r from-primary/10 via-secondary/10 to-primary/10 rounded-3xl p-8 md:p-12 text-center transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h3 className="text-2xl md:text-3xl font-bold mb-4">Есть вопросы по программе?</h3>

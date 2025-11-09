@@ -4,6 +4,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
+import funcUrls from '../../../backend/func2url.json';
 
 interface ApplicationModalProps {
   isOpen: boolean;
@@ -16,13 +17,41 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [showContacts, setShowContacts] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (name && phone) {
-      setShowContacts(true);
+      setIsSubmitting(true);
+      
+      try {
+        const response = await fetch(funcUrls['telegram-notification'], {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            name,
+            phone,
+            course: courseName,
+            date: courseDate
+          })
+        });
+
+        if (response.ok) {
+          setSubmitSuccess(true);
+        } else {
+          console.error('Failed to submit application');
+        }
+      } catch (error) {
+        console.error('Error submitting application:', error);
+      } finally {
+        setIsSubmitting(false);
+        setShowContacts(true);
+      }
     }
   };
 
@@ -105,9 +134,10 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                 <Button
                   type="submit"
                   className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-base py-6"
+                  disabled={isSubmitting}
                 >
-                  Продолжить
-                  <Icon name="ArrowRight" size={20} className="ml-2" />
+                  {isSubmitting ? 'Отправка...' : 'Отправить заявку'}
+                  {!isSubmitting && <Icon name="Send" size={20} className="ml-2" />}
                 </Button>
               </form>
             </>
@@ -117,9 +147,13 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                 <div className="flex items-start gap-3 mb-4">
                   <Icon name="Check" size={24} className="text-green-600 mt-1" />
                   <div>
-                    <p className="font-bold text-lg mb-2">Ваша заявка готова!</p>
+                    <p className="font-bold text-lg mb-2">
+                      {submitSuccess ? '✅ Заявка отправлена!' : 'Ваша заявка готова!'}
+                    </p>
                     <p className="text-sm text-muted-foreground">
-                      Выберите удобный способ связи ниже, чтобы отправить заявку
+                      {submitSuccess 
+                        ? 'Мы получили вашу заявку и скоро свяжемся с вами. Также можете связаться с нами напрямую:'
+                        : 'Выберите удобный способ связи ниже:'}
                     </p>
                   </div>
                 </div>

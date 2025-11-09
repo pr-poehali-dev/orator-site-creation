@@ -3,9 +3,11 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
+import ApplicationModal from '@/components/ApplicationModal';
 
 const HeroSection = () => {
   const [isConsultDialogOpen, setIsConsultDialogOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -68,12 +70,18 @@ const HeroSection = () => {
                 className="bg-primary hover:bg-primary/90 text-sm sm:text-base md:text-lg px-4 sm:px-6 py-5 sm:py-6 w-full sm:w-auto"
                 onClick={() => {
                   trackGoal(GOALS.COURSE_SIGNUP_CLICK);
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  setModalOpen(true);
                 }}
               >
                 <Icon name="Sparkles" size={18} className="mr-2 flex-shrink-0" />
                 <span className="truncate">Записаться на курс</span>
               </Button>
+              <ApplicationModal
+                isOpen={modalOpen}
+                onClose={() => setModalOpen(false)}
+                courseName="Ораторское мастерство «Своя игра»"
+                courseDate="Выбрать удобную дату"
+              />
               <Button 
                 size="lg" 
                 variant="outline" 

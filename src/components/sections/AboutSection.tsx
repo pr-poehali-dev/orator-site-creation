@@ -2,11 +2,13 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 import { useEffect, useRef, useState } from 'react';
+import ApplicationModal from '@/components/ApplicationModal';
 
 const AboutSection = () => {
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -179,13 +181,20 @@ const AboutSection = () => {
             <Button 
               size="lg" 
               className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-base md:text-lg px-6 md:px-8 py-5 md:py-6 w-full sm:w-auto"
-              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() => setModalOpen(true)}
             >
               <Icon name="Sparkles" size={20} className="mr-2" />
               Записаться на курс
             </Button>
           </div>
         </div>
+
+        <ApplicationModal
+          isOpen={modalOpen}
+          onClose={() => setModalOpen(false)}
+          courseName="Ораторское мастерство"
+          courseDate="Выбрать удобную дату"
+        />
       </div>
     </section>
   );
