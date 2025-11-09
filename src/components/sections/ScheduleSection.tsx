@@ -49,7 +49,9 @@ const ScheduleSection = () => {
       duration: '3 месяца',
       schedule: 'Понедельник, Среда, 19:00-21:00',
       spots: 'Набор открыт',
-      color: 'from-primary to-secondary'
+      color: 'from-primary to-secondary',
+      isTheater: true,
+      externalLink: 'https://performance-therapy-landing--preview.poehali.dev/'
     },
     {
       name: 'Индивидуальный ораторский коучинг',
@@ -222,6 +224,17 @@ const ScheduleSection = () => {
                           <a href="#individual">
                             <Icon name="Info" size={18} className="mr-2" />
                             Подробнее
+                          </a>
+                        </Button>
+                      ) : course.isTheater ? (
+                        <Button
+                          variant="outline"
+                          className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                          asChild
+                        >
+                          <a href={course.externalLink} target="_blank" rel="noopener noreferrer">
+                            <Icon name="ExternalLink" size={18} className="mr-2" />
+                            О курсе подробнее
                           </a>
                         </Button>
                       ) : (
