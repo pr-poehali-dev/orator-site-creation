@@ -148,10 +148,10 @@ const Blog = () => {
                   <Card 
                     key={index} 
                     onClick={() => navigate(`/blog/${article.id}`)}
-                    className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group animate-in fade-in slide-in-from-bottom-4 duration-500"
+                    className="hover:shadow-xl transition-all hover:-translate-y-1 cursor-pointer group animate-in fade-in slide-in-from-bottom-4 duration-500 border-2 hover:border-primary/50 bg-gradient-to-br from-white to-primary/5"
                     style={{ animationDelay: `${index * 50}ms` }}
                   >
-                    <CardContent className="p-6">
+                    <CardContent className="p-6 md:p-8">
                       <div className="flex items-start justify-between mb-4">
                         <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 transition-colors">
                           <Icon name={article.icon as any} size={24} className="text-primary" />
@@ -161,28 +161,28 @@ const Blog = () => {
                         </span>
                       </div>
                       
-                      <h3 className="font-bold text-lg md:text-xl mb-3 group-hover:text-primary transition-colors">
+                      <h3 className="font-bold text-xl md:text-2xl mb-3 group-hover:text-primary transition-colors">
                         {article.title}
                       </h3>
                       
-                      <p className="text-muted-foreground text-sm sm:text-base mb-4 line-clamp-3">
+                      <p className="text-muted-foreground text-base md:text-lg mb-4 line-clamp-3 leading-relaxed">
                         {article.description}
                       </p>
                       
-                      <div className="flex items-center justify-between text-xs sm:text-sm text-muted-foreground mb-3">
-                        <div className="flex items-center gap-1">
-                          <Icon name="Calendar" size={16} />
+                      <div className="flex items-center justify-between text-sm md:text-base text-muted-foreground mb-3">
+                        <div className="flex items-center gap-2">
+                          <Icon name="Calendar" size={18} />
                           <span>{article.date}</span>
                         </div>
-                        <div className="flex items-center gap-1">
-                          <Icon name="Clock" size={16} />
+                        <div className="flex items-center gap-2">
+                          <Icon name="Clock" size={18} />
                           <span>{article.readTime}</span>
                         </div>
                       </div>
                       
-                      <div className="flex items-center gap-1 text-primary font-medium group-hover:gap-2 transition-all text-sm sm:text-base">
+                      <div className="flex items-center gap-2 text-primary font-medium group-hover:gap-3 transition-all text-base md:text-lg">
                         <span>{article.isVideo ? 'Смотреть видео' : 'Читать статью'}</span>
-                        <Icon name={article.isVideo ? 'Play' : 'ArrowRight'} size={16} />
+                        <Icon name={article.isVideo ? 'Play' : 'ArrowRight'} size={18} />
                       </div>
                     </CardContent>
                   </Card>

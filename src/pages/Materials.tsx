@@ -136,7 +136,7 @@ const Materials = () => {
             {materials.map((material, index) => (
               <Card 
                 key={material.id} 
-                className="overflow-hidden border-2 hover:border-primary/30 transition-all duration-300 hover:shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700"
+                className="overflow-hidden border-2 hover:border-primary/50 transition-all duration-300 hover:shadow-2xl animate-in fade-in slide-in-from-bottom-4 duration-700 bg-gradient-to-br from-white to-primary/5 hover:-translate-y-1"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 <div className={`grid md:grid-cols-2 gap-8 p-8 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
@@ -162,16 +162,16 @@ const Materials = () => {
                   </div>
 
                   <div className={`flex flex-col justify-center ${index % 2 === 1 ? 'md:order-1' : ''}`}>
-                    <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-4">{material.title}</h2>
-                    <p className="text-gray-600 mb-6 text-base sm:text-lg">{material.description}</p>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">{material.title}</h2>
+                    <p className="text-gray-600 mb-6 text-lg md:text-xl leading-relaxed">{material.description}</p>
                     
                     <div className="mb-6">
-                      <h3 className="font-semibold mb-3 text-base sm:text-lg">Что внутри:</h3>
-                      <ul className="space-y-2">
+                      <h3 className="font-semibold mb-4 text-lg md:text-xl">Что внутри:</h3>
+                      <ul className="space-y-3">
                         {material.features.map((feature, idx) => (
-                          <li key={idx} className="flex items-start gap-2">
-                            <Icon name="CheckCircle2" size={20} className="text-primary mt-0.5 flex-shrink-0" />
-                            <span className="text-gray-700 text-sm sm:text-base">{feature}</span>
+                          <li key={idx} className="flex items-start gap-3">
+                            <Icon name="CheckCircle2" size={22} className="text-primary mt-1 flex-shrink-0" />
+                            <span className="text-gray-700 text-base md:text-lg leading-relaxed">{feature}</span>
                           </li>
                         ))}
                       </ul>
@@ -180,9 +180,9 @@ const Materials = () => {
                     <div className="mt-auto">
                       <div className="mb-4">
                         {material.oldPrice && (
-                          <div className="text-base sm:text-lg text-gray-400 line-through mb-1">{material.oldPrice}</div>
+                          <div className="text-lg md:text-xl text-gray-400 line-through mb-1">{material.oldPrice}</div>
                         )}
-                        <div className="text-2xl sm:text-3xl font-bold text-primary">{material.price}</div>
+                        <div className="text-3xl md:text-4xl font-bold text-primary">{material.price}</div>
                       </div>
                       <div className="flex flex-col sm:flex-row gap-3">
                         {material.links.map((link, idx) => {

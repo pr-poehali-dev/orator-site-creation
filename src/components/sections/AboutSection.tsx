@@ -133,7 +133,7 @@ const AboutSection = () => {
           {uniqueApproach.map((item, index) => (
             <Card 
               key={index} 
-              className={`group text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] border-2 hover:border-primary/50 bg-gradient-to-br from-white to-secondary/5 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <CardHeader className="pb-3">
@@ -143,7 +143,7 @@ const AboutSection = () => {
                 <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-sm md:text-base text-muted-foreground">{item.description}</p>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{item.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -155,21 +155,21 @@ const AboutSection = () => {
             {courseIncludes.map((item, index) => (
               <div 
                 key={index} 
-                className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+                className={`bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 border border-gray-100 hover:border-primary/30 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
                 style={{ transitionDelay: `${500 + index * 100}ms` }}
               >
                 <div className="flex items-start gap-4">
-                  <div className={`w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0 ${
+                  <div className={`w-14 h-14 rounded-lg flex items-center justify-center flex-shrink-0 ${
                     item.type === 'main' ? 'bg-gradient-to-br from-primary to-secondary' :
                     item.type === 'masterclass' ? 'bg-gradient-to-br from-purple-500 to-pink-500' :
                     item.type === 'bonus' ? 'bg-gradient-to-br from-green-500 to-emerald-500' :
                     'bg-gradient-to-br from-yellow-500 to-orange-500'
                   }`}>
-                    <Icon name={item.icon as any} size={24} className="text-white" />
+                    <Icon name={item.icon as any} size={30} className="text-white" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-lg mb-1">{item.title}</h4>
-                    <p className="text-muted-foreground text-sm">{item.description}</p>
+                    <h4 className="font-bold text-lg md:text-xl mb-2">{item.title}</h4>
+                    <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </div>

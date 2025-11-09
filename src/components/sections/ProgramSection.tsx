@@ -108,7 +108,7 @@ const ProgramSection = () => {
           {program.map((block, index) => (
             <Card 
               key={index} 
-              className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] border-2 hover:border-primary/50 bg-gradient-to-br from-white to-primary/5 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <CardHeader className="pb-3 md:pb-4">
@@ -117,11 +117,11 @@ const ProgramSection = () => {
                 </div>
                 <CardTitle className="text-lg md:text-xl lg:text-2xl mb-3 md:mb-4">{block.title}</CardTitle>
               </CardHeader>
-              <div className="px-4 md:px-6 pb-4 md:pb-6 space-y-2 md:space-y-3">
+              <div className="px-4 md:px-6 pb-4 md:pb-6 space-y-3">
                 {block.items.map((item, itemIndex) => (
-                  <div key={itemIndex} className="flex items-start gap-2">
-                    <Icon name="Check" size={18} className="text-primary flex-shrink-0 mt-0.5" />
-                    <CardDescription className="text-sm leading-relaxed">{item}</CardDescription>
+                  <div key={itemIndex} className="flex items-start gap-3">
+                    <Icon name="Check" size={20} className="text-primary flex-shrink-0 mt-1" />
+                    <CardDescription className="text-base md:text-lg leading-relaxed">{item}</CardDescription>
                   </div>
                 ))}
               </div>
@@ -141,7 +141,7 @@ const ProgramSection = () => {
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
                   <Icon name={result.icon as any} size={18} className="text-white md:w-5 md:h-5" />
                 </div>
-                <p className="text-sm md:text-base lg:text-lg font-medium mt-1 md:mt-1.5">{result.text}</p>
+                <p className="text-base md:text-lg font-medium mt-1 md:mt-1.5">{result.text}</p>
               </div>
             ))}
           </div>

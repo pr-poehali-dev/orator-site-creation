@@ -112,23 +112,23 @@ const PricingSection = () => {
                 </div>
               )}
               <CardHeader className="text-center pb-4 pt-6">
-                <CardTitle className="text-xl sm:text-2xl md:text-3xl mb-2">{pkg.name}</CardTitle>
-                {pkg.subtitle && <p className="text-base md:text-lg font-semibold text-primary mb-2">{pkg.subtitle}</p>}
-                <CardDescription className="text-base md:text-lg">{pkg.duration}</CardDescription>
+                <CardTitle className="text-2xl md:text-3xl mb-2">{pkg.name}</CardTitle>
+                {pkg.subtitle && <p className="text-lg md:text-xl font-semibold text-primary mb-2">{pkg.subtitle}</p>}
+                <CardDescription className="text-lg md:text-xl">{pkg.duration}</CardDescription>
                 <div className="mt-4 md:mt-6">
                   <div className="flex items-center justify-center gap-2 md:gap-3 mb-2">
                     <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">{pkg.price}</span>
                     <span className="text-lg sm:text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>
                   </div>
-                  <p className="text-sm text-muted-foreground">Возможна оплата в 2 этапа</p>
+                  <p className="text-base text-muted-foreground">Возможна оплата в 2 этапа</p>
                 </div>
               </CardHeader>
               <CardContent>
                 <ul className="space-y-3 mb-6">
                   {pkg.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <Icon name="Check" className="text-primary flex-shrink-0 mt-0.5" size={20} />
-                      <span className="text-sm sm:text-base">{feature}</span>
+                    <li key={idx} className="flex items-start gap-3">
+                      <Icon name="Check" className="text-primary flex-shrink-0 mt-1" size={22} />
+                      <span className="text-base md:text-lg leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>

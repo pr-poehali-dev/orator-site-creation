@@ -69,7 +69,7 @@ const TestimonialsSection = () => {
           {testimonials.map((testimonial, index) => (
             <Card 
               key={index} 
-              className={`group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.02] border-2 hover:border-primary/50 bg-gradient-to-br from-white via-primary/5 to-white ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 100}ms` }}
             >
               <CardHeader className="pb-2 md:pb-3">
@@ -83,10 +83,10 @@ const TestimonialsSection = () => {
                     ))}
                   </div>
                 </div>
-                <CardTitle className="text-base md:text-lg">{testimonial.name}</CardTitle>
+                <CardTitle className="text-lg md:text-xl">{testimonial.name}</CardTitle>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-sm md:text-base text-muted-foreground leading-relaxed">{testimonial.text}</p>
+                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{testimonial.text}</p>
               </CardContent>
             </Card>
           ))}
