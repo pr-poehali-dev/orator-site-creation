@@ -44,7 +44,7 @@ const PricingSection = () => {
     {
       name: 'Базовый',
       subtitle: 'Ораторское мастерство с нуля',
-      duration: '8 занятий',
+      duration: '10 занятий, 20 часов практики',
       price: '17 500',
       oldPrice: '19 900',
       features: [
@@ -61,7 +61,7 @@ const PricingSection = () => {
     {
       name: 'Полный курс',
       subtitle: 'Ораторский курс "Своя игра"',
-      duration: '16 занятий',
+      duration: '20 занятий, 40 часов практики',
       price: '39 000',
       oldPrice: '45 000',
       features: [
