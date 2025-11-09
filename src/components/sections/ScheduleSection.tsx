@@ -45,9 +45,9 @@ const ScheduleSection = () => {
     },
     {
       name: 'Актерский психологический курс "Перформанс-терапия"',
-      startDate: '28 ноября 2025',
+      startDate: '30 ноября - 4 марта 2026',
       duration: '3 месяца',
-      schedule: 'Пн, Ср, Пт, 19:00-21:00',
+      schedule: 'Понедельник, Среда, 19:00-21:00',
       spots: 'Набор открыт',
       color: 'from-primary to-secondary'
     }
