@@ -32,8 +32,8 @@ const BooksSection = () => {
   return (
     <section className="py-8 md:py-12 px-3 md:px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5">
       <div className="container mx-auto max-w-6xl">
-        <h2 className="text-2xl md:text-3xl font-bold text-center mb-2 md:mb-3 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Подарки участникам курса</h2>
-        <p className="text-center text-muted-foreground mb-6 max-w-3xl mx-auto px-4 text-sm">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Подарки участникам курса</h2>
+        <p className="text-center text-muted-foreground mb-8 md:mb-10 max-w-3xl mx-auto px-4 text-base md:text-lg">
           Все материалы входят в стоимость обучения и остаются с вами навсегда
         </p>
 
@@ -43,8 +43,8 @@ const BooksSection = () => {
               key={product.id} 
               className="p-3 hover:shadow-lg transition-all duration-500 border border-gray-200 hover:border-primary/30 group hover:-translate-y-1"
             >
-              <div className="flex gap-3 items-start">
-                <div className="w-16 h-20 flex-shrink-0 rounded overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
+              <div className="flex gap-4 items-start">
+                <div className="w-20 h-24 md:w-24 md:h-28 flex-shrink-0 rounded overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
                   <img 
                     src={product.image} 
                     alt={product.title}
@@ -53,17 +53,17 @@ const BooksSection = () => {
                 </div>
                 
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-sm mb-1 line-clamp-2">{product.title}</h3>
-                  <p className="text-gray-500 text-xs line-clamp-2">{product.description}</p>
+                  <h3 className="font-semibold text-base md:text-lg mb-2 line-clamp-2">{product.title}</h3>
+                  <p className="text-gray-500 text-sm md:text-base line-clamp-2">{product.description}</p>
                 </div>
               </div>
             </Card>
           ))}
         </div>
 
-        <div className="text-center bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-3 border-2 border-green-200">
-          <p className="text-green-800 font-bold mb-1 text-sm">Все подарки бесплатно для участников курса</p>
-          <p className="text-green-700 text-xs">Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Магазин"</a></p>
+        <div className="text-center bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 md:p-5 border-2 border-green-200">
+          <p className="text-green-800 font-bold mb-2 text-base md:text-lg">Все подарки бесплатно для участников курса</p>
+          <p className="text-green-700 text-sm md:text-base">Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Магазин"</a></p>
         </div>
       </div>
     </section>
