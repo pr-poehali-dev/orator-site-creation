@@ -92,19 +92,15 @@ const TestimonialsSection = () => {
           ))}
         </div>
 
-        <div className={`mt-12 text-center space-y-6 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-block bg-gradient-to-r from-primary/10 to-secondary/10 rounded-2xl p-8">
-            <p className="text-2xl font-bold mb-2">⭐⭐⭐⭐⭐</p>
-            <p className="text-lg">
-              <span className="font-bold text-primary">4.9/5</span> — средняя оценка курса
-            </p>
-            <p className="text-muted-foreground mt-2">по отзывам выпускников</p>
-          </div>
+        <div className={`mt-10 text-center space-y-4 transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <p className="text-base md:text-lg text-muted-foreground">
+            ⭐⭐⭐⭐⭐ <span className="font-bold text-primary">4.9/5</span> — средняя оценка курса по отзывам выпускников
+          </p>
           
           <div>
             <Button 
               asChild
-              size="lg"
+              size="default"
               className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
             >
               <a 
@@ -114,7 +110,7 @@ const TestimonialsSection = () => {
                 className="inline-flex items-center gap-2"
               >
                 Все отзывы на Яндекс
-                <Icon name="ExternalLink" size={18} />
+                <Icon name="ExternalLink" size={16} />
               </a>
             </Button>
           </div>
