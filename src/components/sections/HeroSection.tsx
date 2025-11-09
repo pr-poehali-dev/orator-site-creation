@@ -57,7 +57,7 @@ const HeroSection = () => {
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="CheckCircle" className="text-primary" size={22} />
-                <span className="font-semibold whitespace-nowrap">4 индивидуальных</span>
+                <span className="font-semibold whitespace-nowrap">2 индивидуальных</span>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="CheckCircle" className="text-primary" size={22} />
