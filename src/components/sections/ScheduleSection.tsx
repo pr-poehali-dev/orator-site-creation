@@ -8,6 +8,7 @@ const ScheduleSection = () => {
     {
       name: 'Ораторское мастерство с нуля (базовый курс)',
       startDate: '24 ноября 2025',
+      startDate2: '19 января 2026',
       duration: '8 занятий',
       schedule: 'Дневная группа: Пн, Ср, 13:00-15:00',
       spots: 'Набор открыт',
@@ -62,6 +63,9 @@ const ScheduleSection = () => {
                   <div>
                     <p className="font-semibold">Старт курса</p>
                     <p className="text-muted-foreground">{course.startDate}</p>
+                    {course.startDate2 && (
+                      <p className="text-muted-foreground mt-1">или {course.startDate2}</p>
+                    )}
                   </div>
                 </div>
                 
