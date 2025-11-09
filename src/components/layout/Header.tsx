@@ -15,6 +15,18 @@ const Header = () => {
     setIsMenuOpen(false);
   };
 
+  const handleSectionClick = (sectionId: string) => {
+    if (location.pathname !== '/') {
+      navigate('/');
+      setTimeout(() => {
+        document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+      }, 100);
+    } else {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
+    }
+    setIsMenuOpen(false);
+  };
+
   const handleLogoClick = () => {
     navigate('/');
     window.scrollTo(0, 0);
@@ -44,11 +56,11 @@ const Header = () => {
           {/* Desktop Menu */}
           <div className="hidden lg:flex flex-col gap-2 text-lg">
             <div className="flex gap-6 xl:gap-8 items-center justify-end">
-              <a href="#about" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">О курсе</a>
-              <a href="#program" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Программа</a>
-              <a href="#trainer" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Преподаватель</a>
-              <a href="#pricing" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Стоимость</a>
-              <a href="#testimonials" className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Отзывы</a>
+              <button onClick={() => handleSectionClick('about')} className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">О курсе</button>
+              <button onClick={() => handleSectionClick('program')} className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Программа</button>
+              <button onClick={() => handleSectionClick('trainer')} className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Преподаватель</button>
+              <button onClick={() => handleSectionClick('pricing')} className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Стоимость</button>
+              <button onClick={() => handleSectionClick('testimonials')} className="text-foreground hover:text-primary transition-colors whitespace-nowrap font-medium">Отзывы</button>
               <button onClick={() => navigate('/blog')} className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">Бесплатно</button>
               <button onClick={() => navigate('/materials')} className="text-foreground hover:text-primary transition-colors font-medium whitespace-nowrap">Магазин</button>
               <div className="flex gap-2 items-center border-l pl-3">
@@ -97,7 +109,7 @@ const Header = () => {
               </Button>
               <Button size="sm" className="bg-primary hover:bg-primary/90 whitespace-nowrap" onClick={() => {
                 trackGoal(GOALS.COURSE_SIGNUP_CLICK);
-                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                handleSectionClick('contact');
               }}>Записаться</Button>
             </div>
           </div>
@@ -115,41 +127,36 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden mt-4 py-4 border-t space-y-3 animate-in slide-in-from-top">
-            <a 
-              href="#about" 
-              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium"
-              onClick={handleLinkClick}
+            <button 
+              onClick={() => handleSectionClick('about')} 
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium text-left w-full"
             >
               О курсе
-            </a>
-            <a 
-              href="#program" 
-              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium"
-              onClick={handleLinkClick}
+            </button>
+            <button 
+              onClick={() => handleSectionClick('program')} 
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium text-left w-full"
             >
               Программа
-            </a>
-            <a 
-              href="#trainer" 
-              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium"
-              onClick={handleLinkClick}
+            </button>
+            <button 
+              onClick={() => handleSectionClick('trainer')} 
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium text-left w-full"
             >
               Преподаватель
-            </a>
-            <a 
-              href="#pricing" 
-              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium"
-              onClick={handleLinkClick}
+            </button>
+            <button 
+              onClick={() => handleSectionClick('pricing')} 
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium text-left w-full"
             >
               Стоимость
-            </a>
-            <a 
-              href="#testimonials" 
-              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium"
-              onClick={handleLinkClick}
+            </button>
+            <button 
+              onClick={() => handleSectionClick('testimonials')} 
+              className="block text-foreground hover:text-primary transition-colors py-3 text-base font-medium text-left w-full"
             >
               Отзывы
-            </a>
+            </button>
             <button 
               onClick={() => {
                 navigate('/blog');
@@ -187,8 +194,7 @@ const Header = () => {
                 className="w-full bg-primary hover:bg-primary/90" 
                 onClick={() => {
                   trackGoal(GOALS.COURSE_SIGNUP_CLICK);
-                  handleLinkClick();
-                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  handleSectionClick('contact');
                 }}
               >
                 Записаться на курс
