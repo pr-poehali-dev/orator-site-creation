@@ -192,7 +192,7 @@ const AboutSection = () => {
         <ApplicationModal
           isOpen={modalOpen}
           onClose={() => setModalOpen(false)}
-          courseName="Ораторское мастерство"
+          courseName="Пробное занятие (бесплатно)"
           courseDate="Выбрать удобную дату"
         />
       </div>
