@@ -9,6 +9,7 @@ import BooksSection from '@/components/sections/BooksSection';
 import VideoSection from '@/components/sections/VideoSection';
 import PricingSection from '@/components/sections/PricingSection';
 import IndividualLessonsSection from '@/components/sections/IndividualLessonsSection';
+import QuestionsSection from '@/components/sections/QuestionsSection';
 import ScheduleSection from '@/components/sections/ScheduleSection';
 import GallerySection from '@/components/sections/GallerySection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
@@ -38,6 +39,7 @@ const Index = () => {
       <VideoSection />
       <PricingSection />
       <IndividualLessonsSection />
+      <QuestionsSection />
       <FAQSection />
       <GallerySection />
       <TestimonialsSection />
