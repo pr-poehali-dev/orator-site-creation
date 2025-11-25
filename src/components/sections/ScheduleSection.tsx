@@ -18,10 +18,11 @@ const ScheduleSection = () => {
   const courses = [
     {
       name: 'Ораторское мастерство с нуля (базовый курс)',
-      startDate: '24 ноября - 24 декабря 2025',
+      startDate: '17 января - 21 февраля 2026',
       startDate2: '19 января - 19 февраля 2026',
       duration: '8 занятий',
-      schedule: 'Дневная группа: Понедельник, Среда, 14:00-16:00',
+      schedule: 'Суббота, 11:00-14:00',
+      schedule2: 'Дневная группа: Понедельник, Среда, 14:00-16:00',
       spots: 'Набор открыт',
       color: 'from-primary to-primary/80'
     },
@@ -135,19 +136,29 @@ const ScheduleSection = () => {
                     <div className="flex flex-col gap-2">
                       <Button
                         variant="outline"
-                        className="w-full justify-start bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300 hover:from-blue-100 hover:to-blue-200 hover:border-blue-400 text-blue-900 font-semibold"
+                        className="w-full justify-start bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300 hover:from-blue-100 hover:to-blue-200 hover:border-blue-400 text-blue-900 font-semibold text-left"
                         onClick={() => handleDateSelect(course.name, course.startDate)}
                       >
-                        <Icon name={course.isCoaching ? "Monitor" : "Calendar"} size={18} className="mr-2" />
-                        {course.startDate}
+                        <div className="flex flex-col items-start w-full">
+                          <div className="flex items-center">
+                            <Icon name={course.isCoaching ? "Monitor" : "Calendar"} size={18} className="mr-2" />
+                            <span>{course.startDate}</span>
+                          </div>
+                          {course.schedule && index === 0 && <span className="text-xs ml-6 mt-1 text-blue-700">{course.schedule}</span>}
+                        </div>
                       </Button>
                       <Button
                         variant="outline"
-                        className="w-full justify-start bg-gradient-to-r from-purple-50 to-purple-100 border-purple-300 hover:from-purple-100 hover:to-purple-200 hover:border-purple-400 text-purple-900 font-semibold"
+                        className="w-full justify-start bg-gradient-to-r from-purple-50 to-purple-100 border-purple-300 hover:from-purple-100 hover:to-purple-200 hover:border-purple-400 text-purple-900 font-semibold text-left"
                         onClick={() => handleDateSelect(course.name, course.startDate2)}
                       >
-                        <Icon name={course.isCoaching ? "MapPin" : "Calendar"} size={18} className="mr-2" />
-                        {course.startDate2}
+                        <div className="flex flex-col items-start w-full">
+                          <div className="flex items-center">
+                            <Icon name={course.isCoaching ? "MapPin" : "Calendar"} size={18} className="mr-2" />
+                            <span>{course.startDate2}</span>
+                          </div>
+                          {course.schedule2 && index === 0 && <span className="text-xs ml-6 mt-1 text-purple-700">{course.schedule2}</span>}
+                        </div>
                       </Button>
                     </div>
                   ) : (
@@ -171,13 +182,15 @@ const ScheduleSection = () => {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-3">
-                  <Icon name="CalendarDays" size={20} className="text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold">Расписание</p>
-                    <p className="text-muted-foreground">{course.schedule}</p>
+                {!course.startDate2 && (
+                  <div className="flex items-start gap-3">
+                    <Icon name="CalendarDays" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold">Расписание</p>
+                      <p className="text-muted-foreground">{course.schedule}</p>
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {course.benefits && (
                   <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4">
