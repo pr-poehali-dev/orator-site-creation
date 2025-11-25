@@ -22,7 +22,7 @@ const ScheduleSection = () => {
       startDate2: '19 января - 19 февраля 2026',
       duration: '8 занятий',
       schedule: 'Суббота, 11:00-14:00',
-      schedule2: 'Дневная группа: Понедельник, Среда, 14:00-16:00',
+      schedule2: 'Понедельник, Среда, 14:00-16:00',
       spots: 'Набор открыт',
       color: 'from-primary to-primary/80'
     },
@@ -30,7 +30,7 @@ const ScheduleSection = () => {
       name: 'Ораторское мастерство с нуля (базовый курс)',
       startDate: '16 января 2026',
       duration: '1,5 месяца, 8 занятий',
-      schedule: 'Вечерняя группа: Пятница, 18:00-20:00',
+      schedule: 'Пятница, 18:00-20:00',
       spots: 'Набор открыт',
       color: 'from-primary to-primary/80',
       isEvening: true
@@ -39,7 +39,7 @@ const ScheduleSection = () => {
       name: 'Полный курс ораторского искусства "Своя игра"',
       startDate: '11 марта - 13 мая 2026',
       duration: '2 месяца, 40 часов практики',
-      schedule: 'Вечерняя группа: Понедельник и Среда, 19:00-21:00',
+      schedule: 'Понедельник и Среда, 19:00-21:00',
       spots: 'Набор открыт',
       color: 'from-secondary to-secondary/80',
       isPopular: true
