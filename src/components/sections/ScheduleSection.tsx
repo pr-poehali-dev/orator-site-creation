@@ -134,32 +134,20 @@ const ScheduleSection = () => {
                     </div>
                   {course.startDate2 ? (
                     <div className="flex flex-col gap-2">
-                      <Button
-                        variant="outline"
-                        className="w-full justify-start bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300 hover:from-blue-100 hover:to-blue-200 hover:border-blue-400 text-blue-900 font-semibold text-left"
-                        onClick={() => handleDateSelect(course.name, course.startDate)}
-                      >
-                        <div className="flex flex-col items-start w-full">
-                          <div className="flex items-center">
-                            <Icon name={course.isCoaching ? "Monitor" : "Calendar"} size={18} className="mr-2" />
-                            <span>{course.startDate}</span>
-                          </div>
-                          {course.schedule && index === 0 && <span className="text-xs ml-6 mt-1 text-blue-700">{course.schedule}</span>}
+                      <div className="p-3 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-300 rounded-lg hover:from-blue-100 hover:to-blue-200 transition-colors cursor-pointer" onClick={() => handleDateSelect(course.name, course.startDate)}>
+                        <div className="flex items-center gap-2 mb-1">
+                          <Icon name={course.isCoaching ? "Monitor" : "Calendar"} size={16} className="text-blue-600 flex-shrink-0" />
+                          <span className="font-semibold text-blue-900 text-sm">{course.startDate}</span>
                         </div>
-                      </Button>
-                      <Button
-                        variant="outline"
-                        className="w-full justify-start bg-gradient-to-r from-purple-50 to-purple-100 border-purple-300 hover:from-purple-100 hover:to-purple-200 hover:border-purple-400 text-purple-900 font-semibold text-left"
-                        onClick={() => handleDateSelect(course.name, course.startDate2)}
-                      >
-                        <div className="flex flex-col items-start w-full">
-                          <div className="flex items-center">
-                            <Icon name={course.isCoaching ? "MapPin" : "Calendar"} size={18} className="mr-2" />
-                            <span>{course.startDate2}</span>
-                          </div>
-                          {course.schedule2 && index === 0 && <span className="text-xs ml-6 mt-1 text-purple-700">{course.schedule2}</span>}
+                        {course.schedule && index === 0 && <p className="text-xs text-blue-700 ml-5">{course.schedule}</p>}
+                      </div>
+                      <div className="p-3 bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-300 rounded-lg hover:from-purple-100 hover:to-purple-200 transition-colors cursor-pointer" onClick={() => handleDateSelect(course.name, course.startDate2)}>
+                        <div className="flex items-center gap-2 mb-1">
+                          <Icon name={course.isCoaching ? "MapPin" : "Calendar"} size={16} className="text-purple-600 flex-shrink-0" />
+                          <span className="font-semibold text-purple-900 text-sm">{course.startDate2}</span>
                         </div>
-                      </Button>
+                        {course.schedule2 && index === 0 && <p className="text-xs text-purple-700 ml-5">{course.schedule2}</p>}
+                      </div>
                     </div>
                   ) : (
                     <Button
@@ -182,12 +170,12 @@ const ScheduleSection = () => {
                   </div>
                 </div>
 
-                {!course.startDate2 && (
+                {!course.startDate2 && course.schedule && (
                   <div className="flex items-start gap-3">
                     <Icon name="CalendarDays" size={20} className="text-primary mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold">Расписание</p>
-                      <p className="text-muted-foreground">{course.schedule}</p>
+                      <p className="text-muted-foreground text-sm">{course.schedule}</p>
                     </div>
                   </div>
                 )}
