@@ -123,8 +123,11 @@ const PricingSection = () => {
                     <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">{pkg.price}</span>
                     <span className="text-lg sm:text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>
                   </div>
-                  {pkg.popular && <p className="text-base text-muted-foreground">Возможна оплата в 2 этапа</p>}
-                  {!pkg.popular && <p className="text-base text-muted-foreground">При регистрации до 31 декабря</p>}
+                  {pkg.popular ? (
+                    <p className="text-base text-muted-foreground">Возможна оплата в 2 этапа</p>
+                  ) : (
+                    <p className="text-base font-semibold text-orange">При регистрации до 31 декабря</p>
+                  )}
                 </div>
               </CardHeader>
               <CardContent>
