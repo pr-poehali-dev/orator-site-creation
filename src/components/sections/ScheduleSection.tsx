@@ -35,9 +35,9 @@ const ScheduleSection = () => {
     },
     {
       name: 'Полный курс ораторского искусства "Своя игра" - первая и вторая ступень',
-      startDate: '11 марта - 13 мая 2026',
+      startDate: '2 марта - 29 апреля 2026',
       duration: '2 месяца, 40 часов практики',
-      schedule: 'Понедельник и Среда, 19:00-21:00',
+      schedule: 'Понедельник и Среда, 14:00-16:00',
       spots: 'Набор открыт',
       color: 'from-secondary to-secondary/80',
       isPopular: true
