@@ -45,8 +45,8 @@ const PricingSection = () => {
       name: 'Базовый - первая ступень',
       subtitle: 'Ораторское мастерство с нуля',
       duration: '10 занятий, 20 часов практики',
-      price: '17 500',
-      oldPrice: '19 900',
+      price: '19 500',
+      oldPrice: '22 500',
       features: [
         '8 групповых тренингов',
         '1 индивидуальное занятие',
@@ -126,7 +126,7 @@ const PricingSection = () => {
                   {pkg.popular ? (
                     <p className="text-base text-muted-foreground">Возможна оплата в 2 этапа</p>
                   ) : (
-                    <p className="text-base font-semibold text-orange">При регистрации до 31 декабря</p>
+                    <p className="text-base font-semibold text-orange">При регистрации до 25 декабря</p>
                   )}
                 </div>
               </CardHeader>
