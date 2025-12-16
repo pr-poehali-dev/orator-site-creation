@@ -36,7 +36,8 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
                 'Access-Control-Allow-Headers': 'Content-Type',
                 'Access-Control-Max-Age': '86400'
             },
-            'body': ''
+            'body': '',
+            'isBase64Encoded': False
         }
     
     conn = get_db_connection()
@@ -44,25 +45,23 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     
     if method == 'POST':
         session_id = generate_session_id(event)
+        session_id_escaped = session_id.replace("'", "''")
         
         cur.execute(
-            "SELECT id, visit_count FROM visitor_sessions WHERE session_id = %s",
-            (session_id,)
+            f"SELECT id, visit_count FROM visitor_sessions WHERE session_id = '{session_id_escaped}'"
         )
         existing_session = cur.fetchone()
         
         if existing_session:
             cur.execute(
-                "UPDATE visitor_sessions SET last_visit = CURRENT_TIMESTAMP, visit_count = visit_count + 1 WHERE session_id = %s",
-                (session_id,)
+                f"UPDATE visitor_sessions SET last_visit = CURRENT_TIMESTAMP, visit_count = visit_count + 1 WHERE session_id = '{session_id_escaped}'"
             )
             cur.execute(
                 "UPDATE visitor_stats SET total_visits = total_visits + 1, updated_at = CURRENT_TIMESTAMP WHERE id = 1"
             )
         else:
             cur.execute(
-                "INSERT INTO visitor_sessions (session_id) VALUES (%s)",
-                (session_id,)
+                f"INSERT INTO visitor_sessions (session_id) VALUES ('{session_id_escaped}')"
             )
             cur.execute(
                 "UPDATE visitor_stats SET total_visits = total_visits + 1, unique_visits = unique_visits + 1, updated_at = CURRENT_TIMESTAMP WHERE id = 1"
