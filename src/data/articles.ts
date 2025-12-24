@@ -319,7 +319,7 @@ export const articles: Article[] = [
     date: '18 октября 2025',
     author: 'Светлана Кузикова',
     tags: ['видео', 'страх', 'камера', 'практика'],
-    videoUrl: 'https://rutube.ru/shorts/c46e81f3586fa7b261c4e449b89cf450/?r=wd',
+    videoUrl: 'https://rutube.ru/play/embed/c46e81f3586fa7b261c4e449b89cf450',
     isVideo: true,
     content: [
       'Смотрите видео с практическим упражнением, которое поможет вам побороть страх перед камерой.'
