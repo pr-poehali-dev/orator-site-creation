@@ -164,13 +164,13 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
               <div>
                 <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Стоимость занятия</h3>
                 <div className="flex items-baseline gap-2 md:gap-3 mb-3 md:mb-4">
-                  <span className="text-3xl md:text-4xl font-bold text-primary">4 000 ₽</span>
-                  <span className="text-lg md:text-xl text-muted-foreground line-through">5 000 ₽</span>
+                  <span className="text-3xl md:text-4xl font-bold text-primary">5 000 ₽</span>
+                  <span className="text-lg md:text-xl text-muted-foreground line-through">6 000 ₽</span>
                 </div>
                 <div className="space-y-2 mb-4">
                   <div className="flex items-start gap-2">
                     <Icon name="Clock" size={18} className="text-primary mt-0.5" />
-                    <span className="text-sm">Продолжительность: 60 минут</span>
+                    <span className="text-sm">Продолжительность: 50 минут</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Icon name="Monitor" size={18} className="text-primary mt-0.5" />
@@ -188,7 +188,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                     <div>
                       <p className="font-semibold text-yellow-800 text-sm mb-1">Специальное предложение</p>
                       <p className="text-xs text-yellow-700">
-                        Скидка 1000 ₽ действует до конца месяца. Успейте записаться по выгодной цене!
+                        Скидка действует до конца месяца. Успейте записаться по выгодной цене!
                       </p>
                     </div>
                   </div>
