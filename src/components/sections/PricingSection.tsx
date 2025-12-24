@@ -114,7 +114,7 @@ const PricingSection = () => {
             >
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-primary to-secondary rounded-full whitespace-nowrap z-10">
-                  <span className="text-white font-bold text-xs sm:text-sm">🔥 ПОПУЛЯРНЫЙ</span>
+                  <span className="text-white font-bold text-xs sm:text-sm">⭐ VIP-ФОРМАТ</span>
                 </div>
               )}
               <CardHeader className="text-center pb-4 pt-6">

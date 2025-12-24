@@ -110,7 +110,7 @@ const ScheduleSection = () => {
                   <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
                     <div className="flex items-center gap-2">
                       <Icon name="Star" size={16} />
-                      <span className="font-bold text-sm whitespace-nowrap">Популярный курс</span>
+                      <span className="font-bold text-sm whitespace-nowrap">VIP-формат</span>
                     </div>
                   </div>
                 </div>
