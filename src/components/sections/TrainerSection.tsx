@@ -21,7 +21,7 @@ const TrainerSection = () => {
     },
     {
       icon: 'Users',
-      text: 'Более 500 выпускников курса'
+      text: 'Более 3000 выпускников курса'
     },
     {
       icon: 'Star',
