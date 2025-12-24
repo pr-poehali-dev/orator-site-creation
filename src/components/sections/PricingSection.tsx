@@ -62,8 +62,10 @@ const PricingSection = () => {
       name: 'Полный курс - первая и вторая ступень',
       subtitle: 'Ораторский курс "Своя игра"',
       duration: '20 занятий, 40 часов практики',
-      price: '39 000',
-      oldPrice: '45 000',
+      startDate: 'Старт курса: 02 марта',
+      price: '42 000',
+      oldPrice: '49 000',
+      priceNote: 'При оплате до 15 февраля',
       features: [
         '16 групповых тренингов',
         '2 индивидуальных занятия',
@@ -72,7 +74,8 @@ const PricingSection = () => {
         'Видеокурс «Речевая креативность» + книга',
         'Запись вебинара с техниками снятия страха публичных выступлений',
         '2 тренинга «Джем» по импровизации',
-        'Выпускной + Сертификат',
+        'Выпускной при реальных зрителях с ораторской речью и театральным монологом',
+        'Профессиональная фотосессия',
         'Больше времени на отработку навыков',
         'Углубленная работа над речью'
       ],
@@ -118,12 +121,19 @@ const PricingSection = () => {
                 <CardTitle className="text-2xl md:text-3xl mb-2">{pkg.name}</CardTitle>
                 {pkg.subtitle && <p className="text-lg md:text-xl font-semibold text-primary mb-2">{pkg.subtitle}</p>}
                 <CardDescription className="text-lg md:text-xl">{pkg.duration}</CardDescription>
+                {pkg.startDate && (
+                  <div className="inline-block mt-3 px-4 py-2 bg-orange/10 rounded-full">
+                    <span className="text-base font-semibold text-orange">{pkg.startDate}</span>
+                  </div>
+                )}
                 <div className="mt-4 md:mt-6">
                   <div className="flex items-center justify-center gap-2 md:gap-3 mb-2">
                     <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">{pkg.price}</span>
                     <span className="text-lg sm:text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>
                   </div>
-                  {pkg.popular ? (
+                  {pkg.priceNote ? (
+                    <p className="text-base font-semibold text-orange">{pkg.priceNote}</p>
+                  ) : pkg.popular ? (
                     <p className="text-base text-muted-foreground">Возможна оплата в 2 этапа</p>
                   ) : (
                     <p className="text-base font-semibold text-orange">При регистрации до 25 декабря</p>
