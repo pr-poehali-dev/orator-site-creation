@@ -62,7 +62,8 @@ const PricingSection = () => {
       name: 'Полный ораторский курс "Своя игра"',
       subtitle: '',
       duration: '20 занятий, 40 часов практики',
-      startDate: 'Старт курса: 02 марта',
+      startDate: 'Старт: 02 марта (дневная группа)',
+      startDate2: 'Старт: 20 апреля (вечерняя группа)',
       price: '42 000',
       oldPrice: '49 000',
       priceNote: 'При бронировании до 15 февраля',
@@ -121,9 +122,18 @@ const PricingSection = () => {
                 <CardTitle className="text-2xl md:text-3xl mb-2">{pkg.name}</CardTitle>
                 {pkg.subtitle && <p className="text-lg md:text-xl font-semibold text-primary mb-2">{pkg.subtitle}</p>}
                 <CardDescription className="text-lg md:text-xl">{pkg.duration}</CardDescription>
-                {pkg.startDate && (
-                  <div className="inline-block mt-3 px-4 py-2 bg-orange/10 rounded-full">
-                    <span className="text-base font-semibold text-orange">{pkg.startDate}</span>
+                {(pkg.startDate || pkg.startDate2) && (
+                  <div className="flex flex-col gap-2 mt-3">
+                    {pkg.startDate && (
+                      <div className="inline-block px-4 py-2 bg-blue-50 rounded-full">
+                        <span className="text-sm font-semibold text-blue-700">{pkg.startDate}</span>
+                      </div>
+                    )}
+                    {pkg.startDate2 && (
+                      <div className="inline-block px-4 py-2 bg-purple-50 rounded-full">
+                        <span className="text-sm font-semibold text-purple-700">{pkg.startDate2}</span>
+                      </div>
+                    )}
                   </div>
                 )}
                 <div className="mt-4 md:mt-6">
