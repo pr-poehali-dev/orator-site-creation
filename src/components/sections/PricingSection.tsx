@@ -59,8 +59,8 @@ const PricingSection = () => {
       popular: false
     },
     {
-      name: 'Полный курс - первая и вторая ступень',
-      subtitle: 'Ораторский курс "Своя игра"',
+      name: 'Полный ораторский курс "Своя игра"',
+      subtitle: 'VIP-формат',
       duration: '20 занятий, 40 часов практики',
       startDate: 'Старт курса: 02 марта',
       price: '42 000',
@@ -69,8 +69,8 @@ const PricingSection = () => {
       features: [
         '16 групповых тренингов',
         '2 индивидуальных занятия',
-        'Мастер-класс по имиджу оратора',
-        'Мастер-класс по работе с убеждениями',
+        'Мастер-класс со стилистом по имиджу оратора',
+        'Мастер-класс с профессиональным психологом по работе с ограничивающими убеждениями',
         'Видеокурс «Речевая креативность» + книга',
         'Запись вебинара с техниками снятия страха публичных выступлений',
         '2 тренинга «Джем» по импровизации',
@@ -132,7 +132,10 @@ const PricingSection = () => {
                     <span className="text-lg sm:text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>
                   </div>
                   {pkg.priceNote ? (
-                    <p className="text-base font-semibold text-orange">{pkg.priceNote}</p>
+                    <>
+                      <p className="text-base font-semibold text-orange">{pkg.priceNote}</p>
+                      {pkg.popular && <p className="text-sm text-muted-foreground mt-1">Возможна оплата в 2 этапа</p>}
+                    </>
                   ) : pkg.popular ? (
                     <p className="text-base text-muted-foreground">Возможна оплата в 2 этапа</p>
                   ) : (
