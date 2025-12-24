@@ -60,7 +60,7 @@ const PricingSection = () => {
     },
     {
       name: 'Полный ораторский курс "Своя игра"',
-      subtitle: 'VIP-формат',
+      subtitle: '',
       duration: '20 занятий, 40 часов практики',
       startDate: 'Старт курса: 02 марта',
       price: '42 000',
