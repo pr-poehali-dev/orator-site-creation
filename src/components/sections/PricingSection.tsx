@@ -42,18 +42,18 @@ const PricingSection = () => {
 
   const packages = [
     {
-      name: 'Базовый - первая ступень',
-      subtitle: 'Ораторское мастерство с нуля',
+      name: 'Ораторское мастерство с нуля',
+      subtitle: 'базовый курс',
       duration: '10 занятий, 20 часов практики',
       price: '19 500',
       oldPrice: '22 500',
       features: [
         '8 групповых тренингов',
         '1 индивидуальное занятие',
+        '1 тренинг «Джем» по импровизации',
         'Мастер-класс по работе с убеждениями',
         'Видеокурс «Речевая креативность» + книга',
         'Запись вебинара с техниками снятия страха публичных выступлений',
-        '1 тренинг «Джем» по импровизации',
         'Выпускной + Сертификат'
       ],
       popular: false
@@ -119,8 +119,8 @@ const PricingSection = () => {
                 </div>
               )}
               <CardHeader className="text-center pb-4 pt-6">
-                <CardTitle className="text-2xl md:text-3xl mb-2">{pkg.name}</CardTitle>
-                {pkg.subtitle && <p className="text-lg md:text-xl font-semibold text-primary mb-2">{pkg.subtitle}</p>}
+                <CardTitle className="text-2xl md:text-3xl mb-2 text-foreground">{pkg.name}</CardTitle>
+                {pkg.subtitle && <p className="text-base md:text-lg text-muted-foreground mb-2">{pkg.subtitle}</p>}
                 <CardDescription className="text-lg md:text-xl">{pkg.duration}</CardDescription>
                 {(pkg.startDate || pkg.startDate2) && (
                   <div className="flex flex-col gap-2 mt-3">
@@ -148,9 +148,7 @@ const PricingSection = () => {
                     </>
                   ) : pkg.popular ? (
                     <p className="text-base text-muted-foreground">Возможна оплата в 2 этапа</p>
-                  ) : (
-                    <p className="text-base font-semibold text-orange">При регистрации до 25 декабря</p>
-                  )}
+                  ) : null}
                 </div>
               </CardHeader>
               <CardContent>
