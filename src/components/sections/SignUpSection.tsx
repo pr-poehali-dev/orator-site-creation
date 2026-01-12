@@ -20,12 +20,26 @@ const SignUpSection = () => {
     }
     
     try {
-      const response = await fetch('https://functions.poehali.dev/480e8ef6-9262-4484-b554-96e184923346', {
+      const now = new Date();
+      const timestamp = now.toLocaleString('ru-RU', { 
+        day: '2-digit', 
+        month: '2-digit', 
+        year: 'numeric',
+        hour: '2-digit', 
+        minute: '2-digit'
+      });
+
+      const messageWithTime = `⏰ Время заявки: ${timestamp}${formData.message ? '\n\n' + formData.message : ''}`;
+
+      const response = await fetch('https://functions.poehali.dev/22a2bfc5-9a6d-46f8-957d-c1239099dca9', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData)
+        body: JSON.stringify({
+          ...formData,
+          message: messageWithTime
+        }),
       });
 
       if (response.ok) {
@@ -34,17 +48,13 @@ const SignUpSection = () => {
         setFormData({ name: '', phone: '', message: '' });
         setConsent(false);
       } else {
-        const message = `Здравствуйте! Хочу записаться на курс.\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}${formData.message ? '\nКомментарий: ' + formData.message : ''}`;
-        const whatsappLink = `https://wa.me/79183111712?text=${encodeURIComponent(message)}`;
-        window.open(whatsappLink, '_blank');
-        alert('Откроется WhatsApp для отправки заявки.');
+        const errorText = await response.text();
+        console.error('Server error:', response.status, errorText);
+        alert('❌ Произошла ошибка при отправке. Пожалуйста, позвоните нам: +7 918 311-17-12');
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      const message = `Здравствуйте! Хочу записаться на курс.\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}${formData.message ? '\nКомментарий: ' + formData.message : ''}`;
-      const whatsappLink = `https://wa.me/79183111712?text=${encodeURIComponent(message)}`;
-      window.open(whatsappLink, '_blank');
-      alert('Откроется WhatsApp для отправки заявки.');
+      alert('❌ Произошла ошибка при отправке. Пожалуйста, позвоните нам: +7 918 311-17-12');
     }
   };
 

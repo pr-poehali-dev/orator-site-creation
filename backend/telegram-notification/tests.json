@@ -17,7 +17,7 @@
       "method": "POST",
       "path": "/",
       "body": {
-        "name": "Тест"
+        "name": "Test User"
       },
       "expectedStatus": 400,
       "expectedBody": {

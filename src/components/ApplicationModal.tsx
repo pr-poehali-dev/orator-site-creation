@@ -6,7 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
 
-const EMAIL_NOTIFICATION_URL = 'https://functions.poehali.dev/480e8ef6-9262-4484-b554-96e184923346';
+const TELEGRAM_NOTIFICATION_URL = 'https://functions.poehali.dev/22a2bfc5-9a6d-46f8-957d-c1239099dca9';
 
 interface ApplicationModalProps {
   isOpen: boolean;
@@ -31,7 +31,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
       setIsSubmitting(true);
       
       try {
-        const response = await fetch(EMAIL_NOTIFICATION_URL, {
+        const response = await fetch(TELEGRAM_NOTIFICATION_URL, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
