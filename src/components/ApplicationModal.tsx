@@ -46,8 +46,6 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
 
         if (response.ok) {
           setSubmitSuccess(true);
-        } else {
-          console.error('Failed to submit application');
         }
       } catch (error) {
         console.error('Error submitting application:', error);
