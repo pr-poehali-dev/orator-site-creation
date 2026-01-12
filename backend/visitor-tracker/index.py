@@ -1,10 +1,3 @@
-'''
-Business: Tracks website visitors and returns total/unique visit counts
-Args: event - dict with httpMethod, headers (for session tracking)
-      context - object with request_id attribute
-Returns: HTTP response with visitor statistics
-'''
-
 import json
 import os
 import hashlib
@@ -25,6 +18,7 @@ def generate_session_id(event: Dict[str, Any]) -> str:
     return hashlib.sha256(session_string.encode()).hexdigest()
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
+    '''Отслеживание посетителей сайта и возврат статистики посещений'''
     method: str = event.get('httpMethod', 'GET')
     
     if method == 'OPTIONS':
