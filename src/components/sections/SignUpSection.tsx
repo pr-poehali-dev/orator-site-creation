@@ -19,15 +19,33 @@ const SignUpSection = () => {
       return;
     }
     
-    const message = `Здравствуйте! Хочу записаться на курс.\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}${formData.message ? '\nКомментарий: ' + formData.message : ''}`;
-    const whatsappLink = `https://wa.me/79183111712?text=${encodeURIComponent(message)}`;
-    
-    trackGoal(GOALS.CONTACT_FORM_SUBMIT);
-    window.open(whatsappLink, '_blank');
-    
-    alert('✅ Спасибо! Сейчас откроется WhatsApp для отправки заявки.');
-    setFormData({ name: '', phone: '', message: '' });
-    setConsent(false);
+    try {
+      const response = await fetch('https://functions.poehali.dev/480e8ef6-9262-4484-b554-96e184923346', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        trackGoal(GOALS.CONTACT_FORM_SUBMIT);
+        alert('✅ Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        setFormData({ name: '', phone: '', message: '' });
+        setConsent(false);
+      } else {
+        const message = `Здравствуйте! Хочу записаться на курс.\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}${formData.message ? '\nКомментарий: ' + formData.message : ''}`;
+        const whatsappLink = `https://wa.me/79183111712?text=${encodeURIComponent(message)}`;
+        window.open(whatsappLink, '_blank');
+        alert('Откроется WhatsApp для отправки заявки.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      const message = `Здравствуйте! Хочу записаться на курс.\n\nИмя: ${formData.name}\nТелефон: ${formData.phone}${formData.message ? '\nКомментарий: ' + formData.message : ''}`;
+      const whatsappLink = `https://wa.me/79183111712?text=${encodeURIComponent(message)}`;
+      window.open(whatsappLink, '_blank');
+      alert('Откроется WhatsApp для отправки заявки.');
+    }
   };
 
   return (
