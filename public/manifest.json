@@ -1,0 +1,21 @@
+{
+  "name": "KUZIKOVA SCHOOL - Школа ораторского искусства",
+  "short_name": "Kuzikova School",
+  "description": "Курсы ораторского мастерства в Краснодаре. Преподаватель - театральный режиссер и психолог",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#8B5CF6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["education", "lifestyle"],
+  "lang": "ru",
+  "dir": "ltr"
+}

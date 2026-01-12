@@ -50,19 +50,19 @@ const StructuredData = () => {
       "offers": [
         {
           "@type": "Offer",
-          "name": "Базовый курс",
-          "price": "17500",
+          "name": "Ораторское мастерство с нуля (базовый курс)",
+          "price": "19500",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
-          "validFrom": "2018-01-01"
+          "validFrom": "2026-01-12"
         },
         {
           "@type": "Offer",
-          "name": "Расширенный курс",
-          "price": "24900",
+          "name": "Полный ораторский курс «Своя игра»",
+          "price": "42000",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
-          "validFrom": "2018-01-01"
+          "validFrom": "2026-01-12"
         }
       ],
       "hasCourseInstance": [
