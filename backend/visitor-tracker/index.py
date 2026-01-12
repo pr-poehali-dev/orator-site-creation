@@ -34,52 +34,63 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
             'isBase64Encoded': False
         }
     
-    conn = get_db_connection()
-    cur = conn.cursor(cursor_factory=RealDictCursor)
-    
-    if method == 'POST':
-        session_id = generate_session_id(event)
-        session_id_escaped = session_id.replace("'", "''")
+    try:
+        conn = get_db_connection()
+        cur = conn.cursor(cursor_factory=RealDictCursor)
         
-        cur.execute(
-            f"SELECT id, visit_count FROM visitor_sessions WHERE session_id = '{session_id_escaped}'"
-        )
-        existing_session = cur.fetchone()
+        if method == 'POST':
+            session_id = generate_session_id(event)
+            session_id_escaped = session_id.replace("'", "''")
+            
+            cur.execute(
+                f"SELECT id, visit_count FROM visitor_sessions WHERE session_id = '{session_id_escaped}'"
+            )
+            existing_session = cur.fetchone()
+            
+            if existing_session:
+                cur.execute(
+                    f"UPDATE visitor_sessions SET last_visit = CURRENT_TIMESTAMP, visit_count = visit_count + 1 WHERE session_id = '{session_id_escaped}'"
+                )
+                cur.execute(
+                    "UPDATE visitor_stats SET total_visits = total_visits + 1, updated_at = CURRENT_TIMESTAMP WHERE id = 1"
+                )
+            else:
+                cur.execute(
+                    f"INSERT INTO visitor_sessions (session_id) VALUES ('{session_id_escaped}')"
+                )
+                cur.execute(
+                    "UPDATE visitor_stats SET total_visits = total_visits + 1, unique_visits = unique_visits + 1, updated_at = CURRENT_TIMESTAMP WHERE id = 1"
+                )
+            
+            conn.commit()
         
-        if existing_session:
-            cur.execute(
-                f"UPDATE visitor_sessions SET last_visit = CURRENT_TIMESTAMP, visit_count = visit_count + 1 WHERE session_id = '{session_id_escaped}'"
-            )
-            cur.execute(
-                "UPDATE visitor_stats SET total_visits = total_visits + 1, updated_at = CURRENT_TIMESTAMP WHERE id = 1"
-            )
-        else:
-            cur.execute(
-                f"INSERT INTO visitor_sessions (session_id) VALUES ('{session_id_escaped}')"
-            )
-            cur.execute(
-                "UPDATE visitor_stats SET total_visits = total_visits + 1, unique_visits = unique_visits + 1, updated_at = CURRENT_TIMESTAMP WHERE id = 1"
-            )
+        cur.execute("SELECT total_visits, unique_visits FROM visitor_stats WHERE id = 1")
+        stats = cur.fetchone()
         
-        conn.commit()
-    
-    cur.execute("SELECT total_visits, unique_visits FROM visitor_stats WHERE id = 1")
-    stats = cur.fetchone()
-    
-    cur.close()
-    conn.close()
-    
-    result = {
-        'total_visits': stats['total_visits'] if stats else 0,
-        'unique_visits': stats['unique_visits'] if stats else 0
-    }
-    
-    return {
-        'statusCode': 200,
-        'headers': {
-            'Content-Type': 'application/json',
-            'Access-Control-Allow-Origin': '*'
-        },
-        'isBase64Encoded': False,
-        'body': json.dumps(result)
-    }
+        cur.close()
+        conn.close()
+        
+        result = {
+            'total_visits': stats['total_visits'] if stats else 0,
+            'unique_visits': stats['unique_visits'] if stats else 0
+        }
+        
+        return {
+            'statusCode': 200,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'isBase64Encoded': False,
+            'body': json.dumps(result)
+        }
+    except Exception as e:
+        return {
+            'statusCode': 500,
+            'headers': {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*'
+            },
+            'isBase64Encoded': False,
+            'body': json.dumps({'error': str(e)})
+        }

@@ -1,14 +1,19 @@
 {
   "tests": [
     {
-      "name": "Get visitor stats",
-      "method": "GET",
+      "name": "Test POST - track visit and return stats",
+      "method": "POST",
       "path": "/",
-      "expectedStatus": 200
+      "expectedStatus": 200,
+      "expectedBody": {
+        "total_visits": "number",
+        "unique_visits": "number"
+      },
+      "bodyMatcher": "partial"
     },
     {
-      "name": "Track new visit",
-      "method": "POST",
+      "name": "Test OPTIONS - CORS preflight",
+      "method": "OPTIONS",
       "path": "/",
       "expectedStatus": 200
     }

@@ -18,14 +18,19 @@ const VisitorCounter = () => {
           headers: {
             'Content-Type': 'application/json',
           },
+          mode: 'cors',
         });
         
         if (response.ok) {
           const data = await response.json();
           setStats(data);
+        } else {
+          console.error('Visitor tracker response not ok:', response.status);
         }
       } catch (error) {
         console.error('Error tracking visit:', error);
+        // Показываем счётчик даже при ошибке, но с нулевыми значениями
+        setStats({ total_visits: 0, unique_visits: 0 });
       } finally {
         setLoading(false);
       }
@@ -34,18 +39,9 @@ const VisitorCounter = () => {
     trackVisit();
   }, []);
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center gap-4 text-gray-400 text-sm">
-        <div className="flex items-center gap-2">
-          <Icon name="Eye" size={16} />
-          <span>Загрузка...</span>
-        </div>
-      </div>
-    );
+  if (loading || !stats) {
+    return null;
   }
-
-  if (!stats) return null;
 
   return (
     <div className="flex items-center justify-center gap-6 text-gray-400 text-sm">
