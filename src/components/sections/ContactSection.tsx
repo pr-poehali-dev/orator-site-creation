@@ -49,7 +49,7 @@ const ContactSection = () => {
           {selectedCourse ? 'Выберите удобный способ связи:' : 'Или свяжитесь с нами для консультации'}
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           <Card className="hover:shadow-lg transition-all hover:-translate-y-0.5">
             <CardContent className="pt-4 pb-4 text-center">
               <div className="flex justify-center mb-2">
@@ -107,6 +107,25 @@ const ContactSection = () => {
                 className="text-primary hover:underline text-sm"
               >
                 Страница
+              </a>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-all hover:-translate-y-0.5">
+            <CardContent className="pt-4 pb-4 text-center">
+              <div className="flex justify-center mb-2">
+                <div className="p-2 bg-primary/10 rounded-full">
+                  <Icon name="MessageCircle" size={20} className="text-primary" />
+                </div>
+              </div>
+              <h3 className="font-semibold text-sm mb-1">VK Мессенджер</h3>
+              <a 
+                href="https://vk.me/svetlana_kuzikova" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-primary hover:underline text-xs"
+              >
+                Написать
               </a>
             </CardContent>
           </Card>
