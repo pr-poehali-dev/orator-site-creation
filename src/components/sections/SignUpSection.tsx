@@ -63,14 +63,14 @@ const SignUpSection = () => {
     <section id="contact" className="py-10 md:py-14 px-3 md:px-4 bg-gradient-to-br from-primary/5 via-white to-secondary/5">
       <div className="container mx-auto max-w-2xl">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Записаться на курс</h2>
-        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg px-4">
+        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-lg md:text-xl px-4">
           Оставьте заявку, и мы свяжемся с вами в ближайшее время
         </p>
         <Card className="shadow-2xl">
           <CardContent className="pt-4 md:pt-6 px-4 md:px-6">
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div>
-                <label className="block text-sm font-medium mb-2">Ваше имя</label>
+                <label className="block text-base font-medium mb-2">Ваше имя</label>
                 <Input
                   placeholder="Введите ваше имя"
                   value={formData.name}
@@ -79,7 +79,7 @@ const SignUpSection = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">Телефон</label>
+                <label className="block text-base font-medium mb-2">Телефон</label>
                 <Input
                   type="tel"
                   placeholder="+7 (___) ___-__-__"
@@ -89,7 +89,7 @@ const SignUpSection = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium mb-2">Комментарий (необязательно)</label>
+                <label className="block text-base font-medium mb-2">Комментарий (необязательно)</label>
                 <Textarea
                   placeholder="Расскажите, что вас интересует"
                   value={formData.message}
@@ -106,7 +106,7 @@ const SignUpSection = () => {
                 />
                 <label 
                   htmlFor="consent" 
-                  className="text-sm text-muted-foreground leading-relaxed cursor-pointer"
+                  className="text-base text-muted-foreground leading-relaxed cursor-pointer"
                 >
                   Я согласен на{' '}
                   <a 

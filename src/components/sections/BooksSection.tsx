@@ -53,8 +53,8 @@ const BooksSection = () => {
                 </div>
                 
                 <div className="flex-1 min-w-0">
-                  <h3 className="font-semibold text-base md:text-lg mb-2 line-clamp-2">{product.title}</h3>
-                  <p className="text-gray-500 text-sm md:text-base line-clamp-2">{product.description}</p>
+                  <h3 className="font-semibold text-lg md:text-xl mb-2 line-clamp-2">{product.title}</h3>
+                  <p className="text-gray-500 text-base md:text-lg line-clamp-2">{product.description}</p>
                 </div>
               </div>
             </Card>
@@ -62,8 +62,8 @@ const BooksSection = () => {
         </div>
 
         <div className="text-center bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl p-4 md:p-5 border-2 border-green-200">
-          <p className="text-green-800 font-bold mb-2 text-base md:text-lg">Все подарки бесплатно для участников курса</p>
-          <p className="text-green-700 text-sm md:text-base">Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Магазин"</a></p>
+          <p className="text-green-800 font-bold mb-2 text-lg md:text-xl">Все подарки бесплатно для участников курса</p>
+          <p className="text-green-700 text-base md:text-lg">Материалы также можно приобрести отдельно в разделе <a href="/materials" className="underline hover:text-green-800 transition-colors font-medium">"Магазин"</a></p>
         </div>
       </div>
     </section>

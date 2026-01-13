@@ -25,26 +25,26 @@ const TeacherSection = () => {
                 <CardDescription className="text-lg text-primary font-semibold">
                   Дипломированный педагог по ораторскому искусству
                 </CardDescription>
-                <CardDescription className="text-base mt-2">
+                <CardDescription className="text-lg mt-2">
                   Театральный режиссёр и профессиональный психолог
                 </CardDescription>
               </CardHeader>
               <CardContent className="p-0 space-y-3">
                 <div className="flex items-start gap-3">
                   <Icon name="GraduationCap" size={20} className="text-primary mt-1 flex-shrink-0" />
-                  <p className="text-muted-foreground"><span className="font-semibold">ГИТИС:</span> обучение ораторскому искусству и сценической речи</p>
+                  <p className="text-muted-foreground text-lg"><span className="font-semibold">ГИТИС:</span> обучение ораторскому искусству и сценической речи</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Icon name="Building" size={20} className="text-primary mt-1 flex-shrink-0" />
-                  <p className="text-muted-foreground"><span className="font-semibold">2018 год:</span> создала Школу ораторского искусства и импровизации и театр «Комильфо»</p>
+                  <p className="text-muted-foreground text-lg"><span className="font-semibold">2018 год:</span> создала Школу ораторского искусства и импровизации и театр «Комильфо»</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Icon name="Brain" size={20} className="text-primary mt-1 flex-shrink-0" />
-                  <p className="text-muted-foreground"><span className="font-semibold">12 лет практики</span> профессиональный психолог, преподаватель психологии, сертификация по психотерапии</p>
+                  <p className="text-muted-foreground text-lg"><span className="font-semibold">12 лет практики</span> профессиональный психолог, преподаватель психологии, сертификация по психотерапии</p>
                 </div>
                 <div className="flex items-start gap-3">
                   <Icon name="Award" size={20} className="text-primary mt-1 flex-shrink-0" />
-                  <p className="text-muted-foreground">Член Федерации психологов образования России</p>
+                  <p className="text-muted-foreground text-lg">Член Федерации психологов образования России</p>
                 </div>
               </CardContent>
             </div>
@@ -62,23 +62,23 @@ const TeacherSection = () => {
             <CardContent className="space-y-2">
               <div className="flex items-center gap-2">
                 <Icon name="CheckCircle2" size={18} className="text-primary flex-shrink-0" />
-                <p className="text-muted-foreground">ТВ-канал «Кубань24»</p>
+                <p className="text-muted-foreground text-lg">ТВ-канал «Кубань24»</p>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="CheckCircle2" size={18} className="text-primary flex-shrink-0" />
-                <p className="text-muted-foreground">ТВ-канал «НТК»</p>
+                <p className="text-muted-foreground text-lg">ТВ-канал «НТК»</p>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="CheckCircle2" size={18} className="text-primary flex-shrink-0" />
-                <p className="text-muted-foreground">ТВ-канал «Краснодар»</p>
+                <p className="text-muted-foreground text-lg">ТВ-канал «Краснодар»</p>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="CheckCircle2" size={18} className="text-primary flex-shrink-0" />
-                <p className="text-muted-foreground">Радио «Маяк»</p>
+                <p className="text-muted-foreground text-lg">Радио «Маяк»</p>
               </div>
               <div className="flex items-center gap-2">
                 <Icon name="CheckCircle2" size={18} className="text-primary flex-shrink-0" />
-                <p className="text-muted-foreground">«Первое радио Кубани»</p>
+                <p className="text-muted-foreground text-lg">«Первое радио Кубани»</p>
               </div>
             </CardContent>
           </Card>
@@ -93,19 +93,19 @@ const TeacherSection = () => {
             <CardContent className="space-y-2">
               <div className="flex items-start gap-2">
                 <Icon name="Book" size={18} className="text-primary flex-shrink-0 mt-1" />
-                <p className="text-muted-foreground">«Публичные выступления: 7 шагов к успеху»</p>
+                <p className="text-muted-foreground text-lg">«Публичные выступления: 7 шагов к успеху»</p>
               </div>
               <div className="flex items-start gap-2">
                 <Icon name="Book" size={18} className="text-primary flex-shrink-0 mt-1" />
-                <p className="text-muted-foreground">«Речевая креативность»</p>
+                <p className="text-muted-foreground text-lg">«Речевая креативность»</p>
               </div>
               <div className="flex items-start gap-2">
                 <Icon name="Book" size={18} className="text-primary flex-shrink-0 mt-1" />
-                <p className="text-muted-foreground">«Антистресс-путеводитель»</p>
+                <p className="text-muted-foreground text-lg">«Антистресс-путеводитель»</p>
               </div>
               <div className="flex items-start gap-2">
                 <Icon name="Book" size={18} className="text-primary flex-shrink-0 mt-1" />
-                <p className="text-muted-foreground">И другие издания</p>
+                <p className="text-muted-foreground text-lg">И другие издания</p>
               </div>
             </CardContent>
           </Card>

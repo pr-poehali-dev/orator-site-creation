@@ -66,7 +66,7 @@ const BlogSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-orange bg-clip-text text-transparent">
             Бесплатные статьи, видео и упражнения для развития навыков публичных выступлений
           </h2>
-          <p className="text-muted-foreground text-base md:text-lg max-w-3xl mx-auto font-medium">
+          <p className="text-muted-foreground text-lg md:text-xl max-w-3xl mx-auto font-medium">
             Изучайте материалы в удобном темпе и практикуйте техники ораторского мастерства
           </p>
         </div>
@@ -89,15 +89,15 @@ const BlogSection = () => {
                   </span>
                 </div>
                 
-                <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">
+                <h3 className="font-bold text-2xl mb-3 group-hover:text-primary transition-colors">
                   {article.title}
                 </h3>
                 
-                <p className="text-muted-foreground text-sm mb-4 line-clamp-3">
+                <p className="text-muted-foreground text-base mb-4 line-clamp-3">
                   {article.description}
                 </p>
                 
-                <div className="flex items-center justify-between text-xs text-muted-foreground">
+                <div className="flex items-center justify-between text-sm text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Icon name="Clock" size={14} />
                     <span>{article.readTime}</span>

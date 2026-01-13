@@ -57,10 +57,10 @@ const ContactSection = () => {
                   <Icon name="Phone" size={20} className="text-primary" />
                 </div>
               </div>
-              <h3 className="font-semibold text-sm mb-1">Телефон</h3>
+              <h3 className="font-semibold text-base mb-1">Телефон</h3>
               <a 
                 href="tel:+79183111712" 
-                className="text-primary hover:underline text-xs"
+                className="text-primary hover:underline text-sm"
                 onClick={() => trackGoal(GOALS.PHONE_CLICK)}
               >
                 +7 918 311-17-12
@@ -77,12 +77,12 @@ const ContactSection = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="font-semibold text-sm mb-1">Telegram</h3>
+              <h3 className="font-semibold text-base mb-1">Telegram</h3>
               <a 
                 href="https://t.me/svetlana_kuzikova" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-xs"
+                className="text-primary hover:underline text-sm"
               >
                 Написать
               </a>
@@ -118,12 +118,12 @@ const ContactSection = () => {
                   <Icon name="MessageCircle" size={20} className="text-primary" />
                 </div>
               </div>
-              <h3 className="font-semibold text-sm mb-1">VK Мессенджер</h3>
+              <h3 className="font-semibold text-base mb-1">VK Мессенджер</h3>
               <a 
                 href="https://vk.me/svetlana_kuzikova" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-xs"
+                className="text-primary hover:underline text-sm"
               >
                 Написать
               </a>
@@ -137,8 +137,8 @@ const ContactSection = () => {
                   <Icon name="MapPin" size={20} className="text-primary" />
                 </div>
               </div>
-              <h3 className="font-semibold text-sm sm:text-base mb-1">Адрес</h3>
-              <p className="text-muted-foreground text-sm">Краснодар,<br />Горького, 104</p>
+              <h3 className="font-semibold text-base mb-1">Адрес</h3>
+              <p className="text-muted-foreground text-base">Краснодар,<br />Горького, 104</p>
             </CardContent>
           </Card>
 
@@ -149,12 +149,12 @@ const ContactSection = () => {
                   <Icon name="Youtube" size={20} className="text-primary" />
                 </div>
               </div>
-              <h3 className="font-semibold text-sm mb-1">Rutube</h3>
+              <h3 className="font-semibold text-base mb-1">Rutube</h3>
               <a 
                 href="https://rutube.ru/channel/27062031/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-xs"
+                className="text-primary hover:underline text-sm"
               >
                 Канал школы
               </a>
