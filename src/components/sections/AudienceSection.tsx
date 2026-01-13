@@ -58,7 +58,7 @@ const AudienceSection = () => {
                   {audience.benefits.map((benefit, benefitIndex) => (
                     <div key={benefitIndex} className="flex items-start gap-3">
                       <Icon name="Check" size={18} className="text-primary flex-shrink-0 mt-0.5" />
-                      <CardDescription className="text-base leading-relaxed">{benefit}</CardDescription>
+                      <CardDescription className="text-lg leading-relaxed">{benefit}</CardDescription>
                     </div>
                   ))}
                 </div>

@@ -138,7 +138,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-3">Индивидуальные занятия</h2>
-          <p className="text-sm md:text-base text-muted-foreground max-w-2xl mx-auto px-4">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
             Персональная работа с педагогом — самый эффективный способ развития ораторских навыков. 
             Занятия проходят онлайн или оффлайн в удобное для вас время
           </p>
@@ -151,8 +151,8 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Icon name={service.icon as any} size={24} className="text-primary" />
                 </div>
-                <h3 className="font-bold text-base mb-2">{service.title}</h3>
-                <p className="text-xs text-muted-foreground">{service.description}</p>
+                <h3 className="font-bold text-lg mb-2">{service.title}</h3>
+                <p className="text-base text-muted-foreground">{service.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -170,15 +170,15 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                 <div className="space-y-2 mb-4">
                   <div className="flex items-start gap-2">
                     <Icon name="Clock" size={18} className="text-primary mt-0.5" />
-                    <span className="text-sm">Продолжительность: 50 минут</span>
+                    <span className="text-base">Продолжительность: 50 минут</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Icon name="Monitor" size={18} className="text-primary mt-0.5" />
-                    <span className="text-sm">Формат: онлайн или очно в Краснодаре</span>
+                    <span className="text-base">Формат: онлайн или очно в Краснодаре</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Icon name="Calendar" size={18} className="text-primary mt-0.5" />
-                    <span className="text-sm">Гибкий график: выбирайте удобное время</span>
+                    <span className="text-base">Гибкий график: выбирайте удобное время</span>
                   </div>
                 </div>
 
@@ -186,8 +186,8 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                   <div className="flex items-start gap-2">
                     <Icon name="Sparkles" size={18} className="text-yellow-600 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-yellow-800 text-sm mb-1">Специальное предложение</p>
-                      <p className="text-xs text-yellow-700">
+                      <p className="font-semibold text-yellow-800 text-base mb-1">Специальное предложение</p>
+                      <p className="text-sm text-yellow-700">
                         Скидка действует до конца месяца. Успейте записаться по выгодной цене!
                       </p>
                     </div>
@@ -201,7 +201,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                     <Icon name="Target" size={20} className="text-primary" />
                     Что вы получите
                   </h4>
-                  <ul className="space-y-2 text-sm">
+                  <ul className="space-y-2 text-base">
                     <li className="flex items-start gap-2">
                       <Icon name="Check" size={16} className="text-primary mt-0.5" />
                       <span>Персональный план развития навыков</span>

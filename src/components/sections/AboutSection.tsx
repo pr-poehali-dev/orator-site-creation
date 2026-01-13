@@ -145,7 +145,7 @@ const AboutSection = () => {
                 <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
               </CardHeader>
               <CardContent className="pt-0">
-                <p className="text-base md:text-lg text-muted-foreground leading-relaxed">{item.description}</p>
+                <p className="text-lg md:text-xl text-muted-foreground leading-relaxed">{item.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -171,7 +171,7 @@ const AboutSection = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg md:text-xl mb-2">{item.title}</h4>
-                    <p className="text-muted-foreground text-base md:text-lg leading-relaxed">{item.description}</p>
+                    <p className="text-muted-foreground text-lg md:text-xl leading-relaxed">{item.description}</p>
                   </div>
                 </div>
               </div>
