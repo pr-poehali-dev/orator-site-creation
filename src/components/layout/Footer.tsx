@@ -1,5 +1,6 @@
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
+import VisitorCounter from '@/components/VisitorCounter';
 
 const Footer = () => {
   return (
@@ -65,6 +66,9 @@ const Footer = () => {
             >
               <Icon name="Youtube" size={24} />
             </a>
+          </div>
+          <div className="mt-4 md:mt-6">
+            <VisitorCounter />
           </div>
         </div>
 
