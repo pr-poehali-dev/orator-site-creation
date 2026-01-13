@@ -162,23 +162,23 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
           <CardContent className="p-4 md:p-6 lg:p-8">
             <div className="grid md:grid-cols-2 gap-6 items-center">
               <div>
-                <h3 className="text-xl md:text-2xl font-bold mb-2 md:mb-3">Стоимость занятия</h3>
+                <h3 className="text-2xl md:text-3xl font-bold mb-2 md:mb-3">Стоимость занятия</h3>
                 <div className="flex items-baseline gap-2 md:gap-3 mb-3 md:mb-4">
-                  <span className="text-3xl md:text-4xl font-bold text-primary">5 000 ₽</span>
-                  <span className="text-lg md:text-xl text-muted-foreground line-through">6 000 ₽</span>
+                  <span className="text-4xl md:text-5xl font-bold text-primary">5 000 ₽</span>
+                  <span className="text-xl md:text-2xl text-muted-foreground line-through">6 000 ₽</span>
                 </div>
                 <div className="space-y-2 mb-4">
                   <div className="flex items-start gap-2">
                     <Icon name="Clock" size={18} className="text-primary mt-0.5" />
-                    <span className="text-base">Продолжительность: 50 минут</span>
+                    <span className="text-lg">Продолжительность: 50 минут</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Icon name="Monitor" size={18} className="text-primary mt-0.5" />
-                    <span className="text-base">Формат: онлайн или очно в Краснодаре</span>
+                    <span className="text-lg">Формат: онлайн или очно в Краснодаре</span>
                   </div>
                   <div className="flex items-start gap-2">
                     <Icon name="Calendar" size={18} className="text-primary mt-0.5" />
-                    <span className="text-base">Гибкий график: выбирайте удобное время</span>
+                    <span className="text-lg">Гибкий график: выбирайте удобное время</span>
                   </div>
                 </div>
 
@@ -186,8 +186,8 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                   <div className="flex items-start gap-2">
                     <Icon name="Sparkles" size={18} className="text-yellow-600 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-yellow-800 text-base mb-1">Специальное предложение</p>
-                      <p className="text-sm text-yellow-700">
+                      <p className="font-semibold text-yellow-800 text-lg mb-1">Специальное предложение</p>
+                      <p className="text-base text-yellow-700">
                         Скидка действует до конца месяца. Успейте записаться по выгодной цене!
                       </p>
                     </div>
@@ -197,11 +197,11 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
 
               <div>
                 <div className="bg-white rounded-lg p-4 shadow-sm mb-4">
-                  <h4 className="font-bold text-lg mb-3 flex items-center gap-2">
+                  <h4 className="font-bold text-xl mb-3 flex items-center gap-2">
                     <Icon name="Target" size={20} className="text-primary" />
                     Что вы получите
                   </h4>
-                  <ul className="space-y-2 text-base">
+                  <ul className="space-y-2 text-lg">
                     <li className="flex items-start gap-2">
                       <Icon name="Check" size={16} className="text-primary mt-0.5" />
                       <span>Персональный план развития навыков</span>

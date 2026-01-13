@@ -118,9 +118,9 @@ const ScheduleSection = () => {
                 </div>
               )}
               <CardHeader className={`bg-gradient-to-r ${course.color} text-white rounded-t-lg pb-4 md:pb-6`}>
-                <CardTitle className="text-lg md:text-xl">{course.name}</CardTitle>
+                <CardTitle className="text-xl md:text-2xl">{course.name}</CardTitle>
               </CardHeader>
-              <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-base md:text-lg">
+              <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-lg md:text-xl">
                 {course.description && (
                   <div className="mb-4">
                     <p className="text-muted-foreground leading-relaxed">{course.description}</p>
@@ -137,14 +137,14 @@ const ScheduleSection = () => {
                       <div className="p-3 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-300 rounded-lg hover:from-blue-100 hover:to-blue-200 transition-colors cursor-pointer" onClick={() => handleDateSelect(course.name, course.startDate)}>
                         <div className="flex items-center gap-2 mb-1">
                           <Icon name={course.isCoaching ? "Monitor" : "Calendar"} size={16} className="text-blue-600 flex-shrink-0" />
-                          <span className="font-semibold text-blue-900 text-sm">{course.startDate}</span>
+                          <span className="font-semibold text-blue-900 text-base">{course.startDate}</span>
                         </div>
                         {course.schedule && <p className="text-sm text-blue-700 ml-5">{course.schedule}</p>}
                       </div>
                       <div className="p-3 bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-300 rounded-lg hover:from-purple-100 hover:to-purple-200 transition-colors cursor-pointer" onClick={() => handleDateSelect(course.name, course.startDate2)}>
                         <div className="flex items-center gap-2 mb-1">
                           <Icon name={course.isCoaching ? "MapPin" : "Calendar"} size={16} className="text-purple-600 flex-shrink-0" />
-                          <span className="font-semibold text-purple-900 text-sm">{course.startDate2}</span>
+                          <span className="font-semibold text-purple-900 text-base">{course.startDate2}</span>
                         </div>
                         {course.schedule2 && <p className="text-sm text-purple-700 ml-5">{course.schedule2}</p>}
                       </div>
@@ -175,7 +175,7 @@ const ScheduleSection = () => {
                     <Icon name="CalendarDays" size={20} className="text-primary mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold">Расписание</p>
-                      <p className="text-muted-foreground text-sm">{course.schedule}</p>
+                      <p className="text-muted-foreground text-base">{course.schedule}</p>
                     </div>
                   </div>
                 )}
@@ -187,7 +187,7 @@ const ScheduleSection = () => {
                       {course.benefits.map((benefit, idx) => (
                         <li key={idx} className="flex items-start gap-2">
                           <Icon name="Check" size={18} className="text-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-sm">{benefit}</span>
+                          <span className="text-base">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -195,7 +195,7 @@ const ScheduleSection = () => {
                 )}
 
                 <div className="pt-2 pb-2">
-                  <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-semibold">
+                  <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-base font-semibold">
                     ✓ {course.spots}
                   </div>
                 </div>

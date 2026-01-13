@@ -95,10 +95,10 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                 <div className="flex items-start gap-3">
                   <Icon name="Calendar" size={20} className="text-primary mt-1" />
                   <div>
-                    <p className="font-semibold text-sm text-muted-foreground">Вы выбрали:</p>
-                    <p className="font-bold text-base">{courseName}</p>
+                    <p className="font-semibold text-base text-muted-foreground">Вы выбрали:</p>
+                    <p className="font-bold text-lg">{courseName}</p>
                     {courseDate && courseDate !== 'Выбрать удобную дату' && (
-                      <p className="text-sm text-primary font-semibold mt-1">Старт: {courseDate}</p>
+                      <p className="text-base text-primary font-semibold mt-1">Старт: {courseDate}</p>
                     )}
                   </div>
                 </div>
@@ -106,7 +106,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <Label htmlFor="name" className="text-base font-semibold mb-2 block">
+                  <Label htmlFor="name" className="text-lg font-semibold mb-2 block">
                     Ваше имя *
                   </Label>
                   <Input
@@ -116,12 +116,12 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Введите ваше имя"
                     required
-                    className="text-base"
+                    className="text-lg"
                   />
                 </div>
 
                 <div>
-                  <Label htmlFor="phone" className="text-base font-semibold mb-2 block">
+                  <Label htmlFor="phone" className="text-lg font-semibold mb-2 block">
                     Телефон *
                   </Label>
                   <Input
@@ -131,7 +131,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="+7 (___) ___-__-__"
                     required
-                    className="text-base"
+                    className="text-lg"
                   />
                 </div>
 
@@ -142,7 +142,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                     onCheckedChange={(checked) => setConsent(checked as boolean)}
                     className="mt-1"
                   />
-                  <Label htmlFor="consent" className="text-sm leading-relaxed cursor-pointer">
+                  <Label htmlFor="consent" className="text-base leading-relaxed cursor-pointer">
                     Я согласен с{' '}
                     <a href="/privacy" target="_blank" className="text-primary hover:underline">
                       политикой конфиденциальности
@@ -165,7 +165,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
 
                 <Button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-base py-6"
+                  className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg py-6"
                   disabled={isSubmitting || !consent}
                 >
                   {isSubmitting ? 'Отправка...' : 'Отправить заявку'}

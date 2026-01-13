@@ -76,7 +76,7 @@ const VideoTestimonialsSection = () => {
                   />
                 </div>
                 <div className="p-3 text-center">
-                  <p className="text-sm font-medium text-foreground">{video.name}</p>
+                  <p className="text-lg font-medium text-foreground">{video.name}</p>
                 </div>
               </CardContent>
             </Card>
