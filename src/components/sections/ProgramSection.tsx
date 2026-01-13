@@ -120,7 +120,7 @@ const ProgramSection = () => {
                 {block.items.map((item, itemIndex) => (
                   <div key={itemIndex} className="flex items-start gap-3">
                     <Icon name="Check" size={20} className="text-primary flex-shrink-0 mt-1" />
-                    <CardDescription className="text-base md:text-lg leading-relaxed">{item}</CardDescription>
+                    <CardDescription className="text-lg md:text-xl leading-relaxed">{item}</CardDescription>
                   </div>
                 ))}
               </div>
@@ -140,7 +140,7 @@ const ProgramSection = () => {
                 <div className="w-8 h-8 md:w-10 md:h-10 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
                   <Icon name={result.icon as any} size={18} className="text-white md:w-5 md:h-5" />
                 </div>
-                <p className="text-base md:text-lg font-medium mt-1 md:mt-1.5">{result.text}</p>
+                <p className="text-lg md:text-xl font-medium mt-1 md:mt-1.5">{result.text}</p>
               </div>
             ))}
           </div>

@@ -123,17 +123,17 @@ const PricingSection = () => {
               <CardHeader className="text-center pb-4 pt-6">
                 <CardTitle className="text-2xl md:text-3xl mb-2 text-foreground">{pkg.name}</CardTitle>
                 {pkg.subtitle && <p className="text-base md:text-lg text-muted-foreground mb-2">{pkg.subtitle}</p>}
-                <CardDescription className="text-lg md:text-xl">{pkg.duration}</CardDescription>
+                <CardDescription className="text-xl md:text-2xl">{pkg.duration}</CardDescription>
                 {(pkg.startDate || pkg.startDate2) && (
                   <div className="flex flex-col gap-2 mt-3">
                     {pkg.startDate && (
                       <div className="inline-block px-4 py-2 bg-blue-50 rounded-full">
-                        <span className="text-sm font-semibold text-blue-700">{pkg.startDate}</span>
+                        <span className="text-base font-semibold text-blue-700">{pkg.startDate}</span>
                       </div>
                     )}
                     {pkg.startDate2 && (
                       <div className="inline-block px-4 py-2 bg-purple-50 rounded-full">
-                        <span className="text-sm font-semibold text-purple-700">{pkg.startDate2}</span>
+                        <span className="text-base font-semibold text-purple-700">{pkg.startDate2}</span>
                       </div>
                     )}
                   </div>
@@ -158,7 +158,7 @@ const PricingSection = () => {
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <Icon name="Check" className="text-primary flex-shrink-0 mt-1" size={22} />
-                      <span className="text-base md:text-lg leading-relaxed">{feature}</span>
+                      <span className="text-lg md:text-xl leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
