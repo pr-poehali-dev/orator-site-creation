@@ -5,7 +5,7 @@ import urllib.parse
 from typing import Dict, Any
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
-    '''Отправка заявок с сайта в Telegram бот'''
+    '''Отправка заявок с сайта в Telegram бот школы ораторского мастерства'''
     method: str = event.get('httpMethod', 'GET')
     
     if method == 'OPTIONS':
