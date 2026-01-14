@@ -43,6 +43,8 @@ const SignUpSection = () => {
       });
 
       if (response.ok) {
+        const result = await response.json();
+        console.log('Success response:', result);
         trackGoal(GOALS.CONTACT_FORM_SUBMIT);
         alert('✅ Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
         setFormData({ name: '', phone: '', message: '' });
@@ -50,11 +52,12 @@ const SignUpSection = () => {
       } else {
         const errorText = await response.text();
         console.error('Server error:', response.status, errorText);
-        alert('❌ Произошла ошибка при отправке. Пожалуйста, позвоните нам: +7 918 311-17-12');
+        alert(`❌ Произошла ошибка при отправке (код ${response.status}). Пожалуйста, позвоните нам: +7 918 311-17-12`);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('❌ Произошла ошибка при отправке. Пожалуйста, позвоните нам: +7 918 311-17-12');
+      console.error('Error details:', JSON.stringify(error));
+      alert(`❌ Произошла ошибка при отправке: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}. Пожалуйста, позвоните нам: +7 918 311-17-12`);
     }
   };
 
