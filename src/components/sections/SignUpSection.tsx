@@ -31,15 +31,21 @@ const SignUpSection = () => {
 
       const messageWithTime = `⏰ Время заявки: ${timestamp}${formData.message ? '\n\n' + formData.message : ''}`;
 
+      const payload = {
+        name: formData.name,
+        phone: formData.phone,
+        message: messageWithTime
+      };
+
+      console.log('Sending payload:', payload);
+
       const response = await fetch('https://functions.poehali.dev/22a2bfc5-9a6d-46f8-957d-c1239099dca9', {
         method: 'POST',
+        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({
-          ...formData,
-          message: messageWithTime
-        }),
+        body: JSON.stringify(payload),
       });
 
       if (response.ok) {
@@ -57,7 +63,20 @@ const SignUpSection = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
       console.error('Error details:', JSON.stringify(error));
-      alert(`❌ Произошла ошибка при отправке: ${error instanceof Error ? error.message : 'Неизвестная ошибка'}. Пожалуйста, позвоните нам: +7 918 311-17-12`);
+      
+      const message = `Здравствуйте! Хочу записаться на курс.
+
+Имя: ${formData.name}
+Телефон: ${formData.phone}
+${formData.message ? `Комментарий: ${formData.message}` : ''}`;
+
+      const shouldRedirect = window.confirm(`❌ Не удалось отправить заявку через форму.\n\nОткрыть WhatsApp для связи?`);
+      
+      if (shouldRedirect) {
+        window.open(`https://wa.me/79183111712?text=${encodeURIComponent(message)}`, '_blank');
+      } else {
+        alert('Пожалуйста, позвоните нам: +7 918 311-17-12');
+      }
     }
   };
 
