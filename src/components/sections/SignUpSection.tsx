@@ -33,7 +33,6 @@ const SignUpSection = () => {
 
       const response = await fetch('https://functions.poehali.dev/22a2bfc5-9a6d-46f8-957d-c1239099dca9', {
         method: 'POST',
-        mode: 'cors',
         headers: {
           'Content-Type': 'application/json',
         },

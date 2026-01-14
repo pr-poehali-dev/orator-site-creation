@@ -33,7 +33,6 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
       try {
         const response = await fetch(TELEGRAM_NOTIFICATION_URL, {
           method: 'POST',
-          mode: 'cors',
           headers: {
             'Content-Type': 'application/json',
           },
