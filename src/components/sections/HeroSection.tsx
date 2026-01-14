@@ -3,12 +3,10 @@ import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
-import ApplicationModal from '@/components/ApplicationModal';
 
 const HeroSection = () => {
   const [isConsultDialogOpen, setIsConsultDialogOpen] = useState(false);
   const [isSignupDialogOpen, setIsSignupDialogOpen] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -113,7 +111,7 @@ const HeroSection = () => {
               className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white text-base sm:text-lg py-5 sm:py-6"
               onClick={() => {
                 setIsSignupDialogOpen(false);
-                setModalOpen(true);
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               <Icon name="FileText" size={20} className="mr-2" />
@@ -200,7 +198,7 @@ const HeroSection = () => {
               className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white text-base sm:text-lg py-5 sm:py-6"
               onClick={() => {
                 setIsConsultDialogOpen(false);
-                setModalOpen(true);
+                document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
               }}
             >
               <Icon name="FileText" size={20} className="mr-2" />
@@ -275,13 +273,6 @@ const HeroSection = () => {
           </div>
         </DialogContent>
       </Dialog>
-
-      <ApplicationModal
-        isOpen={modalOpen}
-        onClose={() => setModalOpen(false)}
-        courseName="Пробное занятие (бесплатно)"
-        courseDate="Выбрать удобную дату"
-      />
     </section>
   );
 };
