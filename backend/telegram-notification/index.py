@@ -5,18 +5,21 @@ import urllib.parse
 from typing import Dict, Any
 
 def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
-    '''Отправка заявок с сайта в Telegram бот школы ораторского мастерства (обновлено)'''
-    method: str = event.get('httpMethod', 'GET')
+    '''Отправка заявок с сайта в Telegram бот школы ораторского мастерства'''
+    method: str = event.get('httpMethod', 'POST')
+    
+    # CORS headers for all responses
+    cors_headers = {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'POST, OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type',
+        'Access-Control-Max-Age': '86400'
+    }
     
     if method == 'OPTIONS':
         return {
             'statusCode': 200,
-            'headers': {
-                'Access-Control-Allow-Origin': '*',
-                'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-                'Access-Control-Allow-Headers': 'Content-Type, Authorization, X-Requested-With',
-                'Access-Control-Max-Age': '86400'
-            },
+            'headers': cors_headers,
             'body': '',
             'isBase64Encoded': False
         }
@@ -24,10 +27,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     if method != 'POST':
         return {
             'statusCode': 405,
-            'headers': {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
+            'headers': {**cors_headers, 'Content-Type': 'application/json'},
             'body': json.dumps({'error': 'Method not allowed'}),
             'isBase64Encoded': False
         }
@@ -44,10 +44,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         if not name or (not phone and not email):
             return {
                 'statusCode': 400,
-                'headers': {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
+                'headers': {**cors_headers, 'Content-Type': 'application/json'},
                 'body': json.dumps({'error': 'Name and phone or email are required'}),
                 'isBase64Encoded': False
             }
@@ -56,13 +53,18 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         chat_id = os.environ.get('TELEGRAM_CHAT_ID')
         
         if not bot_token or not chat_id:
+            error_details = []
+            if not bot_token:
+                error_details.append('TELEGRAM_BOT_TOKEN не заполнен')
+            if not chat_id:
+                error_details.append('TELEGRAM_CHAT_ID не заполнен')
             return {
                 'statusCode': 500,
-                'headers': {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
-                'body': json.dumps({'error': 'Telegram credentials not configured'}),
+                'headers': {**cors_headers, 'Content-Type': 'application/json'},
+                'body': json.dumps({
+                    'error': 'Telegram credentials not configured', 
+                    'details': ', '.join(error_details)
+                }),
                 'isBase64Encoded': False
             }
         
@@ -100,20 +102,14 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
         if telegram_response.get('ok'):
             return {
                 'statusCode': 200,
-                'headers': {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
+                'headers': {**cors_headers, 'Content-Type': 'application/json'},
                 'body': json.dumps({'success': True, 'message': 'Заявка успешно отправлена'}),
                 'isBase64Encoded': False
             }
         else:
             return {
                 'statusCode': 500,
-                'headers': {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': '*'
-                },
+                'headers': {**cors_headers, 'Content-Type': 'application/json'},
                 'body': json.dumps({'error': 'Failed to send to Telegram'}),
                 'isBase64Encoded': False
             }
@@ -121,10 +117,7 @@ def handler(event: Dict[str, Any], context: Any) -> Dict[str, Any]:
     except Exception as e:
         return {
             'statusCode': 500,
-            'headers': {
-                'Content-Type': 'application/json',
-                'Access-Control-Allow-Origin': '*'
-            },
+            'headers': {**cors_headers, 'Content-Type': 'application/json'},
             'body': json.dumps({'error': str(e)}),
             'isBase64Encoded': False
         }
