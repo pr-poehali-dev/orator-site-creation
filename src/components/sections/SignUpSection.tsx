@@ -1,83 +1,12 @@
-import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
 
 const SignUpSection = () => {
-  const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
-  const [consent, setConsent] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!consent) {
-      alert('Пожалуйста, примите условия обработки данных');
-      return;
-    }
-    
-    try {
-      const now = new Date();
-      const timestamp = now.toLocaleString('ru-RU', { 
-        day: '2-digit', 
-        month: '2-digit', 
-        year: 'numeric',
-        hour: '2-digit', 
-        minute: '2-digit'
-      });
-
-      const messageWithTime = `⏰ Время заявки: ${timestamp}${formData.message ? '\n\n' + formData.message : ''}`;
-
-      const payload = {
-        name: formData.name,
-        phone: formData.phone,
-        message: messageWithTime
-      };
-
-      console.log('Sending payload:', payload);
-
-      const response = await fetch('https://functions.poehali.dev/22a2bfc5-9a6d-46f8-957d-c1239099dca9', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      });
-
-      if (response.ok) {
-        const result = await response.json();
-        console.log('Success response:', result);
-        trackGoal(GOALS.CONTACT_FORM_SUBMIT);
-        alert('✅ Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
-        setFormData({ name: '', phone: '', message: '' });
-        setConsent(false);
-      } else {
-        const errorText = await response.text();
-        console.error('Server error:', response.status, errorText);
-        alert(`❌ Произошла ошибка при отправке (код ${response.status}). Пожалуйста, позвоните нам: +7 918 311-17-12`);
-      }
-    } catch (error) {
-      console.error('Error submitting form:', error);
-      console.error('Error details:', JSON.stringify(error));
-      
-      const message = `Здравствуйте! Хочу записаться на курс.
-
-Имя: ${formData.name}
-Телефон: ${formData.phone}
-${formData.message ? `Комментарий: ${formData.message}` : ''}`;
-
-      const shouldRedirect = window.confirm(`❌ Не удалось отправить заявку через форму.\n\nОткрыть WhatsApp для связи?`);
-      
-      if (shouldRedirect) {
-        window.open(`https://wa.me/79183111712?text=${encodeURIComponent(message)}`, '_blank');
-      } else {
-        alert('Пожалуйста, позвоните нам: +7 918 311-17-12');
-      }
-    }
+  const handleTelegramClick = () => {
+    trackGoal(GOALS.CONTACT_FORM_SUBMIT);
+    window.open('https://t.me/svetlana_kuzikova', '_blank');
   };
 
   return (
@@ -85,77 +14,36 @@ ${formData.message ? `Комментарий: ${formData.message}` : ''}`;
       <div className="container mx-auto max-w-2xl">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Записаться на курс</h2>
         <p className="text-center text-muted-foreground mb-8 md:mb-12 text-lg md:text-xl px-4">
-          Оставьте заявку, и мы свяжемся с вами в ближайшее время
+          Свяжитесь со мной напрямую в Telegram
         </p>
         <Card className="shadow-2xl">
-          <CardContent className="pt-4 md:pt-6 px-4 md:px-6">
-            <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
-              <div>
-                <label className="block text-base font-medium mb-2">Ваше имя</label>
-                <Input
-                  placeholder="Введите ваше имя"
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  required
-                />
+          <CardContent className="pt-8 md:pt-12 pb-8 md:pb-12 px-4 md:px-6">
+            <div className="text-center space-y-6">
+              <div className="flex justify-center">
+                <div className="w-20 h-20 md:w-24 md:h-24 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center shadow-lg">
+                  <Icon name="MessageCircle" size={40} className="text-white" />
+                </div>
               </div>
               <div>
-                <label className="block text-base font-medium mb-2">Телефон</label>
-                <Input
-                  type="tel"
-                  placeholder="+7 (___) ___-__-__"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  required
-                />
-              </div>
-              <div>
-                <label className="block text-base font-medium mb-2">Комментарий (необязательно)</label>
-                <Textarea
-                  placeholder="Расскажите, что вас интересует"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                  rows={4}
-                />
-              </div>
-              <div className="flex items-start space-x-3">
-                <Checkbox 
-                  id="consent" 
-                  checked={consent}
-                  onCheckedChange={(checked) => setConsent(checked as boolean)}
-                  required
-                />
-                <label 
-                  htmlFor="consent" 
-                  className="text-base text-muted-foreground leading-relaxed cursor-pointer"
-                >
-                  Я согласен на{' '}
-                  <a 
-                    href="/consent" 
-                    target="_blank" 
-                    className="text-primary hover:underline"
-                  >
-                    обработку персональных данных
-                  </a>
-                  {' '}и принимаю условия{' '}
-                  <a 
-                    href="/privacy" 
-                    target="_blank" 
-                    className="text-primary hover:underline"
-                  >
-                    политики конфиденциальности
-                  </a>
-                </label>
+                <p className="text-lg md:text-xl text-muted-foreground mb-2">
+                  Отвечу на все ваши вопросы и помогу записаться на курс
+                </p>
+                <p className="text-base text-muted-foreground">
+                  Обычно отвечаю в течение нескольких часов
+                </p>
               </div>
               <Button 
-                type="submit" 
-                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-base md:text-lg py-5 md:py-6"
-                disabled={!consent}
+                onClick={handleTelegramClick}
+                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-base md:text-lg py-6 md:py-7"
+                size="lg"
               >
-                <Icon name="Send" size={20} className="mr-2" />
-                Отправить заявку
+                <Icon name="Send" size={24} className="mr-2" />
+                Написать в Telegram
               </Button>
-            </form>
+              <p className="text-sm text-muted-foreground">
+                Или позвоните: <a href="tel:+79183111712" className="text-primary hover:underline font-medium">+7 918 311-17-12</a>
+              </p>
+            </div>
           </CardContent>
         </Card>
       </div>
