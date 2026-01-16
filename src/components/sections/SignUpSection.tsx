@@ -6,6 +6,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
+import { toast } from 'sonner';
 
 const SignUpSection = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
@@ -16,7 +17,9 @@ const SignUpSection = () => {
     e.preventDefault();
     
     if (!consent) {
-      alert('Пожалуйста, примите условия обработки данных');
+      toast.error('Необходимо согласие', {
+        description: 'Пожалуйста, примите условия обработки персональных данных',
+      });
       return;
     }
     
@@ -34,23 +37,30 @@ const SignUpSection = () => {
 
       if (response.ok) {
         trackGoal(GOALS.CONTACT_FORM_SUBMIT);
-        alert('✅ Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.');
+        toast.success('Заявка отправлена!', {
+          description: 'Спасибо! Мы свяжемся с вами в ближайшее время.',
+          duration: 5000,
+        });
         setFormData({ name: '', phone: '', message: '' });
         setConsent(false);
       } else {
         const error = await response.json();
-        alert(`❌ ${error.error || 'Произошла ошибка при отправке'}. Позвоните нам: +7 918 311-17-12`);
+        toast.error('Ошибка отправки', {
+          description: error.error || 'Произошла ошибка. Позвоните нам: +7 918 311-17-12',
+          duration: 6000,
+        });
       }
     } catch (error) {
       console.error('Error submitting form:', error);
       
-      const shouldRedirect = window.confirm(`❌ Не удалось отправить заявку.\n\nОткрыть Telegram для связи?`);
-      
-      if (shouldRedirect) {
-        window.open('https://t.me/svetlana_kuzikova', '_blank');
-      } else {
-        alert('Пожалуйста, позвоните нам: +7 918 311-17-12');
-      }
+      toast.error('Не удалось отправить заявку', {
+        description: 'Свяжитесь с нами через Telegram или позвоните',
+        duration: 6000,
+        action: {
+          label: 'Открыть Telegram',
+          onClick: () => window.open('https://t.me/svetlana_kuzikova', '_blank'),
+        },
+      });
     } finally {
       setIsSubmitting(false);
     }
