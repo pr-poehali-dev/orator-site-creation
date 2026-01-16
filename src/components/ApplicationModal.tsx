@@ -6,7 +6,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
 
-const TELEGRAM_NOTIFICATION_URL = 'https://functions.poehali.dev/22a2bfc5-9a6d-46f8-957d-c1239099dca9';
+const TELEGRAM_NOTIFICATION_URL = 'https://functions.poehali.dev/1427b9c7-37fe-40a5-8fe7-96646f8f064a';
 
 interface ApplicationModalProps {
   isOpen: boolean;

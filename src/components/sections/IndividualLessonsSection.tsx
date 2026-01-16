@@ -8,6 +8,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
+import { toast as sonnerToast } from 'sonner';
 
 const IndividualLessonsSection = () => {
   const { toast } = useToast();
@@ -82,7 +83,7 @@ ${formData.preferredDate ? `Желаемая дата: ${formData.preferredDate}
 ${formData.preferredTime ? `Желаемое время: ${formData.preferredTime}` : ''}
 ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
 
-      const response = await fetch('https://functions.poehali.dev/2708494c-3d0e-4905-b18f-86093217671b', {
+      const response = await fetch('https://functions.poehali.dev/1427b9c7-37fe-40a5-8fe7-96646f8f064a', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -95,9 +96,9 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
       });
       
       if (response.ok) {
-        toast({
-          title: "Заявка отправлена!",
-          description: "Мы свяжемся с вами в ближайшее время для уточнения деталей занятия.",
+        sonnerToast.success('Заявка отправлена!', {
+          description: 'Мы свяжемся с вами в ближайшее время для уточнения деталей занятия.',
+          duration: 5000,
         });
         
         setFormData({
@@ -113,18 +114,21 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
         
         setIsOpen(false);
       } else {
-        toast({
-          title: "Ошибка отправки",
-          description: "Попробуйте позже или свяжитесь с нами через WhatsApp",
-          variant: "destructive"
+        const error = await response.json();
+        sonnerToast.error('Ошибка отправки', {
+          description: error.error || 'Попробуйте позже или свяжитесь с нами через WhatsApp',
+          duration: 6000,
         });
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      toast({
-        title: "Ошибка отправки",
-        description: "Попробуйте позже или свяжитесь с нами через WhatsApp",
-        variant: "destructive"
+      sonnerToast.error('Не удалось отправить заявку', {
+        description: 'Свяжитесь с нами через WhatsApp',
+        duration: 6000,
+        action: {
+          label: 'Открыть WhatsApp',
+          onClick: () => window.open('https://wa.me/79183111712', '_blank'),
+        },
       });
     }
   };
