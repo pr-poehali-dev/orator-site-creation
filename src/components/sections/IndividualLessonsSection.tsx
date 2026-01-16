@@ -9,6 +9,7 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import Icon from '@/components/ui/icon';
 import { useToast } from '@/hooks/use-toast';
 import { toast as sonnerToast } from 'sonner';
+import { formatPhoneNumber } from '@/utils/phoneFormat';
 
 const IndividualLessonsSection = () => {
   const { toast } = useToast();
@@ -134,7 +135,11 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
   };
 
   const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+    if (field === 'phone') {
+      setFormData(prev => ({ ...prev, [field]: formatPhoneNumber(value) }));
+    } else {
+      setFormData(prev => ({ ...prev, [field]: value }));
+    }
   };
 
   return (

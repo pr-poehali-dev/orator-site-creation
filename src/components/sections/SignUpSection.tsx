@@ -7,6 +7,7 @@ import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
 import { toast } from 'sonner';
+import { formatPhoneNumber } from '@/utils/phoneFormat';
 
 const SignUpSection = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
@@ -92,7 +93,7 @@ const SignUpSection = () => {
                   type="tel"
                   placeholder="+7 (___) ___-__-__"
                   value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                  onChange={(e) => setFormData({ ...formData, phone: formatPhoneNumber(e.target.value) })}
                   required
                   disabled={isSubmitting}
                 />

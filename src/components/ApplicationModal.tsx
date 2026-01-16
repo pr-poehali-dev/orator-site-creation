@@ -5,6 +5,7 @@ import { Label } from '@/components/ui/label';
 import { Checkbox } from '@/components/ui/checkbox';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
+import { formatPhoneNumber } from '@/utils/phoneFormat';
 
 const TELEGRAM_NOTIFICATION_URL = 'https://functions.poehali.dev/1427b9c7-37fe-40a5-8fe7-96646f8f064a';
 
@@ -127,7 +128,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                     id="phone"
                     type="tel"
                     value={phone}
-                    onChange={(e) => setPhone(e.target.value)}
+                    onChange={(e) => setPhone(formatPhoneNumber(e.target.value))}
                     placeholder="+7 (___) ___-__-__"
                     required
                     className="text-lg"
