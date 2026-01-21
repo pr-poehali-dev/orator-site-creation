@@ -26,8 +26,8 @@ const ScheduleSection = () => {
       isDayGroup: true
     },
     {
-      name: 'Продвинутый курс ораторского искусства и импровизации "Своя игра" (2 ступень)',
-      startDate: '18 марта - 20 апреля 2026',
+      name: 'Углублённый курс ораторского искусства и импровизации "Своя игра" (2 ступень)',
+      startDate: 'Старт: 18 марта 2026 г.',
       duration: 'Продолжительность: 1,5 месяца',
       description: '10 групповых тренингов + 2 индивидуальных занятия + 1 тренинг импровизации',
       schedule: 'Понедельник, Среда, 14:00-16:00 (дневная группа)',
@@ -91,7 +91,7 @@ const ScheduleSection = () => {
                   <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
                     <div className="flex items-center gap-2">
                       <Icon name="Trophy" size={16} />
-                      <span className="font-bold text-sm whitespace-nowrap">Продвинутый уровень</span>
+                      <span className="font-bold text-sm whitespace-nowrap">2 ступень</span>
                     </div>
                   </div>
                 </div>
@@ -191,9 +191,11 @@ const ScheduleSection = () => {
                     </Button>
                   ) : (
                     <>
-                      <p className="text-xs text-muted-foreground text-center mb-3">
-                        {course.isCoaching ? 'Выберите формат и узнайте подробности' : 'Выберите дату выше, чтобы записаться'}
-                      </p>
+                      {course.isCoaching && (
+                        <p className="text-xs text-muted-foreground text-center mb-3">
+                          Выберите формат и узнайте подробности
+                        </p>
+                      )}
                       {course.isCoaching ? (
                         <Button
                           variant="outline"
