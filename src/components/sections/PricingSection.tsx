@@ -44,6 +44,7 @@ const PricingSection = () => {
     {
       name: 'Ораторское мастерство с нуля',
       subtitle: '1 ступень',
+      courseLevel: '1 ступень',
       duration: '8 групповых + 1 индивидуальное + 1 джем по импровизации',
       startDate: 'Старт: 11 февраля 2026 (дневная группа)',
       price: '19 500',
@@ -61,6 +62,7 @@ const PricingSection = () => {
     {
       name: 'Продвинутый курс ораторского искусства и импровизации "Своя игра"',
       subtitle: '',
+      courseLevel: '2 ступень',
       duration: '10 групповых + 2 индивидуальных + 1 джем по импровизации',
       durationText: 'Продолжительность: 1,5 месяца',
       startDate: 'Старт: 18 марта 2026 (дневная группа)',
@@ -169,7 +171,10 @@ const PricingSection = () => {
                   size="lg"
                   onClick={() => {
                     trackGoal(GOALS.COURSE_SIGNUP_CLICK);
-                    setSelectedPackage({ name: pkg.subtitle, subtitle: pkg.name });
+                    setSelectedPackage({ 
+                      name: `${pkg.name} (${pkg.courseLevel})`,
+                      subtitle: pkg.startDate || ''
+                    });
                     setModalOpen(true);
                   }}
                 >

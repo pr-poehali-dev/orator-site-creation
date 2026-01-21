@@ -1,12 +1,14 @@
 {
   "tests": [
     {
-      "name": "Test successful form submission",
+      "name": "Test successful form submission with course info",
       "method": "POST",
       "path": "/",
       "body": {
         "name": "Иван Петров",
         "phone": "+7 918 123-45-67",
+        "course": "Ораторское мастерство с нуля (1 ступень)",
+        "date": "Старт: 11 февраля 2026 (дневная группа)",
         "message": "Хочу записаться на курс"
       },
       "expectedStatus": 200,

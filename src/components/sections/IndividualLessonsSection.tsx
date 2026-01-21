@@ -92,6 +92,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
         body: JSON.stringify({
           name: formData.name,
           phone: formData.phone,
+          course: 'Индивидуальное занятие',
           message: message
         }),
       });

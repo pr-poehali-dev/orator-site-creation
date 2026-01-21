@@ -35,6 +35,8 @@ def handler(event: dict, context) -> dict:
         name = body.get('name', '')
         phone = body.get('phone', '')
         message = body.get('message', '')
+        course = body.get('course', '')
+        date = body.get('date', '')
         
         if not name or not phone:
             return {
@@ -63,6 +65,12 @@ def handler(event: dict, context) -> dict:
 
 👤 Имя: {name}
 📱 Телефон: {phone}"""
+        
+        if course:
+            telegram_message += f"\n📚 Курс: {course}"
+        
+        if date:
+            telegram_message += f"\n📅 Дата: {date}"
         
         if message:
             telegram_message += f"\n💬 Комментарий: {message}"
