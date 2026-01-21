@@ -60,7 +60,7 @@ const PricingSection = () => {
     },
     {
       name: 'Продвинутый курс ораторского искусства и импровизации "Своя игра"',
-      subtitle: '2 ступень',
+      subtitle: '',
       duration: '10 групповых + 2 индивидуальных + 1 джем по импровизации',
       durationText: 'Продолжительность: 1,5 месяца',
       startDate: 'Старт: 18 марта 2026 (дневная группа)',
@@ -112,13 +112,12 @@ const PricingSection = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               {pkg.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-primary to-secondary rounded-full whitespace-nowrap z-10">
-                  <span className="text-white font-bold text-xs sm:text-sm">⭐ VIP-ФОРМАТ</span>
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full whitespace-nowrap z-10">
+                  <span className="text-white font-bold text-xs sm:text-sm">2 ступень</span>
                 </div>
               )}
               <CardHeader className="text-center pb-4 pt-6">
                 <CardTitle className="text-2xl md:text-3xl mb-2 text-foreground">{pkg.name}</CardTitle>
-                {pkg.subtitle && <p className="text-base md:text-lg text-muted-foreground mb-2">{pkg.subtitle}</p>}
                 <CardDescription className="text-xl md:text-2xl">{pkg.duration}</CardDescription>
                 {pkg.durationText && (
                   <p className="text-base text-muted-foreground mt-2">{pkg.durationText}</p>
