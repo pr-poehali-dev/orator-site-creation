@@ -48,18 +48,10 @@ const HeroSection = () => {
             <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-5 md:mb-6 max-w-2xl mx-auto lg:mx-0 px-2 lg:px-0">
               Единственный в Краснодаре курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 md:gap-4 mb-5 md:mb-6 max-w-2xl mx-auto lg:mx-0 text-sm md:text-base">
-              <div className="flex items-center gap-2">
+            <div className="flex justify-center lg:justify-start mb-5 md:mb-6">
+              <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full">
                 <Icon name="CheckCircle" className="text-primary" size={22} />
-                <span className="font-semibold whitespace-nowrap">8 или 16 занятий</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="CheckCircle" className="text-primary" size={22} />
-                <span className="font-semibold whitespace-nowrap">2 индивидуальных</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="CheckCircle" className="text-primary" size={22} />
-                <span className="font-semibold whitespace-nowrap">Сертификат</span>
+                <span className="font-semibold text-sm md:text-base">Индивидуальные занятия входят в стоимость</span>
               </div>
             </div>
             <div className="flex justify-center lg:justify-start">
