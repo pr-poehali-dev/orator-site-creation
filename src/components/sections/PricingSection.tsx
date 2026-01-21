@@ -59,23 +59,20 @@ const PricingSection = () => {
       popular: false
     },
     {
-      name: 'Полный ораторский курс "Своя игра"',
-      subtitle: '',
-      duration: '20 занятий, 40 часов практики',
-      startDate: 'Старт: 02 марта (дневная группа)',
-      startDate2: 'Старт: 20 апреля (вечерняя группа)',
-      price: '42 000',
-      oldPrice: '49 000',
-      priceNote: 'При бронировании до 15 февраля',
+      name: 'Продвинутый курс ораторского искусства и импровизации "Своя игра"',
+      subtitle: '2 ступень',
+      duration: '10 групповых + 2 индивидуальных + 1 джем по импровизации',
+      durationText: 'Продолжительность: 1,5 месяца',
+      startDate: 'Старт: 18 марта 2026 (дневная группа)',
+      price: '29 500',
+      oldPrice: '',
+      priceNote: '',
       features: [
-        '16 групповых тренингов',
+        '10 групповых тренингов',
         '2 индивидуальных занятия',
-        '2 тренинга «Джем» по импровизации',
+        '1 тренинг «Джем» по импровизации',
         'Мастер-класс со стилистом по имиджу оратора',
-        'Мастер-класс с профессиональным психологом по работе с ограничивающими убеждениями',
         'Мастер-класс «Психология влияния: психотипы аудитории, психотрюки для переговоров»',
-        'Видеокурс «Речевая креативность» + книга',
-        'Запись вебинара с техниками снятия страха публичных выступлений',
         'Выпускной при реальных зрителях с ораторской речью и театральным монологом',
         'Профессиональная фотосессия',
         'Больше времени на отработку навыков',
@@ -123,6 +120,9 @@ const PricingSection = () => {
                 <CardTitle className="text-2xl md:text-3xl mb-2 text-foreground">{pkg.name}</CardTitle>
                 {pkg.subtitle && <p className="text-base md:text-lg text-muted-foreground mb-2">{pkg.subtitle}</p>}
                 <CardDescription className="text-xl md:text-2xl">{pkg.duration}</CardDescription>
+                {pkg.durationText && (
+                  <p className="text-base text-muted-foreground mt-2">{pkg.durationText}</p>
+                )}
                 {(pkg.startDate || pkg.startDate2) && (
                   <div className="flex flex-col gap-2 mt-3">
                     {pkg.startDate && (
@@ -140,7 +140,7 @@ const PricingSection = () => {
                 <div className="mt-4 md:mt-6">
                   <div className="flex items-center justify-center gap-2 md:gap-3 mb-2">
                     <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">{pkg.price}</span>
-                    <span className="text-lg sm:text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>
+                    {pkg.oldPrice && <span className="text-lg sm:text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>}
                   </div>
                   {pkg.priceNote ? (
                     <>
