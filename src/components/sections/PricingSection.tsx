@@ -113,6 +113,11 @@ const PricingSection = () => {
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
+              {pkg.courseLevel === '1 ступень' && (
+                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full whitespace-nowrap z-10">
+                  <span className="text-white font-bold text-xs sm:text-sm">1 ступень</span>
+                </div>
+              )}
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full whitespace-nowrap z-10">
                   <span className="text-white font-bold text-xs sm:text-sm">2 ступень</span>
