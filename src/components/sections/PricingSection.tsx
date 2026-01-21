@@ -192,12 +192,29 @@ const PricingSection = () => {
         </div>
 
         <div className={`mt-6 md:mt-8 text-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-block bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-300 rounded-2xl px-6 py-4 shadow-lg">
-            <div className="flex items-center gap-3 justify-center">
-              <Icon name="Percent" size={28} className="text-orange-600 flex-shrink-0" />
-              <p className="text-lg md:text-xl font-bold text-orange-900">
-                При единовременной оплате 1 и 2 ступени — скидка 10%
-              </p>
+          <div className="inline-block bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-300 rounded-2xl px-6 py-4 md:py-6 shadow-lg">
+            <div className="flex flex-col items-center gap-4">
+              <div className="flex items-center gap-3 justify-center">
+                <Icon name="Percent" size={28} className="text-orange-600 flex-shrink-0" />
+                <p className="text-lg md:text-xl font-bold text-orange-900">
+                  При единовременной оплате 1 и 2 ступени — скидка 10%
+                </p>
+              </div>
+              <Button
+                size="lg"
+                className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white text-base md:text-lg px-6 py-5 md:py-6"
+                onClick={() => {
+                  trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+                  setSelectedPackage({
+                    name: 'Полный курс (1 и 2 ступень со скидкой 10%)',
+                    subtitle: 'Обе ступени со скидкой'
+                  });
+                  setModalOpen(true);
+                }}
+              >
+                <Icon name="Sparkles" size={20} className="mr-2" />
+                Записаться на обе ступени
+              </Button>
             </div>
           </div>
         </div>
