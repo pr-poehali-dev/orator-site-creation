@@ -17,32 +17,22 @@ const ScheduleSection = () => {
 
   const courses = [
     {
-      name: 'Ораторское мастерство с нуля (базовый курс) - первая ступень',
+      name: 'Ораторское мастерство с нуля (1 ступень)',
       startDate: '11 февраля - 11 марта 2026',
-      duration: '10 занятий, 20 часов практики',
+      duration: '8 групповых тренингов + 1 индивидуальное занятие + 1 тренинг по импровизации',
       schedule: 'Понедельник, Среда, 14:00-16:00',
-      spots: 'Набор открыт',
-      color: 'from-primary to-primary/80'
+      spots: 'Идёт набор на дневной поток',
+      color: 'from-green-500 to-emerald-500',
+      isDayGroup: true
     },
     {
-      name: 'Ораторское мастерство с нуля (базовый курс) - первая ступень',
-      startDate: '17 января - 07 марта 2026',
-      duration: '10 занятий, 20 часов практики',
-      schedule: 'Суббота, 11:00-13:00',
-      spots: 'Набор открыт',
-      color: 'from-primary to-primary/80',
-      isWeekend: true
-    },
-    {
-      name: 'Полный курс ораторского искусства "Своя игра" - первая и вторая ступень',
-      startDate: '02 марта - 29 апреля 2026',
-      startDate2: '20 апреля - 24 июня 2026',
-      duration: '2 месяца, 40 часов практики',
-      schedule: 'Понедельник, Среда, 14:00-16:00',
-      schedule2: 'Понедельник, Среда, 19:00-21:00',
+      name: 'Продвинутый курс ораторского искусства и импровизации "Своя игра" (2 ступень)',
+      startDate: '18 марта - 20 апреля 2026',
+      duration: '10 групповых тренингов + 2 индивидуальных занятия + 1 тренинг импровизации',
+      schedule: 'Понедельник, Среда, 14:00-16:00 (дневная группа)',
       spots: 'Набор открыт',
       color: 'from-secondary to-secondary/80',
-      isPopular: true
+      isAdvanced: true
     },
     {
       name: 'Индивидуальный ораторский коучинг',
@@ -66,9 +56,7 @@ const ScheduleSection = () => {
     {
       name: 'Актерский психологический курс "Перформанс-терапия"',
       description: 'Решаем психологические задачи творческим самовыражением через публичное выступление',
-      startDate: '19 января - 19 апреля 2026',
       duration: '3 месяца',
-      schedule: 'Понедельник, Среда, 19:00-21:00',
       spots: 'Набор открыт',
       color: 'from-primary to-secondary',
       isTheater: true,
@@ -87,32 +75,22 @@ const ScheduleSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {courses.map((course, index) => (
             <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2 relative overflow-visible">
-              {index === 0 && (
+              {course.isDayGroup && (
                 <div className="absolute -top-3 -left-3 z-10">
-                  <div className="bg-gradient-to-r from-green-500 to-emerald-500 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
+                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-5 py-2.5 rounded-full shadow-xl transform -rotate-3 hover:rotate-0 transition-transform animate-pulse">
                     <div className="flex items-center gap-2">
-                      <Icon name="Sun" size={16} />
-                      <span className="font-bold text-sm whitespace-nowrap">Дневная группа</span>
+                      <Icon name="Star" size={18} />
+                      <span className="font-bold text-base whitespace-nowrap">ИДЁТ НАБОР</span>
                     </div>
                   </div>
                 </div>
               )}
-              {course.isWeekend && !course.isPopular && (
+              {course.isAdvanced && (
                 <div className="absolute -top-3 -left-3 z-10">
-                  <div className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
+                  <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
                     <div className="flex items-center gap-2">
-                      <Icon name="Calendar" size={16} />
-                      <span className="font-bold text-sm whitespace-nowrap">Группа выходного дня</span>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {course.isPopular && (
-                <div className="absolute -top-3 -left-3 z-10">
-                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
-                    <div className="flex items-center gap-2">
-                      <Icon name="Star" size={16} />
-                      <span className="font-bold text-sm whitespace-nowrap">VIP-формат</span>
+                      <Icon name="Trophy" size={16} />
+                      <span className="font-bold text-sm whitespace-nowrap">Продвинутый уровень</span>
                     </div>
                   </div>
                 </div>
@@ -126,11 +104,11 @@ const ScheduleSection = () => {
                     <p className="text-muted-foreground leading-relaxed">{course.description}</p>
                   </div>
                 )}
-                {!course.isCorporate && (
+                {!course.isCorporate && course.startDate && (
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <Icon name="Calendar" size={20} className="text-primary" />
-                      <p className="font-semibold">{course.isCoaching ? 'Выберите формат:' : 'Выберите дату старта:'}</p>
+                      <p className="font-semibold">{course.isCoaching ? 'Выберите формат:' : 'Дата старта:'}</p>
                     </div>
                   {course.startDate2 ? (
                     <div className="flex flex-col gap-2">
@@ -150,14 +128,12 @@ const ScheduleSection = () => {
                       </div>
                     </div>
                   ) : (
-                    <Button
-                      variant="outline"
-                      className="w-full justify-start bg-gradient-to-r from-blue-50 to-blue-100 border-blue-300 hover:from-blue-100 hover:to-blue-200 hover:border-blue-400 text-blue-900 font-semibold"
-                      onClick={() => handleDateSelect(course.name, course.startDate)}
-                    >
-                      <Icon name="Calendar" size={18} className="mr-2" />
-                      {course.startDate}
-                    </Button>
+                    <div className="p-3 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-300 rounded-lg">
+                      <div className="flex items-center gap-2">
+                        <Icon name="Calendar" size={16} className="text-blue-600 flex-shrink-0" />
+                        <span className="font-semibold text-blue-900 text-base">{course.startDate}</span>
+                      </div>
+                    </div>
                   )}
                 </div>
                 )}
@@ -246,8 +222,8 @@ const ScheduleSection = () => {
                           asChild
                         >
                           <a href="#pricing">
-                            <Icon name="DollarSign" size={18} className="mr-2" />
-                            Узнать стоимость
+                            <Icon name="Info" size={18} className="mr-2" />
+                            Подробнее
                           </a>
                         </Button>
                       )}
