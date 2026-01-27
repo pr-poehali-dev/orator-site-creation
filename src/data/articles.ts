@@ -383,7 +383,7 @@ export const articles: Article[] = [
     date: '14 октября 2025',
     author: 'Светлана Кузикова',
     tags: ['видео', 'импровизация', 'речь', 'практика'],
-    videoUrl: 'https://rutube.ru/shorts/8ea167e67b80f67c49d32363eef17601/',
+    videoUrl: 'https://rutube.ru/shorts/33708dd7241aa4f1d9608f87ed2fe7b5/',
     isVideo: true,
     content: [
       'Научитесь говорить уверенно без предварительной подготовки. Практическая техника.'
