@@ -205,32 +205,37 @@ const ArticlePage = () => {
 
           {article.isVideo && article.videoUrl && (
             <div className="mb-12">
-              <Card className="border-2 border-primary/20 hover:border-primary/50 transition-all hover:shadow-xl bg-gradient-to-br from-primary/5 to-secondary/5">
-                <a 
-                  href={article.videoUrl} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="block p-8 group"
-                >
-                  <div className="flex flex-col items-center text-center gap-6">
-                    <div className="p-6 bg-gradient-to-br from-primary to-secondary rounded-full group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                      <Icon name="Play" size={48} className="text-white" />
+              <a 
+                href={article.videoUrl} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <Card className="border-2 border-primary/20 hover:border-primary/50 transition-all hover:shadow-2xl bg-gradient-to-br from-primary/5 to-secondary/5 overflow-hidden">
+                  <div className="relative aspect-video bg-gradient-to-br from-primary/20 via-secondary/20 to-orange/20">
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="absolute inset-0 bg-black/10 group-hover:bg-black/5 transition-colors"></div>
+                      <div className="relative">
+                        <div className="p-8 bg-gradient-to-br from-primary to-secondary rounded-full group-hover:scale-125 transition-transform duration-300 shadow-2xl">
+                          <Icon name="Play" size={64} className="text-white" />
+                        </div>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
-                        Смотреть видео на RuTube
-                      </h3>
-                      <p className="text-muted-foreground text-lg">
-                        Нажмите, чтобы открыть видео в новой вкладке
-                      </p>
+                    <div className="absolute top-4 right-4 bg-red-600 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg flex items-center gap-2">
+                      <Icon name="Video" size={16} />
+                      RuTube
                     </div>
-                    <Button size="lg" className="mt-2 group-hover:scale-105 transition-transform">
-                      <Icon name="ExternalLink" size={20} className="mr-2" />
-                      Открыть видео
-                    </Button>
                   </div>
-                </a>
-              </Card>
+                  <div className="p-6 text-center">
+                    <h3 className="text-2xl font-bold mb-2 group-hover:text-primary transition-colors">
+                      Смотреть видео на RuTube
+                    </h3>
+                    <p className="text-muted-foreground">
+                      Нажмите, чтобы открыть видео в новой вкладке
+                    </p>
+                  </div>
+                </Card>
+              </a>
             </div>
           )}
 
