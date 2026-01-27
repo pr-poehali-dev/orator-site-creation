@@ -205,16 +205,32 @@ const ArticlePage = () => {
 
           {article.isVideo && article.videoUrl && (
             <div className="mb-12">
-              <div className="relative w-full rounded-lg overflow-hidden shadow-2xl" style={{ paddingBottom: '56.25%' }}>
-                <iframe
-                  src={article.videoUrl}
-                  className="absolute top-0 left-0 w-full h-full"
-                  frameBorder="0"
-                  allow="clipboard-write; autoplay"
-                  allowFullScreen
-                  title={article.title}
-                ></iframe>
-              </div>
+              <Card className="border-2 border-primary/20 hover:border-primary/50 transition-all hover:shadow-xl bg-gradient-to-br from-primary/5 to-secondary/5">
+                <a 
+                  href={article.videoUrl} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="block p-8 group"
+                >
+                  <div className="flex flex-col items-center text-center gap-6">
+                    <div className="p-6 bg-gradient-to-br from-primary to-secondary rounded-full group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                      <Icon name="Play" size={48} className="text-white" />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors">
+                        Смотреть видео на RuTube
+                      </h3>
+                      <p className="text-muted-foreground text-lg">
+                        Нажмите, чтобы открыть видео в новой вкладке
+                      </p>
+                    </div>
+                    <Button size="lg" className="mt-2 group-hover:scale-105 transition-transform">
+                      <Icon name="ExternalLink" size={20} className="mr-2" />
+                      Открыть видео
+                    </Button>
+                  </div>
+                </a>
+              </Card>
             </div>
           )}
 
