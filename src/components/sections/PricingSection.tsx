@@ -203,7 +203,7 @@ const PricingSection = () => {
               <div className="flex items-center gap-3 justify-center">
                 <Icon name="Percent" size={28} className="text-orange-600 flex-shrink-0" />
                 <p className="text-lg md:text-xl font-bold text-orange-900">
-                  При единовременной оплате 1 и 2 ступени — скидка 10%
+                  Выпускникам курсов Школы «Kuzikova school» — скидка 10%
                 </p>
               </div>
               <Button
@@ -219,7 +219,7 @@ const PricingSection = () => {
                 }}
               >
                 <Icon name="Sparkles" size={20} className="mr-2" />
-                Записаться на обе ступени
+                Записаться
               </Button>
             </div>
           </div>
