@@ -70,7 +70,7 @@ const PricingSection = () => {
       durationText: 'Продолжительность: 1,5 месяца',
       startDate: '29 апреля — 3 июня 2026',
       startDateNote: 'вечерняя группа, пн/ср 19:00–21:00',
-      price: '23 000',
+      price: '24 000',
       oldPrice: '29 500',
       priceNote: '',
       features: [
