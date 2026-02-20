@@ -46,8 +46,10 @@ const PricingSection = () => {
       subtitle: '1 ступень',
       courseLevel: '1 ступень',
       duration: '8 групповых + 1 индивидуальное + 1 джем по импровизации',
-      startDate: '25 марта - 25 апреля 2026 (дневная группа, пн/ср 14:00-16:00)',
-      startDate2: '16 мая - 4 июля 2026 (субботняя группа, сб 11:00-13:00)',
+      startDate: '25 марта — 25 апреля 2026',
+      startDateNote: 'дневная группа, пн/ср 14:00–16:00',
+      startDate2: '16 мая — 4 июля 2026',
+      startDate2Note: 'субботняя группа, сб 11:00–13:00',
       price: '19 500',
       oldPrice: '22 500',
       features: [
@@ -66,7 +68,8 @@ const PricingSection = () => {
       courseLevel: 'специальный курс',
       duration: '10 групповых + 2 индивидуальных + 1 джем по импровизации',
       durationText: 'Продолжительность: 1,5 месяца',
-      startDate: '29 апреля - 3 июня 2026 (вечерняя группа, пн/ср 19:00-21:00)',
+      startDate: '29 апреля — 3 июня 2026',
+      startDateNote: 'вечерняя группа, пн/ср 19:00–21:00',
       price: '23 000',
       oldPrice: '29 500',
       priceNote: '',
@@ -74,8 +77,11 @@ const PricingSection = () => {
         '10 групповых тренингов',
         '2 индивидуальных занятия',
         '1 тренинг «Джем» по импровизации',
+        'Сторителлинг: умение рисовать словами',
         'Больше времени на отработку навыков',
-        'Углубленная работа над речью'
+        'Углубленная работа над речью',
+        'Выпускной импровизационный спектакль перед реальными зрителями',
+        'Сертификат'
       ],
       popular: true
     }
@@ -129,13 +135,15 @@ const PricingSection = () => {
                 {(pkg.startDate || pkg.startDate2) && (
                   <div className="flex flex-col gap-2 mt-3">
                     {pkg.startDate && (
-                      <div className="inline-block px-4 py-2 bg-blue-50 rounded-full">
-                        <span className="text-base font-semibold text-blue-700">{pkg.startDate}</span>
+                      <div className="px-4 py-2 bg-blue-50 border border-blue-200 rounded-xl text-center">
+                        <p className="text-base font-bold text-blue-800">{pkg.startDate}</p>
+                        {pkg.startDateNote && <p className="text-sm text-blue-600 mt-0.5">{pkg.startDateNote}</p>}
                       </div>
                     )}
                     {pkg.startDate2 && (
-                      <div className="inline-block px-4 py-2 bg-purple-50 rounded-full">
-                        <span className="text-base font-semibold text-purple-700">{pkg.startDate2}</span>
+                      <div className="px-4 py-2 bg-purple-50 border border-purple-200 rounded-xl text-center">
+                        <p className="text-base font-bold text-purple-800">{pkg.startDate2}</p>
+                        {pkg.startDate2Note && <p className="text-sm text-purple-600 mt-0.5">{pkg.startDate2Note}</p>}
                       </div>
                     )}
                   </div>
