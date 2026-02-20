@@ -140,8 +140,8 @@ const ScheduleSection = () => {
                   ) : (
                     <div className="p-3 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-300 rounded-lg">
                       <div className="flex items-center gap-2">
-                        <Icon name="Calendar" size={16} className="text-blue-600 flex-shrink-0" />
-                        <span className="font-semibold text-blue-900 text-base">{course.startDate}</span>
+                        <Icon name="Calendar" size={18} className="text-blue-600 flex-shrink-0" />
+                        <span className="font-bold text-blue-900 text-xl">{course.startDate}</span>
                       </div>
                     </div>
                   )}
