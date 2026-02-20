@@ -61,23 +61,19 @@ const PricingSection = () => {
       popular: false
     },
     {
-      name: 'Продвинутый курс ораторского искусства и импровизации "Своя игра"',
+      name: 'Импровизация и сторителлинг',
       subtitle: '',
-      courseLevel: '2 ступень',
+      courseLevel: 'специальный курс',
       duration: '10 групповых + 2 индивидуальных + 1 джем по импровизации',
       durationText: 'Продолжительность: 1,5 месяца',
-      startDate: 'Старт: 18 марта 2026 (дневная группа)',
-      price: '29 500',
-      oldPrice: '',
+      startDate: '29 апреля - 3 июня 2026 (вечерняя группа, пн/ср 19:00-21:00)',
+      price: '23 000',
+      oldPrice: '29 500',
       priceNote: '',
       features: [
         '10 групповых тренингов',
         '2 индивидуальных занятия',
         '1 тренинг «Джем» по импровизации',
-        'Мастер-класс со стилистом по имиджу оратора',
-        'Мастер-класс «Психология влияния: психотипы аудитории, психотрюки для переговоров»',
-        'Выпускной при реальных зрителях с ораторской речью и театральным монологом',
-        'Профессиональная фотосессия',
         'Больше времени на отработку навыков',
         'Углубленная работа над речью'
       ],
@@ -121,7 +117,7 @@ const PricingSection = () => {
               )}
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full whitespace-nowrap z-10">
-                  <span className="text-white font-bold text-xs sm:text-sm">2 ступень</span>
+                  <span className="text-white font-bold text-xs sm:text-sm">специальный курс</span>
                 </div>
               )}
               <CardHeader className="text-center pb-4 pt-6">
