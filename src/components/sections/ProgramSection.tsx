@@ -99,7 +99,7 @@ const ProgramSection = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Программа ораторского курса</h2>
-          <p className="text-center text-muted-foreground mb-8 md:mb-12 text-sm md:text-base lg:text-lg max-w-2xl mx-auto px-4">
+          <p className="text-center text-muted-foreground mb-8 md:mb-12 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto px-4">
             Три основных блока для комплексного развития
           </p>
         </div>

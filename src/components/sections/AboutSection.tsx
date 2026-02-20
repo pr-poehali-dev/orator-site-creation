@@ -127,7 +127,7 @@ const AboutSection = () => {
       <div className="container mx-auto relative z-10">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Уникальность подхода</h2>
-          <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg max-w-3xl mx-auto px-4">
+          <p className="text-center text-muted-foreground mb-8 md:mb-12 text-lg md:text-xl lg:text-2xl max-w-3xl mx-auto px-4">
             Курс ведёт <span className="font-bold text-primary">Светлана Алексеевна Кузикова</span> — театральный режиссёр и профессиональный психолог
           </p>
         </div>

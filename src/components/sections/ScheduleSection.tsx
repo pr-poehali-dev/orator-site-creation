@@ -78,7 +78,7 @@ const ScheduleSection = () => {
     <section id="schedule" className="py-10 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Расписание ближайших курсов</h2>
-        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-base md:text-lg px-4">
+        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-lg md:text-xl lg:text-2xl px-4">
           Выберите удобное время и запишитесь уже сегодня
         </p>
 

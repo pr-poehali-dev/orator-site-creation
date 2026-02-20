@@ -33,7 +33,7 @@ const BooksSection = () => {
     <section className="py-8 md:py-12 px-3 md:px-4 bg-gradient-to-br from-secondary/5 via-white to-primary/5">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">Подарки участникам курса</h2>
-        <p className="text-center text-muted-foreground mb-8 md:mb-10 max-w-3xl mx-auto px-4 text-base md:text-lg">
+        <p className="text-center text-muted-foreground mb-8 md:mb-10 max-w-3xl mx-auto px-4 text-lg md:text-xl lg:text-2xl">
           Все материалы входят в стоимость обучения и остаются с вами навсегда
         </p>
 

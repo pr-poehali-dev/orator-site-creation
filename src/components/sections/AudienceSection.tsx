@@ -42,7 +42,7 @@ const AudienceSection = () => {
     <section className="py-10 px-4 bg-gradient-to-b from-gray-50 to-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Для кого этот курс</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-12 text-xl md:text-2xl max-w-2xl mx-auto">
           Курс подойдёт всем, кто хочет уверенно выступать и убедительно общаться
         </p>
 
@@ -58,7 +58,7 @@ const AudienceSection = () => {
                   {audience.benefits.map((benefit, benefitIndex) => (
                     <div key={benefitIndex} className="flex items-start gap-3">
                       <Icon name="Check" size={18} className="text-primary flex-shrink-0 mt-0.5" />
-                      <CardDescription className="text-lg leading-relaxed">{benefit}</CardDescription>
+                      <CardDescription className="text-xl leading-relaxed">{benefit}</CardDescription>
                     </div>
                   ))}
                 </div>

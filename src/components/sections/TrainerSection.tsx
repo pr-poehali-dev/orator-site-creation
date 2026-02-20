@@ -37,7 +37,7 @@ const TrainerSection = () => {
     <section id="trainer" className="py-14 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Ваш преподаватель</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg">
+        <p className="text-center text-muted-foreground mb-12 text-xl md:text-2xl">
           Профессионал с уникальным сочетанием компетенций
         </p>
         
@@ -45,7 +45,7 @@ const TrainerSection = () => {
           <h3 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 md:mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
             Светлана Алексеевна Кузикова
           </h3>
-          <p className="text-base md:text-lg lg:text-xl text-muted-foreground text-center leading-relaxed px-4">
+          <p className="text-lg md:text-xl lg:text-2xl text-muted-foreground text-center leading-relaxed px-4">
             Театральный режиссёр и профессиональный психолог. Создатель театра «Комильфо», 
             в котором играют мои выпускники. Автор уникальной методики, которая объединяет 
             театральную педагогику с глубинной психологической работой.
@@ -72,7 +72,7 @@ const TrainerSection = () => {
                   <div className="w-10 h-10 md:w-12 md:h-12 bg-gradient-to-br from-primary to-secondary rounded-lg flex items-center justify-center flex-shrink-0">
                     <Icon name={item.icon as any} size={20} className="text-white md:w-6 md:h-6" />
                   </div>
-                  <p className="text-sm md:text-base lg:text-lg pt-1 md:pt-2">{item.text}</p>
+                  <p className="text-base md:text-lg lg:text-xl pt-1 md:pt-2">{item.text}</p>
                 </div>
               ))}
             </div>
