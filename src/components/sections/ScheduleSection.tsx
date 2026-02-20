@@ -35,14 +35,14 @@ const ScheduleSection = () => {
       isDayGroup: true
     },
     {
-      name: 'Углублённый курс ораторского искусства и импровизации "Своя игра"',
-      startDate: 'Старт: 18 марта 2026 г.',
+      name: 'Импровизация и сторителлинг',
+      startDate: '29 апреля - 3 июня 2026',
       duration: 'Продолжительность: 1,5 месяца',
       description: '10 групповых тренингов + 2 индивидуальных занятия + 1 тренинг импровизации',
-      schedule: 'Понедельник, Среда, 14:00-16:00 (дневная группа)',
+      schedule: 'Понедельник, Среда, 19:00-21:00 (вечерняя группа)',
       spots: 'Набор открыт',
       color: 'from-secondary to-secondary/80',
-      isAdvanced: true
+      isSpecial: true
     },
     {
       name: 'Индивидуальный ораторский коучинг',
@@ -95,12 +95,12 @@ const ScheduleSection = () => {
                   </div>
                 </div>
               )}
-              {course.isAdvanced && (
+              {course.isSpecial && (
                 <div className="absolute -top-3 -left-3 z-10">
                   <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
                     <div className="flex items-center gap-2">
-                      <Icon name="Trophy" size={16} />
-                      <span className="font-bold text-sm whitespace-nowrap">2 ступень</span>
+                      <Icon name="Sparkles" size={16} />
+                      <span className="font-bold text-sm whitespace-nowrap">специальный курс</span>
                     </div>
                   </div>
                 </div>
