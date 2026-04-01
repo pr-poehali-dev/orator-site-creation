@@ -44,7 +44,7 @@ const PricingSection = () => {
     {
       name: 'Ораторское мастерство с нуля',
       subtitle: '1 ступень',
-      courseLevel: '1 ступень',
+      courseLevel: 'Базовый курс',
       duration: '8 групповых + 1 индивидуальное + 1 джем по импровизации',
       startDate: '12 мая — 11 июня 2026',
       startDateNote: 'дневная группа, вт/чт 14:00–16:00',
@@ -63,7 +63,8 @@ const PricingSection = () => {
       popular: false
     },
     {
-      name: 'Импровизация и сторителлинг',
+      name: 'Курс ораторского искусства',
+      nameSubtitle: 'Импровизация и сторителлинг',
       subtitle: '',
       courseLevel: 'специальный курс',
       duration: '10 групповых + 2 индивидуальных + 1 джем по импровизации',
@@ -117,18 +118,23 @@ const PricingSection = () => {
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {pkg.courseLevel === '1 ступень' && (
+              {pkg.courseLevel === 'Базовый курс' && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full whitespace-nowrap z-10">
-                  <span className="text-white font-bold text-xs sm:text-sm">1 ступень</span>
+                  <span className="text-white font-bold text-xs sm:text-sm">Базовый курс</span>
                 </div>
               )}
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full whitespace-nowrap z-10">
-                  <span className="text-white font-bold text-xs sm:text-sm">специальный курс</span>
+                  <span className="text-white font-bold text-xs sm:text-sm">Вечерняя группа</span>
                 </div>
               )}
               <CardHeader className="text-center pb-4 pt-6">
-                <CardTitle className="text-2xl md:text-3xl mb-2 text-foreground">{pkg.name}</CardTitle>
+                <CardTitle className="mb-2 text-foreground">
+                  <span className="block text-2xl md:text-3xl">{pkg.name}</span>
+                  {'nameSubtitle' in pkg && pkg.nameSubtitle && (
+                    <span className="block text-base md:text-lg font-medium text-muted-foreground mt-1">{pkg.nameSubtitle as string}</span>
+                  )}
+                </CardTitle>
                 <CardDescription className="text-xl md:text-2xl">{pkg.duration}</CardDescription>
                 {pkg.durationText && (
                   <p className="text-base text-muted-foreground mt-2">{pkg.durationText}</p>
