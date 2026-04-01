@@ -35,8 +35,21 @@ const HeroSection = () => {
       <div className="container mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
           <div className="text-center lg:text-left">
-            <div className="inline-block mb-3 md:mb-4 px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
-              <span className="text-white font-semibold text-xs sm:text-sm">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-3 md:mb-4">
+              <div className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
+                <span className="text-white font-semibold text-xs sm:text-sm">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
+              </div>
+              <a
+                href="/award"
+                title="Лучшее место 2026 по версии Яндекс Бизнес"
+                className="transition-transform hover:scale-105"
+              >
+                <img
+                  src="https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/bucket/51df3fee-bf84-4c3d-acae-8e86a0c0a475.svg"
+                  alt="Лучшее место 2026 — Яндекс Бизнес"
+                  className="h-10 md:h-12 w-auto drop-shadow-md"
+                />
+              </a>
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-5 leading-tight">
               <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
