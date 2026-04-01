@@ -14,6 +14,7 @@ import Offer from "./pages/Offer";
 import RefundPolicy from "./pages/RefundPolicy";
 import Materials from "./pages/Materials";
 import Guide from "./pages/Guide";
+import Award from "./pages/Award";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,7 @@ const App = () => (
           <Route path="/refund" element={<RefundPolicy />} />
           <Route path="/materials" element={<Materials />} />
           <Route path="/guide" element={<Guide />} />
+          <Route path="/award" element={<Award />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
