@@ -34,7 +34,8 @@ const ScheduleSection = () => {
       schedule: 'Вторник, Четверг, 14:00-16:00',
       spots: 'Идёт набор на дневной поток',
       color: 'from-green-500 to-emerald-500',
-      isDayGroup: true
+      isDayGroup: true,
+      badgeLabel: 'Дневная группа'
     },
     {
       name: 'Ораторское мастерство с нуля (1 ступень)',
@@ -43,7 +44,8 @@ const ScheduleSection = () => {
       schedule: 'Суббота, 11:00-13:00',
       spots: 'Идёт набор на субботнюю группу',
       color: 'from-green-500 to-emerald-500',
-      isDayGroup: true
+      isDayGroup: true,
+      badgeLabel: 'Субботняя группа'
     },
     {
       name: 'Индивидуальный ораторский коучинг',
@@ -91,7 +93,7 @@ const ScheduleSection = () => {
                   <div className="bg-gradient-to-r from-orange-500 to-red-500 text-white px-5 py-2.5 rounded-full shadow-xl transform -rotate-3 hover:rotate-0 transition-transform animate-pulse">
                     <div className="flex items-center gap-2">
                       <Icon name="Star" size={18} />
-                      <span className="font-bold text-base whitespace-nowrap">ИДЁТ НАБОР</span>
+                      <span className="font-bold text-base whitespace-nowrap">{course.badgeLabel ?? 'ИДЁТ НАБОР'}</span>
                     </div>
                   </div>
                 </div>
