@@ -42,22 +42,32 @@ const AboutSection = () => {
     {
       title: 'Гарантия результата',
       description: 'Методики театральной педагогики от профессионального психолога',
-      icon: 'Award'
+      icon: 'Award',
+      accent: false
     },
     {
       title: 'Психологическая глубина',
       description: 'Работа с внутренними блоками и страхами от дипломированного психолога',
-      icon: 'Brain'
+      icon: 'Brain',
+      accent: false
     },
     {
       title: 'Комфортная атмосфера',
       description: 'Осваиваем навык с усилием, но без насилия в безопасной обстановке',
-      icon: 'Heart'
+      icon: 'Heart',
+      accent: false
     },
     {
       title: 'Личный прогресс',
       description: 'Индивидуальные занятия с каждым для проработки именно ваших особенностей',
-      icon: 'UserCheck'
+      icon: 'UserCheck',
+      accent: false
+    },
+    {
+      title: 'Работа со страхом выступлений',
+      description: 'В курсе можно индивидуально проработать страх публичных выступлений методом EMDR-терапии — с сертифицированным EMDR-терапевтом Светланой Кузиковой. Научно доказанный метод.',
+      icon: 'Sparkles',
+      accent: true
     }
   ];
 
@@ -131,8 +141,8 @@ const AboutSection = () => {
             Курс ведёт <span className="font-bold text-primary">Светлана Алексеевна Кузикова</span> — театральный режиссёр и профессиональный психолог
           </p>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto mb-12 md:mb-16">
-          {uniqueApproach.map((item, index) => (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 max-w-6xl mx-auto mb-6 md:mb-8">
+          {uniqueApproach.filter(item => !item.accent).map((item, index) => (
             <Card 
               key={index} 
               className={`group text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-[1.03] border-2 hover:border-primary/50 bg-gradient-to-br from-white to-secondary/5 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
@@ -140,7 +150,7 @@ const AboutSection = () => {
             >
               <CardHeader className="pb-3">
                 <div className="w-12 h-12 md:w-16 md:h-16 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-3 md:mb-4 group-hover:scale-110 transition-transform duration-300">
-                  <Icon name={item.icon as any} size={24} className="text-white md:w-8 md:h-8" />
+                  <Icon name={item.icon as 'Award'} size={24} className="text-white md:w-8 md:h-8" />
                 </div>
                 <CardTitle className="text-lg md:text-xl">{item.title}</CardTitle>
               </CardHeader>
@@ -149,6 +159,39 @@ const AboutSection = () => {
               </CardContent>
             </Card>
           ))}
+        </div>
+
+        {/* Акцентная карточка EMDR */}
+        <div className={`max-w-6xl mx-auto mb-12 md:mb-16 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Card className="group border-2 border-violet-400 bg-gradient-to-br from-violet-50 via-indigo-50 to-purple-50 hover:shadow-2xl hover:border-violet-500 transition-all duration-500 hover:-translate-y-1 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-violet-200/40 to-indigo-200/40 rounded-full blur-2xl -translate-y-10 translate-x-10 pointer-events-none" />
+            <CardContent className="p-6 md:p-8">
+              <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                    <Icon name="Brain" size={32} className="text-white" />
+                  </div>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <div className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm font-semibold px-3 py-1 rounded-full mb-3">
+                    <Icon name="Sparkles" size={14} className="text-violet-600" />
+                    Уникально — только у нас
+                  </div>
+                  <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Работа со страхом выступлений</h3>
+                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed mb-4">
+                    В рамках курса ты можешь индивидуально проработать страх публичных выступлений и негативный прошлый опыт методом <strong>EMDR-терапии</strong> — с автором курса, сертифицированным EMDR-терапевтом Светланой Кузиковой. Это не гипноз и не беседа — это научно доказанный метод.
+                  </p>
+                  <a
+                    href="#emdr"
+                    className="inline-flex items-center gap-2 text-violet-600 font-semibold hover:text-violet-800 transition-colors duration-200 text-base md:text-lg group/link"
+                  >
+                    Узнать подробнее
+                    <Icon name="ArrowRight" size={18} className="group-hover/link:translate-x-1 transition-transform duration-200" />
+                  </a>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </div>
 
         <div className={`bg-gradient-to-br from-primary/10 via-secondary/5 to-primary/10 rounded-2xl md:rounded-3xl p-4 md:p-8 lg:p-12 max-w-5xl mx-auto transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -167,7 +210,7 @@ const AboutSection = () => {
                     item.type === 'bonus' ? 'bg-gradient-to-br from-green-500 to-emerald-500' :
                     'bg-gradient-to-br from-yellow-500 to-orange-500'
                   }`}>
-                    <Icon name={item.icon as any} size={30} className="text-white" />
+                    <Icon name={item.icon as 'Award'} size={30} className="text-white" />
                   </div>
                   <div>
                     <h4 className="font-bold text-lg md:text-xl mb-2">{item.title}</h4>
