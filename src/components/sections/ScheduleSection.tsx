@@ -17,7 +17,8 @@ const ScheduleSection = () => {
 
   const courses = [
     {
-      name: 'Импровизация и стори-теллинг',
+      name: 'Курс ораторского искусства',
+      subtitle: '«Импровизация и стори-теллинг»',
       type: 'Ораторский курс',
       startDate: '29 апреля - 3 июня 2026',
       duration: 'Продолжительность: 1,5 месяца',
@@ -103,7 +104,7 @@ const ScheduleSection = () => {
                   <div className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-full shadow-lg transform -rotate-3 hover:rotate-0 transition-transform">
                     <div className="flex items-center gap-2">
                       <Icon name="Sparkles" size={16} />
-                      <span className="font-bold text-sm whitespace-nowrap">специальный курс</span>
+                      <span className="font-bold text-sm whitespace-nowrap">вечерняя группа</span>
                     </div>
                   </div>
                 </div>
@@ -113,6 +114,9 @@ const ScheduleSection = () => {
                   <p className="text-sm font-medium uppercase tracking-wide opacity-80 mb-1">{course.type}</p>
                 )}
                 <CardTitle className="text-xl md:text-2xl">{course.name}</CardTitle>
+                {course.subtitle && (
+                  <p className="text-sm md:text-base opacity-80 font-medium mt-1">{course.subtitle}</p>
+                )}
               </CardHeader>
               <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-lg md:text-xl">
                 {course.description && (
