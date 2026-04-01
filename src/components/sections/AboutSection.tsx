@@ -163,18 +163,19 @@ const AboutSection = () => {
 
         {/* Акцентная карточка EMDR */}
         <div className={`max-w-6xl mx-auto mb-12 md:mb-16 transition-all duration-1000 delay-400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <Card className="group border-2 border-violet-400 bg-gradient-to-br from-violet-50 via-indigo-50 to-purple-50 hover:shadow-2xl hover:border-violet-500 transition-all duration-500 hover:-translate-y-1 relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-40 h-40 bg-gradient-to-br from-violet-200/40 to-indigo-200/40 rounded-full blur-2xl -translate-y-10 translate-x-10 pointer-events-none" />
+          <Card className="group border-2 border-orange-400 bg-gradient-to-br from-orange-50 via-red-50 to-amber-50 hover:shadow-[0_8px_40px_rgba(249,115,22,0.3)] hover:border-orange-500 transition-all duration-500 hover:-translate-y-1 relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-orange-300/30 to-red-300/30 rounded-full blur-2xl -translate-y-10 translate-x-10 pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-36 h-36 bg-gradient-to-tr from-amber-200/25 to-orange-200/25 rounded-full blur-2xl translate-y-8 -translate-x-8 pointer-events-none" />
             <CardContent className="p-6 md:p-8">
               <div className="flex flex-col md:flex-row items-center md:items-start gap-6">
                 <div className="flex-shrink-0">
-                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-violet-500 to-indigo-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="w-16 h-16 md:w-20 md:h-20 bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-orange-200">
                     <Icon name="Brain" size={32} className="text-white" />
                   </div>
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                  <div className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm font-semibold px-3 py-1 rounded-full mb-3">
-                    <Icon name="Sparkles" size={14} className="text-violet-600" />
+                  <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-sm font-bold px-4 py-1.5 rounded-full mb-3 shadow-md shadow-orange-200">
+                    <Icon name="Flame" size={14} className="text-white" />
                     Уникально — только у нас
                   </div>
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900 mb-2">Работа со страхом выступлений</h3>
@@ -183,7 +184,7 @@ const AboutSection = () => {
                   </p>
                   <a
                     href="#emdr"
-                    className="inline-flex items-center gap-2 text-violet-600 font-semibold hover:text-violet-800 transition-colors duration-200 text-base md:text-lg group/link"
+                    className="inline-flex items-center gap-2 text-orange-600 font-semibold hover:text-red-700 transition-colors duration-200 text-base md:text-lg group/link"
                   >
                     Узнать подробнее
                     <Icon name="ArrowRight" size={18} className="group-hover/link:translate-x-1 transition-transform duration-200" />
