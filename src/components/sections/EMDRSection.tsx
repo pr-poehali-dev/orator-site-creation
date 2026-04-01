@@ -145,7 +145,7 @@ const EMDRSection = () => {
 
         {/* Дисклеймер + CTA */}
         <div className={`text-center transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <p className="text-sm text-gray-400 mb-6 max-w-xl mx-auto">
+          <p className="text-base text-gray-400 mb-6 max-w-xl mx-auto">
             Проработка страха — по желанию участника, в рамках индивидуального занятия, входящего в стоимость курса
           </p>
           <Button
