@@ -17,7 +17,8 @@ const ScheduleSection = () => {
 
   const courses = [
     {
-      name: 'Импровизация и сторителлинг',
+      name: 'Импровизация и стори-теллинг',
+      type: 'Ораторский курс',
       startDate: '29 апреля - 3 июня 2026',
       duration: 'Продолжительность: 1,5 месяца',
       description: '10 групповых тренингов + 2 индивидуальных занятия + 1 тренинг импровизации',
@@ -106,6 +107,9 @@ const ScheduleSection = () => {
                 </div>
               )}
               <CardHeader className={`bg-gradient-to-r ${course.color} text-white rounded-t-lg pb-4 md:pb-6`}>
+                {course.type && (
+                  <p className="text-sm font-medium uppercase tracking-wide opacity-80 mb-1">{course.type}</p>
+                )}
                 <CardTitle className="text-xl md:text-2xl">{course.name}</CardTitle>
               </CardHeader>
               <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-lg md:text-xl">
