@@ -18,8 +18,7 @@ const ScheduleSection = () => {
   const courses = [
     {
       name: 'Курс ораторского искусства',
-      subtitle: '«Импровизация и стори-теллинг»',
-      type: 'Ораторский курс',
+      subtitle: '«Импровизация и сторителлинг»',
       startDate: '29 апреля - 3 июня 2026',
       duration: 'Продолжительность: 1,5 месяца',
       description: '10 групповых тренингов + 2 индивидуальных занятия + 1 тренинг импровизации',
@@ -113,9 +112,9 @@ const ScheduleSection = () => {
                 {course.type && (
                   <p className="text-sm font-medium uppercase tracking-wide opacity-80 mb-1">{course.type}</p>
                 )}
-                <CardTitle className="text-xl md:text-2xl">{course.name}</CardTitle>
+                <CardTitle className="text-xl md:text-2xl font-bold leading-snug tracking-tight">{course.name}</CardTitle>
                 {course.subtitle && (
-                  <p className="text-sm md:text-base opacity-80 font-medium mt-1">{course.subtitle}</p>
+                  <p className="text-base md:text-lg opacity-90 font-semibold mt-2 tracking-wide">{course.subtitle}</p>
                 )}
               </CardHeader>
               <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-lg md:text-xl">
