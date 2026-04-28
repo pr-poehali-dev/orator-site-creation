@@ -12,6 +12,7 @@ import PricingSection from '@/components/sections/PricingSection';
 import IndividualLessonsSection from '@/components/sections/IndividualLessonsSection';
 import QuestionsSection from '@/components/sections/QuestionsSection';
 import ScheduleSection from '@/components/sections/ScheduleSection';
+import FreeTrialBanner from '@/components/sections/FreeTrialBanner';
 import GallerySection from '@/components/sections/GallerySection';
 import TestimonialsSection from '@/components/sections/TestimonialsSection';
 import VideoTestimonialsSection from '@/components/sections/VideoTestimonialsSection';
@@ -31,6 +32,7 @@ const Index = () => {
       <StructuredData />
       <Header />
       <HeroSection />
+      <FreeTrialBanner />
       <ScheduleSection />
       <AudienceSection />
       <AboutSection />
