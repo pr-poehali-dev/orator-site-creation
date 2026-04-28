@@ -65,9 +65,9 @@ const FreeTrialBanner = () => {
             {/* Даты */}
             <div className="flex flex-wrap gap-3 mb-6">
               {[
-                { date: '29 апреля', day: 'вторник' },
-                { date: '06 мая', day: 'вторник' },
-                { date: '13 мая', day: 'вторник' },
+                { date: '29 апреля', day: 'среда' },
+                { date: '06 мая', day: 'среда' },
+                { date: '13 мая', day: 'среда' },
               ].map((item) => (
                 <div
                   key={item.date}
