@@ -1,73 +1,167 @@
+import { useState } from 'react';
 import Icon from '@/components/ui/icon';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Checkbox } from '@/components/ui/checkbox';
+import { Button } from '@/components/ui/button';
+import { formatPhoneNumber } from '@/utils/phoneFormat';
+
+const TELEGRAM_NOTIFICATION_URL = 'https://functions.poehali.dev/1427b9c7-37fe-40a5-8fe7-96646f8f064a';
 
 const FreeTrialBanner = () => {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [consent, setConsent] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!name || !phone || !consent) return;
+    setIsSubmitting(true);
+    try {
+      await fetch(TELEGRAM_NOTIFICATION_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name,
+          phone,
+          course: 'Пробное занятие — Импровизация. Сторителлинг',
+          date: '29 апреля / 06 мая / 13 мая в 19:00'
+        })
+      });
+    } catch {
+      // silent
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
+  };
+
   return (
-    <section className="py-6 px-4 bg-gradient-to-r from-orange-500 via-red-500 to-orange-600 relative overflow-hidden">
-      {/* Декоративные элементы */}
-      <div className="absolute top-0 left-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-x-32 -translate-y-32 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl translate-x-32 translate-y-32 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-yellow-400/5 rounded-full blur-3xl pointer-events-none" />
+    <section className="py-10 px-4 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 border-y border-orange-100 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-72 h-72 bg-orange-200/20 rounded-full blur-3xl translate-x-24 -translate-y-24 pointer-events-none" />
+      <div className="absolute bottom-0 left-0 w-72 h-72 bg-rose-200/20 rounded-full blur-3xl -translate-x-24 translate-y-24 pointer-events-none" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
-        {/* Бейдж */}
-        <div className="flex justify-center mb-4">
-          <div className="inline-flex items-center gap-2 bg-yellow-400 text-black text-sm font-black px-4 py-1.5 rounded-full shadow-lg animate-bounce">
-            <Icon name="Flame" size={16} />
-            БЕСПЛАТНО — ТОЛЬКО 3 ДАТЫ
+        {/* Шапка */}
+        <div className="flex justify-center mb-5">
+          <div className="inline-flex items-center gap-2 bg-orange-500 text-white text-sm font-bold px-4 py-1.5 rounded-full shadow-md">
+            <Icon name="Flame" size={15} />
+            Бесплатно — только 3 даты
           </div>
         </div>
 
-        <div className="text-center text-white mb-6">
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-black mb-2 leading-tight">
-            Бесплатные пробные занятия
-          </h2>
-          <p className="text-lg md:text-xl font-semibold text-orange-100 mb-1">
-            Ораторский курс «Импровизация. Сторителлинг»
-          </p>
-        </div>
-
-        {/* Даты */}
-        <div className="flex flex-wrap justify-center gap-3 mb-6">
-          {[
-            { date: '29 апреля', day: 'вторник' },
-            { date: '06 мая', day: 'вторник' },
-            { date: '13 мая', day: 'вторник' },
-          ].map((item) => (
-            <div
-              key={item.date}
-              className="bg-white/15 border-2 border-white/40 backdrop-blur-sm rounded-2xl px-5 py-3 text-center min-w-[130px]"
-            >
-              <div className="flex items-center justify-center gap-1.5 mb-0.5">
-                <Icon name="Calendar" size={15} className="text-yellow-300" />
-                <span className="text-yellow-300 text-xs font-semibold uppercase tracking-wide">{item.day}</span>
-              </div>
-              <p className="text-white font-black text-xl">{item.date}</p>
-              <p className="text-orange-100 text-sm font-semibold">в 19:00</p>
-            </div>
-          ))}
-        </div>
-
-        {/* Адрес */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-start gap-2 bg-white/15 border border-white/30 rounded-xl px-5 py-3 max-w-md text-center">
-            <Icon name="MapPin" size={18} className="text-yellow-300 flex-shrink-0 mt-0.5" />
-            <p className="text-white text-sm md:text-base font-medium leading-snug">
-              г. Краснодар, ул. Горького, 104, офис 26<br />
-              <span className="text-orange-100 text-sm">код двери: 26</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
+          {/* Левая колонка — информация */}
+          <div>
+            <h2 className="text-2xl md:text-3xl font-black text-gray-900 mb-1 leading-tight">
+              Бесплатные пробные занятия
+            </h2>
+            <p className="text-base md:text-lg font-semibold text-orange-600 mb-5">
+              Ораторский курс «Импровизация. Сторителлинг»
             </p>
-          </div>
-        </div>
 
-        {/* Кнопка */}
-        <div className="flex justify-center">
-          <a
-            href="tel:+79183111712"
-            className="inline-flex items-center gap-3 bg-white text-orange-600 font-black text-lg px-8 py-4 rounded-2xl shadow-xl hover:shadow-2xl hover:scale-105 active:scale-95 transition-all duration-200"
-          >
-            <Icon name="Phone" size={22} />
-            +7 918 311-17-12
-            <span className="text-sm font-semibold text-orange-400 hidden sm:inline">— есть вопросы? Звоните!</span>
-          </a>
+            {/* Даты */}
+            <div className="flex flex-wrap gap-3 mb-5">
+              {[
+                { date: '29 апреля', day: 'вт' },
+                { date: '06 мая', day: 'вт' },
+                { date: '13 мая', day: 'вт' },
+              ].map((item) => (
+                <div
+                  key={item.date}
+                  className="bg-white border-2 border-orange-200 rounded-xl px-4 py-2.5 text-center shadow-sm min-w-[110px]"
+                >
+                  <p className="text-gray-400 text-xs font-semibold uppercase tracking-wide">{item.day}</p>
+                  <p className="text-gray-900 font-black text-lg leading-tight">{item.date}</p>
+                  <p className="text-orange-500 text-sm font-bold">19:00</p>
+                </div>
+              ))}
+            </div>
+
+            {/* Адрес */}
+            <div className="flex items-start gap-2 bg-white border border-orange-100 rounded-xl px-4 py-3 mb-5 shadow-sm">
+              <Icon name="MapPin" size={17} className="text-orange-400 flex-shrink-0 mt-0.5" />
+              <div>
+                <p className="text-gray-800 text-sm font-semibold">г. Краснодар, ул. Горького, 104, офис 26</p>
+                <p className="text-gray-500 text-sm">код двери: 26</p>
+              </div>
+            </div>
+
+            {/* Телефон */}
+            <a
+              href="tel:+79183111712"
+              className="inline-flex items-center gap-2 text-orange-600 font-bold text-base hover:text-orange-700 transition-colors"
+            >
+              <Icon name="Phone" size={17} />
+              +7 918 311-17-12
+              <span className="text-gray-400 font-normal text-sm">— есть вопросы?</span>
+            </a>
+          </div>
+
+          {/* Правая колонка — форма */}
+          <div className="bg-white rounded-2xl shadow-md border border-orange-100 p-6">
+            {submitted ? (
+              <div className="flex flex-col items-center justify-center py-6 text-center">
+                <div className="w-14 h-14 bg-green-100 rounded-full flex items-center justify-center mb-3">
+                  <Icon name="Check" size={28} className="text-green-600" />
+                </div>
+                <p className="text-xl font-bold text-gray-900 mb-1">Заявка отправлена!</p>
+                <p className="text-gray-500 text-sm">Мы свяжемся с вами ближе к занятию.</p>
+              </div>
+            ) : (
+              <>
+                <p className="text-lg font-bold text-gray-900 mb-1">Записаться на пробное занятие</p>
+                <p className="text-sm text-gray-500 mb-4">Оставьте имя и телефон — мы пришлём напоминание</p>
+                <form onSubmit={handleSubmit} className="space-y-4">
+                  <div>
+                    <Label htmlFor="trial-name" className="text-sm font-semibold mb-1.5 block">Ваше имя *</Label>
+                    <Input
+                      id="trial-name"
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Введите имя"
+                      required
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="trial-phone" className="text-sm font-semibold mb-1.5 block">Телефон *</Label>
+                    <Input
+                      id="trial-phone"
+                      type="tel"
+                      value={phone}
+                      onChange={(e) => setPhone(formatPhoneNumber(e.target.value))}
+                      placeholder="+7 (___) ___-__-__"
+                      required
+                    />
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <Checkbox
+                      id="trial-consent"
+                      checked={consent}
+                      onCheckedChange={(v) => setConsent(v as boolean)}
+                      className="mt-0.5"
+                    />
+                    <Label htmlFor="trial-consent" className="text-xs text-gray-500 leading-relaxed cursor-pointer">
+                      Я согласен с{' '}
+                      <a href="/privacy" target="_blank" className="text-orange-500 hover:underline">политикой конфиденциальности</a>
+                      {' '}и обработкой персональных данных
+                    </Label>
+                  </div>
+                  <Button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold py-5"
+                    disabled={isSubmitting || !consent || !name || !phone}
+                  >
+                    {isSubmitting ? 'Отправка...' : 'Записаться бесплатно'}
+                    {!isSubmitting && <Icon name="ArrowRight" size={18} className="ml-2" />}
+                  </Button>
+                </form>
+              </>
+            )}
+          </div>
         </div>
       </div>
     </section>
