@@ -59,7 +59,7 @@ const ScheduleSection = () => {
     {
       name: 'Актерский психологический курс "Перформанс-терапия"',
       description: 'Решаем психологические задачи творческим самовыражением через публичное выступление',
-      duration: '3 месяца',
+      duration: '4 месяца',
       spots: 'Набор открыт',
       color: 'from-primary to-secondary',
       isTheater: true,
