@@ -48,7 +48,7 @@ const FreeTrialBanner = () => {
         <div className="flex justify-center mb-6">
           <div className="inline-flex items-center gap-2 bg-orange-500 text-white text-base font-bold px-5 py-2 rounded-full shadow-md">
             <Icon name="Flame" size={18} />
-            Бесплатно — только 3 даты
+            Бесплатно — только 2 даты
           </div>
         </div>
 
