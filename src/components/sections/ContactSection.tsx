@@ -49,7 +49,7 @@ const ContactSection = () => {
           {selectedCourse ? 'Выберите удобный способ связи:' : 'Или свяжитесь с нами для консультации'}
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
           <Card className="hover:shadow-lg transition-all hover:-translate-y-0.5">
             <CardContent className="pt-4 pb-4 text-center">
               <div className="flex justify-center mb-2">
@@ -123,6 +123,27 @@ const ContactSection = () => {
                 href="https://vk.me/svetlana_kuzikova" 
                 target="_blank" 
                 rel="noopener noreferrer" 
+                className="text-primary hover:underline text-sm"
+              >
+                Написать
+              </a>
+            </CardContent>
+          </Card>
+
+          <Card className="hover:shadow-lg transition-all hover:-translate-y-0.5">
+            <CardContent className="pt-4 pb-4 text-center">
+              <div className="flex justify-center mb-2">
+                <div className="p-2 bg-primary/10 rounded-full">
+                  <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                  </svg>
+                </div>
+              </div>
+              <h3 className="font-semibold text-base mb-1">MAX</h3>
+              <a
+                href="https://max.ru/u/f9LHodD0cOLvTbH1OK3umoWq_Fy3X11Wi5Hy97U7oooxquX7NJ9GnWOYoYw"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-primary hover:underline text-sm"
               >
                 Написать
