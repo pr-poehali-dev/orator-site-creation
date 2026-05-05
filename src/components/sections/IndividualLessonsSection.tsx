@@ -125,7 +125,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
     } catch (error) {
       console.error('Error submitting form:', error);
       sonnerToast.error('Не удалось отправить заявку', {
-        description: 'Свяжитесь с нами через WhatsApp',
+        description: 'Свяжитесь с нами через WhatsApp или MAX',
         duration: 6000,
         action: {
           label: 'Открыть WhatsApp',
@@ -159,7 +159,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
             <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardContent className="p-4 text-center">
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
-                  <Icon name={service.icon as any} size={24} className="text-primary" />
+                  <Icon name={service.icon as string} size={24} className="text-primary" />
                 </div>
                 <h3 className="font-bold text-lg mb-2">{service.title}</h3>
                 <p className="text-base text-muted-foreground">{service.description}</p>
@@ -235,6 +235,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                   </ul>
                 </div>
 
+                <div className="space-y-2">
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                   <DialogTrigger asChild>
                     <Button size="lg" className="w-full group">
@@ -361,6 +362,20 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                     </form>
                   </DialogContent>
                 </Dialog>
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="w-full border-2 border-purple-500 text-purple-600 hover:bg-purple-50"
+                  asChild
+                >
+                  <a href="https://max.ru/u/f9LHodD0cOLvTbH1OK3umoWq_Fy3X11Wi5Hy97U7oooxquX7NJ9GnWOYoYw" target="_blank" rel="noopener noreferrer">
+                    <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                    </svg>
+                    Написать в MAX
+                  </a>
+                </Button>
+                </div>
               </div>
             </div>
           </CardContent>

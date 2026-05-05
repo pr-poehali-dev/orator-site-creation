@@ -178,6 +178,21 @@ const HeroSection = () => {
               </svg>
               ВКонтакте
             </Button>
+
+            <Button
+              size="lg"
+              variant="outline"
+              className="w-full border-2 border-purple-500 text-purple-600 hover:bg-purple-50 text-base sm:text-lg py-5 sm:py-6"
+              onClick={() => {
+                window.open('https://max.ru/u/f9LHodD0cOLvTbH1OK3umoWq_Fy3X11Wi5Hy97U7oooxquX7NJ9GnWOYoYw', '_blank');
+                setIsSignupDialogOpen(false);
+              }}
+            >
+              <svg className="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+              </svg>
+              MAX
+            </Button>
           </div>
         </DialogContent>
       </Dialog>

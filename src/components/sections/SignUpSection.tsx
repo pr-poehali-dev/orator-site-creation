@@ -55,11 +55,11 @@ const SignUpSection = () => {
       console.error('Error submitting form:', error);
       
       toast.error('Не удалось отправить заявку', {
-        description: 'Свяжитесь с нами через Telegram или позвоните',
+        description: 'Свяжитесь с нами через Telegram, MAX или позвоните',
         duration: 6000,
         action: {
-          label: 'Открыть Telegram',
-          onClick: () => window.open('https://t.me/svetlana_kuzikova', '_blank'),
+          label: 'Открыть MAX',
+          onClick: () => window.open('https://max.ru/u/f9LHodD0cOLvTbH1OK3umoWq_Fy3X11Wi5Hy97U7oooxquX7NJ9GnWOYoYw', '_blank'),
         },
       });
     } finally {
