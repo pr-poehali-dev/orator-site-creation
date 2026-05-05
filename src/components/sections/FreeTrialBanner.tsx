@@ -72,7 +72,7 @@ const FreeTrialBanner = () => {
                   key={item.date}
                   className="bg-white border-2 border-orange-200 rounded-xl px-5 py-3 text-center shadow-sm min-w-[130px]"
                 >
-                  <p className="text-gray-400 text-sm font-semibold uppercase tracking-wide">{item.day}</p>
+                  <p className="text-gray-400 text-base font-semibold uppercase tracking-wide">{item.day}</p>
                   <p className="text-gray-900 font-black text-2xl leading-tight">{item.date}</p>
                   <p className="text-orange-500 text-lg font-bold">19:00</p>
                 </div>
@@ -125,10 +125,10 @@ const FreeTrialBanner = () => {
             ) : (
               <>
                 <p className="text-2xl font-bold text-gray-900 mb-1">Записаться на пробное занятие</p>
-                <p className="text-base text-gray-500 mb-5">Оставьте имя и телефон — мы пришлём напоминание</p>
+                <p className="text-lg text-gray-500 mb-5">Оставьте имя и телефон — мы пришлём напоминание</p>
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <Label htmlFor="trial-name" className="text-base font-semibold mb-1.5 block">Ваше имя *</Label>
+                    <Label htmlFor="trial-name" className="text-lg font-semibold mb-1.5 block">Ваше имя *</Label>
                     <Input
                       id="trial-name"
                       type="text"
@@ -140,7 +140,7 @@ const FreeTrialBanner = () => {
                     />
                   </div>
                   <div>
-                    <Label htmlFor="trial-phone" className="text-base font-semibold mb-1.5 block">Телефон *</Label>
+                    <Label htmlFor="trial-phone" className="text-lg font-semibold mb-1.5 block">Телефон *</Label>
                     <Input
                       id="trial-phone"
                       type="tel"
@@ -156,9 +156,9 @@ const FreeTrialBanner = () => {
                       id="trial-consent"
                       checked={consent}
                       onCheckedChange={(v) => setConsent(v as boolean)}
-                      className="mt-0.5"
+                      className="mt-0.5 scale-125"
                     />
-                    <Label htmlFor="trial-consent" className="text-sm text-gray-500 leading-relaxed cursor-pointer">
+                    <Label htmlFor="trial-consent" className="text-base text-gray-500 leading-relaxed cursor-pointer">
                       Я согласен с{' '}
                       <a href="/privacy" target="_blank" className="text-orange-500 hover:underline">политикой конфиденциальности</a>
                       {' '}и обработкой персональных данных
@@ -166,11 +166,11 @@ const FreeTrialBanner = () => {
                   </div>
                   <Button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold text-lg py-6"
+                    className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-bold text-xl py-7"
                     disabled={isSubmitting || !consent || !name || !phone}
                   >
                     {isSubmitting ? 'Отправка...' : 'Записаться бесплатно'}
-                    {!isSubmitting && <Icon name="ArrowRight" size={20} className="ml-2" />}
+                    {!isSubmitting && <Icon name="ArrowRight" size={22} className="ml-2" />}
                   </Button>
                 </form>
               </>
