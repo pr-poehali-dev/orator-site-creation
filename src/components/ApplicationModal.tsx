@@ -183,7 +183,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                     <p className="font-bold text-lg mb-2">
                       {submitSuccess ? '✅ Заявка отправлена!' : 'Ваша заявка готова!'}
                     </p>
-                    <p className="text-sm text-muted-foreground">
+                    <p className="text-base text-muted-foreground">
                       {submitSuccess 
                         ? 'Мы получили вашу заявку и скоро свяжемся с вами. Также можете связаться с нами напрямую:'
                         : 'Выберите удобный способ связи ниже:'}
@@ -191,7 +191,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                   </div>
                 </div>
 
-                <div className="bg-white rounded-lg p-3 text-sm">
+                <div className="bg-white rounded-lg p-3 text-base">
                   <p className="font-semibold mb-1">Имя: {name}</p>
                   <p className="font-semibold mb-1">Телефон: {phone}</p>
                   <p className="font-semibold mb-1">Курс: {courseName}</p>

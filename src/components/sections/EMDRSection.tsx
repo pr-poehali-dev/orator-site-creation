@@ -72,8 +72,8 @@ const EMDRSection = () => {
 
         {/* Заголовок */}
         <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-sm font-semibold px-4 py-2 rounded-full mb-4">
-            <Icon name="Sparkles" size={15} className="text-violet-600" />
+          <div className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-base font-semibold px-5 py-2.5 rounded-full mb-4">
+            <Icon name="Sparkles" size={18} className="text-violet-600" />
             Уникальное преимущество курса
           </div>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -99,7 +99,7 @@ const EMDRSection = () => {
                   <Icon name="Brain" size={28} className="text-white" />
                 </div>
                 <div>
-                  <p className="text-sm text-violet-600 font-semibold uppercase tracking-wide">Автор курса</p>
+                  <p className="text-base text-violet-600 font-semibold uppercase tracking-wide">Автор курса</p>
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900">Светлана Кузикова</h3>
                 </div>
               </div>
@@ -145,7 +145,7 @@ const EMDRSection = () => {
 
         {/* Дисклеймер + CTA */}
         <div className={`text-center transition-all duration-1000 delay-500 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <p className="text-base text-gray-400 mb-6 max-w-xl mx-auto">
+          <p className="text-lg text-gray-500 mb-6 max-w-xl mx-auto">
             Проработка страха — по желанию участника, в рамках индивидуального занятия, входящего в стоимость курса
           </p>
           <Button

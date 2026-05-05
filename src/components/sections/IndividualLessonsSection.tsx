@@ -148,7 +148,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-8">
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2 md:mb-3">Индивидуальные занятия</h2>
-          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto px-4">
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
             Персональная работа с педагогом — самый эффективный способ развития ораторских навыков. 
             Занятия проходят онлайн или оффлайн в удобное для вас время
           </p>
@@ -161,8 +161,8 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                 <div className="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3">
                   <Icon name={service.icon as string} size={24} className="text-primary" />
                 </div>
-                <h3 className="font-bold text-lg mb-2">{service.title}</h3>
-                <p className="text-base text-muted-foreground">{service.description}</p>
+                <h3 className="font-bold text-xl mb-2">{service.title}</h3>
+                <p className="text-lg text-muted-foreground">{service.description}</p>
               </CardContent>
             </Card>
           ))}
@@ -351,7 +351,7 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                       </div>
 
                       <div className="bg-primary/5 rounded-lg p-4">
-                        <p className="text-sm text-muted-foreground">
+                        <p className="text-base text-muted-foreground">
                           После отправки заявки мы свяжемся с вами в течение 24 часов для подтверждения времени и уточнения деталей занятия.
                         </p>
                       </div>

@@ -118,37 +118,37 @@ const PricingSection = () => {
             >
               {pkg.courseLevel === 'Базовый курс' && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full whitespace-nowrap z-10">
-                  <span className="text-white font-bold text-xs sm:text-sm">Базовый курс</span>
+                  <span className="text-white font-bold text-sm sm:text-base">Базовый курс</span>
                 </div>
               )}
               {pkg.popular && (
                 <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full whitespace-nowrap z-10">
-                  <span className="text-white font-bold text-xs sm:text-sm">Вечерняя группа</span>
+                  <span className="text-white font-bold text-sm sm:text-base">Вечерняя группа</span>
                 </div>
               )}
               <CardHeader className="text-center pb-4 pt-6">
                 <CardTitle className="mb-2 text-foreground">
                   <span className="block text-2xl md:text-3xl">{pkg.name}</span>
                   {'nameSubtitle' in pkg && pkg.nameSubtitle && (
-                    <span className="block text-base md:text-lg font-medium text-muted-foreground mt-1">{pkg.nameSubtitle as string}</span>
+                    <span className="block text-lg md:text-xl font-medium text-muted-foreground mt-1">{pkg.nameSubtitle as string}</span>
                   )}
                 </CardTitle>
                 <CardDescription className="text-xl md:text-2xl">{pkg.duration}</CardDescription>
                 {pkg.durationText && (
-                  <p className="text-base text-muted-foreground mt-2">{pkg.durationText}</p>
+                  <p className="text-lg text-muted-foreground mt-2">{pkg.durationText}</p>
                 )}
                 {(pkg.startDate || pkg.startDate2) && (
                   <div className="flex flex-col gap-2 mt-3">
                     {pkg.startDate && (
                       <div className="px-4 py-2 bg-blue-50 border border-blue-200 rounded-xl text-center">
                         <p className="text-base font-bold text-blue-800">{pkg.startDate}</p>
-                        {pkg.startDateNote && <p className="text-sm text-blue-600 mt-0.5">{pkg.startDateNote}</p>}
+                        {pkg.startDateNote && <p className="text-base text-blue-600 mt-0.5">{pkg.startDateNote}</p>}
                       </div>
                     )}
                     {pkg.startDate2 && (
                       <div className="px-4 py-2 bg-purple-50 border border-purple-200 rounded-xl text-center">
                         <p className="text-base font-bold text-purple-800">{pkg.startDate2}</p>
-                        {pkg.startDate2Note && <p className="text-sm text-purple-600 mt-0.5">{pkg.startDate2Note}</p>}
+                        {pkg.startDate2Note && <p className="text-base text-purple-600 mt-0.5">{pkg.startDate2Note}</p>}
                       </div>
                     )}
                   </div>
