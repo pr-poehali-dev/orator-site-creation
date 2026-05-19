@@ -73,8 +73,8 @@ const FreeTrialBanner = () => {
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Плашка */}
         <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-base font-bold px-6 py-2.5 rounded-full shadow-md">
-            <Icon name="Mic" size={18} />
+          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-bold px-7 py-3 rounded-full shadow-md">
+            <Icon name="Mic" size={22} />
             Первый шаг к уверенной речи — попробуй бесплатно
           </div>
         </div>
@@ -85,14 +85,14 @@ const FreeTrialBanner = () => {
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-2 leading-tight">
               Бесплатные пробные занятия
             </h2>
-            <p className="text-lg text-gray-500 mb-6">
+            <p className="text-xl text-gray-500 mb-6">
               Приходи и почувствуй результат уже на первом занятии — без обязательств
             </p>
 
             {/* Курс 1 */}
             <div className="bg-white border-2 border-orange-200 rounded-2xl p-5 mb-4 shadow-sm">
-              <p className="text-base font-bold text-orange-500 uppercase tracking-wide mb-1">Ораторский курс</p>
-              <p className="text-xl font-black text-gray-900 mb-3">«Импровизация. Сторителлинг»</p>
+              <p className="text-lg font-bold text-orange-500 uppercase tracking-wide mb-1">Ораторский курс</p>
+              <p className="text-2xl font-black text-gray-900 mb-3">«Импровизация. Сторителлинг»</p>
               <div className="flex flex-wrap gap-3 mb-3">
                 {[
                   { day: 'Понедельник' },
@@ -102,28 +102,28 @@ const FreeTrialBanner = () => {
                     key={item.day}
                     className="bg-orange-50 border border-orange-200 rounded-xl px-4 py-2 text-center"
                   >
-                    <p className="text-gray-700 font-bold text-base">{item.day}</p>
+                    <p className="text-gray-700 font-bold text-lg">{item.day}</p>
                   </div>
                 ))}
               </div>
               <div className="flex items-center gap-2">
-                <Icon name="Clock" size={18} className="text-orange-400" />
-                <p className="text-orange-600 font-bold text-lg">19:00 – 21:00</p>
+                <Icon name="Clock" size={20} className="text-orange-400" />
+                <p className="text-orange-600 font-bold text-xl">19:00 – 21:00</p>
               </div>
             </div>
 
             {/* Курс 2 */}
             <div className="bg-white border-2 border-violet-200 rounded-2xl p-5 mb-5 shadow-sm">
-              <p className="text-base font-bold text-violet-500 uppercase tracking-wide mb-1">Курс</p>
-              <p className="text-xl font-black text-gray-900 mb-3">«Ораторское искусство с нуля»</p>
+              <p className="text-lg font-bold text-violet-500 uppercase tracking-wide mb-1">Курс</p>
+              <p className="text-2xl font-black text-gray-900 mb-3">«Ораторское искусство с нуля»</p>
               <div className="flex flex-wrap gap-3 mb-3">
                 <div className="bg-violet-50 border border-violet-200 rounded-xl px-4 py-2 text-center">
-                  <p className="text-gray-700 font-bold text-base">Суббота</p>
+                  <p className="text-gray-700 font-bold text-lg">Суббота</p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
-                <Icon name="Clock" size={18} className="text-violet-400" />
-                <p className="text-violet-600 font-bold text-lg">11:00 – 13:00</p>
+                <Icon name="Clock" size={20} className="text-violet-400" />
+                <p className="text-violet-600 font-bold text-xl">11:00 – 13:00</p>
               </div>
             </div>
 
@@ -132,7 +132,7 @@ const FreeTrialBanner = () => {
               <Icon name="MapPin" size={22} className="text-orange-400 flex-shrink-0 mt-0.5" />
               <div>
                 <p className="text-gray-800 text-lg font-semibold">г. Краснодар, ул. Горького, 104, офис 26</p>
-                <p className="text-gray-500 text-base">код двери: 26</p>
+                <p className="text-gray-500 text-lg">код двери: 26</p>
               </div>
             </div>
 
@@ -143,7 +143,7 @@ const FreeTrialBanner = () => {
             >
               <Icon name="Phone" size={22} />
               +7 918 311-17-12
-              <span className="text-gray-400 font-normal text-base">— есть вопросы?</span>
+              <span className="text-gray-400 font-normal text-lg">— есть вопросы?</span>
             </a>
 
             {/* MAX */}
@@ -182,7 +182,7 @@ const FreeTrialBanner = () => {
                       key={c.id}
                       type="button"
                       onClick={() => setSelectedCourse(c.id)}
-                      className={`text-left px-4 py-3 rounded-xl border-2 transition-all font-semibold text-base ${
+                      className={`text-left px-4 py-3 rounded-xl border-2 transition-all font-semibold text-lg ${
                         selectedCourse === c.id
                           ? c.id === 'improv'
                             ? 'border-orange-400 bg-orange-50 text-orange-700'
@@ -191,7 +191,7 @@ const FreeTrialBanner = () => {
                       }`}
                     >
                       {c.name}
-                      <span className="block text-sm font-normal mt-0.5 opacity-70">
+                      <span className="block text-base font-normal mt-0.5 opacity-70">
                         {c.schedule.map(s => s.day).join(' / ')} · {c.time}
                       </span>
                     </button>
