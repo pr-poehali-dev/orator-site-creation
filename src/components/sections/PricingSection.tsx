@@ -43,11 +43,11 @@ const PricingSection = () => {
   const packages = [
     {
       name: 'Ораторское мастерство с нуля',
-      subtitle: '',
-      courseLevel: 'Базовый курс',
+      badgeLabel: 'Дневная группа',
+      badgeColor: 'from-green-500 to-emerald-500',
       duration: '8 групповых + 1 индивидуальное занятие',
       startDate: '8 июня — 1 июля 2026',
-      startDateNote: 'дневная группа, пн/ср 14:00–16:00',
+      startDateNote: 'пн/ср 14:00–16:00',
       price: '19 500',
       oldPrice: '22 500',
       features: [
@@ -61,16 +61,13 @@ const PricingSection = () => {
     },
     {
       name: 'Ораторское мастерство с нуля',
-      nameSubtitle: 'Вечерняя группа',
-      subtitle: '',
-      courseLevel: 'специальный курс',
+      badgeLabel: 'Вечерняя группа',
+      badgeColor: 'from-secondary to-secondary/80',
       duration: '8 групповых + 1 индивидуальное занятие',
-      durationText: 'Продолжительность: 1 месяц',
       startDate: '29 июня — 22 июля 2026',
-      startDateNote: 'вечерняя группа, пн/ср 19:00–21:00',
-      price: '24 000',
-      oldPrice: '29 500',
-      priceNote: '',
+      startDateNote: 'пн/ср 19:00–21:00',
+      price: '19 500',
+      oldPrice: '22 500',
       features: [
         '8 групповых тренингов',
         '1 индивидуальное занятие',
@@ -111,14 +108,9 @@ const PricingSection = () => {
               }`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {pkg.courseLevel === 'Базовый курс' && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-green-500 to-emerald-500 rounded-full whitespace-nowrap z-10">
-                  <span className="text-white font-bold text-sm sm:text-base">Базовый курс</span>
-                </div>
-              )}
-              {pkg.popular && (
-                <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r from-purple-600 to-indigo-600 rounded-full whitespace-nowrap z-10">
-                  <span className="text-white font-bold text-sm sm:text-base">Вечерняя группа</span>
+              {'badgeLabel' in pkg && pkg.badgeLabel && (
+                <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r ${pkg.badgeColor} rounded-full whitespace-nowrap z-10`}>
+                  <span className="text-white font-bold text-sm sm:text-base">{pkg.badgeLabel as string}</span>
                 </div>
               )}
               <CardHeader className="text-center pb-4 pt-6">
