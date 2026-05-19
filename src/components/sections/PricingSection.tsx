@@ -103,79 +103,67 @@ const PricingSection = () => {
           {packages.map((pkg, index) => (
             <Card 
               key={index} 
-              className={`group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'} ${
-                pkg.popular ? 'border-primary border-2 shadow-xl lg:scale-105 hover:scale-[1.08]' : 'hover:scale-[1.02]'
-              }`}
+              className={`group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-primary shadow-xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               {'badgeLabel' in pkg && pkg.badgeLabel && (
-                <div className={`absolute -top-3 left-1/2 -translate-x-1/2 px-3 py-1 bg-gradient-to-r ${pkg.badgeColor} rounded-full whitespace-nowrap z-10`}>
-                  <span className="text-white font-bold text-sm sm:text-base">{pkg.badgeLabel as string}</span>
+                <div className={`absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-2 bg-gradient-to-r ${pkg.badgeColor} rounded-full whitespace-nowrap z-10 shadow-md`}>
+                  <span className="text-white font-bold text-base sm:text-lg">{pkg.badgeLabel as string}</span>
                 </div>
               )}
-              <CardHeader className="text-center pb-4 pt-6">
-                <CardTitle className="mb-2 text-foreground">
-                  <span className="block text-2xl md:text-3xl">{pkg.name}</span>
-                  {'nameSubtitle' in pkg && pkg.nameSubtitle && (
-                    <span className="block text-lg md:text-xl font-medium text-muted-foreground mt-1">{pkg.nameSubtitle as string}</span>
-                  )}
+              <CardHeader className="text-center pb-4 pt-8">
+                <CardTitle className="mb-3 text-foreground">
+                  <span className="block text-2xl md:text-3xl lg:text-4xl">{pkg.name}</span>
                 </CardTitle>
-                <CardDescription className="text-xl md:text-2xl">{pkg.duration}</CardDescription>
-                {pkg.durationText && (
-                  <p className="text-lg text-muted-foreground mt-2">{pkg.durationText}</p>
-                )}
+                <CardDescription className="text-xl md:text-2xl font-medium">{pkg.duration}</CardDescription>
                 {(pkg.startDate || pkg.startDate2) && (
-                  <div className="flex flex-col gap-2 mt-3">
+                  <div className="flex flex-col gap-3 mt-4">
                     {pkg.startDate && (
-                      <div className="px-4 py-2 bg-blue-50 border border-blue-200 rounded-xl text-center">
-                        <p className="text-base font-bold text-blue-800">{pkg.startDate}</p>
-                        {pkg.startDateNote && <p className="text-base text-blue-600 mt-0.5">{pkg.startDateNote}</p>}
+                      <div className="px-5 py-3 bg-blue-50 border border-blue-200 rounded-xl text-center">
+                        <p className="text-xl font-bold text-blue-800">{pkg.startDate}</p>
+                        {pkg.startDateNote && <p className="text-lg text-blue-600 mt-1">{pkg.startDateNote}</p>}
                       </div>
                     )}
                     {pkg.startDate2 && (
-                      <div className="px-4 py-2 bg-purple-50 border border-purple-200 rounded-xl text-center">
-                        <p className="text-base font-bold text-purple-800">{pkg.startDate2}</p>
-                        {pkg.startDate2Note && <p className="text-base text-purple-600 mt-0.5">{pkg.startDate2Note}</p>}
+                      <div className="px-5 py-3 bg-purple-50 border border-purple-200 rounded-xl text-center">
+                        <p className="text-xl font-bold text-purple-800">{pkg.startDate2}</p>
+                        {pkg.startDate2Note && <p className="text-lg text-purple-600 mt-1">{pkg.startDate2Note}</p>}
                       </div>
                     )}
                   </div>
                 )}
-                <div className="mt-4 md:mt-6">
+                <div className="mt-5 md:mt-6">
                   <div className="flex items-center justify-center gap-2 md:gap-3 mb-2">
-                    <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-primary">{pkg.price}</span>
-                    {pkg.oldPrice && <span className="text-lg sm:text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice}</span>}
+                    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary">{pkg.price} ₽</span>
+                    {pkg.oldPrice && <span className="text-xl sm:text-2xl md:text-3xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
                   </div>
                   {pkg.priceNote && (
-                    <p className="text-base font-semibold text-orange">{pkg.priceNote}</p>
+                    <p className="text-lg font-semibold text-orange">{pkg.priceNote}</p>
                   )}
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-4 mb-6">
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <Icon name="Check" className="text-primary flex-shrink-0 mt-1" size={22} />
-                      <span className="text-lg md:text-xl leading-relaxed">{feature}</span>
+                      <Icon name="Check" className="text-primary flex-shrink-0 mt-1" size={24} />
+                      <span className="text-xl md:text-2xl leading-relaxed">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button 
-                  className={`w-full py-5 md:py-6 text-base md:text-lg ${
-                    pkg.popular 
-                      ? 'bg-gradient-to-r from-primary to-secondary hover:opacity-90' 
-                      : 'bg-primary hover:bg-primary/90'
-                  }`}
+                  className="w-full py-6 md:py-7 text-lg md:text-xl bg-gradient-to-r from-primary to-secondary hover:opacity-90"
                   size="lg"
                   onClick={() => {
                     trackGoal(GOALS.COURSE_SIGNUP_CLICK);
                     setSelectedPackage({ 
-                      name: `${pkg.name} (${pkg.courseLevel})`,
+                      name: pkg.name,
                       subtitle: pkg.startDate || ''
                     });
                     setModalOpen(true);
                   }}
                 >
-                  <Icon name="Sparkles" size={20} className="mr-2" />
+                  <Icon name="Sparkles" size={22} className="mr-2" />
                   Записаться на курс
                 </Button>
               </CardContent>
