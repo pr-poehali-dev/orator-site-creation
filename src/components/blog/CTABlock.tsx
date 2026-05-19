@@ -29,11 +29,11 @@ const CTABlock = ({ variant = 'course', className = '' }: CTABlockProps) => {
     },
     contact: {
       title: 'Остались вопросы?',
-      description: 'Напишите нам в WhatsApp или MAX — ответим в течение 15 минут',
-      buttonText: 'Написать в WhatsApp',
+      description: 'Напишите нам в Telegram, WhatsApp или MAX — ответим в течение 15 минут',
+      buttonText: 'Написать в Telegram',
       icon: 'MessageCircle' as const,
-      action: () => window.open('https://wa.me/message/FKFHPRMEDBRYP1', '_blank'),
-      gradient: 'from-green-50 to-emerald-50'
+      action: () => window.open('https://t.me/+79183111712', '_blank'),
+      gradient: 'from-blue-50 to-sky-50'
     }
   };
 
@@ -59,17 +59,28 @@ const CTABlock = ({ variant = 'course', className = '' }: CTABlockProps) => {
             <Icon name="ArrowRight" size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
           </Button>
           {variant === 'contact' && (
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-2 border-purple-500 text-purple-600 hover:bg-purple-50"
-              onClick={() => window.open('https://max.ru/u/f9LHodD0cOLvTbH1OK3umoWq_Fy3X11Wi5Hy97U7oooxquX7NJ9GnWOYoYw', '_blank')}
-            >
-              <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
-              </svg>
-              Написать в MAX
-            </Button>
+            <>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-green-500 text-green-600 hover:bg-green-50"
+                onClick={() => window.open('https://wa.me/message/FKFHPRMEDBRYP1', '_blank')}
+              >
+                <Icon name="MessageCircle" size={20} className="mr-2" />
+                WhatsApp
+              </Button>
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-2 border-purple-500 text-purple-600 hover:bg-purple-50"
+                onClick={() => window.open('https://max.ru/u/f9LHodD0cOLvTbH1OK3umoWq_Fy3X11Wi5Hy97U7oooxquX7NJ9GnWOYoYw', '_blank')}
+              >
+                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                </svg>
+                MAX
+              </Button>
+            </>
           )}
         </div>
       </div>
