@@ -18,24 +18,22 @@ const ScheduleSection = () => {
   const courses = [
     {
       name: 'Ораторское мастерство с нуля',
-      subtitle: '«Импровизация и сторителлинг»',
-      startDate: '29 июня - 22 июля 2026',
-      duration: 'Продолжительность: 1 месяц',
-      description: '8 групповых тренингов + 1 индивидуальное занятие',
-      schedule: 'Понедельник, Среда, 19:00-21:00 (вечерняя группа)',
-      spots: 'Набор открыт',
-      color: 'from-secondary to-secondary/80',
-      isSpecial: true
-    },
-    {
-      name: 'Ораторское мастерство с нуля',
       startDate: '8 июня - 1 июля 2026',
-      duration: '8 групповых тренингов + 1 индивидуальное занятие',
+      description: '8 групповых тренингов + 1 индивидуальное занятие',
       schedule: 'Понедельник, Среда, 14:00-16:00',
       spots: 'Идёт набор на дневную группу',
       color: 'from-green-500 to-emerald-500',
       isDayGroup: true,
       badgeLabel: 'Дневная группа'
+    },
+    {
+      name: 'Ораторское мастерство с нуля',
+      startDate: '29 июня - 22 июля 2026',
+      description: '8 групповых тренингов + 1 индивидуальное занятие',
+      schedule: 'Понедельник, Среда, 19:00-21:00',
+      spots: 'Набор открыт',
+      color: 'from-secondary to-secondary/80',
+      isSpecial: true
     },
     {
       name: 'Индивидуальный ораторский коучинг',
@@ -109,8 +107,14 @@ const ScheduleSection = () => {
               </CardHeader>
               <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-lg md:text-xl">
                 {course.description && (
-                  <div className="mb-4">
-                    <p className="text-muted-foreground leading-relaxed">{course.description}</p>
+                  <div className="flex items-start gap-3">
+                    <Icon name="BookOpen" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      {(course.isDayGroup || course.isSpecial) && (
+                        <p className="font-semibold">Состав курса</p>
+                      )}
+                      <p className="text-muted-foreground leading-relaxed">{course.description}</p>
+                    </div>
                   </div>
                 )}
                 {!course.isCorporate && course.startDate && (
@@ -147,13 +151,17 @@ const ScheduleSection = () => {
                 </div>
                 )}
                 
-                <div className="flex items-start gap-3">
-                  <Icon name="Clock" size={20} className="text-primary mt-1 flex-shrink-0" />
-                  <div>
-                    <p className="font-semibold">Продолжительность</p>
-                    <p className="text-muted-foreground">{course.duration}</p>
+                {course.duration && (
+                  <div className="flex items-start gap-3">
+                    <Icon name="Clock" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      {!course.isDayGroup && !course.isSpecial && (
+                        <p className="font-semibold">Продолжительность</p>
+                      )}
+                      <p className="text-muted-foreground">{course.duration}</p>
+                    </div>
                   </div>
-                </div>
+                )}
 
                 {!course.startDate2 && course.schedule && (
                   <div className="flex items-start gap-3">
