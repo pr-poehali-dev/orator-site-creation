@@ -8,12 +8,39 @@ import { formatPhoneNumber } from '@/utils/phoneFormat';
 
 const TELEGRAM_NOTIFICATION_URL = 'https://functions.poehali.dev/1427b9c7-37fe-40a5-8fe7-96646f8f064a';
 
+const courses = [
+  {
+    id: 'improv',
+    name: '«Импровизация. Сторителлинг»',
+    schedule: [
+      { day: 'понедельник', icon: '1' },
+      { day: 'среда', icon: '3' },
+    ],
+    time: '19:00 – 21:00',
+    color: 'orange',
+    courseFull: 'Ораторский курс «Импровизация. Сторителлинг»',
+  },
+  {
+    id: 'zero',
+    name: '«Ораторское искусство с нуля»',
+    schedule: [
+      { day: 'суббота', icon: '6' },
+    ],
+    time: '11:00 – 13:00',
+    color: 'violet',
+    courseFull: 'Курс «Ораторское искусство с нуля»',
+  },
+];
+
 const FreeTrialBanner = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
+  const [selectedCourse, setSelectedCourse] = useState('improv');
   const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+
+  const course = courses.find(c => c.id === selectedCourse)!;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -26,8 +53,8 @@ const FreeTrialBanner = () => {
         body: JSON.stringify({
           name,
           phone,
-          course: 'Пробное занятие — Импровизация. Сторителлинг',
-          date: '29 апреля / 06 мая / 13 мая в 19:00'
+          course: `Пробное занятие — ${course.courseFull}`,
+          date: `${course.schedule.map(s => s.day).join(' / ')}, ${course.time}`
         })
       });
     } catch {
@@ -44,11 +71,11 @@ const FreeTrialBanner = () => {
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-rose-200/20 rounded-full blur-3xl -translate-x-24 translate-y-24 pointer-events-none" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
-        {/* Шапка */}
+        {/* Плашка */}
         <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-2 bg-orange-500 text-white text-base font-bold px-5 py-2 rounded-full shadow-md">
-            <Icon name="Flame" size={18} />
-            Бесплатно — только 2 даты
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-red-500 text-white text-base font-bold px-6 py-2.5 rounded-full shadow-md">
+            <Icon name="Mic" size={18} />
+            Первый шаг к уверенной речи — попробуй бесплатно
           </div>
         </div>
 
@@ -58,25 +85,46 @@ const FreeTrialBanner = () => {
             <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-2 leading-tight">
               Бесплатные пробные занятия
             </h2>
-            <p className="text-xl md:text-2xl font-semibold text-orange-600 mb-6">
-              Ораторский курс «Импровизация. Сторителлинг»
+            <p className="text-lg text-gray-500 mb-6">
+              Приходи и почувствуй результат уже на первом занятии — без обязательств
             </p>
 
-            {/* Даты */}
-            <div className="flex flex-wrap gap-3 mb-6">
-              {[
-                { date: '06 мая', day: 'среда' },
-                { date: '13 мая', day: 'среда' },
-              ].map((item) => (
-                <div
-                  key={item.date}
-                  className="bg-white border-2 border-orange-200 rounded-xl px-5 py-3 text-center shadow-sm min-w-[130px]"
-                >
-                  <p className="text-gray-400 text-base font-semibold uppercase tracking-wide">{item.day}</p>
-                  <p className="text-gray-900 font-black text-2xl leading-tight">{item.date}</p>
-                  <p className="text-orange-500 text-lg font-bold">19:00</p>
+            {/* Курс 1 */}
+            <div className="bg-white border-2 border-orange-200 rounded-2xl p-5 mb-4 shadow-sm">
+              <p className="text-base font-bold text-orange-500 uppercase tracking-wide mb-1">Ораторский курс</p>
+              <p className="text-xl font-black text-gray-900 mb-3">«Импровизация. Сторителлинг»</p>
+              <div className="flex flex-wrap gap-3 mb-3">
+                {[
+                  { day: 'Понедельник' },
+                  { day: 'Среда' },
+                ].map((item) => (
+                  <div
+                    key={item.day}
+                    className="bg-orange-50 border border-orange-200 rounded-xl px-4 py-2 text-center"
+                  >
+                    <p className="text-gray-700 font-bold text-base">{item.day}</p>
+                  </div>
+                ))}
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="Clock" size={18} className="text-orange-400" />
+                <p className="text-orange-600 font-bold text-lg">19:00 – 21:00</p>
+              </div>
+            </div>
+
+            {/* Курс 2 */}
+            <div className="bg-white border-2 border-violet-200 rounded-2xl p-5 mb-5 shadow-sm">
+              <p className="text-base font-bold text-violet-500 uppercase tracking-wide mb-1">Курс</p>
+              <p className="text-xl font-black text-gray-900 mb-3">«Ораторское искусство с нуля»</p>
+              <div className="flex flex-wrap gap-3 mb-3">
+                <div className="bg-violet-50 border border-violet-200 rounded-xl px-4 py-2 text-center">
+                  <p className="text-gray-700 font-bold text-base">Суббота</p>
                 </div>
-              ))}
+              </div>
+              <div className="flex items-center gap-2">
+                <Icon name="Clock" size={18} className="text-violet-400" />
+                <p className="text-violet-600 font-bold text-lg">11:00 – 13:00</p>
+              </div>
             </div>
 
             {/* Адрес */}
@@ -125,7 +173,31 @@ const FreeTrialBanner = () => {
             ) : (
               <>
                 <p className="text-2xl font-bold text-gray-900 mb-1">Записаться на пробное занятие</p>
-                <p className="text-lg text-gray-500 mb-5">Оставьте имя и телефон — мы пришлём напоминание</p>
+                <p className="text-lg text-gray-500 mb-4">Выберите курс и оставьте контакты</p>
+
+                {/* Выбор курса */}
+                <div className="flex flex-col gap-2 mb-5">
+                  {courses.map((c) => (
+                    <button
+                      key={c.id}
+                      type="button"
+                      onClick={() => setSelectedCourse(c.id)}
+                      className={`text-left px-4 py-3 rounded-xl border-2 transition-all font-semibold text-base ${
+                        selectedCourse === c.id
+                          ? c.id === 'improv'
+                            ? 'border-orange-400 bg-orange-50 text-orange-700'
+                            : 'border-violet-400 bg-violet-50 text-violet-700'
+                          : 'border-gray-200 text-gray-600 hover:border-gray-300'
+                      }`}
+                    >
+                      {c.name}
+                      <span className="block text-sm font-normal mt-0.5 opacity-70">
+                        {c.schedule.map(s => s.day).join(' / ')} · {c.time}
+                      </span>
+                    </button>
+                  ))}
+                </div>
+
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
                     <Label htmlFor="trial-name" className="text-lg font-semibold mb-1.5 block">Ваше имя *</Label>
