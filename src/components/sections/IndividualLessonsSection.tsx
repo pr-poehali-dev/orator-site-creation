@@ -179,25 +179,25 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                 </div>
                 <div className="space-y-2 mb-4">
                   <div className="flex items-start gap-2">
-                    <Icon name="Clock" size={18} className="text-primary mt-0.5" />
-                    <span className="text-lg">Продолжительность: 50 минут</span>
+                    <Icon name="Clock" size={20} className="text-primary mt-0.5" />
+                    <span className="text-xl">Продолжительность: 50 минут</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Icon name="Monitor" size={18} className="text-primary mt-0.5" />
-                    <span className="text-lg">Формат: онлайн или очно в Краснодаре</span>
+                    <Icon name="Monitor" size={20} className="text-primary mt-0.5" />
+                    <span className="text-xl">Формат: онлайн или очно в Краснодаре</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <Icon name="Calendar" size={18} className="text-primary mt-0.5" />
-                    <span className="text-lg">Гибкий график: выбирайте удобное время</span>
+                    <Icon name="Calendar" size={20} className="text-primary mt-0.5" />
+                    <span className="text-xl">Гибкий график: выбирайте удобное время</span>
                   </div>
                 </div>
 
                 <div className="bg-yellow-50 border border-yellow-200 rounded-lg p-3">
                   <div className="flex items-start gap-2">
-                    <Icon name="Sparkles" size={18} className="text-yellow-600 mt-0.5" />
+                    <Icon name="Sparkles" size={20} className="text-yellow-600 mt-0.5" />
                     <div>
-                      <p className="font-semibold text-yellow-800 text-lg mb-1">Специальное предложение</p>
-                      <p className="text-base text-yellow-700">
+                      <p className="font-semibold text-yellow-800 text-xl mb-1">Специальное предложение</p>
+                      <p className="text-lg text-yellow-700">
                         Скидка действует до конца месяца. Успейте записаться по выгодной цене!
                       </p>
                     </div>
@@ -211,25 +211,25 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                     <Icon name="Target" size={20} className="text-primary" />
                     Что вы получите
                   </h4>
-                  <ul className="space-y-2 text-lg">
+                  <ul className="space-y-2 text-xl">
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-primary mt-0.5" />
+                      <Icon name="Check" size={20} className="text-primary mt-0.5" />
                       <span>Персональный план развития навыков</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-primary mt-0.5" />
+                      <Icon name="Check" size={20} className="text-primary mt-0.5" />
                       <span>Практические упражнения и техники</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-primary mt-0.5" />
+                      <Icon name="Check" size={20} className="text-primary mt-0.5" />
                       <span>Анализ и работа над ошибками</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-primary mt-0.5" />
+                      <Icon name="Check" size={20} className="text-primary mt-0.5" />
                       <span>Запись занятия для самостоятельной работы</span>
                     </li>
                     <li className="flex items-start gap-2">
-                      <Icon name="Check" size={16} className="text-primary mt-0.5" />
+                      <Icon name="Check" size={20} className="text-primary mt-0.5" />
                       <span>Домашнее задание с проверкой</span>
                     </li>
                   </ul>
@@ -238,9 +238,9 @@ ${formData.message ? `\nДополнительно: ${formData.message}` : ''}`;
                 <div className="space-y-2">
                 <Dialog open={isOpen} onOpenChange={setIsOpen}>
                   <DialogTrigger asChild>
-                    <Button size="lg" className="w-full group">
+                    <Button size="lg" className="w-full group text-lg md:text-xl py-6 md:py-7">
                       Записаться на занятие
-                      <Icon name="ArrowRight" size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                      <Icon name="ArrowRight" size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
                     </Button>
                   </DialogTrigger>
                   <DialogContent className="max-w-2xl max-h-[90vh] overflow-y-auto">

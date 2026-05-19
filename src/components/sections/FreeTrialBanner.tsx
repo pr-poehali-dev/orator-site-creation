@@ -195,7 +195,7 @@ const FreeTrialBanner = () => {
                       key={c.id}
                       type="button"
                       onClick={() => setSelectedCourse(c.id)}
-                      className={`text-left px-4 py-3 rounded-xl border-2 transition-all font-semibold text-lg ${
+                      className={`text-left px-4 py-4 rounded-xl border-2 transition-all font-semibold text-xl ${
                         selectedCourse === c.id
                           ? c.id === 'improv'
                             ? 'border-orange-400 bg-orange-50 text-orange-700'
@@ -204,7 +204,7 @@ const FreeTrialBanner = () => {
                       }`}
                     >
                       {c.name}
-                      <span className="block text-base font-normal mt-0.5 opacity-70">
+                      <span className="block text-lg font-normal mt-1 opacity-70">
                         {c.schedule.map(s => s.day).join(' / ')} · {c.time}
                       </span>
                     </button>
@@ -213,7 +213,7 @@ const FreeTrialBanner = () => {
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
-                    <Label htmlFor="trial-name" className="text-lg font-semibold mb-1.5 block">Ваше имя *</Label>
+                    <Label htmlFor="trial-name" className="text-xl font-semibold mb-2 block">Ваше имя *</Label>
                     <Input
                       id="trial-name"
                       type="text"
@@ -221,11 +221,11 @@ const FreeTrialBanner = () => {
                       onChange={(e) => setName(e.target.value)}
                       placeholder="Введите имя"
                       required
-                      className="text-lg py-5"
+                      className="text-xl py-6"
                     />
                   </div>
                   <div>
-                    <Label htmlFor="trial-phone" className="text-lg font-semibold mb-1.5 block">Телефон *</Label>
+                    <Label htmlFor="trial-phone" className="text-xl font-semibold mb-2 block">Телефон *</Label>
                     <Input
                       id="trial-phone"
                       type="tel"
@@ -233,7 +233,7 @@ const FreeTrialBanner = () => {
                       onChange={(e) => setPhone(formatPhoneNumber(e.target.value))}
                       placeholder="+7 (___) ___-__-__"
                       required
-                      className="text-lg py-5"
+                      className="text-xl py-6"
                     />
                   </div>
                   <div className="flex items-start gap-2.5">
@@ -243,7 +243,7 @@ const FreeTrialBanner = () => {
                       onCheckedChange={(v) => setConsent(v as boolean)}
                       className="mt-0.5 scale-125"
                     />
-                    <Label htmlFor="trial-consent" className="text-base text-gray-500 leading-relaxed cursor-pointer">
+                    <Label htmlFor="trial-consent" className="text-lg text-gray-500 leading-relaxed cursor-pointer">
                       Я согласен с{' '}
                       <a href="/privacy" target="_blank" className="text-orange-500 hover:underline">политикой конфиденциальности</a>
                       {' '}и обработкой персональных данных

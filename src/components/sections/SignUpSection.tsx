@@ -78,7 +78,7 @@ const SignUpSection = () => {
           <CardContent className="pt-4 md:pt-6 px-4 md:px-6">
             <form onSubmit={handleSubmit} className="space-y-4 md:space-y-6">
               <div>
-                <label className="block text-base font-medium mb-2">Ваше имя</label>
+                <label className="block text-lg font-semibold mb-2">Ваше имя</label>
                 <Input
                   placeholder="Введите ваше имя"
                   value={formData.name}
@@ -88,7 +88,7 @@ const SignUpSection = () => {
                 />
               </div>
               <div>
-                <label className="block text-base font-medium mb-2">Телефон</label>
+                <label className="block text-lg font-semibold mb-2">Телефон</label>
                 <Input
                   type="tel"
                   placeholder="+7 (___) ___-__-__"
@@ -99,7 +99,7 @@ const SignUpSection = () => {
                 />
               </div>
               <div>
-                <label className="block text-base font-medium mb-2">Комментарий (необязательно)</label>
+                <label className="block text-lg font-semibold mb-2">Комментарий (необязательно)</label>
                 <Textarea
                   placeholder="Расскажите, что вас интересует"
                   value={formData.message}
@@ -118,7 +118,7 @@ const SignUpSection = () => {
                 />
                 <label 
                   htmlFor="consent" 
-                  className="text-base text-muted-foreground leading-relaxed cursor-pointer"
+                  className="text-lg text-muted-foreground leading-relaxed cursor-pointer"
                 >
                   Я согласен на{' '}
                   <a 
@@ -140,7 +140,7 @@ const SignUpSection = () => {
               </div>
               <Button 
                 type="submit" 
-                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-base md:text-lg py-5 md:py-6"
+                className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg md:text-xl py-6 md:py-7"
                 disabled={!consent || isSubmitting}
               >
                 {isSubmitting ? (
@@ -158,14 +158,14 @@ const SignUpSection = () => {
 
               <div className="flex items-center gap-3 my-1">
                 <div className="flex-1 h-px bg-gray-200" />
-                <span className="text-sm text-muted-foreground">или напишите напрямую</span>
+                <span className="text-base text-muted-foreground">или напишите напрямую</span>
                 <div className="flex-1 h-px bg-gray-200" />
               </div>
 
               <Button
                 type="button"
                 variant="outline"
-                className="w-full border-2 border-blue-500 text-blue-600 hover:bg-blue-50 text-base md:text-lg py-5 md:py-6"
+                className="w-full border-2 border-blue-500 text-blue-600 hover:bg-blue-50 text-lg md:text-xl py-6 md:py-7"
                 onClick={() => window.open('https://t.me/+79183111712', '_blank')}
               >
                 <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
