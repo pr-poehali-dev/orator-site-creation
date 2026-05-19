@@ -27,7 +27,7 @@ const ContactSection = () => {
     <section id="contact" className="py-14 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Контакты</h2>
-        <p className="text-center text-muted-foreground mb-4 text-lg">
+        <p className="text-center text-muted-foreground mb-4 text-xl">
           Свяжитесь с нами удобным для вас способом
         </p>
         {selectedCourse && (
@@ -38,14 +38,14 @@ const ContactSection = () => {
               </div>
               <div>
                 <h3 className="font-bold text-lg mb-1">Вы выбрали курс:</h3>
-                <p className="text-base font-semibold text-primary mb-1">{selectedCourse.course}</p>
-                <p className="text-sm text-muted-foreground">Дата старта: <span className="font-semibold">{selectedCourse.date}</span></p>
-                <p className="text-sm text-muted-foreground mt-2">Свяжитесь с нами любым удобным способом ниже, чтобы завершить запись</p>
+                <p className="text-lg font-semibold text-primary mb-1">{selectedCourse.course}</p>
+                <p className="text-base text-muted-foreground">Дата старта: <span className="font-semibold">{selectedCourse.date}</span></p>
+                <p className="text-base text-muted-foreground mt-2">Свяжитесь с нами любым удобным способом ниже, чтобы завершить запись</p>
               </div>
             </div>
           </div>
         )}
-        <p className="text-center text-muted-foreground mb-12 text-base">
+        <p className="text-center text-muted-foreground mb-12 text-lg">
           {selectedCourse ? 'Выберите удобный способ связи:' : 'Или свяжитесь с нами для консультации'}
         </p>
 
@@ -57,10 +57,10 @@ const ContactSection = () => {
                   <Icon name="Phone" size={20} className="text-primary" />
                 </div>
               </div>
-              <h3 className="font-semibold text-base mb-1">Телефон</h3>
+              <h3 className="font-semibold text-lg mb-1">Телефон</h3>
               <a 
                 href="tel:+79183111712" 
-                className="text-primary hover:underline text-sm"
+                className="text-primary hover:underline text-base"
                 onClick={() => trackGoal(GOALS.PHONE_CLICK)}
               >
                 +7 918 311-17-12
@@ -77,12 +77,12 @@ const ContactSection = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="font-semibold text-base mb-1">Telegram</h3>
+              <h3 className="font-semibold text-lg mb-1">Telegram</h3>
               <a 
                 href="https://t.me/svetlana_kuzikova" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-sm"
+                className="text-primary hover:underline text-base"
               >
                 Написать
               </a>
@@ -99,12 +99,12 @@ const ContactSection = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="font-semibold text-sm sm:text-base mb-1">VKontakte</h3>
+              <h3 className="font-semibold text-lg mb-1">VKontakte</h3>
               <a 
                 href="https://vk.com/svetlana_kuzikova" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-sm"
+                className="text-primary hover:underline text-base"
               >
                 Страница
               </a>
@@ -118,12 +118,12 @@ const ContactSection = () => {
                   <Icon name="MessageCircle" size={20} className="text-primary" />
                 </div>
               </div>
-              <h3 className="font-semibold text-base mb-1">VK Мессенджер</h3>
+              <h3 className="font-semibold text-lg mb-1">VK Мессенджер</h3>
               <a 
                 href="https://vk.me/svetlana_kuzikova" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-sm"
+                className="text-primary hover:underline text-base"
               >
                 Написать
               </a>
@@ -139,12 +139,12 @@ const ContactSection = () => {
                   </svg>
                 </div>
               </div>
-              <h3 className="font-semibold text-base mb-1">MAX</h3>
+              <h3 className="font-semibold text-lg mb-1">MAX</h3>
               <a
                 href="https://max.ru/u/f9LHodD0cOLvTbH1OK3umoWq_Fy3X11Wi5Hy97U7oooxquX7NJ9GnWOYoYw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline text-sm"
+                className="text-primary hover:underline text-base"
               >
                 Написать
               </a>
@@ -158,7 +158,7 @@ const ContactSection = () => {
                   <Icon name="MapPin" size={20} className="text-primary" />
                 </div>
               </div>
-              <h3 className="font-semibold text-base mb-1">Адрес</h3>
+              <h3 className="font-semibold text-lg mb-1">Адрес</h3>
               <p className="text-muted-foreground text-base">Краснодар,<br />Горького, 104</p>
             </CardContent>
           </Card>
@@ -170,12 +170,12 @@ const ContactSection = () => {
                   <Icon name="Youtube" size={20} className="text-primary" />
                 </div>
               </div>
-              <h3 className="font-semibold text-base mb-1">Rutube</h3>
+              <h3 className="font-semibold text-lg mb-1">Rutube</h3>
               <a 
                 href="https://rutube.ru/channel/27062031/" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-sm"
+                className="text-primary hover:underline text-base"
               >
                 Канал школы
               </a>

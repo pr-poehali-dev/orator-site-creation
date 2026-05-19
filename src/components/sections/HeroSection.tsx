@@ -37,7 +37,7 @@ const HeroSection = () => {
           <div className="text-center lg:text-left">
             <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-3 md:mb-4">
               <div className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
-                <span className="text-white font-semibold text-xs sm:text-sm">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
+                <span className="text-white font-semibold text-sm sm:text-base">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
               </div>
               <a
                 href="/award"
@@ -64,13 +64,13 @@ const HeroSection = () => {
             <div className="flex justify-center lg:justify-start mb-5 md:mb-6">
               <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full">
                 <Icon name="CheckCircle" className="text-primary" size={22} />
-                <span className="font-semibold text-sm md:text-base">Индивидуальные занятия входят в стоимость</span>
+                <span className="font-semibold text-base md:text-lg">Индивидуальные занятия входят в стоимость</span>
               </div>
             </div>
             <div className="flex justify-center lg:justify-start">
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-sm sm:text-base md:text-lg px-4 sm:px-6 py-5 sm:py-6 w-full sm:w-auto"
+                className="bg-primary hover:bg-primary/90 text-base sm:text-lg md:text-xl px-5 sm:px-7 py-5 sm:py-6 w-full sm:w-auto"
                 onClick={() => {
                   trackGoal(GOALS.COURSE_SIGNUP_CLICK);
                   setIsSignupDialogOpen(true);
@@ -103,7 +103,7 @@ const HeroSection = () => {
           <div className="space-y-3 mt-4">
             <Button
               size="lg"
-              className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white text-base sm:text-lg py-5 sm:py-6"
+              className="w-full bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-white text-lg sm:text-xl py-6"
               onClick={() => {
                 setIsSignupDialogOpen(false);
                 document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
@@ -117,14 +117,14 @@ const HeroSection = () => {
               <div className="absolute inset-0 flex items-center">
                 <span className="w-full border-t border-gray-300" />
               </div>
-              <div className="relative flex justify-center text-xs uppercase">
+              <div className="relative flex justify-center text-sm uppercase">
                 <span className="bg-white px-2 text-gray-500">или свяжитесь напрямую</span>
               </div>
             </div>
             
             <Button
               size="lg"
-              className="w-full bg-green-600 hover:bg-green-700 text-white text-base sm:text-lg py-5 sm:py-6"
+              className="w-full bg-green-600 hover:bg-green-700 text-white text-lg sm:text-xl py-6"
               onClick={() => {
                 trackGoal(GOALS.WHATSAPP_CLICK);
                 window.open('https://wa.me/79183111712?text=Здравствуйте!%20Хочу%20записаться%20на%20пробное%20занятие', '_blank');
@@ -138,7 +138,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="w-full border-2 text-base sm:text-lg py-5 sm:py-6"
+              className="w-full border-2 text-lg sm:text-xl py-6"
               onClick={() => {
                 trackGoal(GOALS.PHONE_CLICK);
                 window.location.href = 'tel:+79183111712';
@@ -152,7 +152,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="w-full border-2 border-blue-500 text-blue-600 hover:bg-blue-50 text-base sm:text-lg py-5 sm:py-6"
+              className="w-full border-2 border-blue-500 text-blue-600 hover:bg-blue-50 text-lg sm:text-xl py-6"
               onClick={() => {
                 window.open('https://t.me/svetlana_kuzikova', '_blank');
                 setIsSignupDialogOpen(false);
@@ -167,7 +167,7 @@ const HeroSection = () => {
             <Button
               size="lg"
               variant="outline"
-              className="w-full border-2 border-blue-700 text-blue-700 hover:bg-blue-50 text-base sm:text-lg py-5 sm:py-6"
+              className="w-full border-2 border-blue-700 text-blue-700 hover:bg-blue-50 text-lg sm:text-xl py-6"
               onClick={() => {
                 window.open('https://vk.com/svetlana_kuzikova', '_blank');
                 setIsSignupDialogOpen(false);

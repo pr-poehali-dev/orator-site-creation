@@ -57,7 +57,7 @@ const VideoTestimonialsSection = () => {
     <section className="py-14 px-4 bg-white">
       <div className="container mx-auto max-w-6xl">
         <h2 className="text-4xl md:text-5xl font-bold text-center mb-4">Видео-отзывы</h2>
-        <p className="text-center text-muted-foreground mb-12 text-lg max-w-2xl mx-auto">
+        <p className="text-center text-muted-foreground mb-12 text-xl max-w-2xl mx-auto">
           Смотрите, что говорят наши выпускники о курсе
         </p>
         
@@ -76,7 +76,7 @@ const VideoTestimonialsSection = () => {
                   />
                 </div>
                 <div className="p-3 text-center">
-                  <p className="text-lg font-medium text-foreground">{video.name}</p>
+                  <p className="text-xl font-semibold text-foreground">{video.name}</p>
                 </div>
               </CardContent>
             </Card>

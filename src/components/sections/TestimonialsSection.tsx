@@ -100,8 +100,8 @@ const TestimonialsSection = () => {
           <div>
             <Button 
               asChild
-              size="default"
-              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+              size="lg"
+              className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 text-lg px-8 py-6"
             >
               <a 
                 href="https://yandex.ru/profile/108893235678?intent=reviews" 
@@ -110,7 +110,7 @@ const TestimonialsSection = () => {
                 className="inline-flex items-center gap-2"
               >
                 Все отзывы на Яндекс
-                <Icon name="ExternalLink" size={16} />
+                <Icon name="ExternalLink" size={20} />
               </a>
             </Button>
           </div>
