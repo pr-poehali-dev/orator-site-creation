@@ -47,12 +47,12 @@ const PricingSection = () => {
       groups: [
         {
           label: 'Дневная группа · пн/ср · 14:00–16:00',
-          note: '13 июля — 05 августа · 03 августа — 29 августа',
+          dates: ['13 июля — 05 августа', '03 августа — 29 августа'],
           color: 'blue'
         },
         {
           label: 'Вечерняя группа · пн/ср · 19:00–21:00',
-          note: '03 августа — 29 августа',
+          dates: ['03 августа — 29 августа'],
           color: 'purple'
         }
       ],
@@ -77,12 +77,12 @@ const PricingSection = () => {
       groups: [
         {
           label: 'Дневная группа · пн/ср · 14:00–16:00',
-          note: '13 июля — 05 августа · 03 августа — 29 августа',
+          dates: ['13 июля — 05 августа', '03 августа — 29 августа'],
           color: 'blue'
         },
         {
           label: 'Вечерняя группа · пн/ср · 19:00–21:00',
-          note: '03 августа — 29 августа',
+          dates: ['03 августа — 29 августа'],
           color: 'purple'
         }
       ],
@@ -147,32 +147,39 @@ const PricingSection = () => {
                     {pkg.groups.map((g, gi) => (
                       <div
                         key={gi}
-                        className={`px-4 py-3 rounded-xl text-left ${g.color === 'blue' ? 'bg-blue-50 border border-blue-200' : 'bg-purple-50 border border-purple-200'}`}
+                        className={`px-4 py-4 rounded-xl text-left ${g.color === 'blue' ? 'bg-blue-50 border border-blue-200' : 'bg-purple-50 border border-purple-200'}`}
                       >
-                        <p className={`text-base font-bold ${g.color === 'blue' ? 'text-blue-800' : 'text-purple-800'}`}>{g.label}</p>
-                        <p className={`text-sm mt-1 ${g.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}`}>{g.note}</p>
+                        <p className={`text-xl font-bold mb-2 ${g.color === 'blue' ? 'text-blue-800' : 'text-purple-800'}`}>{g.label}</p>
+                        <div className="flex flex-col gap-1">
+                          {g.dates?.map((d, di) => (
+                            <div key={di} className="flex items-center gap-2">
+                              <Icon name="Calendar" size={16} className={g.color === 'blue' ? 'text-blue-500 flex-shrink-0' : 'text-purple-500 flex-shrink-0'} />
+                              <span className={`text-lg font-semibold ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{d}</span>
+                            </div>
+                          ))}
+                        </div>
                       </div>
                     ))}
                   </div>
                 )}
                 <div className="mt-5 md:mt-6">
-                  <div className="flex items-center justify-center gap-2 md:gap-3 mb-2">
-                    <span className={`text-4xl md:text-5xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
-                    {pkg.oldPrice && <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
+                  <div className="flex items-center justify-center gap-3 mb-2">
+                    <span className={`text-5xl md:text-6xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
+                    {pkg.oldPrice && <span className="text-2xl md:text-3xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-3 mb-6">
+                <ul className="space-y-4 mb-6">
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <Icon name={idx === 0 && pkg.isPopular ? 'Star' : 'Check'} className={`flex-shrink-0 mt-1 ${idx === 0 && pkg.isPopular ? 'text-secondary' : 'text-primary'}`} size={20} />
-                      <span className={`text-lg leading-relaxed ${idx === 0 && pkg.isPopular ? 'font-semibold text-foreground' : ''}`}>{feature}</span>
+                      <Icon name={idx === 0 && pkg.isPopular ? 'Star' : 'Check'} className={`flex-shrink-0 mt-1 ${idx === 0 && pkg.isPopular ? 'text-secondary' : 'text-primary'}`} size={22} />
+                      <span className={`text-xl leading-relaxed ${idx === 0 && pkg.isPopular ? 'font-semibold text-foreground' : ''}`}>{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button 
-                  className={`w-full py-6 text-lg bg-gradient-to-r hover:opacity-90 ${pkg.isPopular ? 'from-secondary to-primary' : 'from-primary to-secondary'}`}
+                  className={`w-full py-7 text-xl bg-gradient-to-r hover:opacity-90 ${pkg.isPopular ? 'from-secondary to-primary' : 'from-primary to-secondary'}`}
                   size="lg"
                   onClick={() => {
                     trackGoal(GOALS.COURSE_SIGNUP_CLICK);
