@@ -32,15 +32,15 @@ const Index = () => {
       <StructuredData />
       <Header />
       <HeroSection />
-      <div className="bg-gradient-to-r from-primary to-secondary text-white py-5 px-4">
+      <div className="bg-gray-900 text-white py-4 px-4 border-b border-gray-700">
         <div className="container mx-auto max-w-4xl flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left">
           <div className="flex items-center gap-2 flex-shrink-0">
-            <span className="text-3xl">🎓</span>
-            <span className="bg-white/20 text-white text-sm font-bold px-3 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">11 июля · суббота · 13:00</span>
+            <span className="text-2xl">🎓</span>
+            <span className="bg-white/10 border border-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">11 июля · сб · 13:00</span>
           </div>
           <div>
-            <p className="font-bold text-xl md:text-2xl leading-tight">Выпускной показ на ораторском курсе — вход свободный!</p>
-            <p className="text-white/85 text-base mt-1">1. Выступления выпускников &nbsp;·&nbsp; 2. Спикер-баттл для всех желающих</p>
+            <p className="font-bold text-lg md:text-xl leading-tight">Выпускной показ на ораторском курсе — вход свободный!</p>
+            <p className="text-gray-400 text-sm mt-0.5">Выступления выпускников · Спикер-баттл для всех желающих</p>
           </div>
         </div>
       </div>
