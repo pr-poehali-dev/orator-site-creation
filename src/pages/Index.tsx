@@ -25,25 +25,41 @@ import WhatsAppButton from '@/components/ui/WhatsAppButton';
 import CookieConsent from '@/components/ui/CookieConsent';
 import ScrollToTop from '@/components/ui/scroll-to-top';
 import StructuredData from '@/components/SEO/StructuredData';
+import ApplicationModal from '@/components/ApplicationModal';
+import { useState } from 'react';
 
 const Index = () => {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
       <StructuredData />
       <Header />
       <HeroSection />
-      <div className="bg-gray-900 text-white py-4 px-4 border-b border-gray-700">
+      <div
+        className="bg-gradient-to-r from-primary to-secondary text-white py-4 px-4 cursor-pointer hover:opacity-95 transition-opacity"
+        onClick={() => setShowModal(true)}
+      >
         <div className="container mx-auto max-w-4xl flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left">
           <div className="flex items-center gap-2 flex-shrink-0">
             <span className="text-2xl">🎓</span>
-            <span className="bg-white/10 border border-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-widest whitespace-nowrap">11 июля · сб · 13:00</span>
+            <span className="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide whitespace-nowrap">11 июля · сб · 13:00</span>
           </div>
-          <div>
+          <div className="flex-1">
             <p className="font-bold text-lg md:text-xl leading-tight">Выпускной показ на ораторском курсе — вход свободный!</p>
-            <p className="text-gray-400 text-sm mt-0.5">Выступления выпускников · Спикер-баттл для всех желающих</p>
+            <p className="text-white/80 text-sm mt-0.5">Выступления выпускников · Спикер-баттл для всех желающих</p>
+          </div>
+          <div className="flex-shrink-0 bg-white/20 border border-white/30 text-white text-sm font-bold px-4 py-2 rounded-full hover:bg-white/30 transition-colors whitespace-nowrap">
+            Записаться →
           </div>
         </div>
       </div>
+      <ApplicationModal
+        isOpen={showModal}
+        onClose={() => setShowModal(false)}
+        courseName="Выпускной показ — 11 июля (вход свободный)"
+        courseDate="11 июля, суббота, 13:00"
+      />
       <FreeTrialBanner />
       <ScheduleSection />
       <AudienceSection />
