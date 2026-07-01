@@ -12,6 +12,7 @@ import { formatPhoneNumber } from '@/utils/phoneFormat';
 const SignUpSection = () => {
   const [formData, setFormData] = useState({ name: '', phone: '', message: '' });
   const [consent, setConsent] = useState(false);
+  const [mailingConsent, setMailingConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -135,6 +136,28 @@ const SignUpSection = () => {
                     className="text-primary hover:underline"
                   >
                     политики конфиденциальности
+                  </a>
+                  {' '}*
+                </label>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Checkbox
+                  id="mailing-consent"
+                  checked={mailingConsent}
+                  onCheckedChange={(checked) => setMailingConsent(checked as boolean)}
+                  disabled={isSubmitting}
+                />
+                <label
+                  htmlFor="mailing-consent"
+                  className="text-lg text-muted-foreground leading-relaxed cursor-pointer"
+                >
+                  Согласен на получение{' '}
+                  <a
+                    href="/mailing-consent"
+                    target="_blank"
+                    className="text-primary hover:underline"
+                  >
+                    рекламных рассылок
                   </a>
                 </label>
               </div>

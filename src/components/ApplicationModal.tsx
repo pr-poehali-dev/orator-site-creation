@@ -20,6 +20,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [consent, setConsent] = useState(false);
+  const [mailingConsent, setMailingConsent] = useState(false);
   const [showContacts, setShowContacts] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
@@ -161,6 +162,20 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                       политикой возврата
                     </a>
                     {' '}*
+                  </Label>
+                </div>
+                <div className="flex items-start gap-3">
+                  <Checkbox
+                    id="mailing-consent"
+                    checked={mailingConsent}
+                    onCheckedChange={(checked) => setMailingConsent(checked as boolean)}
+                    className="mt-1"
+                  />
+                  <Label htmlFor="mailing-consent" className="text-base leading-relaxed cursor-pointer">
+                    Согласен на получение{' '}
+                    <a href="/mailing-consent" target="_blank" className="text-primary hover:underline">
+                      рекламных рассылок
+                    </a>
                   </Label>
                 </div>
 

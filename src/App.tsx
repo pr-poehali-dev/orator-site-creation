@@ -15,6 +15,7 @@ import RefundPolicy from "./pages/RefundPolicy";
 import Materials from "./pages/Materials";
 import Guide from "./pages/Guide";
 import Award from "./pages/Award";
+import MailingConsent from "./pages/MailingConsent";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/materials" element={<Materials />} />
           <Route path="/guide" element={<Guide />} />
           <Route path="/award" element={<Award />} />
+          <Route path="/mailing-consent" element={<MailingConsent />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

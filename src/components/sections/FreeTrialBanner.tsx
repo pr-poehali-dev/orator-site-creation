@@ -14,6 +14,7 @@ const FreeTrialBanner = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [consent, setConsent] = useState(false);
+  const [mailingConsent, setMailingConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -160,7 +161,19 @@ const FreeTrialBanner = () => {
                     <Label htmlFor="trial-consent" className="text-lg text-gray-500 leading-relaxed cursor-pointer">
                       Я согласен с{' '}
                       <a href="/privacy" target="_blank" className="text-orange-500 hover:underline">политикой конфиденциальности</a>
-                      {' '}и обработкой персональных данных
+                      {' '}и обработкой персональных данных *
+                    </Label>
+                  </div>
+                  <div className="flex items-start gap-2.5">
+                    <Checkbox
+                      id="trial-mailing"
+                      checked={mailingConsent}
+                      onCheckedChange={(v) => setMailingConsent(v as boolean)}
+                      className="mt-0.5 scale-125"
+                    />
+                    <Label htmlFor="trial-mailing" className="text-lg text-gray-500 leading-relaxed cursor-pointer">
+                      Согласен на получение{' '}
+                      <a href="/mailing-consent" target="_blank" className="text-orange-500 hover:underline">рекламных рассылок</a>
                     </Label>
                   </div>
                   <Button

@@ -15,6 +15,7 @@ const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [agreedToTerms, setAgreedToTerms] = useState(false);
+  const [mailingConsent, setMailingConsent] = useState(false);
 
   if (!isOpen) return null;
 
@@ -176,7 +177,18 @@ const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
                           className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
                         />
                         <span>
-                          Согласен с <a href="/privacy" className="text-primary underline hover:text-secondary" onClick={(e) => { e.preventDefault(); window.open('/privacy', '_blank'); }}>политикой конфиденциальности</a> и на обработку персональных данных
+                          Согласен с <a href="/privacy" className="text-primary underline hover:text-secondary" onClick={(e) => { e.preventDefault(); window.open('/privacy', '_blank'); }}>политикой конфиденциальности</a> и на обработку персональных данных *
+                        </span>
+                      </label>
+                      <label className="flex items-start gap-2 cursor-pointer text-sm text-gray-700">
+                        <input
+                          type="checkbox"
+                          checked={mailingConsent}
+                          onChange={(e) => setMailingConsent(e.target.checked)}
+                          className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
+                        />
+                        <span>
+                          Согласен на получение <a href="/mailing-consent" className="text-primary underline hover:text-secondary" onClick={(e) => { e.preventDefault(); window.open('/mailing-consent', '_blank'); }}>рекламных рассылок</a>
                         </span>
                       </label>
 
