@@ -173,7 +173,7 @@ const FreeTrialBanner = () => {
                     />
                     <Label htmlFor="trial-mailing" className="text-lg text-gray-500 leading-relaxed cursor-pointer">
                       Согласен на получение{' '}
-                      <a href="/mailing-consent" target="_blank" className="text-orange-500 hover:underline">рекламных рассылок</a>
+                      <a href="/mailing-consent" target="_blank" className="text-orange-500 hover:underline">информационных рассылок</a>
                     </Label>
                   </div>
                   <Button

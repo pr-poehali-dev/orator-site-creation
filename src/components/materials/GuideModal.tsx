@@ -188,7 +188,7 @@ const GuideModal = ({ isOpen, onClose }: GuideModalProps) => {
                           className="mt-1 w-4 h-4 rounded border-gray-300 text-primary focus:ring-primary cursor-pointer"
                         />
                         <span>
-                          Согласен на получение <a href="/mailing-consent" className="text-primary underline hover:text-secondary" onClick={(e) => { e.preventDefault(); window.open('/mailing-consent', '_blank'); }}>рекламных рассылок</a>
+                          Согласен на получение <a href="/mailing-consent" className="text-primary underline hover:text-secondary" onClick={(e) => { e.preventDefault(); window.open('/mailing-consent', '_blank'); }}>информационных рассылок</a>
                         </span>
                       </label>
 

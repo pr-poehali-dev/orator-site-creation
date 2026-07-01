@@ -174,7 +174,7 @@ const ApplicationModal = ({ isOpen, onClose, courseName, courseDate }: Applicati
                   <Label htmlFor="mailing-consent" className="text-base leading-relaxed cursor-pointer">
                     Согласен на получение{' '}
                     <a href="/mailing-consent" target="_blank" className="text-primary hover:underline">
-                      рекламных рассылок
+                      информационных рассылок
                     </a>
                   </Label>
                 </div>

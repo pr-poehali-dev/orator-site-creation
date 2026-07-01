@@ -157,7 +157,7 @@ const SignUpSection = () => {
                     target="_blank"
                     className="text-primary hover:underline"
                   >
-                    рекламных рассылок
+                    информационных рассылок
                   </a>
                 </label>
               </div>
