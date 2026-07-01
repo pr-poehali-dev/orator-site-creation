@@ -114,34 +114,30 @@ const PricingSection = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Стоимость курса</h2>
-          <p className="text-center text-muted-foreground mb-4 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto px-4">
+          <p className="text-center text-muted-foreground mb-8 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto px-4">
             Выберите удобный для вас формат обучения
           </p>
-          <div className="flex justify-center mb-8 md:mb-12">
-            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-2xl px-6 py-3">
-              <Icon name="GraduationCap" size={22} className="text-primary flex-shrink-0" />
-              <span className="text-lg md:text-xl font-bold text-foreground">Курс ораторского искусства и импровизации</span>
-            </div>
-          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 md:mb-12">
+        <div className={`transition-all duration-1000 delay-200 mb-0 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="bg-gradient-to-r from-primary to-secondary rounded-t-2xl px-6 py-5 flex items-center gap-4 justify-center">
+            <Icon name="GraduationCap" size={28} className="text-white flex-shrink-0" />
+            <span className="text-2xl md:text-3xl font-bold text-white text-center">Курс ораторского искусства и импровизации</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mb-8 md:mb-12 rounded-b-2xl overflow-hidden shadow-xl border-2 border-t-0 border-primary/20">
           {packages.map((pkg, index) => (
             <Card 
               key={index} 
-              className={`group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 shadow-xl overflow-visible ${pkg.isPopular ? 'border-secondary' : 'border-primary'} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group relative transition-all duration-500 border-0 rounded-none shadow-none overflow-visible ${index === 0 ? 'md:border-r md:border-primary/20' : ''} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {pkg.isPopular && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                  <div className="bg-gradient-to-r from-secondary to-primary text-white text-base font-bold px-6 py-2 rounded-full shadow-lg whitespace-nowrap">
-                    Максимум результата
-                  </div>
-                </div>
-              )}
               <CardHeader className="text-center pb-4 pt-8">
                 {pkg.tariff && (
-                  <p className={`text-sm font-bold uppercase tracking-widest mb-2 ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.tariff}</p>
+                  <div className={`inline-block mx-auto mb-3 px-5 py-1.5 rounded-full text-white text-base font-bold uppercase tracking-widest ${pkg.isPopular ? 'bg-secondary' : 'bg-primary'}`}>
+                    {pkg.tariff}
+                  </div>
                 )}
                 <CardTitle className="mb-3 text-foreground">
                   <span className="block text-2xl md:text-3xl">{pkg.name}</span>
