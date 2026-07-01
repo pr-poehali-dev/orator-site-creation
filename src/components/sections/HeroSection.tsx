@@ -77,7 +77,7 @@ const HeroSection = () => {
                 }}
               >
                 <Icon name="Sparkles" size={18} className="mr-2 flex-shrink-0" />
-                <span className="truncate">Записаться на пробное бесплатно</span>
+                <span className="truncate">Подробнее</span>
               </Button>
             </div>
           </div>
