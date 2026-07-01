@@ -17,23 +17,27 @@ const ScheduleSection = () => {
 
   const courses = [
     {
-      name: 'Ораторское мастерство с нуля',
-      startDate: '8 июня - 1 июля 2026',
-      description: '8 групповых тренингов + 1 индивидуальное занятие',
-      schedule: 'Понедельник, Среда, 14:00-16:00',
-      spots: 'Идёт набор на дневную группу',
-      color: 'from-green-500 to-emerald-500',
-      isDayGroup: true,
-      badgeLabel: 'Дневная группа'
-    },
-    {
-      name: 'Ораторское мастерство с нуля',
-      startDate: '29 июня - 22 июля 2026',
-      description: '8 групповых тренингов + 1 индивидуальное занятие',
-      schedule: 'Понедельник, Среда, 19:00-21:00',
-      spots: 'Набор открыт',
-      color: 'from-secondary to-secondary/80',
-      isSpecial: true
+      name: 'Курс ораторского искусства и импровизации',
+      color: 'from-primary to-secondary',
+      isCombined: true,
+      groups: [
+        {
+          dates: '13 июля — 05 августа',
+          schedule: 'дневная группа · пн/ср · 14:00–16:00',
+          color: 'blue'
+        },
+        {
+          dates: '03 августа — 29 августа',
+          schedule: 'дневная 14:00–16:00 · вечерняя 19:00–21:00 · пн/ср',
+          color: 'purple'
+        }
+      ],
+      features: [
+        'Групповые и индивидуальные занятия',
+        'Финальное выступление при реальных зрителях',
+        'Онлайн курс «Речевая креативность за 7 дней» в подарок'
+      ],
+      spots: 'Идёт набор'
     },
     {
       name: 'Индивидуальный ораторский коучинг',
@@ -76,26 +80,6 @@ const ScheduleSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {courses.map((course, index) => (
             <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2 relative overflow-visible">
-              {course.isDayGroup && (
-                <div className="absolute -top-3 -left-3 z-10">
-                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-black px-5 py-2.5 rounded-full shadow-xl transform -rotate-3 hover:rotate-0 transition-transform animate-pulse">
-                    <div className="flex items-center gap-2">
-                      <Icon name="Star" size={18} />
-                      <span className="font-bold text-base whitespace-nowrap">{course.badgeLabel ?? 'ИДЁТ НАБОР'}</span>
-                    </div>
-                  </div>
-                </div>
-              )}
-              {course.isSpecial && (
-                <div className="absolute -top-3 -left-3 z-10">
-                  <div className="bg-gradient-to-r from-orange-500 to-red-500 text-black px-5 py-2.5 rounded-full shadow-xl transform -rotate-3 hover:rotate-0 transition-transform animate-pulse">
-                    <div className="flex items-center gap-2">
-                      <Icon name="Sparkles" size={18} />
-                      <span className="font-bold text-base whitespace-nowrap">Вечерняя группа</span>
-                    </div>
-                  </div>
-                </div>
-              )}
               <CardHeader className={`bg-gradient-to-r ${course.color} text-white rounded-t-lg pb-4 md:pb-6`}>
                 {course.type && (
                   <p className="text-sm font-medium uppercase tracking-wide opacity-80 mb-1">{course.type}</p>
@@ -106,18 +90,51 @@ const ScheduleSection = () => {
                 )}
               </CardHeader>
               <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-lg md:text-xl">
+                {course.isCombined && course.groups && (
+                  <div>
+                    <div className="flex items-center gap-2 mb-3">
+                      <Icon name="Calendar" size={20} className="text-primary" />
+                      <p className="font-semibold">Даты курса:</p>
+                    </div>
+                    <div className="flex flex-col gap-2">
+                      {course.groups.map((g, gi) => (
+                        <div
+                          key={gi}
+                          className={`p-3 rounded-lg border cursor-pointer transition-colors ${g.color === 'blue' ? 'bg-blue-50 border-blue-300 hover:bg-blue-100' : 'bg-purple-50 border-purple-300 hover:bg-purple-100'}`}
+                          onClick={() => handleDateSelect(course.name, g.dates)}
+                        >
+                          <span className={`font-bold text-base block ${g.color === 'blue' ? 'text-blue-900' : 'text-purple-900'}`}>{g.dates}</span>
+                          <span className={`text-sm ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{g.schedule}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {course.isCombined && course.features && (
+                  <div className="flex items-start gap-3">
+                    <Icon name="BookOpen" size={20} className="text-primary mt-1 flex-shrink-0" />
+                    <div>
+                      <p className="font-semibold mb-2">Состав курса</p>
+                      <ul className="space-y-1">
+                        {course.features.map((f, fi) => (
+                          <li key={fi} className="flex items-start gap-2 text-muted-foreground leading-relaxed">
+                            <Icon name="Check" size={16} className="text-primary mt-1 flex-shrink-0" />
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
                 {course.description && (
                   <div className="flex items-start gap-3">
                     <Icon name="BookOpen" size={20} className="text-primary mt-1 flex-shrink-0" />
                     <div>
-                      {(course.isDayGroup || course.isSpecial) && (
-                        <p className="font-semibold">Состав курса</p>
-                      )}
                       <p className="text-muted-foreground leading-relaxed">{course.description}</p>
                     </div>
                   </div>
                 )}
-                {!course.isCorporate && course.startDate && (
+                {!course.isCorporate && !course.isCombined && course.startDate && (
                   <div>
                     <div className="flex items-center gap-2 mb-3">
                       <Icon name="Calendar" size={20} className="text-primary" />
