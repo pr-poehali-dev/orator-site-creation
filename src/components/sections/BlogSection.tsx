@@ -84,7 +84,7 @@ const BlogSection = () => {
                   <div className="p-3 bg-primary/10 rounded-lg group-hover:bg-primary/20 group-hover:scale-110 transition-all duration-300">
                     <Icon name={article.icon as any} size={24} className="text-primary" />
                   </div>
-                  <span className="text-xs font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
+                  <span className="text-base font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
                     {article.category}
                   </span>
                 </div>
@@ -93,11 +93,11 @@ const BlogSection = () => {
                   {article.title}
                 </h3>
                 
-                <p className="text-muted-foreground text-base mb-4 line-clamp-3">
+                <p className="text-muted-foreground text-lg mb-4 line-clamp-3">
                   {article.description}
                 </p>
                 
-                <div className="flex items-center justify-between text-sm text-muted-foreground">
+                <div className="flex items-center justify-between text-lg text-muted-foreground">
                   <div className="flex items-center gap-1">
                     <Icon name="Clock" size={14} />
                     <span>{article.readTime}</span>

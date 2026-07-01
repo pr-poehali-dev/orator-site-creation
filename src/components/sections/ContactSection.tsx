@@ -60,7 +60,7 @@ const ContactSection = () => {
               <h3 className="font-semibold text-lg mb-1">Телефон</h3>
               <a 
                 href="tel:+79183111712" 
-                className="text-primary hover:underline text-base"
+                className="text-primary hover:underline text-lg"
                 onClick={() => trackGoal(GOALS.PHONE_CLICK)}
               >
                 +7 918 311-17-12
@@ -82,7 +82,7 @@ const ContactSection = () => {
                 href="https://t.me/svetlana_kuzikova" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-base"
+                className="text-primary hover:underline text-lg"
               >
                 Написать
               </a>
@@ -104,7 +104,7 @@ const ContactSection = () => {
                 href="https://vk.com/svetlana_kuzikova" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-base"
+                className="text-primary hover:underline text-lg"
               >
                 Страница
               </a>
@@ -123,7 +123,7 @@ const ContactSection = () => {
                 href="https://vk.me/svetlana_kuzikova" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="text-primary hover:underline text-base"
+                className="text-primary hover:underline text-lg"
               >
                 Написать
               </a>
@@ -144,7 +144,7 @@ const ContactSection = () => {
                 href="https://max.ru/u/f9LHodD0cOLvTbH1OK3umoWq_Fy3X11Wi5Hy97U7oooxquX7NJ9GnWOYoYw"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-primary hover:underline text-base"
+                className="text-primary hover:underline text-lg"
               >
                 Написать
               </a>
@@ -159,7 +159,7 @@ const ContactSection = () => {
                 </div>
               </div>
               <h3 className="font-semibold text-lg mb-1">Адрес</h3>
-              <p className="text-muted-foreground text-base">Краснодар,<br />Горького, 104</p>
+              <p className="text-muted-foreground text-lg">Краснодар,<br />Горького, 104</p>
             </CardContent>
           </Card>
 

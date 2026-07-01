@@ -7,7 +7,7 @@ const QuestionsSection = () => {
     <section className="py-6 px-4 bg-white">
       <div className="container mx-auto max-w-4xl">
         <div className="text-center border-t border-b border-gray-200 py-5">
-          <p className="text-base md:text-lg text-muted-foreground mb-4">
+          <p className="text-xl md:text-2xl text-muted-foreground mb-4">
             Есть вопросы? Свяжитесь с нами удобным способом
           </p>
           <div className="flex gap-3 justify-center flex-wrap">

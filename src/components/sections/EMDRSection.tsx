@@ -72,7 +72,7 @@ const EMDRSection = () => {
 
         {/* Заголовок */}
         <div className={`text-center mb-12 transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-base font-semibold px-5 py-2.5 rounded-full mb-4">
+          <div className="inline-flex items-center gap-2 bg-violet-100 text-violet-700 text-lg font-semibold px-5 py-2.5 rounded-full mb-4">
             <Icon name="Sparkles" size={18} className="text-violet-600" />
             Уникальное преимущество курса
           </div>
@@ -99,7 +99,7 @@ const EMDRSection = () => {
                   <Icon name="Brain" size={28} className="text-white" />
                 </div>
                 <div>
-                  <p className="text-base text-violet-600 font-semibold uppercase tracking-wide">Автор курса</p>
+                  <p className="text-lg text-violet-600 font-semibold uppercase tracking-wide">Автор курса</p>
                   <h3 className="text-xl md:text-2xl font-bold text-gray-900">Светлана Кузикова</h3>
                 </div>
               </div>
@@ -135,7 +135,7 @@ const EMDRSection = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-lg text-gray-900 mb-1">{card.label}</h4>
-                    <p className="text-base md:text-lg text-gray-700 leading-relaxed">{card.text}</p>
+                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed">{card.text}</p>
                   </div>
                 </div>
               </div>

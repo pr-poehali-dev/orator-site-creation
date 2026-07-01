@@ -135,7 +135,7 @@ const PricingSection = () => {
             >
               <CardHeader className="text-center pb-4 pt-8">
                 {pkg.tariff && (
-                  <div className={`inline-block mx-auto mb-3 px-5 py-1.5 rounded-full text-white text-base font-bold uppercase tracking-widest ${pkg.isPopular ? 'bg-secondary' : 'bg-primary'}`}>
+                  <div className={`inline-block mx-auto mb-3 px-5 py-1.5 rounded-full text-white text-lg font-bold uppercase tracking-widest ${pkg.isPopular ? 'bg-secondary' : 'bg-primary'}`}>
                     {pkg.tariff}
                   </div>
                 )}
