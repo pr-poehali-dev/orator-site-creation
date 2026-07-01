@@ -8,39 +8,14 @@ import { formatPhoneNumber } from '@/utils/phoneFormat';
 
 const TELEGRAM_NOTIFICATION_URL = 'https://functions.poehali.dev/1427b9c7-37fe-40a5-8fe7-96646f8f064a';
 
-const courses = [
-  {
-    id: 'improv',
-    name: '«Импровизация. Сторителлинг»',
-    schedule: [
-      { day: 'понедельник', icon: '1' },
-      { day: 'среда', icon: '3' },
-    ],
-    time: '19:00 – 21:00',
-    color: 'orange',
-    courseFull: 'Ораторский курс «Импровизация. Сторителлинг»',
-  },
-  {
-    id: 'zero',
-    name: '«Ораторское искусство с нуля»',
-    schedule: [
-      { day: 'суббота', icon: '6' },
-    ],
-    time: '11:00 – 13:00',
-    color: 'violet',
-    courseFull: 'Курс «Ораторское искусство с нуля»',
-  },
-];
+
 
 const FreeTrialBanner = () => {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [selectedCourse, setSelectedCourse] = useState('improv');
   const [consent, setConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  const course = courses.find(c => c.id === selectedCourse)!;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -53,8 +28,8 @@ const FreeTrialBanner = () => {
         body: JSON.stringify({
           name,
           phone,
-          course: `Пробное занятие — ${course.courseFull}`,
-          date: `${course.schedule.map(s => s.day).join(' / ')}, ${course.time}`
+          course: 'Пробное занятие',
+          date: ''
         })
       });
     } catch {
@@ -88,44 +63,6 @@ const FreeTrialBanner = () => {
             <p className="text-xl text-gray-500 mb-6">
               Приходи и почувствуй результат уже на первом занятии — без обязательств
             </p>
-
-            {/* Курс 1 */}
-            <div className="bg-white border-2 border-orange-200 rounded-2xl p-5 mb-4 shadow-sm">
-              <p className="text-lg font-bold text-orange-500 uppercase tracking-wide mb-1">Ораторский курс</p>
-              <p className="text-2xl font-black text-gray-900 mb-3">«Импровизация. Сторителлинг»</p>
-              <div className="flex flex-wrap gap-3 mb-3">
-                {[
-                  { day: 'Понедельник' },
-                  { day: 'Среда' },
-                ].map((item) => (
-                  <div
-                    key={item.day}
-                    className="bg-orange-50 border border-orange-200 rounded-xl px-4 py-2 text-center"
-                  >
-                    <p className="text-gray-700 font-bold text-lg">{item.day}</p>
-                  </div>
-                ))}
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="Clock" size={20} className="text-orange-400" />
-                <p className="text-orange-600 font-bold text-xl">19:00 – 21:00</p>
-              </div>
-            </div>
-
-            {/* Курс 2 */}
-            <div className="bg-white border-2 border-violet-200 rounded-2xl p-5 mb-5 shadow-sm">
-              <p className="text-lg font-bold text-violet-500 uppercase tracking-wide mb-1">Курс</p>
-              <p className="text-2xl font-black text-gray-900 mb-3">«Ораторское искусство с нуля»</p>
-              <div className="flex flex-wrap gap-3 mb-3">
-                <div className="bg-violet-50 border border-violet-200 rounded-xl px-4 py-2 text-center">
-                  <p className="text-gray-700 font-bold text-lg">Суббота</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <Icon name="Clock" size={20} className="text-violet-400" />
-                <p className="text-violet-600 font-bold text-xl">11:00 – 13:00</p>
-              </div>
-            </div>
 
             {/* Адрес */}
             <div className="flex items-start gap-3 bg-white border border-orange-100 rounded-xl px-5 py-4 mb-5 shadow-sm">
@@ -186,30 +123,7 @@ const FreeTrialBanner = () => {
             ) : (
               <>
                 <p className="text-2xl font-bold text-gray-900 mb-1">Записаться на пробное занятие</p>
-                <p className="text-lg text-gray-500 mb-4">Выберите курс и оставьте контакты</p>
-
-                {/* Выбор курса */}
-                <div className="flex flex-col gap-2 mb-5">
-                  {courses.map((c) => (
-                    <button
-                      key={c.id}
-                      type="button"
-                      onClick={() => setSelectedCourse(c.id)}
-                      className={`text-left px-4 py-4 rounded-xl border-2 transition-all font-semibold text-xl ${
-                        selectedCourse === c.id
-                          ? c.id === 'improv'
-                            ? 'border-orange-400 bg-orange-50 text-orange-700'
-                            : 'border-violet-400 bg-violet-50 text-violet-700'
-                          : 'border-gray-200 text-gray-600 hover:border-gray-300'
-                      }`}
-                    >
-                      {c.name}
-                      <span className="block text-lg font-normal mt-1 opacity-70">
-                        {c.schedule.map(s => s.day).join(' / ')} · {c.time}
-                      </span>
-                    </button>
-                  ))}
-                </div>
+                <p className="text-lg text-gray-500 mb-4">Оставьте контакты — мы свяжемся с вами</p>
 
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div>
