@@ -23,12 +23,12 @@ const ScheduleSection = () => {
       groups: [
         {
           dates: '13 июля — 05 августа',
-          schedule: 'дневная группа · пн/ср · 14:00–16:00',
+          schedule: 'дневная группа · пн/ср\n14:00–16:00',
           color: 'blue'
         },
         {
           dates: '03 августа — 29 августа',
-          schedule: 'дневная 14:00–16:00 · вечерняя 19:00–21:00 · пн/ср',
+          schedule: 'дневная 14:00–16:00 · пн/ср\nвечерняя 19:00–21:00 · пн/ср',
           color: 'purple'
         }
       ],
@@ -104,7 +104,7 @@ const ScheduleSection = () => {
                           onClick={() => handleDateSelect(course.name, g.dates)}
                         >
                           <span className={`font-bold text-lg block ${g.color === 'blue' ? 'text-blue-900' : 'text-purple-900'}`}>{g.dates}</span>
-                          <span className={`text-base ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{g.schedule}</span>
+                          <span className={`text-base whitespace-pre-line ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{g.schedule}</span>
                         </div>
                       ))}
                     </div>
