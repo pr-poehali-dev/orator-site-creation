@@ -43,6 +43,7 @@ const PricingSection = () => {
   const packages = [
     {
       name: 'Ораторский курс с нуля',
+      tariff: 'Тариф 1',
       groups: [
         {
           label: 'Дневная группа · пн/ср · 14:00–16:00',
@@ -51,7 +52,7 @@ const PricingSection = () => {
         },
         {
           label: 'Вечерняя группа · пн/ср · 19:00–21:00',
-          note: '13 июля — 05 августа · 03 августа — 29 августа',
+          note: '03 августа — 29 августа',
           color: 'purple'
         }
       ],
@@ -71,6 +72,7 @@ const PricingSection = () => {
     },
     {
       name: 'Импровизация. Сторителлинг',
+      tariff: 'Тариф 2',
       isPopular: true,
       groups: [
         {
@@ -80,7 +82,7 @@ const PricingSection = () => {
         },
         {
           label: 'Вечерняя группа · пн/ср · 19:00–21:00',
-          note: '13 июля — 05 августа · 03 августа — 29 августа',
+          note: '03 августа — 29 августа',
           color: 'purple'
         }
       ],
@@ -112,9 +114,15 @@ const PricingSection = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className={`transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Стоимость курса</h2>
-          <p className="text-center text-muted-foreground mb-8 md:mb-12 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto px-4">
+          <p className="text-center text-muted-foreground mb-4 text-lg md:text-xl lg:text-2xl max-w-2xl mx-auto px-4">
             Выберите удобный для вас формат обучения
           </p>
+          <div className="flex justify-center mb-8 md:mb-12">
+            <div className="inline-flex items-center gap-3 bg-gradient-to-r from-primary/10 to-secondary/10 border border-primary/20 rounded-2xl px-6 py-3">
+              <Icon name="GraduationCap" size={22} className="text-primary flex-shrink-0" />
+              <span className="text-lg md:text-xl font-bold text-foreground">Курс ораторского искусства и импровизации</span>
+            </div>
+          </div>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 md:mb-12">
@@ -132,6 +140,9 @@ const PricingSection = () => {
                 </div>
               )}
               <CardHeader className="text-center pb-4 pt-8">
+                {pkg.tariff && (
+                  <p className={`text-sm font-bold uppercase tracking-widest mb-2 ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.tariff}</p>
+                )}
                 <CardTitle className="mb-3 text-foreground">
                   <span className="block text-2xl md:text-3xl">{pkg.name}</span>
                 </CardTitle>
