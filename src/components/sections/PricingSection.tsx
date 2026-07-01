@@ -42,40 +42,26 @@ const PricingSection = () => {
 
   const packages = [
     {
-      name: 'Ораторское мастерство с нуля',
-      badgeLabel: 'Дневная группа',
-      badgeColor: 'from-green-500 to-emerald-500',
-      duration: '8 групповых + 1 индивидуальное занятие',
-      startDate: '8 июня — 1 июля 2026',
-      startDateNote: 'пн/ср 14:00–16:00',
+      name: 'Курс ораторского искусства и импровизации',
+      groups: [
+        {
+          label: '13 июля — 05 августа',
+          note: 'дневная группа · пн/ср · 14:00–16:00',
+          color: 'blue'
+        },
+        {
+          label: '03 августа — 29 августа',
+          note: 'дневная 14:00–16:00 · вечерняя 19:00–21:00 · пн/ср',
+          color: 'purple'
+        }
+      ],
       price: '19 500',
       oldPrice: '22 500',
       features: [
-        '8 групповых тренингов',
-        '1 индивидуальное занятие',
-        'Видеокурс «Речевая креативность» + книга',
-        'Запись вебинара с техниками снятия страха публичных выступлений',
-        'Выпускной + Сертификат'
-      ],
-      popular: false
-    },
-    {
-      name: 'Ораторское мастерство с нуля',
-      badgeLabel: 'Вечерняя группа',
-      badgeColor: 'from-secondary to-secondary/80',
-      duration: '8 групповых + 1 индивидуальное занятие',
-      startDate: '29 июня — 22 июля 2026',
-      startDateNote: 'пн/ср 19:00–21:00',
-      price: '19 500',
-      oldPrice: '22 500',
-      features: [
-        '8 групповых тренингов',
-        '1 индивидуальное занятие',
-        'Видеокурс «Речевая креативность» + книга',
-        'Запись вебинара с техниками снятия страха публичных выступлений',
-        'Выпускной + Сертификат'
-      ],
-      popular: true
+        'Групповые и индивидуальные занятия',
+        'Финальное выступление при реальных зрителях',
+        'Онлайн курс «Речевая креативность за 7 дней» в подарок'
+      ]
     }
   ];
 
@@ -99,37 +85,28 @@ const PricingSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-12">
+        <div className="flex justify-center mb-8 md:mb-12">
           {packages.map((pkg, index) => (
             <Card 
               key={index} 
-              className={`group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-primary shadow-xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-primary shadow-xl w-full max-w-2xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
-              {'badgeLabel' in pkg && pkg.badgeLabel && (
-                <div className={`absolute -top-4 left-1/2 -translate-x-1/2 px-5 py-2 bg-gradient-to-r ${pkg.badgeColor} rounded-full whitespace-nowrap z-10 shadow-md`}>
-                  <span className="text-white font-bold text-base sm:text-lg">{pkg.badgeLabel as string}</span>
-                </div>
-              )}
               <CardHeader className="text-center pb-4 pt-8">
                 <CardTitle className="mb-3 text-foreground">
                   <span className="block text-2xl md:text-3xl lg:text-4xl">{pkg.name}</span>
                 </CardTitle>
-                <CardDescription className="text-xl md:text-2xl font-medium">{pkg.duration}</CardDescription>
-                {(pkg.startDate || pkg.startDate2) && (
+                {'groups' in pkg && pkg.groups && (
                   <div className="flex flex-col gap-3 mt-4">
-                    {pkg.startDate && (
-                      <div className="px-5 py-3 bg-blue-50 border border-blue-200 rounded-xl text-center">
-                        <p className="text-xl font-bold text-blue-800">{pkg.startDate}</p>
-                        {pkg.startDateNote && <p className="text-lg text-blue-600 mt-1">{pkg.startDateNote}</p>}
+                    {pkg.groups.map((g, gi) => (
+                      <div
+                        key={gi}
+                        className={`px-5 py-3 rounded-xl text-center ${g.color === 'blue' ? 'bg-blue-50 border border-blue-200' : 'bg-purple-50 border border-purple-200'}`}
+                      >
+                        <p className={`text-xl font-bold ${g.color === 'blue' ? 'text-blue-800' : 'text-purple-800'}`}>{g.label}</p>
+                        <p className={`text-lg mt-1 ${g.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}`}>{g.note}</p>
                       </div>
-                    )}
-                    {pkg.startDate2 && (
-                      <div className="px-5 py-3 bg-purple-50 border border-purple-200 rounded-xl text-center">
-                        <p className="text-xl font-bold text-purple-800">{pkg.startDate2}</p>
-                        {pkg.startDate2Note && <p className="text-lg text-purple-600 mt-1">{pkg.startDate2Note}</p>}
-                      </div>
-                    )}
+                    ))}
                   </div>
                 )}
                 <div className="mt-5 md:mt-6">
@@ -137,9 +114,6 @@ const PricingSection = () => {
                     <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary">{pkg.price} ₽</span>
                     {pkg.oldPrice && <span className="text-xl sm:text-2xl md:text-3xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
                   </div>
-                  {pkg.priceNote && (
-                    <p className="text-lg font-semibold text-orange">{pkg.priceNote}</p>
-                  )}
                 </div>
               </CardHeader>
               <CardContent>
@@ -158,7 +132,7 @@ const PricingSection = () => {
                     trackGoal(GOALS.COURSE_SIGNUP_CLICK);
                     setSelectedPackage({ 
                       name: pkg.name,
-                      subtitle: pkg.startDate || ''
+                      subtitle: ''
                     });
                     setModalOpen(true);
                   }}
