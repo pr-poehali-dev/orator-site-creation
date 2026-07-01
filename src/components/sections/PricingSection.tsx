@@ -56,8 +56,8 @@ const PricingSection = () => {
           color: 'purple'
         }
       ],
-      price: '19 500',
-      oldPrice: '22 500',
+      price: '22 500',
+      oldPrice: '24 000',
       features: [
         '8 групповых занятий и 1 индивидуальное',
         'Самопрезентация',
