@@ -49,7 +49,7 @@ const FreeTrialBanner = () => {
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Плашка */}
         <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-red-500 text-white text-lg font-bold px-7 py-3 rounded-full shadow-md">
+          <div className="inline-flex items-center gap-3 bg-white border-2 border-orange-200 text-orange-700 text-lg font-bold px-7 py-3 rounded-full shadow-sm">
             <Icon name="Mic" size={22} />
             Первый шаг к уверенной речи — попробуй бесплатно
           </div>
