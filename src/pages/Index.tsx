@@ -40,16 +40,16 @@ const Index = () => {
         className="bg-gradient-to-r from-primary to-secondary text-white py-4 px-4 cursor-pointer hover:opacity-95 transition-opacity"
         onClick={() => setShowModal(true)}
       >
-        <div className="container mx-auto max-w-4xl flex flex-col sm:flex-row items-center justify-center gap-3 text-center sm:text-left">
-          <div className="flex items-center gap-2 flex-shrink-0">
-            <span className="text-2xl">🎓</span>
-            <span className="bg-white/20 text-white text-xs font-bold px-3 py-1 rounded-full uppercase tracking-wide whitespace-nowrap">11 июля · сб · 13:00</span>
+        <div className="container mx-auto max-w-4xl flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
+          <div className="flex items-center gap-3 flex-shrink-0">
+            <span className="text-3xl">🎓</span>
+            <span className="bg-white/20 text-white text-base font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">11 июля · сб · 13:00</span>
           </div>
           <div className="flex-1">
-            <p className="font-bold text-lg md:text-xl leading-tight">Выпускной показ на ораторском курсе — вход свободный!</p>
-            <p className="text-white/80 text-sm mt-0.5">Выступления выпускников · Спикер-баттл для всех желающих</p>
+            <p className="font-bold text-xl md:text-2xl leading-tight">Выпускной показ на ораторском курсе — вход свободный!</p>
+            <p className="text-white/85 text-lg mt-1">Выступления выпускников · Спикер-баттл для всех желающих</p>
           </div>
-          <div className="flex-shrink-0 bg-white/20 border border-white/30 text-white text-sm font-bold px-4 py-2 rounded-full hover:bg-white/30 transition-colors whitespace-nowrap">
+          <div className="flex-shrink-0 bg-white/20 border border-white/30 text-white text-lg font-bold px-6 py-2.5 rounded-full hover:bg-white/30 transition-colors whitespace-nowrap">
             Записаться →
           </div>
         </div>

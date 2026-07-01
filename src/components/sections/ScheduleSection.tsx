@@ -103,8 +103,8 @@ const ScheduleSection = () => {
                           className={`p-3 rounded-lg border cursor-pointer transition-colors ${g.color === 'blue' ? 'bg-blue-50 border-blue-300 hover:bg-blue-100' : 'bg-purple-50 border-purple-300 hover:bg-purple-100'}`}
                           onClick={() => handleDateSelect(course.name, g.dates)}
                         >
-                          <span className={`font-bold text-lg block ${g.color === 'blue' ? 'text-blue-900' : 'text-purple-900'}`}>{g.dates}</span>
-                          <span className={`text-base whitespace-pre-line ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{g.schedule}</span>
+                          <span className={`font-bold text-xl block ${g.color === 'blue' ? 'text-blue-900' : 'text-purple-900'}`}>{g.dates}</span>
+                          <span className={`text-lg whitespace-pre-line ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{g.schedule}</span>
                         </div>
                       ))}
                     </div>
@@ -147,14 +147,14 @@ const ScheduleSection = () => {
                           <Icon name={course.isCoaching ? "Monitor" : "Calendar"} size={16} className="text-blue-600 flex-shrink-0" />
                           <span className="font-semibold text-blue-900 text-lg">{course.startDate}</span>
                         </div>
-                        {course.schedule && <p className="text-base text-blue-700 ml-5">{course.schedule}</p>}
+                        {course.schedule && <p className="text-lg text-blue-700 ml-5">{course.schedule}</p>}
                       </div>
                       <div className="p-3 bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-300 rounded-lg hover:from-purple-100 hover:to-purple-200 transition-colors cursor-pointer" onClick={() => handleDateSelect(course.name, course.startDate2)}>
                         <div className="flex items-center gap-2 mb-1">
                           <Icon name={course.isCoaching ? "MapPin" : "Calendar"} size={16} className="text-purple-600 flex-shrink-0" />
                           <span className="font-semibold text-purple-900 text-lg">{course.startDate2}</span>
                         </div>
-                        {course.schedule2 && <p className="text-base text-purple-700 ml-5">{course.schedule2}</p>}
+                        {course.schedule2 && <p className="text-lg text-purple-700 ml-5">{course.schedule2}</p>}
                       </div>
                     </div>
                   ) : (
