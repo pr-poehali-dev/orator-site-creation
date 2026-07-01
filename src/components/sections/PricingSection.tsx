@@ -1,5 +1,5 @@
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
 import { trackGoal, GOALS } from '@/utils/goals';
 import { useEffect, useRef, useState } from 'react';
@@ -42,25 +42,57 @@ const PricingSection = () => {
 
   const packages = [
     {
-      name: 'Курс ораторского искусства и импровизации',
+      name: 'Ораторский курс с нуля',
       groups: [
         {
-          label: '13 июля — 05 августа',
-          note: 'дневная группа · пн/ср · 14:00–16:00',
+          label: 'Дневная группа · пн/ср · 14:00–16:00',
+          note: '13 июля — 05 августа · 03 августа — 29 августа',
           color: 'blue'
         },
         {
-          label: '03 августа — 29 августа',
-          note: 'дневная 14:00–16:00 · вечерняя 19:00–21:00 · пн/ср',
+          label: 'Вечерняя группа · пн/ср · 19:00–21:00',
+          note: '13 июля — 05 августа · 03 августа — 29 августа',
           color: 'purple'
         }
       ],
       price: '19 500',
       oldPrice: '22 500',
       features: [
-        'Групповые и индивидуальные занятия',
-        'Финальное выступление при реальных зрителях',
-        'Онлайн курс «Речевая креативность за 7 дней» в подарок'
+        '8 групповых занятий и 1 индивидуальное',
+        'Самопрезентация',
+        'Управление страхом публичных выступлений',
+        'Поза, жесты, поведение на сцене',
+        'Речь, голос, дикция',
+        'Структура речи, крючки внимания',
+        'Ответы на неудобные вопросы',
+        'Импровизация в речи',
+        'Актёрские практики для раскрепощения оратора'
+      ]
+    },
+    {
+      name: 'Импровизация. Сторителлинг',
+      isPopular: true,
+      groups: [
+        {
+          label: 'Дневная группа · пн/ср · 14:00–16:00',
+          note: '13 июля — 05 августа · 03 августа — 29 августа',
+          color: 'blue'
+        },
+        {
+          label: 'Вечерняя группа · пн/ср · 19:00–21:00',
+          note: '13 июля — 05 августа · 03 августа — 29 августа',
+          color: 'purple'
+        }
+      ],
+      price: '24 000',
+      oldPrice: '27 000',
+      features: [
+        'Всё, что входит в первый тариф',
+        '8 групповых занятий и 4 индивидуальных',
+        'Сторителлинг — умение рассказывать и продавать через истории',
+        'Развитие речевой креативности',
+        'Психологическое сопровождение',
+        'Финальное выступление с личным сторителлингом (мини-спектакль на основе реальных событий)'
       ]
     }
   ];
@@ -85,48 +117,55 @@ const PricingSection = () => {
           </p>
         </div>
         
-        <div className="flex justify-center mb-8 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8 md:mb-12">
           {packages.map((pkg, index) => (
             <Card 
               key={index} 
-              className={`group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 border-primary shadow-xl w-full max-w-2xl ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+              className={`group relative hover:shadow-2xl transition-all duration-500 hover:-translate-y-3 border-2 shadow-xl overflow-visible ${pkg.isPopular ? 'border-secondary' : 'border-primary'} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
+              {pkg.isPopular && (
+                <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
+                  <div className="bg-gradient-to-r from-secondary to-primary text-white text-base font-bold px-6 py-2 rounded-full shadow-lg whitespace-nowrap">
+                    Максимум результата
+                  </div>
+                </div>
+              )}
               <CardHeader className="text-center pb-4 pt-8">
                 <CardTitle className="mb-3 text-foreground">
-                  <span className="block text-2xl md:text-3xl lg:text-4xl">{pkg.name}</span>
+                  <span className="block text-2xl md:text-3xl">{pkg.name}</span>
                 </CardTitle>
-                {'groups' in pkg && pkg.groups && (
+                {pkg.groups && (
                   <div className="flex flex-col gap-3 mt-4">
                     {pkg.groups.map((g, gi) => (
                       <div
                         key={gi}
-                        className={`px-5 py-3 rounded-xl text-center ${g.color === 'blue' ? 'bg-blue-50 border border-blue-200' : 'bg-purple-50 border border-purple-200'}`}
+                        className={`px-4 py-3 rounded-xl text-left ${g.color === 'blue' ? 'bg-blue-50 border border-blue-200' : 'bg-purple-50 border border-purple-200'}`}
                       >
-                        <p className={`text-xl font-bold ${g.color === 'blue' ? 'text-blue-800' : 'text-purple-800'}`}>{g.label}</p>
-                        <p className={`text-lg mt-1 ${g.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}`}>{g.note}</p>
+                        <p className={`text-base font-bold ${g.color === 'blue' ? 'text-blue-800' : 'text-purple-800'}`}>{g.label}</p>
+                        <p className={`text-sm mt-1 ${g.color === 'blue' ? 'text-blue-600' : 'text-purple-600'}`}>{g.note}</p>
                       </div>
                     ))}
                   </div>
                 )}
                 <div className="mt-5 md:mt-6">
                   <div className="flex items-center justify-center gap-2 md:gap-3 mb-2">
-                    <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-primary">{pkg.price} ₽</span>
-                    {pkg.oldPrice && <span className="text-xl sm:text-2xl md:text-3xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
+                    <span className={`text-4xl md:text-5xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
+                    {pkg.oldPrice && <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
                   </div>
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-4 mb-6">
+                <ul className="space-y-3 mb-6">
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <Icon name="Check" className="text-primary flex-shrink-0 mt-1" size={24} />
-                      <span className="text-xl md:text-2xl leading-relaxed">{feature}</span>
+                      <Icon name={idx === 0 && pkg.isPopular ? 'Star' : 'Check'} className={`flex-shrink-0 mt-1 ${idx === 0 && pkg.isPopular ? 'text-secondary' : 'text-primary'}`} size={20} />
+                      <span className={`text-lg leading-relaxed ${idx === 0 && pkg.isPopular ? 'font-semibold text-foreground' : ''}`}>{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button 
-                  className="w-full py-6 md:py-7 text-lg md:text-xl bg-gradient-to-r from-primary to-secondary hover:opacity-90"
+                  className={`w-full py-6 text-lg bg-gradient-to-r hover:opacity-90 ${pkg.isPopular ? 'from-secondary to-primary' : 'from-primary to-secondary'}`}
                   size="lg"
                   onClick={() => {
                     trackGoal(GOALS.COURSE_SIGNUP_CLICK);
