@@ -84,9 +84,9 @@ const ScheduleSection = () => {
                 {course.type && (
                   <p className="text-sm font-medium uppercase tracking-wide opacity-80 mb-1">{course.type}</p>
                 )}
-                <CardTitle className="text-xl md:text-2xl font-bold leading-snug tracking-tight">{course.name}</CardTitle>
+                <CardTitle className="text-2xl md:text-3xl font-bold leading-snug tracking-tight">{course.name}</CardTitle>
                 {course.subtitle && (
-                  <p className="text-base md:text-lg opacity-90 font-semibold mt-2 tracking-wide">{course.subtitle}</p>
+                  <p className="text-lg md:text-xl opacity-90 font-semibold mt-2 tracking-wide">{course.subtitle}</p>
                 )}
               </CardHeader>
               <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-lg md:text-xl">
@@ -103,8 +103,8 @@ const ScheduleSection = () => {
                           className={`p-3 rounded-lg border cursor-pointer transition-colors ${g.color === 'blue' ? 'bg-blue-50 border-blue-300 hover:bg-blue-100' : 'bg-purple-50 border-purple-300 hover:bg-purple-100'}`}
                           onClick={() => handleDateSelect(course.name, g.dates)}
                         >
-                          <span className={`font-bold text-base block ${g.color === 'blue' ? 'text-blue-900' : 'text-purple-900'}`}>{g.dates}</span>
-                          <span className={`text-sm ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{g.schedule}</span>
+                          <span className={`font-bold text-lg block ${g.color === 'blue' ? 'text-blue-900' : 'text-purple-900'}`}>{g.dates}</span>
+                          <span className={`text-base ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{g.schedule}</span>
                         </div>
                       ))}
                     </div>
@@ -117,8 +117,8 @@ const ScheduleSection = () => {
                       <p className="font-semibold mb-2">Состав курса</p>
                       <ul className="space-y-1">
                         {course.features.map((f, fi) => (
-                          <li key={fi} className="flex items-start gap-2 text-muted-foreground leading-relaxed">
-                            <Icon name="Check" size={16} className="text-primary mt-1 flex-shrink-0" />
+                          <li key={fi} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
+                            <Icon name="Check" size={18} className="text-primary mt-1 flex-shrink-0" />
                             {f}
                           </li>
                         ))}
@@ -145,16 +145,16 @@ const ScheduleSection = () => {
                       <div className="p-3 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-300 rounded-lg hover:from-blue-100 hover:to-blue-200 transition-colors cursor-pointer" onClick={() => handleDateSelect(course.name, course.startDate)}>
                         <div className="flex items-center gap-2 mb-1">
                           <Icon name={course.isCoaching ? "Monitor" : "Calendar"} size={16} className="text-blue-600 flex-shrink-0" />
-                          <span className="font-semibold text-blue-900 text-base">{course.startDate}</span>
+                          <span className="font-semibold text-blue-900 text-lg">{course.startDate}</span>
                         </div>
-                        {course.schedule && <p className="text-sm text-blue-700 ml-5">{course.schedule}</p>}
+                        {course.schedule && <p className="text-base text-blue-700 ml-5">{course.schedule}</p>}
                       </div>
                       <div className="p-3 bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-300 rounded-lg hover:from-purple-100 hover:to-purple-200 transition-colors cursor-pointer" onClick={() => handleDateSelect(course.name, course.startDate2)}>
                         <div className="flex items-center gap-2 mb-1">
                           <Icon name={course.isCoaching ? "MapPin" : "Calendar"} size={16} className="text-purple-600 flex-shrink-0" />
-                          <span className="font-semibold text-purple-900 text-base">{course.startDate2}</span>
+                          <span className="font-semibold text-purple-900 text-lg">{course.startDate2}</span>
                         </div>
-                        {course.schedule2 && <p className="text-sm text-purple-700 ml-5">{course.schedule2}</p>}
+                        {course.schedule2 && <p className="text-base text-purple-700 ml-5">{course.schedule2}</p>}
                       </div>
                     </div>
                   ) : (
@@ -175,7 +175,7 @@ const ScheduleSection = () => {
                       {!course.isDayGroup && !course.isSpecial && (
                         <p className="font-semibold">Продолжительность</p>
                       )}
-                      <p className="text-muted-foreground">{course.duration}</p>
+                      <p className="text-muted-foreground text-lg">{course.duration}</p>
                     </div>
                   </div>
                 )}
@@ -185,7 +185,7 @@ const ScheduleSection = () => {
                     <Icon name="CalendarDays" size={20} className="text-primary mt-1 flex-shrink-0" />
                     <div>
                       <p className="font-semibold">Расписание</p>
-                      <p className="text-muted-foreground text-base">{course.schedule}</p>
+                      <p className="text-muted-foreground text-lg">{course.schedule}</p>
                     </div>
                   </div>
                 )}
@@ -197,7 +197,7 @@ const ScheduleSection = () => {
                       {course.benefits.map((benefit, idx) => (
                         <li key={idx} className="flex items-start gap-2">
                           <Icon name="Check" size={18} className="text-primary flex-shrink-0 mt-0.5" />
-                          <span className="text-base">{benefit}</span>
+                          <span className="text-lg">{benefit}</span>
                         </li>
                       ))}
                     </ul>
@@ -205,7 +205,7 @@ const ScheduleSection = () => {
                 )}
 
                 <div className="pt-2 pb-2">
-                  <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-base font-semibold">
+                  <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-lg font-semibold">
                     ✓ {course.spots}
                   </div>
                 </div>
@@ -213,52 +213,56 @@ const ScheduleSection = () => {
                 <div className="pt-2">
                   {course.isCorporate ? (
                     <Button
-                      className="w-full bg-primary hover:bg-primary/90"
+                      size="lg"
+                      className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
                       onClick={() => {
                         trackGoal(GOALS.COURSE_SIGNUP_CLICK);
                         handleDateSelect(course.name, 'Формат по запросу');
                       }}
                     >
-                      <Icon name="UserPlus" size={18} className="mr-2" />
+                      <Icon name="UserPlus" size={20} className="mr-2" />
                       Записаться
                     </Button>
                   ) : (
                     <>
                       {course.isCoaching && (
-                        <p className="text-xs text-muted-foreground text-center mb-3">
+                        <p className="text-base text-muted-foreground text-center mb-3">
                           Выберите формат и узнайте подробности
                         </p>
                       )}
                       {course.isCoaching ? (
                         <Button
+                          size="lg"
                           variant="outline"
-                          className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                          className="w-full border-primary text-primary hover:bg-primary hover:text-white text-lg py-6"
                           asChild
                         >
                           <a href="#individual">
-                            <Icon name="Info" size={18} className="mr-2" />
+                            <Icon name="Info" size={20} className="mr-2" />
                             Подробнее
                           </a>
                         </Button>
                       ) : course.isTheater ? (
                         <Button
+                          size="lg"
                           variant="outline"
-                          className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                          className="w-full border-primary text-primary hover:bg-primary hover:text-white text-lg py-6"
                           asChild
                         >
                           <a href={course.externalLink} target="_blank" rel="noopener noreferrer">
-                            <Icon name="ExternalLink" size={18} className="mr-2" />
+                            <Icon name="ExternalLink" size={20} className="mr-2" />
                             О курсе подробнее
                           </a>
                         </Button>
                       ) : (
                         <Button
+                          size="lg"
                           variant="outline"
-                          className="w-full border-primary text-primary hover:bg-primary hover:text-white"
+                          className="w-full border-primary text-primary hover:bg-primary hover:text-white text-lg py-6"
                           asChild
                         >
                           <a href="#pricing">
-                            <Icon name="Info" size={18} className="mr-2" />
+                            <Icon name="Info" size={20} className="mr-2" />
                             Подробнее
                           </a>
                         </Button>
