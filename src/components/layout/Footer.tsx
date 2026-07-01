@@ -187,6 +187,16 @@ const Footer = () => {
                 </p>
                 <p>
                   <a 
+                    href="/mailing-consent" 
+                    target="_blank" 
+                    className="hover:text-primary transition-colors flex items-center gap-2"
+                  >
+                    <Icon name="FileText" size={16} />
+                    Согласие на информационные рассылки
+                  </a>
+                </p>
+                <p>
+                  <a 
                     href="/refund" 
                     target="_blank" 
                     className="hover:text-primary transition-colors flex items-center gap-2"
