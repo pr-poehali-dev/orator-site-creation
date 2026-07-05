@@ -218,7 +218,7 @@ const PricingSection = () => {
               <ul className="space-y-2">
                 <li className="flex items-start gap-2 text-lg">
                   <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
-                  Обратная связь лично от педагога
+                  Обратная связь в чате курса лично от педагога
                 </li>
                 <li className="flex items-start gap-2 text-lg">
                   <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
