@@ -40,6 +40,20 @@ const ScheduleSection = () => {
       spots: 'Идёт набор'
     },
     {
+      name: 'Курс ораторского искусства "РЕЧЕВАЯ КРЕАТИВНОСТЬ за 7 дней" (онлайн)',
+      description: 'Для тех, кто хочет научиться быстро находить слова в любой ситуации. Будет полезно тем, кому сложно спонтанно выступать на публике, у кого страх блокирует словесный поток, кому не хватает смелости выступать без подготовки.',
+      features: [
+        'Обратная связь лично от педагога',
+        'Доступ — навсегда'
+      ],
+      promoBadge: 'АКЦИЯ ТРИ ДНЯ',
+      oldPrice: '2450 руб.',
+      newPrice: '990 руб.',
+      buttonLink: 'https://kuzikova.robo.market/pro100reche',
+      color: 'from-orange to-primary',
+      isOnlinePromo: true
+    },
+    {
       name: 'Индивидуальный ораторский коучинг',
       startDate: 'Онлайн',
       startDate2: 'Офлайн',
@@ -80,6 +94,11 @@ const ScheduleSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
           {courses.map((course, index) => (
             <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2 relative overflow-visible">
+              {course.promoBadge && (
+                <div className="absolute -top-3 right-4 z-10 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
+                  {course.promoBadge}
+                </div>
+              )}
               <CardHeader className={`bg-gradient-to-r ${course.color} text-white rounded-t-lg pb-4 md:pb-6`}>
                 {course.type && (
                   <p className="text-sm font-medium uppercase tracking-wide opacity-80 mb-1">{course.type}</p>
@@ -132,6 +151,22 @@ const ScheduleSection = () => {
                     <div>
                       <p className="text-muted-foreground leading-relaxed">{course.description}</p>
                     </div>
+                  </div>
+                )}
+                {!course.isCombined && course.features && (
+                  <ul className="space-y-1">
+                    {course.features.map((f, fi) => (
+                      <li key={fi} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
+                        <Icon name="Check" size={18} className="text-primary mt-1 flex-shrink-0" />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                )}
+                {course.oldPrice && course.newPrice && (
+                  <div className="flex items-center gap-3">
+                    <span className="text-muted-foreground line-through text-lg">{course.oldPrice}</span>
+                    <span className="text-3xl font-bold text-primary">{course.newPrice}</span>
                   </div>
                 )}
                 {!course.isCorporate && !course.isCombined && course.startDate && (
@@ -204,14 +239,27 @@ const ScheduleSection = () => {
                   </div>
                 )}
 
-                <div className="pt-2 pb-2">
-                  <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-lg font-semibold">
-                    ✓ {course.spots}
+                {course.spots && (
+                  <div className="pt-2 pb-2">
+                    <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-lg font-semibold">
+                      ✓ {course.spots}
+                    </div>
                   </div>
-                </div>
+                )}
 
                 <div className="pt-2">
-                  {course.isCorporate ? (
+                  {course.isOnlinePromo ? (
+                    <Button
+                      size="lg"
+                      className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
+                      asChild
+                    >
+                      <a href={course.buttonLink} target="_blank" rel="noopener noreferrer">
+                        <Icon name="Zap" size={20} className="mr-2" />
+                        Начать сейчас
+                      </a>
+                    </Button>
+                  ) : course.isCorporate ? (
                     <Button
                       size="lg"
                       className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
