@@ -39,17 +39,14 @@ const HeroSection = () => {
               <div className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
                 <span className="text-white font-semibold text-sm sm:text-base">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
               </div>
-              <a
-                href="/award"
-                title="Лучшее место 2026 по версии Яндекс Бизнес"
-                className="transition-transform hover:scale-105"
-              >
-                <img
-                  src="https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/bucket/51df3fee-bf84-4c3d-acae-8e86a0c0a475.svg"
-                  alt="Лучшее место 2026 — Яндекс Бизнес"
-                  className="h-10 md:h-12 w-auto drop-shadow-md"
-                />
-              </a>
+              <iframe
+                src="https://yandex.ru/sprav/widget/rating-badge/108893235678?type=alt"
+                width="150"
+                height="50"
+                frameBorder="0"
+                title="Рейтинг на Яндексе"
+                className="rounded"
+              />
             </div>
             <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-5 leading-tight">
               <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">

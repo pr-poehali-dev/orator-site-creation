@@ -22,17 +22,14 @@ const Footer = () => {
           </div>
           <p className="text-sm md:text-base text-gray-400 mb-4 md:mb-6 px-2">Уникальный ораторский курс в Краснодаре от театрального режиссера и психолога</p>
           <div className="flex justify-center mb-4">
-            <a
-              href="/award"
-              title="Лучшее место 2026 по версии Яндекс Бизнес"
-              className="transition-transform hover:scale-105"
-            >
-              <img
-                src="https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/bucket/51df3fee-bf84-4c3d-acae-8e86a0c0a475.svg"
-                alt="Лучшее место 2026 — Яндекс Бизнес"
-                className="h-14 w-auto drop-shadow-lg"
-              />
-            </a>
+            <iframe
+              src="https://yandex.ru/sprav/widget/rating-badge/108893235678?type=alt"
+              width="150"
+              height="50"
+              frameBorder="0"
+              title="Рейтинг на Яндексе"
+              className="rounded"
+            />
           </div>
           <div className="flex justify-center gap-4 md:gap-6 mb-4 md:mb-6">
             <a 
