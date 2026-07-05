@@ -23,7 +23,7 @@ const Footer = () => {
           <p className="text-sm md:text-base text-gray-400 mb-4 md:mb-6 px-2">Уникальный ораторский курс в Краснодаре от театрального режиссера и психолога</p>
           <div className="flex justify-center mb-4">
             <iframe
-              src="https://yandex.ru/sprav/widget/rating-badge/108893235678?type=alt"
+              src="https://yandex.ru/sprav/widget/rating-badge/108893235678?type=award"
               width="150"
               height="50"
               frameBorder="0"

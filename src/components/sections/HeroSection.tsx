@@ -40,7 +40,7 @@ const HeroSection = () => {
                 <span className="text-white font-semibold text-sm sm:text-base">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
               </div>
               <iframe
-                src="https://yandex.ru/sprav/widget/rating-badge/108893235678?type=alt"
+                src="https://yandex.ru/sprav/widget/rating-badge/108893235678?type=award"
                 width="150"
                 height="50"
                 frameBorder="0"
