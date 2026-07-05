@@ -198,6 +198,48 @@ const PricingSection = () => {
           ))}
         </div>
 
+        <div className={`max-w-md mx-auto mb-8 md:mb-12 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <Card className="relative overflow-visible border-2 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
+            <div className="absolute -top-3 right-4 z-10 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
+              АКЦИЯ ТРИ ДНЯ
+            </div>
+            <CardHeader className="bg-gradient-to-r from-orange to-primary text-white rounded-t-lg pb-4 md:pb-6">
+              <CardTitle className="text-2xl md:text-3xl font-bold leading-snug tracking-tight">
+                Курс ораторского искусства "РЕЧЕВАЯ КРЕАТИВНОСТЬ за 7 дней" (онлайн)
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="pt-4 md:pt-6 space-y-4">
+              <p className="text-muted-foreground leading-relaxed text-lg">
+                Для тех, кто хочет научиться быстро находить слова в любой ситуации. Будет полезно тем, кому сложно спонтанно выступать на публике, у кого страх блокирует словесный поток, кому не хватает смелости выступать без подготовки.
+              </p>
+              <ul className="space-y-2">
+                <li className="flex items-start gap-2 text-lg">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  Обратная связь лично от педагога
+                </li>
+                <li className="flex items-start gap-2 text-lg">
+                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  Доступ — навсегда
+                </li>
+              </ul>
+              <div className="flex items-center gap-3">
+                <span className="text-muted-foreground line-through text-xl">2450 руб.</span>
+                <span className="text-4xl font-bold text-primary">990 руб.</span>
+              </div>
+              <Button
+                size="lg"
+                className="w-full bg-gradient-to-r from-orange to-primary hover:opacity-90 text-xl py-7"
+                asChild
+              >
+                <a href="https://kuzikova.robo.market/pro100reche" target="_blank" rel="noopener noreferrer">
+                  <Icon name="Zap" size={22} className="mr-2" />
+                  Начать сейчас
+                </a>
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
+
         <div className={`mt-6 md:mt-8 text-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
           <div className="inline-block bg-gradient-to-r from-orange-50 to-red-50 border-2 border-orange-300 rounded-2xl px-6 py-4 md:py-6 shadow-lg">
             <div className="flex flex-col items-center gap-4">
