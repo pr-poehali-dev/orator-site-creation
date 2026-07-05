@@ -18,6 +18,7 @@ const ScheduleSection = () => {
   const courses = [
     {
       name: 'Курс ораторского искусства и импровизации',
+      badge: 'ОФФЛАЙН',
       color: 'from-primary to-secondary',
       isCombined: true,
       groups: [
@@ -50,7 +51,7 @@ const ScheduleSection = () => {
       oldPrice: '2450 руб.',
       newPrice: '990 руб.',
       buttonLink: 'https://kuzikova.robo.market/pro100reche',
-      color: 'from-orange to-primary',
+      color: 'from-blue-600 to-blue-800',
       isOnlinePromo: true
     },
     {
@@ -97,6 +98,11 @@ const ScheduleSection = () => {
               {course.promoBadge && (
                 <div className="absolute -top-3 right-4 z-10 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
                   {course.promoBadge}
+                </div>
+              )}
+              {course.badge && (
+                <div className="absolute -top-3 right-4 z-10 bg-gray-700 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
+                  {course.badge}
                 </div>
               )}
               <CardHeader className={`bg-gradient-to-r ${course.color} text-white rounded-t-lg pb-4 md:pb-6`}>

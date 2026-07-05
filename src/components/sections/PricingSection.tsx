@@ -119,7 +119,10 @@ const PricingSection = () => {
           </p>
         </div>
         
-        <div className={`transition-all duration-1000 delay-200 mb-0 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+        <div className={`relative transition-all duration-1000 delay-200 mb-0 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="absolute -top-3 right-4 md:right-8 z-10 bg-gray-700 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
+            ОФФЛАЙН
+          </div>
           <div className="bg-gradient-to-r from-primary to-secondary rounded-t-2xl px-6 py-5 flex items-center gap-4 justify-center">
             <Icon name="GraduationCap" size={28} className="text-white flex-shrink-0" />
             <span className="text-2xl md:text-3xl font-bold text-white text-center">Курс ораторского искусства и импровизации</span>
@@ -203,7 +206,7 @@ const PricingSection = () => {
             <div className="absolute -top-3 right-4 z-10 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
               АКЦИЯ ТРИ ДНЯ
             </div>
-            <CardHeader className="bg-gradient-to-r from-orange to-primary text-white rounded-t-lg pb-4 md:pb-6">
+            <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-t-lg pb-4 md:pb-6">
               <CardTitle className="text-2xl md:text-3xl font-bold leading-snug tracking-tight">
                 Курс ораторского искусства "РЕЧЕВАЯ КРЕАТИВНОСТЬ за 7 дней" (онлайн)
               </CardTitle>
@@ -228,7 +231,7 @@ const PricingSection = () => {
               </div>
               <Button
                 size="lg"
-                className="w-full bg-gradient-to-r from-orange to-primary hover:opacity-90 text-xl py-7"
+                className="w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:opacity-90 text-xl py-7"
                 asChild
               >
                 <a href="https://kuzikova.robo.market/pro100reche" target="_blank" rel="noopener noreferrer">
