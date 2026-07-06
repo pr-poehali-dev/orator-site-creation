@@ -208,7 +208,7 @@ const PricingSection = () => {
             </div>
             <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-t-lg pb-4 md:pb-6">
               <CardTitle className="text-2xl md:text-3xl font-bold leading-snug tracking-tight">
-                Курс ораторского искусства "РЕЧЕВАЯ КРЕАТИВНОСТЬ за 7 дней" (онлайн)
+                Курс ораторского искусства "РЕЧЕВАЯ КРЕАТИВНОСТЬ" (онлайн)
               </CardTitle>
             </CardHeader>
             <CardContent className="pt-4 md:pt-6 space-y-4">
