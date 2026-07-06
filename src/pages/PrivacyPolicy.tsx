@@ -6,9 +6,6 @@ const PrivacyPolicy = () => {
           <h1 className="text-4xl font-bold mb-8 text-center">Политика конфиденциальности</h1>
           
           <div className="prose prose-lg max-w-none space-y-6 text-muted-foreground">
-            <p className="text-sm text-center">Приложение к приказу № 2 от 15 мая 2018 г.</p>
-            
-            <h2 className="text-2xl font-bold text-foreground mt-8 mb-4">ПОЛИТИКА КОНФИДЕНЦИАЛЬНОСТИ</h2>
             <p className="font-semibold">Индивидуального предпринимателя Кузиковой Светланы Алексеевны<br/>ОГРНИП 318237500160591</p>
 
             <h3 className="text-xl font-bold text-foreground mt-6 mb-3">1. Основные термины и определения</h3>
