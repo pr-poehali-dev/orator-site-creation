@@ -43,7 +43,6 @@ const PricingSection = () => {
   const packages = [
     {
       name: 'Ораторский курс с нуля',
-      tariff: 'Тариф 1',
       groups: [
         {
           label: 'Вечерняя группа · пн/ср · 19:00–21:00',
@@ -69,16 +68,15 @@ const PricingSection = () => {
     },
     {
       name: 'Импровизация. Сторителлинг',
-      tariff: 'Тариф 2',
       isPopular: true,
       groups: [
         {
-          label: 'Вечерняя группа · пн/ср · 19:00–21:00',
+          label: 'Дневная группа · пн/ср · 14:00–16:00',
           dates: ['03 августа — 29 августа'],
-          color: 'purple'
+          color: 'blue'
         }
       ],
-      price: '34 500',
+      price: '24 500',
       oldPrice: '39 000',
       features: [
         'Всё, что входит в первый тариф',
