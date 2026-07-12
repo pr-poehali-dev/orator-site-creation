@@ -11,6 +11,7 @@ const PricingSection = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState({ name: '', subtitle: '' });
+  const [isStorytellingExpanded, setIsStorytellingExpanded] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -176,44 +177,56 @@ const PricingSection = () => {
               </CardHeader>
               <CardContent>
                 {pkg.isStorytelling ? (
-                  <div className="space-y-6 mb-6 text-left">
-                    <div>
-                      <p className="font-bold text-lg mb-2">О чём курс</p>
-                      <p className="text-muted-foreground leading-relaxed">{pkg.about}</p>
-                    </div>
-                    <div>
-                      <p className="font-bold text-lg mb-2">Уникальность программы</p>
-                      <ul className="space-y-2">
-                        {pkg.uniqueness?.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <span className="flex-shrink-0 font-bold text-secondary">{idx + 1}.</span>
-                            <span className="leading-relaxed text-muted-foreground">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-bold text-lg mb-2">Что вы получите</p>
-                      <ul className="space-y-2">
-                        {pkg.results?.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <Icon name="Check" size={20} className="text-secondary flex-shrink-0 mt-1" />
-                            <span className="leading-relaxed text-muted-foreground">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                    <div>
-                      <p className="font-bold text-lg mb-2">Кому подойдёт</p>
-                      <ul className="space-y-2">
-                        {pkg.audience?.map((item, idx) => (
-                          <li key={idx} className="flex items-start gap-3">
-                            <Icon name="ArrowRight" size={20} className="text-secondary flex-shrink-0 mt-1" />
-                            <span className="leading-relaxed text-muted-foreground">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                  <div className="mb-6 text-left">
+                    {isStorytellingExpanded && (
+                      <div className="space-y-6 mb-4">
+                        <div>
+                          <p className="font-bold text-lg mb-2">О чём курс</p>
+                          <p className="text-muted-foreground leading-relaxed">{pkg.about}</p>
+                        </div>
+                        <div>
+                          <p className="font-bold text-lg mb-2">Уникальность программы</p>
+                          <ul className="space-y-2">
+                            {pkg.uniqueness?.map((item, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <span className="flex-shrink-0 font-bold text-secondary">{idx + 1}.</span>
+                                <span className="leading-relaxed text-muted-foreground">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="font-bold text-lg mb-2">Что вы получите</p>
+                          <ul className="space-y-2">
+                            {pkg.results?.map((item, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <Icon name="Check" size={20} className="text-secondary flex-shrink-0 mt-1" />
+                                <span className="leading-relaxed text-muted-foreground">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                        <div>
+                          <p className="font-bold text-lg mb-2">Кому подойдёт</p>
+                          <ul className="space-y-2">
+                            {pkg.audience?.map((item, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <Icon name="ArrowRight" size={20} className="text-secondary flex-shrink-0 mt-1" />
+                                <span className="leading-relaxed text-muted-foreground">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
+                    )}
+                    <button
+                      type="button"
+                      onClick={() => setIsStorytellingExpanded(!isStorytellingExpanded)}
+                      className="flex items-center gap-1 text-primary font-semibold hover:underline"
+                    >
+                      {isStorytellingExpanded ? 'Свернуть' : 'Читать подробнее'}
+                      <Icon name={isStorytellingExpanded ? 'ChevronUp' : 'ChevronDown'} size={18} />
+                    </button>
                   </div>
                 ) : (
                   <ul className="space-y-4 mb-6">
