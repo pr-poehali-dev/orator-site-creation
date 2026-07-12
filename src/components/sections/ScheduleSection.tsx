@@ -155,7 +155,7 @@ const ScheduleSection = () => {
                         <p className="font-semibold mb-1">О чём курс</p>
                         <ul className="space-y-1">
                           {course.aboutPoints.map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
+                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg md:text-xl">
                               <Icon name="Dot" size={20} className="text-secondary mt-0.5 flex-shrink-0" />
                               {item}
                             </li>
@@ -170,7 +170,7 @@ const ScheduleSection = () => {
                             <p className="font-semibold mb-1">Уникальность программы</p>
                             <ul className="space-y-1">
                               {course.uniqueness.map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
+                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg md:text-xl">
                                   <span className="flex-shrink-0 font-bold text-secondary">{idx + 1}.</span>
                                   {item}
                                 </li>
@@ -183,7 +183,7 @@ const ScheduleSection = () => {
                             <p className="font-semibold mb-1">Что вы получите</p>
                             <ul className="space-y-1">
                               {course.results.map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
+                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg md:text-xl">
                                   <Icon name="Check" size={16} className="text-secondary mt-1 flex-shrink-0" />
                                   {item}
                                 </li>
@@ -196,7 +196,7 @@ const ScheduleSection = () => {
                             <p className="font-semibold mb-1">Кому подойдёт</p>
                             <ul className="space-y-1">
                               {course.audience.map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
+                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg md:text-xl">
                                   <Icon name="ArrowRight" size={16} className="text-secondary mt-1 flex-shrink-0" />
                                   {item}
                                 </li>
@@ -209,7 +209,7 @@ const ScheduleSection = () => {
                     <button
                       type="button"
                       onClick={() => setIsStorytellingExpanded(!isStorytellingExpanded)}
-                      className="flex items-center gap-1 text-primary font-semibold text-lg hover:underline"
+                      className="flex items-center gap-1 text-primary font-semibold text-lg md:text-xl hover:underline"
                     >
                       {isStorytellingExpanded ? 'Свернуть' : 'Читать подробнее'}
                       <Icon name={isStorytellingExpanded ? 'ChevronUp' : 'ChevronDown'} size={18} />
@@ -230,7 +230,7 @@ const ScheduleSection = () => {
                           onClick={() => handleDateSelect(course.name, g.dates)}
                         >
                           <span className={`font-bold text-xl block ${g.color === 'blue' ? 'text-blue-900' : 'text-purple-900'}`}>{g.dates}</span>
-                          <span className={`text-lg whitespace-pre-line ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{g.schedule}</span>
+                          <span className={`text-lg md:text-xl whitespace-pre-line ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{g.schedule}</span>
                         </div>
                       ))}
                     </div>
@@ -243,7 +243,7 @@ const ScheduleSection = () => {
                       <p className="font-semibold mb-2">Состав курса</p>
                       <ul className="space-y-1">
                         {course.features.map((f, fi) => (
-                          <li key={fi} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
+                          <li key={fi} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg md:text-xl">
                             <Icon name="Check" size={18} className="text-primary mt-1 flex-shrink-0" />
                             {f}
                           </li>
@@ -263,7 +263,7 @@ const ScheduleSection = () => {
                 {!course.isCombined && course.features && (
                   <ul className="space-y-1">
                     {course.features.map((f, fi) => (
-                      <li key={fi} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
+                      <li key={fi} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg md:text-xl">
                         <Icon name="Check" size={18} className="text-primary mt-1 flex-shrink-0" />
                         {f}
                       </li>
