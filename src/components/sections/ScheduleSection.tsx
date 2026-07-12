@@ -155,7 +155,7 @@ const ScheduleSection = () => {
                         <p className="font-semibold mb-1">О чём курс</p>
                         <ul className="space-y-1">
                           {course.aboutPoints.map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
                               <Icon name="Dot" size={20} className="text-secondary mt-0.5 flex-shrink-0" />
                               {item}
                             </li>
@@ -170,7 +170,7 @@ const ScheduleSection = () => {
                             <p className="font-semibold mb-1">Уникальность программы</p>
                             <ul className="space-y-1">
                               {course.uniqueness.map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
                                   <span className="flex-shrink-0 font-bold text-secondary">{idx + 1}.</span>
                                   {item}
                                 </li>
@@ -183,7 +183,7 @@ const ScheduleSection = () => {
                             <p className="font-semibold mb-1">Что вы получите</p>
                             <ul className="space-y-1">
                               {course.results.map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
                                   <Icon name="Check" size={16} className="text-secondary mt-1 flex-shrink-0" />
                                   {item}
                                 </li>
@@ -196,7 +196,7 @@ const ScheduleSection = () => {
                             <p className="font-semibold mb-1">Кому подойдёт</p>
                             <ul className="space-y-1">
                               {course.audience.map((item, idx) => (
-                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg">
                                   <Icon name="ArrowRight" size={16} className="text-secondary mt-1 flex-shrink-0" />
                                   {item}
                                 </li>
@@ -209,7 +209,7 @@ const ScheduleSection = () => {
                     <button
                       type="button"
                       onClick={() => setIsStorytellingExpanded(!isStorytellingExpanded)}
-                      className="flex items-center gap-1 text-primary font-semibold text-base hover:underline"
+                      className="flex items-center gap-1 text-primary font-semibold text-lg hover:underline"
                     >
                       {isStorytellingExpanded ? 'Свернуть' : 'Читать подробнее'}
                       <Icon name={isStorytellingExpanded ? 'ChevronUp' : 'ChevronDown'} size={18} />

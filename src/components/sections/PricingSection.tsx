@@ -180,16 +180,16 @@ const PricingSection = () => {
                   <div className="mb-6 text-left">
                     <div className="space-y-6 mb-4">
                       <div>
-                        <p className="font-bold text-lg mb-2">О чём курс</p>
-                        <p className="text-muted-foreground leading-relaxed">{pkg.about}</p>
+                        <p className="font-bold text-xl mb-2">О чём курс</p>
+                        <p className="text-muted-foreground leading-relaxed text-xl">{pkg.about}</p>
                       </div>
                       <div>
-                        <p className="font-bold text-lg mb-2">Уникальность программы</p>
+                        <p className="font-bold text-xl mb-2">Уникальность программы</p>
                         <ul className="space-y-2">
                           {pkg.uniqueness?.map((item, idx) => (
                             <li key={idx} className="flex items-start gap-3">
-                              <span className="flex-shrink-0 font-bold text-secondary">{idx + 1}.</span>
-                              <span className="leading-relaxed text-muted-foreground">{item}</span>
+                              <span className="flex-shrink-0 font-bold text-secondary text-xl">{idx + 1}.</span>
+                              <span className="leading-relaxed text-muted-foreground text-xl">{item}</span>
                             </li>
                           ))}
                         </ul>
@@ -198,23 +198,23 @@ const PricingSection = () => {
                     {isStorytellingExpanded && (
                       <div className="space-y-6 mb-4">
                         <div>
-                          <p className="font-bold text-lg mb-2">Что вы получите</p>
+                          <p className="font-bold text-xl mb-2">Что вы получите</p>
                           <ul className="space-y-2">
                             {pkg.results?.map((item, idx) => (
                               <li key={idx} className="flex items-start gap-3">
-                                <Icon name="Check" size={20} className="text-secondary flex-shrink-0 mt-1" />
-                                <span className="leading-relaxed text-muted-foreground">{item}</span>
+                                <Icon name="Check" size={22} className="text-secondary flex-shrink-0 mt-1" />
+                                <span className="leading-relaxed text-muted-foreground text-xl">{item}</span>
                               </li>
                             ))}
                           </ul>
                         </div>
                         <div>
-                          <p className="font-bold text-lg mb-2">Кому подойдёт</p>
+                          <p className="font-bold text-xl mb-2">Кому подойдёт</p>
                           <ul className="space-y-2">
                             {pkg.audience?.map((item, idx) => (
                               <li key={idx} className="flex items-start gap-3">
-                                <Icon name="ArrowRight" size={20} className="text-secondary flex-shrink-0 mt-1" />
-                                <span className="leading-relaxed text-muted-foreground">{item}</span>
+                                <Icon name="ArrowRight" size={22} className="text-secondary flex-shrink-0 mt-1" />
+                                <span className="leading-relaxed text-muted-foreground text-xl">{item}</span>
                               </li>
                             ))}
                           </ul>
@@ -224,7 +224,7 @@ const PricingSection = () => {
                     <button
                       type="button"
                       onClick={() => setIsStorytellingExpanded(!isStorytellingExpanded)}
-                      className="flex items-center gap-1 text-primary font-semibold hover:underline"
+                      className="flex items-center gap-1 text-primary font-semibold hover:underline text-xl"
                     >
                       {isStorytellingExpanded ? 'Свернуть' : 'Читать подробнее'}
                       <Icon name={isStorytellingExpanded ? 'ChevronUp' : 'ChevronDown'} size={18} />
