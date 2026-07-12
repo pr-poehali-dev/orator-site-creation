@@ -67,24 +67,39 @@ const PricingSection = () => {
       ]
     },
     {
-      name: 'Импровизация. Сторителлинг',
+      name: 'Курс «Импровизация: личный сторителлинг»',
       isPopular: true,
+      isStorytelling: true,
       groups: [
         {
           label: 'Индивидуальный формат',
-          dates: ['03 августа — 29 августа'],
+          dates: [] as string[],
           color: 'purple'
         }
       ],
+      features: [] as string[],
+      tagline: '6 трансформационных занятий на стыке ораторского искусства, психологии и бизнеса.',
+      about: 'Это не тренинг ораторского мастерства в классическом понимании. Это глубокая проработка вашей личности через призму сцены. Мы учимся не просто говорить красиво, а рассказывать истории так, чтобы менять реальность слушателя. Главный инструмент курса — ваша биография.',
+      uniqueness: [
+        'Сплав трех дисциплин: Техника речи (как сказать) + Режиссура (как показать) + Психология (как прожить и отпустить).',
+        'Трансформация негативного опыта. Превращаем уязвимость в мощный ресурс для влияния на аудиторию.',
+        'Практика импровизации (чтобы выдать гениальный ответ в любой стрессовой ситуации).',
+        'Индивидуальная психологическая работа на протяжении всего курса.',
+        'Финальное выступление перед реальными зрителями.'
+      ],
+      results: [
+        'Свободное тело и звучащий, объемный голос.',
+        'Способность выкрутиться из любой неловкой паузы.',
+        'Готовый 20-минутный моноспектакль.',
+        'Способность продавать что угодно (себя, идеи, продукты) через проживание эмоций, а не через сухие характеристики.'
+      ],
+      audience: [
+        'Руководителям и предпринимателям, которым нужно вдохновлять команду и партнеров.',
+        'Специалистам помогающих профессий (врачи, юристы, психологи), чтобы клиенты чувствовали их уверенность.',
+        'Творческим людям, которые ищут свой уникальный «голос» и хотят избавиться от страха сцены.'
+      ],
       price: '24 500',
-      oldPrice: '39 000',
-      features: [
-        '8 занятий',
-        'Сторителлинг — умение рассказывать и продавать через истории',
-        'Развитие речевой креативности',
-        'Психологическое сопровождение',
-        'Финальное выступление с личным сторителлингом (мини-спектакль на основе реальных событий)'
-      ]
+      oldPrice: '39 000'
     }
   ];
 
@@ -126,11 +141,6 @@ const PricingSection = () => {
               style={{ transitionDelay: `${index * 150}ms` }}
             >
               <CardHeader className="text-center pb-4 pt-8">
-                {pkg.tariff && (
-                  <div className={`inline-block mx-auto mb-3 px-5 py-1.5 rounded-full text-white text-lg font-bold uppercase tracking-widest ${pkg.isPopular ? 'bg-secondary' : 'bg-primary'}`}>
-                    {pkg.tariff}
-                  </div>
-                )}
                 <CardTitle className="mb-3 text-foreground">
                   <span className="block text-2xl md:text-3xl">{pkg.name}</span>
                 </CardTitle>
@@ -154,6 +164,9 @@ const PricingSection = () => {
                     ))}
                   </div>
                 )}
+                {pkg.tagline && (
+                  <p className="text-lg font-semibold text-secondary mt-4 leading-relaxed">{pkg.tagline}</p>
+                )}
                 <div className="mt-5 md:mt-6">
                   <div className="flex items-center justify-center gap-3 mb-2">
                     <span className={`text-5xl md:text-6xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
@@ -162,14 +175,56 @@ const PricingSection = () => {
                 </div>
               </CardHeader>
               <CardContent>
-                <ul className="space-y-4 mb-6">
-                  {pkg.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <Icon name={idx === 0 && pkg.isPopular ? 'Star' : 'Check'} className={`flex-shrink-0 mt-1 ${idx === 0 && pkg.isPopular ? 'text-secondary' : 'text-primary'}`} size={22} />
-                      <span className={`text-xl leading-relaxed ${idx === 0 && pkg.isPopular ? 'font-semibold text-foreground' : ''}`}>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
+                {pkg.isStorytelling ? (
+                  <div className="space-y-6 mb-6 text-left">
+                    <div>
+                      <p className="font-bold text-lg mb-2">О чём курс</p>
+                      <p className="text-muted-foreground leading-relaxed">{pkg.about}</p>
+                    </div>
+                    <div>
+                      <p className="font-bold text-lg mb-2">Уникальность программы</p>
+                      <ul className="space-y-2">
+                        {pkg.uniqueness?.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <span className="flex-shrink-0 font-bold text-secondary">{idx + 1}.</span>
+                            <span className="leading-relaxed text-muted-foreground">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-bold text-lg mb-2">Что вы получите</p>
+                      <ul className="space-y-2">
+                        {pkg.results?.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <Icon name="Check" size={20} className="text-secondary flex-shrink-0 mt-1" />
+                            <span className="leading-relaxed text-muted-foreground">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <p className="font-bold text-lg mb-2">Кому подойдёт</p>
+                      <ul className="space-y-2">
+                        {pkg.audience?.map((item, idx) => (
+                          <li key={idx} className="flex items-start gap-3">
+                            <Icon name="ArrowRight" size={20} className="text-secondary flex-shrink-0 mt-1" />
+                            <span className="leading-relaxed text-muted-foreground">{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ) : (
+                  <ul className="space-y-4 mb-6">
+                    {pkg.features?.map((feature, idx) => (
+                      <li key={idx} className="flex items-start gap-3">
+                        <Icon name="Check" className="flex-shrink-0 mt-1 text-primary" size={22} />
+                        <span className="text-xl leading-relaxed">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                )}
                 <Button 
                   className={`w-full py-7 text-xl bg-gradient-to-r hover:opacity-90 ${pkg.isPopular ? 'from-secondary to-primary' : 'from-primary to-secondary'}`}
                   size="lg"

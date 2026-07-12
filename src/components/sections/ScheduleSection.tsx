@@ -36,6 +36,33 @@ const ScheduleSection = () => {
       spots: 'Идёт набор'
     },
     {
+      name: 'Курс «Импровизация: личный сторителлинг»',
+      color: 'from-secondary to-primary',
+      isStorytellingCard: true,
+      formatLabel: 'Индивидуальный формат',
+      tagline: '6 трансформационных занятий на стыке ораторского искусства, психологии и бизнеса.',
+      about: 'Это не тренинг ораторского мастерства в классическом понимании. Это глубокая проработка вашей личности через призму сцены. Мы учимся не просто говорить красиво, а рассказывать истории так, чтобы менять реальность слушателя. Главный инструмент курса — ваша биография.',
+      uniqueness: [
+        'Сплав трех дисциплин: Техника речи (как сказать) + Режиссура (как показать) + Психология (как прожить и отпустить).',
+        'Трансформация негативного опыта. Превращаем уязвимость в мощный ресурс для влияния на аудиторию.',
+        'Практика импровизации (чтобы выдать гениальный ответ в любой стрессовой ситуации).',
+        'Индивидуальная психологическая работа на протяжении всего курса.',
+        'Финальное выступление перед реальными зрителями.'
+      ],
+      results: [
+        'Свободное тело и звучащий, объемный голос.',
+        'Способность выкрутиться из любой неловкой паузы.',
+        'Готовый 20-минутный моноспектакль.',
+        'Способность продавать что угодно (себя, идеи, продукты) через проживание эмоций, а не через сухие характеристики.'
+      ],
+      audience: [
+        'Руководителям и предпринимателям, которым нужно вдохновлять команду и партнеров.',
+        'Специалистам помогающих профессий (врачи, юристы, психологи), чтобы клиенты чувствовали их уверенность.',
+        'Творческим людям, которые ищут свой уникальный «голос» и хотят избавиться от страха сцены.'
+      ],
+      spots: 'Идёт набор'
+    },
+    {
       name: 'Ораторский курс "Речевая креативность (онлайн)"',
       description: 'Для тех, кто хочет научиться быстро находить слова в любой ситуации. Будет полезно тем, кому сложно спонтанно выступать на публике, у кого страх блокирует словесный поток, кому не хватает смелости выступать без подготовки.',
       features: [
@@ -110,6 +137,61 @@ const ScheduleSection = () => {
                 )}
               </CardHeader>
               <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-lg md:text-xl">
+                {course.isStorytellingCard && (
+                  <div className="space-y-4">
+                    <div className="p-3 rounded-lg border bg-purple-50 border-purple-300">
+                      <span className="font-bold text-xl block text-purple-900">{course.formatLabel}</span>
+                    </div>
+                    {course.tagline && (
+                      <p className="text-secondary font-semibold leading-relaxed">{course.tagline}</p>
+                    )}
+                    {course.about && (
+                      <div>
+                        <p className="font-semibold mb-1">О чём курс</p>
+                        <p className="text-muted-foreground leading-relaxed text-base">{course.about}</p>
+                      </div>
+                    )}
+                    {course.uniqueness && (
+                      <div>
+                        <p className="font-semibold mb-1">Уникальность программы</p>
+                        <ul className="space-y-1">
+                          {course.uniqueness.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                              <span className="flex-shrink-0 font-bold text-secondary">{idx + 1}.</span>
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {course.results && (
+                      <div>
+                        <p className="font-semibold mb-1">Что вы получите</p>
+                        <ul className="space-y-1">
+                          {course.results.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                              <Icon name="Check" size={16} className="text-secondary mt-1 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                    {course.audience && (
+                      <div>
+                        <p className="font-semibold mb-1">Кому подойдёт</p>
+                        <ul className="space-y-1">
+                          {course.audience.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                              <Icon name="ArrowRight" size={16} className="text-secondary mt-1 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+                  </div>
+                )}
                 {course.isCombined && course.groups && (
                   <div>
                     <div className="flex items-center gap-2 mb-3">
