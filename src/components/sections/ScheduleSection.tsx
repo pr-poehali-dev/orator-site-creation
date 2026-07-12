@@ -8,6 +8,7 @@ import ApplicationModal from '@/components/ApplicationModal';
 const ScheduleSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState({ name: '', date: '' });
+  const [isStorytellingExpanded, setIsStorytellingExpanded] = useState(false);
 
   const handleDateSelect = (courseName: string, date: string) => {
     setSelectedCourse({ name: courseName, date });
@@ -145,51 +146,63 @@ const ScheduleSection = () => {
                     {course.tagline && (
                       <p className="text-secondary font-semibold leading-relaxed">{course.tagline}</p>
                     )}
-                    {course.about && (
-                      <div>
-                        <p className="font-semibold mb-1">О чём курс</p>
-                        <p className="text-muted-foreground leading-relaxed text-base">{course.about}</p>
-                      </div>
+                    {isStorytellingExpanded && (
+                      <>
+                        {course.about && (
+                          <div>
+                            <p className="font-semibold mb-1">О чём курс</p>
+                            <p className="text-muted-foreground leading-relaxed text-base">{course.about}</p>
+                          </div>
+                        )}
+                        {course.uniqueness && (
+                          <div>
+                            <p className="font-semibold mb-1">Уникальность программы</p>
+                            <ul className="space-y-1">
+                              {course.uniqueness.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                                  <span className="flex-shrink-0 font-bold text-secondary">{idx + 1}.</span>
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {course.results && (
+                          <div>
+                            <p className="font-semibold mb-1">Что вы получите</p>
+                            <ul className="space-y-1">
+                              {course.results.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                                  <Icon name="Check" size={16} className="text-secondary mt-1 flex-shrink-0" />
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {course.audience && (
+                          <div>
+                            <p className="font-semibold mb-1">Кому подойдёт</p>
+                            <ul className="space-y-1">
+                              {course.audience.map((item, idx) => (
+                                <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                                  <Icon name="ArrowRight" size={16} className="text-secondary mt-1 flex-shrink-0" />
+                                  {item}
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                      </>
                     )}
-                    {course.uniqueness && (
-                      <div>
-                        <p className="font-semibold mb-1">Уникальность программы</p>
-                        <ul className="space-y-1">
-                          {course.uniqueness.map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
-                              <span className="flex-shrink-0 font-bold text-secondary">{idx + 1}.</span>
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {course.results && (
-                      <div>
-                        <p className="font-semibold mb-1">Что вы получите</p>
-                        <ul className="space-y-1">
-                          {course.results.map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
-                              <Icon name="Check" size={16} className="text-secondary mt-1 flex-shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
-                    {course.audience && (
-                      <div>
-                        <p className="font-semibold mb-1">Кому подойдёт</p>
-                        <ul className="space-y-1">
-                          {course.audience.map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
-                              <Icon name="ArrowRight" size={16} className="text-secondary mt-1 flex-shrink-0" />
-                              {item}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    )}
+                    <button
+                      type="button"
+                      onClick={() => setIsStorytellingExpanded(!isStorytellingExpanded)}
+                      className="flex items-center gap-1 text-primary font-semibold text-base hover:underline"
+                    >
+                      {isStorytellingExpanded ? 'Свернуть' : 'Читать подробнее'}
+                      <Icon name={isStorytellingExpanded ? 'ChevronUp' : 'ChevronDown'} size={18} />
+                    </button>
                   </div>
                 )}
                 {course.isCombined && course.groups && (
