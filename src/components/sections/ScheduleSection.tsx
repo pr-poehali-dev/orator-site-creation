@@ -42,7 +42,11 @@ const ScheduleSection = () => {
       isStorytellingCard: true,
       formatLabel: 'Индивидуальный формат',
       tagline: '6 трансформационных занятий на стыке ораторского искусства, психологии и бизнеса.',
-      about: 'Это не тренинг ораторского мастерства в классическом понимании. Это глубокая проработка вашей личности через призму сцены. Мы учимся не просто говорить красиво, а рассказывать истории так, чтобы менять реальность слушателя. Главный инструмент курса — ваша биография.',
+      aboutPoints: [
+        'Это не тренинг ораторского мастерства в классическом понимании — это глубокая проработка вашей личности через призму сцены.',
+        'Мы учимся не просто говорить красиво, а рассказывать истории так, чтобы менять реальность слушателя.',
+        'Главный инструмент курса — ваша биография.'
+      ],
       uniqueness: [
         'Сплав трех дисциплин: Техника речи (как сказать) + Режиссура (как показать) + Психология (как прожить и отпустить).',
         'Трансформация негативного опыта. Превращаем уязвимость в мощный ресурс для влияния на аудиторию.',
@@ -146,14 +150,21 @@ const ScheduleSection = () => {
                     {course.tagline && (
                       <p className="text-secondary font-semibold leading-relaxed">{course.tagline}</p>
                     )}
+                    {course.aboutPoints && (
+                      <div>
+                        <p className="font-semibold mb-1">О чём курс</p>
+                        <ul className="space-y-1">
+                          {course.aboutPoints.map((item, idx) => (
+                            <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                              <Icon name="Dot" size={20} className="text-secondary mt-0.5 flex-shrink-0" />
+                              {item}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
                     {isStorytellingExpanded && (
                       <>
-                        {course.about && (
-                          <div>
-                            <p className="font-semibold mb-1">О чём курс</p>
-                            <p className="text-muted-foreground leading-relaxed text-base">{course.about}</p>
-                          </div>
-                        )}
                         {course.uniqueness && (
                           <div>
                             <p className="font-semibold mb-1">Уникальность программы</p>
