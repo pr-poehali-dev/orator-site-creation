@@ -243,16 +243,8 @@ const PricingSection = () => {
                   </div>
                 ) : (
                   <div className="mb-6">
-                    <ul className="space-y-4 mb-4">
-                      {pkg.features?.map((feature, idx) => (
-                        <li key={idx} className="flex items-start gap-3">
-                          <Icon name="Check" className="flex-shrink-0 mt-1 text-primary" size={22} />
-                          <span className="text-xl leading-relaxed">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
                     {pkg.topics && (
-                      <div>
+                      <div className="mb-4">
                         <button
                           type="button"
                           onClick={() => setIsTopicsExpanded(!isTopicsExpanded)}
@@ -274,6 +266,14 @@ const PricingSection = () => {
                         )}
                       </div>
                     )}
+                    <ul className="space-y-4">
+                      {pkg.features?.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <Icon name="Check" className="flex-shrink-0 mt-1 text-primary" size={22} />
+                          <span className="text-xl leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
                 <Button 
