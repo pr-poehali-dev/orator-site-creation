@@ -20,8 +20,8 @@ const StructuredData = () => {
       },
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 45.03547,
-        "longitude": 38.975313
+        "latitude": 45.046368,
+        "longitude": 38.982455
       },
       "telephone": "+79183111712",
       "email": "s_kuzikova@mail.ru",
