@@ -1,9 +1,16 @@
 import { Link } from 'react-router-dom';
+import { Helmet } from 'react-helmet-async';
 import Icon from '@/components/ui/icon';
 
 const RefundPolicy = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-white to-secondary/5 py-16 px-4">
+      <Helmet>
+        <title>Политика возврата средств | KUZIKOVA SCHOOL</title>
+        <meta name="description" content="Условия возврата денежных средств за образовательные услуги KUZIKOVA SCHOOL." />
+        <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href="https://kuzikova-school.ru/refund" />
+      </Helmet>
       <div className="container mx-auto max-w-4xl">
         <Link 
           to="/" 

@@ -16,4 +16,5 @@ export const GOALS = {
   PHONE_CLICK: 'phone_click',
   WHATSAPP_CLICK: 'whatsapp_click',
   COURSE_SIGNUP_CLICK: 'course_signup_click',
+  TELEGRAM_CLICK: 'telegram_click',
 } as const;

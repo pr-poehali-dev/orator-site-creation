@@ -1,6 +1,14 @@
+import { Helmet } from 'react-helmet-async';
+
 const Consent = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-primary/5 via-white to-secondary/5 py-16 px-4">
+      <Helmet>
+        <title>Согласие на обработку персональных данных | KUZIKOVA SCHOOL</title>
+        <meta name="description" content="Согласие на обработку персональных данных для сайта KUZIKOVA SCHOOL." />
+        <meta name="robots" content="noindex, follow" />
+        <link rel="canonical" href="https://kuzikova-school.ru/consent" />
+      </Helmet>
       <div className="container mx-auto max-w-4xl">
         <div className="bg-white rounded-lg shadow-xl p-8 md:p-12">
           <h1 className="text-4xl font-bold mb-8 text-center">Согласие на обработку персональных данных</h1>

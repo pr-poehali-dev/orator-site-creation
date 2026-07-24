@@ -1,5 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import { Button } from '@/components/ui/button';
@@ -103,8 +104,22 @@ const ArticlePage = () => {
     .filter(a => a.isVideo && a.id !== article.id)
     .slice(0, 3);
 
+  const pageUrl = `https://kuzikova-school.ru/blog/${article.id}`;
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-gray-50">
+      <Helmet>
+        <title>{article.title} | KUZIKOVA SCHOOL</title>
+        <meta name="description" content={article.description} />
+        <meta property="og:title" content={article.title} />
+        <meta property="og:description" content={article.description} />
+        <meta property="og:url" content={pageUrl} />
+        <meta property="og:type" content="article" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={article.title} />
+        <meta name="twitter:description" content={article.description} />
+        <link rel="canonical" href={pageUrl} />
+      </Helmet>
       <Header />
       
       <article className="pt-32 pb-12 px-4 animate-in fade-in duration-700">

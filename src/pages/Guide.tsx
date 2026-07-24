@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
 
@@ -13,6 +14,11 @@ const Guide = () => {
 
   return (
     <div className="min-h-screen bg-white">
+      <Helmet>
+        <title>Гайд по ораторскому мастерству | KUZIKOVA SCHOOL</title>
+        <meta name="description" content="Бесплатный гайд по ораторскому мастерству от KUZIKOVA SCHOOL." />
+        <meta name="robots" content="noindex, follow" />
+      </Helmet>
       <div className="no-print fixed top-4 right-4 z-50 flex gap-3">
         <Button onClick={() => window.history.back()} variant="outline" size="lg">
           <Icon name="ArrowLeft" size={18} className="mr-2" />
