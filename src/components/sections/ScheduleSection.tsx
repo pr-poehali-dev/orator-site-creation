@@ -9,6 +9,7 @@ const ScheduleSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState({ name: '', date: '' });
   const [isStorytellingExpanded, setIsStorytellingExpanded] = useState(false);
+  const [isTopicsExpanded, setIsTopicsExpanded] = useState(false);
 
   const handleDateSelect = (courseName: string, date: string) => {
     setSelectedCourse({ name: courseName, date });
@@ -33,6 +34,16 @@ const ScheduleSection = () => {
         'Групповые и индивидуальные занятия',
         'Финальное выступление при реальных зрителях',
         'Онлайн курс «Речевая креативность за 7 дней» в подарок'
+      ],
+      topics: [
+        'Самопрезентация. Управление страхом публичных выступлений. Уверенность в себе.',
+        'Умение подать себя. Невербальная коммуникация с аудиторией. Позы оратора.',
+        'Речевая визитка. Голос как сильная сторона бренда.',
+        'Импровизация в речи.',
+        'Структура и логика речи.',
+        'Секреты оратора. Крючки внимания. Ответы на вопросы. Взаимодействие с трудными слушателями.',
+        'Критерии успешности оратора. Алгоритм подготовки к публичному выступлению.',
+        'Практика. Выступление перед реальной аудиторией.'
       ],
       spots: 'Идёт набор'
     },
@@ -253,6 +264,29 @@ const ScheduleSection = () => {
                         ))}
                       </ul>
                     </div>
+                  </div>
+                )}
+                {course.isCombined && course.topics && (
+                  <div>
+                    <button
+                      type="button"
+                      onClick={() => setIsTopicsExpanded(!isTopicsExpanded)}
+                      className="flex items-center gap-2 text-primary font-semibold text-lg md:text-xl hover:underline"
+                    >
+                      <Icon name="ListChecks" size={20} className="flex-shrink-0" />
+                      {isTopicsExpanded ? 'Скрыть темы занятий' : 'Темы занятий'}
+                      <Icon name={isTopicsExpanded ? 'ChevronUp' : 'ChevronDown'} size={18} />
+                    </button>
+                    {isTopicsExpanded && (
+                      <ul className="space-y-1 mt-2">
+                        {course.topics.map((t, ti) => (
+                          <li key={ti} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                            <span className="flex-shrink-0 font-bold text-primary">{ti + 1}.</span>
+                            {t}
+                          </li>
+                        ))}
+                      </ul>
+                    )}
                   </div>
                 )}
                 {course.description && (
