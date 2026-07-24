@@ -24,7 +24,7 @@ const ScheduleSection = () => {
       isCombined: true,
       groups: [
         {
-          dates: '03 августа — 29 августа',
+          dates: '03 августа — 03 сентября',
           schedule: 'вечерняя группа · пн/ср\n19:00–21:00',
           color: 'purple'
         }
