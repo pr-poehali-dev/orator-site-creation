@@ -159,7 +159,7 @@ const ContactSection = () => {
                 </div>
               </div>
               <h3 className="font-semibold text-lg mb-1">Адрес</h3>
-              <p className="text-muted-foreground text-lg">Краснодар,<br />Горького, 104</p>
+              <p className="text-muted-foreground text-lg">Краснодар,<br />Коммунаров, 266, офис 45</p>
             </CardContent>
           </Card>
 

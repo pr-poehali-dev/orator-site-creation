@@ -69,8 +69,7 @@ const FreeTrialBanner = () => {
             <div className="flex items-start gap-3 bg-white border border-orange-100 rounded-xl px-5 py-4 mb-5 shadow-sm">
               <Icon name="MapPin" size={22} className="text-orange-400 flex-shrink-0 mt-0.5" />
               <div>
-                <p className="text-gray-800 text-lg font-semibold">г. Краснодар, ул. Горького, 104, офис 26</p>
-                <p className="text-gray-500 text-lg">код двери: 26</p>
+                <p className="text-gray-800 text-lg font-semibold">г. Краснодар, ул. Коммунаров, 266, офис 45</p>
               </div>
             </div>
 

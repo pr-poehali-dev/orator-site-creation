@@ -136,7 +136,7 @@ const Footer = () => {
                 <p>ОГРН: 318237500160591</p>
                 <p className="flex items-start gap-2">
                   <Icon name="MapPin" size={16} className="mt-0.5 flex-shrink-0" />
-                  <span>г. Краснодар, улица Горького, 104, офис 26</span>
+                  <span>г. Краснодар, улица Коммунаров, 266, офис 45</span>
                 </p>
                 <p className="flex items-center gap-2">
                   <Icon name="Phone" size={16} />

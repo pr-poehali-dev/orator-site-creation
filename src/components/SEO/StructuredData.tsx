@@ -12,7 +12,7 @@ const StructuredData = () => {
       "description": "Уникальный курс ораторского мастерства в Краснодаре. Групповые и индивидуальные занятия с театральным режиссером и психологом.",
       "address": {
         "@type": "PostalAddress",
-        "streetAddress": "улица Горького, 104, офис 26",
+        "streetAddress": "улица Коммунаров, 266, офис 45",
         "addressLocality": "Краснодар",
         "addressRegion": "Краснодарский край",
         "postalCode": "350000",
