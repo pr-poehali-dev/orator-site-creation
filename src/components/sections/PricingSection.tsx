@@ -12,6 +12,7 @@ const PricingSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedPackage, setSelectedPackage] = useState({ name: '', subtitle: '' });
   const [isStorytellingExpanded, setIsStorytellingExpanded] = useState(false);
+  const [isTopicsExpanded, setIsTopicsExpanded] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -65,6 +66,16 @@ const PricingSection = () => {
         'Актёрские практики для раскрепощения оратора',
         'Финальное выступление перед реальными зрителями',
         'Сертификат'
+      ],
+      topics: [
+        'Самопрезентация. Управление страхом публичных выступлений. Уверенность в себе.',
+        'Умение подать себя. Невербальная коммуникация с аудиторией. Позы оратора.',
+        'Речевая визитка. Голос как сильная сторона бренда.',
+        'Импровизация в речи.',
+        'Структура и логика речи.',
+        'Секреты оратора. Крючки внимания. Ответы на вопросы. Взаимодействие с трудными слушателями.',
+        'Критерии успешности оратора. Алгоритм подготовки к публичному выступлению.',
+        'Практика. Выступление перед реальной аудиторией.'
       ]
     },
     {
@@ -231,14 +242,39 @@ const PricingSection = () => {
                     </button>
                   </div>
                 ) : (
-                  <ul className="space-y-4 mb-6">
-                    {pkg.features?.map((feature, idx) => (
-                      <li key={idx} className="flex items-start gap-3">
-                        <Icon name="Check" className="flex-shrink-0 mt-1 text-primary" size={22} />
-                        <span className="text-xl leading-relaxed">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="mb-6">
+                    <ul className="space-y-4 mb-4">
+                      {pkg.features?.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-3">
+                          <Icon name="Check" className="flex-shrink-0 mt-1 text-primary" size={22} />
+                          <span className="text-xl leading-relaxed">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                    {pkg.topics && (
+                      <div>
+                        <button
+                          type="button"
+                          onClick={() => setIsTopicsExpanded(!isTopicsExpanded)}
+                          className="flex items-center gap-2 text-primary font-semibold text-xl hover:underline"
+                        >
+                          <Icon name="ListChecks" size={20} className="flex-shrink-0" />
+                          {isTopicsExpanded ? 'Скрыть темы занятий' : 'Темы занятий'}
+                          <Icon name={isTopicsExpanded ? 'ChevronUp' : 'ChevronDown'} size={18} />
+                        </button>
+                        {isTopicsExpanded && (
+                          <ul className="space-y-2 mt-3">
+                            {pkg.topics.map((t, ti) => (
+                              <li key={ti} className="flex items-start gap-3">
+                                <span className="flex-shrink-0 font-bold text-primary">{ti + 1}.</span>
+                                <span className="text-muted-foreground leading-relaxed">{t}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 )}
                 <Button 
                   className={`w-full py-7 text-xl bg-gradient-to-r hover:opacity-90 ${pkg.isPopular ? 'from-secondary to-primary' : 'from-primary to-secondary'}`}
