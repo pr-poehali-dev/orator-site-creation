@@ -19,7 +19,7 @@ const ScheduleSection = () => {
 
   const courses = [
     {
-      name: 'Курс ораторского искусства и импровизации',
+      name: 'Курс «Ораторское искусство с нуля»',
       badge: 'ОФФЛАЙН',
       color: 'from-primary to-secondary',
       isCombined: true,
