@@ -206,12 +206,12 @@ const PricingSection = () => {
               <CardContent>
                 {pkg.isStorytelling ? (
                   <div className="mb-6 text-left">
+                    <div className="mb-4">
+                      <p className="font-bold text-xl mb-2">О чём курс</p>
+                      <p className="text-muted-foreground leading-relaxed text-xl">{pkg.about}</p>
+                    </div>
                     {isStorytellingExpanded && (
                       <div className="space-y-6 mb-4">
-                        <div>
-                          <p className="font-bold text-xl mb-2">О чём курс</p>
-                          <p className="text-muted-foreground leading-relaxed text-xl">{pkg.about}</p>
-                        </div>
                         <div>
                           <p className="font-bold text-xl mb-2">Уникальность программы</p>
                           <ul className="space-y-2">
