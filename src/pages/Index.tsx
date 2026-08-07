@@ -43,7 +43,7 @@ const Index = () => {
         <div className="container mx-auto max-w-4xl flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
           <div className="flex items-center gap-3 flex-shrink-0">
             <span className="text-3xl">🎓</span>
-            <span className="bg-white/20 text-white text-base font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">03 августа · 19:00</span>
+            <span className="bg-white/20 text-white text-base font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">26 августа · 14:00</span>
           </div>
           <div className="flex-1">
             <p className="font-bold text-xl md:text-2xl leading-tight">Первое занятие нового потока ораторского курса!</p>
@@ -58,7 +58,7 @@ const Index = () => {
         isOpen={showModal}
         onClose={() => setShowModal(false)}
         courseName="Первое занятие нового потока (бесплатное пробное)"
-        courseDate="03 августа, 19:00"
+        courseDate="26 августа, 14:00"
       />
       <FreeTrialBanner />
       <ScheduleSection />
