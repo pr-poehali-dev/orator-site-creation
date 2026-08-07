@@ -197,9 +197,9 @@ const PricingSection = () => {
                   <p className="text-lg font-semibold text-secondary mt-4 leading-relaxed">{pkg.tagline}</p>
                 )}
                 <div className="mt-5 md:mt-6">
-                  <div className="flex items-center justify-center gap-3 mb-2">
-                    <span className={`text-5xl md:text-6xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
-                    {pkg.oldPrice && <span className="text-2xl md:text-3xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
+                  <div className="flex items-baseline justify-center gap-2 mb-2 flex-nowrap whitespace-nowrap">
+                    <span className={`text-4xl md:text-5xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
+                    {pkg.oldPrice && <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
                   </div>
                 </div>
               </CardHeader>
