@@ -1,3 +1,5 @@
+import courseOratoryCover from '@/assets/course-oratory-cover.jpg';
+
 export interface CourseGroup {
   dates: string;
   schedule: string;
@@ -49,7 +51,6 @@ export interface Course {
 export const courses: Course[] = [
   {
     name: 'Курс «Ораторское искусство с нуля»',
-    badge: 'ОФФЛАЙН',
     color: 'from-primary to-secondary',
     isCombined: true,
     groups: [
@@ -75,7 +76,7 @@ export const courses: Course[] = [
       'Практика. Выступление перед реальной аудиторией.'
     ],
     spots: 'Идёт набор',
-    image: 'https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/bucket/c4ee4d33-8e62-44da-b849-538552aee910.png',
+    image: courseOratoryCover,
     locationLabel: 'Оффлайн-курс в Краснодаре',
     cardPrice: '22 500 ₽',
     cardOldPrice: '24 000 ₽'
