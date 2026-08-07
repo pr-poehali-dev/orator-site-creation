@@ -17,6 +17,7 @@ const FreeTrialBanner = () => {
   const [mailingConsent, setMailingConsent] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -42,19 +43,25 @@ const FreeTrialBanner = () => {
   };
 
   return (
-    <section className="py-10 px-4 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 border-y border-orange-100 relative overflow-hidden">
+    <section className={`px-4 bg-gradient-to-br from-amber-50 via-orange-50 to-rose-50 border-y border-orange-100 relative overflow-hidden transition-all ${isExpanded ? 'py-10' : 'py-5'}`}>
       <div className="absolute top-0 right-0 w-72 h-72 bg-orange-200/20 rounded-full blur-3xl translate-x-24 -translate-y-24 pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-72 h-72 bg-rose-200/20 rounded-full blur-3xl -translate-x-24 translate-y-24 pointer-events-none" />
 
       <div className="container mx-auto max-w-5xl relative z-10">
         {/* Плашка */}
-        <div className="flex justify-center mb-6">
-          <div className="inline-flex items-center gap-3 bg-white border-2 border-orange-200 text-orange-700 text-lg font-bold px-7 py-3 rounded-full shadow-sm">
+        <div className={`flex justify-center ${isExpanded ? 'mb-6' : ''}`}>
+          <button
+            type="button"
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="inline-flex items-center gap-3 bg-white border-2 border-orange-200 text-orange-700 text-lg font-bold px-7 py-3 rounded-full shadow-sm hover:bg-orange-50 transition-colors"
+          >
             <Icon name="Mic" size={22} />
             Первый шаг к уверенной речи — попробуй бесплатно
-          </div>
+            <Icon name={isExpanded ? 'ChevronUp' : 'ChevronDown'} size={20} />
+          </button>
         </div>
 
+        {isExpanded && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
           {/* Левая колонка — информация */}
           <div>
@@ -200,6 +207,7 @@ const FreeTrialBanner = () => {
             )}
           </div>
         </div>
+        )}
       </div>
     </section>
   );
