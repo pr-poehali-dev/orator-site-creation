@@ -45,6 +45,7 @@ const PricingSection = () => {
   const packages = [
     {
       name: 'Курс «Ораторское искусство с нуля»',
+      badge: 'ОФФЛАЙН',
       groups: [
         {
           label: 'Дневная группа · пн/ср · 14:00–16:00',
@@ -77,6 +78,22 @@ const PricingSection = () => {
         'Критерии успешности оратора. Алгоритм подготовки к публичному выступлению.',
         'Практика. Выступление перед реальной аудиторией.'
       ]
+    },
+    {
+      name: 'Экспресс-курс «Речевая креативность» (онлайн)',
+      promoBadge: 'АКЦИЯ ТРИ ДНЯ',
+      isExpress: true,
+      description: 'Для тех, кто хочет научиться быстро находить слова в любой ситуации. Будет полезно тем, кому сложно спонтанно выступать на публике, у кого страх блокирует словесный поток, кому не хватает смелости выступать без подготовки.',
+      expressFeatures: [
+        'Книга-тренинг с дополнительными упражнениями',
+        'Видеоуроки по диагностике речевого уровня',
+        'Практика словесной импровизации',
+        'Обратная связь в чате курса лично от педагога',
+        'Доступ — навсегда'
+      ],
+      price: '990',
+      oldPrice: '2 450',
+      buttonLink: 'https://kuzikova.robo.market/pro100reche'
     },
     {
       name: 'Курс «Импровизация: личный сторителлинг»',
@@ -135,23 +152,23 @@ const PricingSection = () => {
           </p>
         </div>
         
-        <div className={`relative transition-all duration-1000 delay-200 mb-0 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <div className="absolute -top-3 right-4 md:right-8 z-10 bg-gray-700 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
-            ОФФЛАЙН
-          </div>
-          <div className="bg-gradient-to-r from-primary to-secondary rounded-t-2xl px-6 py-5 flex items-center gap-4 justify-center">
-            <Icon name="GraduationCap" size={28} className="text-white flex-shrink-0" />
-            <span className="text-2xl md:text-3xl font-bold text-white text-center">Курс ораторского искусства и импровизации</span>
-          </div>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mb-8 md:mb-12 rounded-b-2xl overflow-hidden shadow-xl border-2 border-t-0 border-primary/20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 md:mb-12">
           {packages.map((pkg, index) => (
-            <Card 
-              key={index} 
-              className={`group relative transition-all duration-500 border-0 rounded-none shadow-none overflow-visible ${index === 0 ? 'md:border-r md:border-primary/20' : ''} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
+            <Card
+              key={index}
+              className={`group relative transition-all duration-500 border-2 rounded-2xl shadow-xl hover:shadow-2xl hover:-translate-y-1 overflow-visible ${pkg.isStorytelling ? 'border-primary/20' : 'border-primary/30'} ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}
               style={{ transitionDelay: `${index * 150}ms` }}
             >
+              {pkg.badge && (
+                <div className="absolute -top-3 right-4 z-10 bg-gray-700 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
+                  {pkg.badge}
+                </div>
+              )}
+              {pkg.promoBadge && (
+                <div className="absolute -top-3 right-4 z-10 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
+                  {pkg.promoBadge}
+                </div>
+              )}
               <CardHeader className="text-center pb-4 pt-8">
                 <CardTitle className="mb-3 text-foreground">
                   <span className="block text-2xl md:text-3xl">{pkg.name}</span>
@@ -189,25 +206,23 @@ const PricingSection = () => {
               <CardContent>
                 {pkg.isStorytelling ? (
                   <div className="mb-6 text-left">
-                    <div className="space-y-6 mb-4">
-                      <div>
-                        <p className="font-bold text-xl mb-2">О чём курс</p>
-                        <p className="text-muted-foreground leading-relaxed text-xl">{pkg.about}</p>
-                      </div>
-                      <div>
-                        <p className="font-bold text-xl mb-2">Уникальность программы</p>
-                        <ul className="space-y-2">
-                          {pkg.uniqueness?.map((item, idx) => (
-                            <li key={idx} className="flex items-start gap-3">
-                              <span className="flex-shrink-0 font-bold text-secondary text-xl">{idx + 1}.</span>
-                              <span className="leading-relaxed text-muted-foreground text-xl">{item}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
                     {isStorytellingExpanded && (
                       <div className="space-y-6 mb-4">
+                        <div>
+                          <p className="font-bold text-xl mb-2">О чём курс</p>
+                          <p className="text-muted-foreground leading-relaxed text-xl">{pkg.about}</p>
+                        </div>
+                        <div>
+                          <p className="font-bold text-xl mb-2">Уникальность программы</p>
+                          <ul className="space-y-2">
+                            {pkg.uniqueness?.map((item, idx) => (
+                              <li key={idx} className="flex items-start gap-3">
+                                <span className="flex-shrink-0 font-bold text-secondary text-xl">{idx + 1}.</span>
+                                <span className="leading-relaxed text-muted-foreground text-xl">{item}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                         <div>
                           <p className="font-bold text-xl mb-2">Что вы получите</p>
                           <ul className="space-y-2">
@@ -240,6 +255,18 @@ const PricingSection = () => {
                       {isStorytellingExpanded ? 'Свернуть' : 'Читать подробнее'}
                       <Icon name={isStorytellingExpanded ? 'ChevronUp' : 'ChevronDown'} size={18} />
                     </button>
+                  </div>
+                ) : pkg.isExpress ? (
+                  <div className="mb-6 text-left">
+                    <p className="text-muted-foreground leading-relaxed text-lg mb-4">{pkg.description}</p>
+                    <ul className="space-y-2">
+                      {pkg.expressFeatures?.map((feature, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-lg">
+                          <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 ) : (
                   <div className="mb-6">
@@ -276,66 +303,37 @@ const PricingSection = () => {
                     </ul>
                   </div>
                 )}
-                <Button 
-                  className={`w-full py-7 text-xl bg-gradient-to-r hover:opacity-90 ${pkg.isPopular ? 'from-secondary to-primary' : 'from-primary to-secondary'}`}
-                  size="lg"
-                  onClick={() => {
-                    trackGoal(GOALS.COURSE_SIGNUP_CLICK);
-                    setSelectedPackage({ 
-                      name: pkg.name,
-                      subtitle: ''
-                    });
-                    setModalOpen(true);
-                  }}
-                >
-                  <Icon name="Sparkles" size={22} className="mr-2" />
-                  Записаться на курс
-                </Button>
+                {pkg.isExpress ? (
+                  <Button
+                    className="w-full py-7 text-xl bg-gradient-to-r from-blue-600 to-blue-800 hover:opacity-90"
+                    size="lg"
+                    asChild
+                  >
+                    <a href={pkg.buttonLink} target="_blank" rel="noopener noreferrer">
+                      <Icon name="Zap" size={22} className="mr-2" />
+                      Начать сейчас
+                    </a>
+                  </Button>
+                ) : (
+                  <Button
+                    className={`w-full py-7 text-xl bg-gradient-to-r hover:opacity-90 ${pkg.isPopular ? 'from-secondary to-primary' : 'from-primary to-secondary'}`}
+                    size="lg"
+                    onClick={() => {
+                      trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+                      setSelectedPackage({
+                        name: pkg.name,
+                        subtitle: ''
+                      });
+                      setModalOpen(true);
+                    }}
+                  >
+                    <Icon name="Sparkles" size={22} className="mr-2" />
+                    Записаться на курс
+                  </Button>
+                )}
               </CardContent>
             </Card>
           ))}
-        </div>
-
-        <div className={`max-w-md mx-auto mb-8 md:mb-12 transition-all duration-1000 delay-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-          <Card className="relative overflow-visible border-2 shadow-xl hover:shadow-2xl transition-all hover:-translate-y-1">
-            <div className="absolute -top-3 right-4 z-10 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
-              АКЦИЯ ТРИ ДНЯ
-            </div>
-            <CardHeader className="bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-t-lg pb-4 md:pb-6">
-              <CardTitle className="text-2xl md:text-3xl font-bold leading-snug tracking-tight">
-                Экспресс-курс "Речевая креативность (онлайн)"
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="pt-4 md:pt-6 space-y-4">
-              <p className="text-muted-foreground leading-relaxed text-lg">
-                Для тех, кто хочет научиться быстро находить слова в любой ситуации. Будет полезно тем, кому сложно спонтанно выступать на публике, у кого страх блокирует словесный поток, кому не хватает смелости выступать без подготовки.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-lg">
-                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
-                  Обратная связь в чате курса лично от педагога
-                </li>
-                <li className="flex items-start gap-2 text-lg">
-                  <Icon name="Check" size={20} className="text-primary mt-1 flex-shrink-0" />
-                  Доступ — навсегда
-                </li>
-              </ul>
-              <div className="flex items-center gap-3">
-                <span className="text-muted-foreground line-through text-xl">2450 руб.</span>
-                <span className="text-4xl font-bold text-primary">990 руб.</span>
-              </div>
-              <Button
-                size="lg"
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-800 hover:opacity-90 text-xl py-7"
-                asChild
-              >
-                <a href="https://kuzikova.robo.market/pro100reche" target="_blank" rel="noopener noreferrer">
-                  <Icon name="Zap" size={22} className="mr-2" />
-                  Начать сейчас
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
         </div>
 
         <div className={`mt-6 md:mt-8 text-center transition-all duration-1000 delay-700 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
