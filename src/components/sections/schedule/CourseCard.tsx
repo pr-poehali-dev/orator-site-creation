@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
@@ -23,6 +24,88 @@ const CourseCard = ({
   setIsTopicsExpanded,
   handleDateSelect
 }: CourseCardProps) => {
+  const [isImageCardExpanded, setIsImageCardExpanded] = useState(false);
+
+  if (course.image) {
+    return (
+      <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2 relative overflow-visible">
+        {course.promoBadge && (
+          <div className="absolute -top-3 right-4 z-10 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
+            {course.promoBadge}
+          </div>
+        )}
+        <img src={course.image} alt={course.name} className="w-full h-auto rounded-t-lg" />
+        <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-lg md:text-xl">
+          <CardTitle className="text-xl md:text-2xl font-bold leading-snug tracking-tight text-foreground">
+            {course.name}
+          </CardTitle>
+          {course.oldPrice && course.newPrice && (
+            <div className="flex items-center gap-3">
+              <span className="text-muted-foreground line-through text-lg">{course.oldPrice}</span>
+              <span className="text-3xl font-bold text-primary">{course.newPrice}</span>
+            </div>
+          )}
+          <button
+            type="button"
+            onClick={() => setIsImageCardExpanded(!isImageCardExpanded)}
+            className="flex items-center gap-1 text-primary font-semibold text-lg hover:underline"
+          >
+            {isImageCardExpanded ? 'Свернуть' : 'Подробнее о курсе'}
+            <Icon name={isImageCardExpanded ? 'ChevronUp' : 'ChevronDown'} size={18} />
+          </button>
+          {isImageCardExpanded && (
+            <>
+              {course.description && (
+                <div className="flex items-start gap-3">
+                  <Icon name="BookOpen" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="text-muted-foreground leading-relaxed">{course.description}</p>
+                  </div>
+                </div>
+              )}
+              {course.features && (
+                <ul className="space-y-1">
+                  {course.features.map((f, fi) => (
+                    <li key={fi} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-lg md:text-xl">
+                      <Icon name="Check" size={18} className="text-primary mt-1 flex-shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </>
+          )}
+          <div className="pt-2">
+            {course.isOnlinePromo ? (
+              <Button
+                size="lg"
+                className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
+                asChild
+              >
+                <a href={course.buttonLink} target="_blank" rel="noopener noreferrer">
+                  <Icon name="Zap" size={20} className="mr-2" />
+                  Начать сейчас
+                </a>
+              </Button>
+            ) : (
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full border-primary text-primary hover:bg-primary hover:text-white text-lg py-6"
+                asChild
+              >
+                <a href="#pricing">
+                  <Icon name="Info" size={20} className="mr-2" />
+                  Подробнее
+                </a>
+              </Button>
+            )}
+          </div>
+        </CardContent>
+      </Card>
+    );
+  }
+
   return (
     <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2 relative overflow-visible">
       {course.promoBadge && (

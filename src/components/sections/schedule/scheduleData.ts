@@ -19,6 +19,7 @@ export interface Course {
   newPrice?: string;
   buttonLink?: string;
   isOnlinePromo?: boolean;
+  image?: string;
   isStorytellingCard?: boolean;
   formatLabel?: string;
   tagline?: string;
@@ -87,7 +88,8 @@ export const courses: Course[] = [
     newPrice: '990 руб.',
     buttonLink: 'https://kuzikova.robo.market/pro100reche',
     color: 'from-blue-600 to-blue-800',
-    isOnlinePromo: true
+    isOnlinePromo: true,
+    image: 'https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/bucket/1ae62ab0-0911-43a1-9d91-e300c8d94b90.png'
   },
   {
     name: 'Курс «Импровизация: личный сторителлинг»',
