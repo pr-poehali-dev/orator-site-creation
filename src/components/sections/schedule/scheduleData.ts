@@ -1,4 +1,6 @@
 import courseOratoryCover from '@/assets/course-oratory-cover.jpg';
+import courseCoachingCover from '@/assets/course-coaching-cover.jpg';
+import courseCorporateCover from '@/assets/course-corporate-cover.jpg';
 
 export interface CourseGroup {
   dates: string;
@@ -138,7 +140,8 @@ export const courses: Course[] = [
     schedule: 'По согласованию',
     spots: 'Набор открыт',
     color: 'from-orange to-primary',
-    isCoaching: true
+    isCoaching: true,
+    image: courseCoachingCover
   },
   {
     name: 'Тренинги для корпоративных заказчиков',
@@ -147,7 +150,8 @@ export const courses: Course[] = [
     schedule: 'Однодневные/двухдневные тренинги с 10:00 до 17:00',
     spots: 'Формат по запросу',
     color: 'from-green-600 to-teal-600',
-    isCorporate: true
+    isCorporate: true,
+    image: courseCorporateCover
   },
   {
     name: 'Актерский психологический курс "Перформанс-терапия"',

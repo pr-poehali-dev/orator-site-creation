@@ -64,12 +64,43 @@ const CourseCard = ({
               ))}
             </div>
           )}
+          {course.isCoaching && course.startDate && (
+            <div className="flex flex-col gap-2">
+              <div className="p-3 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-300 rounded-lg hover:from-blue-100 hover:to-blue-200 transition-colors cursor-pointer" onClick={() => handleDateSelect(course.name, course.startDate!)}>
+                <div className="flex items-center gap-2 mb-1">
+                  <Icon name="Monitor" size={16} className="text-blue-600 flex-shrink-0" />
+                  <span className="font-semibold text-blue-900 text-lg">{course.startDate}</span>
+                </div>
+                {course.schedule && <p className="text-base text-blue-700 ml-5">{course.schedule}</p>}
+              </div>
+              {course.startDate2 && (
+                <div className="p-3 bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-300 rounded-lg hover:from-purple-100 hover:to-purple-200 transition-colors cursor-pointer" onClick={() => handleDateSelect(course.name, course.startDate2!)}>
+                  <div className="flex items-center gap-2 mb-1">
+                    <Icon name="MapPin" size={16} className="text-purple-600 flex-shrink-0" />
+                    <span className="font-semibold text-purple-900 text-lg">{course.startDate2}</span>
+                  </div>
+                  {course.schedule2 && <p className="text-base text-purple-700 ml-5">{course.schedule2}</p>}
+                </div>
+              )}
+            </div>
+          )}
+          {course.isCorporate && course.duration && (
+            <div className="flex items-center gap-2">
+              <Icon name="Clock" size={18} className="text-primary flex-shrink-0" />
+              <span className="text-muted-foreground">{course.duration}</span>
+            </div>
+          )}
           {(course.cardPrice || course.oldPrice) && (
             <div className="flex items-center gap-3">
               {(course.cardOldPrice || course.oldPrice) && (
                 <span className="text-muted-foreground line-through text-lg">{course.cardOldPrice || course.oldPrice}</span>
               )}
               <span className="text-3xl font-bold text-primary">{course.cardPrice || course.newPrice}</span>
+            </div>
+          )}
+          {course.spots && (
+            <div className="inline-block bg-green-100 text-green-700 px-3 py-1 rounded-full text-base font-semibold">
+              ✓ {course.spots}
             </div>
           )}
           <button
@@ -87,6 +118,15 @@ const CourseCard = ({
                   <Icon name="BookOpen" size={20} className="text-primary mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-muted-foreground leading-relaxed">{course.description}</p>
+                  </div>
+                </div>
+              )}
+              {course.isCorporate && course.schedule && (
+                <div className="flex items-start gap-3">
+                  <Icon name="CalendarDays" size={20} className="text-primary mt-1 flex-shrink-0" />
+                  <div>
+                    <p className="font-semibold">Расписание</p>
+                    <p className="text-muted-foreground text-lg">{course.schedule}</p>
                   </div>
                 </div>
               )}
@@ -145,6 +185,27 @@ const CourseCard = ({
               >
                 <Icon name="UserPlus" size={20} className="mr-2" />
                 Записаться на курс
+              </Button>
+            ) : course.isCoaching ? (
+              <Button
+                size="lg"
+                className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
+                onClick={() => handleDateSelect(course.name, course.startDate || '')}
+              >
+                <Icon name="UserPlus" size={20} className="mr-2" />
+                Записаться
+              </Button>
+            ) : course.isCorporate ? (
+              <Button
+                size="lg"
+                className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
+                onClick={() => {
+                  trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+                  handleDateSelect(course.name, 'Формат по запросу');
+                }}
+              >
+                <Icon name="UserPlus" size={20} className="mr-2" />
+                Записаться
               </Button>
             ) : (
               <Button
