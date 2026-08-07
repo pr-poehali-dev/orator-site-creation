@@ -10,6 +10,7 @@ const ScheduleSection = () => {
   const [selectedCourse, setSelectedCourse] = useState({ name: '', date: '' });
   const [isStorytellingExpanded, setIsStorytellingExpanded] = useState(false);
   const [isTopicsExpanded, setIsTopicsExpanded] = useState(false);
+  const [isOtherCoursesExpanded, setIsOtherCoursesExpanded] = useState(false);
 
   const handleDateSelect = (courseName: string, date: string) => {
     setSelectedCourse({ name: courseName, date });
@@ -125,16 +126,10 @@ const ScheduleSection = () => {
     }
   ];
 
-  return (
-    <section id="schedule" className="py-10 px-4 bg-white">
-      <div className="container mx-auto max-w-6xl">
-        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Расписание ближайших курсов</h2>
-        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-lg md:text-xl lg:text-2xl px-4">
-          Выберите удобное время и запишитесь уже сегодня
-        </p>
+  const mainCourses = courses.filter((c) => !c.isStorytellingCard && !c.isTheater);
+  const otherCourses = courses.filter((c) => c.isStorytellingCard || c.isTheater);
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {courses.map((course, index) => (
+  const renderCourseCard = (course: typeof courses[number], index: number) => (
             <Card key={index} className="hover:shadow-2xl transition-all hover:-translate-y-2 border-2 relative overflow-visible">
               {course.promoBadge && (
                 <div className="absolute -top-3 right-4 z-10 bg-red-600 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
@@ -464,7 +459,35 @@ const ScheduleSection = () => {
                 </div>
               </CardContent>
             </Card>
-          ))}
+  );
+
+  return (
+    <section id="schedule" className="py-10 px-4 bg-white">
+      <div className="container mx-auto max-w-6xl">
+        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-4">Расписание ближайших курсов</h2>
+        <p className="text-center text-muted-foreground mb-8 md:mb-12 text-lg md:text-xl lg:text-2xl px-4">
+          Выберите удобное время и запишитесь уже сегодня
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          {mainCourses.map((course, index) => renderCourseCard(course, index))}
+        </div>
+
+        <div className="mt-8">
+          <button
+            type="button"
+            onClick={() => setIsOtherCoursesExpanded(!isOtherCoursesExpanded)}
+            className="flex items-center gap-2 mx-auto text-primary font-semibold text-lg md:text-xl hover:underline"
+          >
+            <Icon name="LayoutGrid" size={20} />
+            {isOtherCoursesExpanded ? 'Скрыть другие курсы' : 'Другие курсы'}
+            <Icon name={isOtherCoursesExpanded ? 'ChevronUp' : 'ChevronDown'} size={18} />
+          </button>
+          {isOtherCoursesExpanded && (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mt-6">
+              {otherCourses.map((course, index) => renderCourseCard(course, index))}
+            </div>
+          )}
         </div>
 
         <ApplicationModal
