@@ -84,7 +84,7 @@ const CourseCard = ({
               )}
             </div>
           )}
-          {course.isCorporate && course.duration && (
+          {(course.isCorporate || course.isTheater) && course.duration && (
             <div className="flex items-center gap-2">
               <Icon name="Clock" size={18} className="text-primary flex-shrink-0" />
               <span className="text-muted-foreground">{course.duration}</span>
@@ -113,12 +113,67 @@ const CourseCard = ({
           </button>
           {isImageCardExpanded && (
             <>
+              {course.tagline && (
+                <p className="text-secondary font-semibold leading-relaxed">{course.tagline}</p>
+              )}
               {course.description && (
                 <div className="flex items-start gap-3">
                   <Icon name="BookOpen" size={20} className="text-primary mt-1 flex-shrink-0" />
                   <div>
                     <p className="text-muted-foreground leading-relaxed">{course.description}</p>
                   </div>
+                </div>
+              )}
+              {course.aboutPoints && (
+                <div>
+                  <p className="font-semibold mb-1">О чём курс</p>
+                  <ul className="space-y-1">
+                    {course.aboutPoints.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                        <Icon name="Dot" size={18} className="text-secondary mt-0.5 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {course.uniqueness && (
+                <div>
+                  <p className="font-semibold mb-1">Уникальность программы</p>
+                  <ul className="space-y-1">
+                    {course.uniqueness.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                        <span className="flex-shrink-0 font-bold text-secondary">{idx + 1}.</span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {course.results && (
+                <div>
+                  <p className="font-semibold mb-1">Что вы получите</p>
+                  <ul className="space-y-1">
+                    {course.results.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                        <Icon name="Check" size={16} className="text-secondary mt-1 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {course.audience && (
+                <div>
+                  <p className="font-semibold mb-1">Кому подойдёт</p>
+                  <ul className="space-y-1">
+                    {course.audience.map((item, idx) => (
+                      <li key={idx} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                        <Icon name="ArrowRight" size={16} className="text-secondary mt-1 flex-shrink-0" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               )}
               {course.isCorporate && course.schedule && (
@@ -206,6 +261,30 @@ const CourseCard = ({
               >
                 <Icon name="UserPlus" size={20} className="mr-2" />
                 Записаться
+              </Button>
+            ) : course.isTheater ? (
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full border-primary text-primary hover:bg-primary hover:text-white text-lg py-6"
+                asChild
+              >
+                <a href={course.externalLink} target="_blank" rel="noopener noreferrer">
+                  <Icon name="ExternalLink" size={20} className="mr-2" />
+                  О курсе подробнее
+                </a>
+              </Button>
+            ) : course.isStorytellingCard ? (
+              <Button
+                size="lg"
+                className="w-full bg-gradient-to-r from-secondary to-primary hover:opacity-90 text-lg py-6"
+                onClick={() => {
+                  trackGoal(GOALS.COURSE_SIGNUP_CLICK);
+                  handleDateSelect(course.name, 'Индивидуальный формат');
+                }}
+              >
+                <Icon name="UserPlus" size={20} className="mr-2" />
+                Записаться на курс
               </Button>
             ) : (
               <Button

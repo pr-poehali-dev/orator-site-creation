@@ -1,6 +1,8 @@
 import courseOratoryCover from '@/assets/course-oratory-cover.jpg';
 import courseCoachingCover from '@/assets/course-coaching-cover.jpg';
 import courseCorporateCover from '@/assets/course-corporate-cover.jpg';
+import courseTheaterCover from '@/assets/course-theater-cover.jpg';
+import courseStorytellingCover from '@/assets/course-storytelling-cover.jpg';
 
 export interface CourseGroup {
   dates: string;
@@ -130,7 +132,11 @@ export const courses: Course[] = [
       'Специалистам помогающих профессий (врачи, юристы, психологи), чтобы клиенты чувствовали их уверенность.',
       'Творческим людям, которые ищут свой уникальный «голос» и хотят избавиться от страха сцены.'
     ],
-    spots: 'Идёт набор'
+    spots: 'Идёт набор',
+    image: courseStorytellingCover,
+    locationLabel: 'Индивидуальный формат',
+    cardPrice: '24 000 ₽',
+    cardOldPrice: '39 000 ₽'
   },
   {
     name: 'Индивидуальный ораторский коучинг',
@@ -160,6 +166,7 @@ export const courses: Course[] = [
     spots: 'Набор открыт',
     color: 'from-primary to-secondary',
     isTheater: true,
-    externalLink: 'https://performance-therapy-landing--preview.poehali.dev/'
+    externalLink: 'https://performance-therapy-landing--preview.poehali.dev/',
+    image: courseTheaterCover
   }
 ];

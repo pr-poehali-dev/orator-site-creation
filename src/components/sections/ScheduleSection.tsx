@@ -3,23 +3,18 @@ import { useState } from 'react';
 import ApplicationModal from '@/components/ApplicationModal';
 import { courses } from './schedule/scheduleData';
 import CourseCard from './schedule/CourseCard';
-import OtherCoursesToggle from './schedule/OtherCoursesToggle';
 
 const ScheduleSection = () => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedCourse, setSelectedCourse] = useState({ name: '', date: '' });
   const [isStorytellingExpanded, setIsStorytellingExpanded] = useState(false);
   const [isTopicsExpanded, setIsTopicsExpanded] = useState(false);
-  const [isOtherCoursesExpanded, setIsOtherCoursesExpanded] = useState(false);
 
   const handleDateSelect = (courseName: string, date: string) => {
     setSelectedCourse({ name: courseName, date });
     setModalOpen(true);
     trackGoal(GOALS.COURSE_SIGNUP_CLICK);
   };
-
-  const mainCourses = courses.filter((c) => !c.isStorytellingCard && !c.isTheater);
-  const otherCourses = courses.filter((c) => c.isStorytellingCard || c.isTheater);
 
   return (
     <section id="schedule" className="py-10 px-4 bg-white">
@@ -30,7 +25,7 @@ const ScheduleSection = () => {
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-          {mainCourses.map((course, index) => (
+          {courses.map((course, index) => (
             <CourseCard
               key={index}
               course={course}
@@ -43,17 +38,6 @@ const ScheduleSection = () => {
             />
           ))}
         </div>
-
-        <OtherCoursesToggle
-          otherCourses={otherCourses}
-          isOtherCoursesExpanded={isOtherCoursesExpanded}
-          setIsOtherCoursesExpanded={setIsOtherCoursesExpanded}
-          isStorytellingExpanded={isStorytellingExpanded}
-          setIsStorytellingExpanded={setIsStorytellingExpanded}
-          isTopicsExpanded={isTopicsExpanded}
-          setIsTopicsExpanded={setIsTopicsExpanded}
-          handleDateSelect={handleDateSelect}
-        />
 
         <ApplicationModal
           isOpen={modalOpen}
