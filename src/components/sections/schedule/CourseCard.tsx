@@ -34,15 +34,42 @@ const CourseCard = ({
             {course.promoBadge}
           </div>
         )}
+        {course.badge && (
+          <div className="absolute -top-3 right-4 z-10 bg-gray-700 text-white text-sm font-bold px-3 py-1 rounded-full shadow-lg uppercase tracking-wide">
+            {course.badge}
+          </div>
+        )}
         <img src={course.image} alt={course.name} className="w-full h-auto rounded-t-lg" />
         <CardContent className="pt-4 md:pt-6 space-y-3 md:space-y-4 text-lg md:text-xl">
           <CardTitle className="text-xl md:text-2xl font-bold leading-snug tracking-tight text-foreground">
             {course.name}
           </CardTitle>
-          {course.oldPrice && course.newPrice && (
+          {course.locationLabel && (
+            <div className="flex items-center gap-2">
+              <Icon name="MapPin" size={18} className="text-primary flex-shrink-0" />
+              <span className="text-muted-foreground">{course.locationLabel}</span>
+            </div>
+          )}
+          {course.isCombined && course.groups && (
+            <div className="flex flex-col gap-2">
+              {course.groups.map((g, gi) => (
+                <div
+                  key={gi}
+                  className={`p-3 rounded-lg border cursor-pointer transition-colors ${g.color === 'blue' ? 'bg-blue-50 border-blue-300 hover:bg-blue-100' : 'bg-purple-50 border-purple-300 hover:bg-purple-100'}`}
+                  onClick={() => handleDateSelect(course.name, g.dates)}
+                >
+                  <span className={`font-bold text-lg block ${g.color === 'blue' ? 'text-blue-900' : 'text-purple-900'}`}>{g.dates}</span>
+                  <span className={`text-base whitespace-pre-line ${g.color === 'blue' ? 'text-blue-700' : 'text-purple-700'}`}>{g.schedule}</span>
+                </div>
+              ))}
+            </div>
+          )}
+          {(course.cardPrice || course.oldPrice) && (
             <div className="flex items-center gap-3">
-              <span className="text-muted-foreground line-through text-lg">{course.oldPrice}</span>
-              <span className="text-3xl font-bold text-primary">{course.newPrice}</span>
+              {(course.cardOldPrice || course.oldPrice) && (
+                <span className="text-muted-foreground line-through text-lg">{course.cardOldPrice || course.oldPrice}</span>
+              )}
+              <span className="text-3xl font-bold text-primary">{course.cardPrice || course.newPrice}</span>
             </div>
           )}
           <button
@@ -73,6 +100,29 @@ const CourseCard = ({
                   ))}
                 </ul>
               )}
+              {course.topics && (
+                <div>
+                  <button
+                    type="button"
+                    onClick={() => setIsTopicsExpanded(!isTopicsExpanded)}
+                    className="flex items-center gap-2 text-primary font-semibold text-lg hover:underline"
+                  >
+                    <Icon name="ListChecks" size={18} className="flex-shrink-0" />
+                    {isTopicsExpanded ? 'Скрыть темы занятий' : 'Темы занятий'}
+                    <Icon name={isTopicsExpanded ? 'ChevronUp' : 'ChevronDown'} size={16} />
+                  </button>
+                  {isTopicsExpanded && (
+                    <ul className="space-y-1 mt-2">
+                      {course.topics.map((t, ti) => (
+                        <li key={ti} className="flex items-start gap-2 text-muted-foreground leading-relaxed text-base">
+                          <span className="flex-shrink-0 font-bold text-primary">{ti + 1}.</span>
+                          {t}
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              )}
             </>
           )}
           <div className="pt-2">
@@ -86,6 +136,15 @@ const CourseCard = ({
                   <Icon name="Zap" size={20} className="mr-2" />
                   Начать сейчас
                 </a>
+              </Button>
+            ) : course.isCombined && course.groups ? (
+              <Button
+                size="lg"
+                className="w-full bg-primary hover:bg-primary/90 text-lg py-6"
+                onClick={() => handleDateSelect(course.name, course.groups![0].dates)}
+              >
+                <Icon name="UserPlus" size={20} className="mr-2" />
+                Записаться на курс
               </Button>
             ) : (
               <Button

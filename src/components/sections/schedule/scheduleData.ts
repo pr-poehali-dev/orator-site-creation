@@ -20,6 +20,9 @@ export interface Course {
   buttonLink?: string;
   isOnlinePromo?: boolean;
   image?: string;
+  locationLabel?: string;
+  cardPrice?: string;
+  cardOldPrice?: string;
   isStorytellingCard?: boolean;
   formatLabel?: string;
   tagline?: string;
@@ -71,7 +74,11 @@ export const courses: Course[] = [
       'Критерии успешности оратора. Алгоритм подготовки к публичному выступлению.',
       'Практика. Выступление перед реальной аудиторией.'
     ],
-    spots: 'Идёт набор'
+    spots: 'Идёт набор',
+    image: 'https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/bucket/c4ee4d33-8e62-44da-b849-538552aee910.png',
+    locationLabel: 'Оффлайн-курс в Краснодаре',
+    cardPrice: '22 500 ₽',
+    cardOldPrice: '24 000 ₽'
   },
   {
     name: 'Ораторский курс "Речевая креативность (онлайн)"',
