@@ -147,7 +147,13 @@ export const courses: Course[] = [
     spots: 'Набор открыт',
     color: 'from-orange to-primary',
     isCoaching: true,
-    image: courseCoachingCover
+    image: courseCoachingCover,
+    features: [
+      'Подготовка к выступлению',
+      'Разбор ваших выступлений',
+      'Работа с голосом, речью, дикцией',
+      'Персональный план развития навыков'
+    ]
   },
   {
     name: 'Тренинги для корпоративных заказчиков',
