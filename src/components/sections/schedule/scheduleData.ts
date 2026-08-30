@@ -29,6 +29,8 @@ export interface Course {
   locationLabel?: string;
   cardPrice?: string;
   cardOldPrice?: string;
+  promoPrice?: string;
+  promoDeadline?: string;
   isStorytellingCard?: boolean;
   formatLabel?: string;
   tagline?: string;
@@ -62,6 +64,11 @@ export const courses: Course[] = [
         dates: '28 сентября — 28 октября',
         schedule: 'дневная группа · пн/ср\n14:00–16:00',
         color: 'purple'
+      },
+      {
+        dates: '28 сентября — 28 октября',
+        schedule: 'вечерняя группа · пн/ср\n19:00–21:00',
+        color: 'blue'
       }
     ],
     features: [
@@ -83,7 +90,9 @@ export const courses: Course[] = [
     image: courseOratoryCover,
     locationLabel: 'Оффлайн-курс в Краснодаре',
     cardPrice: '22 500 ₽',
-    cardOldPrice: '24 000 ₽'
+    cardOldPrice: '24 000 ₽',
+    promoPrice: '15 990 ₽',
+    promoDeadline: 'При бронировании до 5 сентября'
   },
   {
     name: 'Видеокурс по речевой креативности и импровизации',

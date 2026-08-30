@@ -51,10 +51,17 @@ const PricingSection = () => {
           label: 'Дневная группа · пн/ср · 14:00–16:00',
           dates: ['28 сентября — 28 октября'],
           color: 'purple'
+        },
+        {
+          label: 'Вечерняя группа · пн/ср · 19:00–21:00',
+          dates: ['28 сентября — 28 октября'],
+          color: 'blue'
         }
       ],
       price: '22 500',
       oldPrice: '24 000',
+      promoPrice: '15 990',
+      promoDeadline: 'При бронировании до 5 сентября',
       features: [
         '10 занятий (8 групповых и 2 индивидуальных)',
         'Самопрезентация',
@@ -197,10 +204,22 @@ const PricingSection = () => {
                   <p className="text-lg font-semibold text-secondary mt-4 leading-relaxed">{pkg.tagline}</p>
                 )}
                 <div className="mt-5 md:mt-6">
-                  <div className="flex items-baseline justify-center gap-2 mb-2 flex-nowrap whitespace-nowrap">
-                    <span className={`text-4xl md:text-5xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
-                    {pkg.oldPrice && <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
-                  </div>
+                  {pkg.promoPrice ? (
+                    <div className="inline-flex flex-col items-center bg-red-50 border border-red-300 rounded-xl px-4 py-2">
+                      <div className="flex items-baseline justify-center gap-2 flex-nowrap whitespace-nowrap">
+                        <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>
+                        <span className="text-4xl md:text-5xl font-bold text-red-600">{pkg.promoPrice} ₽</span>
+                      </div>
+                      {pkg.promoDeadline && (
+                        <p className="text-red-600 font-semibold text-sm mt-1">{pkg.promoDeadline}</p>
+                      )}
+                    </div>
+                  ) : (
+                    <div className="flex items-baseline justify-center gap-2 mb-2 flex-nowrap whitespace-nowrap">
+                      <span className={`text-4xl md:text-5xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
+                      {pkg.oldPrice && <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
+                    </div>
+                  )}
                 </div>
               </CardHeader>
               <CardContent>

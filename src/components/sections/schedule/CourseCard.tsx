@@ -90,7 +90,17 @@ const CourseCard = ({
               <span className="text-muted-foreground">{course.duration}</span>
             </div>
           )}
-          {(course.cardPrice || course.oldPrice) && (
+          {course.promoPrice ? (
+            <div className="p-3 bg-red-50 border border-red-300 rounded-lg">
+              <div className="flex items-center gap-3">
+                <span className="text-muted-foreground line-through text-lg">{course.cardOldPrice || course.oldPrice}</span>
+                <span className="text-3xl font-bold text-red-600">{course.promoPrice}</span>
+              </div>
+              {course.promoDeadline && (
+                <p className="text-red-600 font-semibold text-sm mt-1">{course.promoDeadline}</p>
+              )}
+            </div>
+          ) : (course.cardPrice || course.oldPrice) && (
             <div className="flex items-center gap-3">
               {(course.cardOldPrice || course.oldPrice) && (
                 <span className="text-muted-foreground line-through text-lg">{course.cardOldPrice || course.oldPrice}</span>
