@@ -115,7 +115,7 @@ const HeroSection = () => {
                   <Icon name="Award" size={18} className="text-white" />
                 </div>
                 <div className="leading-tight">
-                  <p className="font-bold text-sm">15 лет</p>
+                  <p className="font-bold text-sm">20 лет</p>
                   <p className="text-[11px] text-muted-foreground">опыта</p>
                 </div>
               </div>
