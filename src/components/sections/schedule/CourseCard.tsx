@@ -85,7 +85,7 @@ const CourseCard = ({
               )}
             </div>
           )}
-          {(course.isCorporate || course.isTheater) && course.duration && (
+          {(course.isCorporate || course.isTheater || course.isStorytellingCard) && course.duration && (
             <div className="flex items-center gap-2">
               <Icon name="Clock" size={18} className="text-primary flex-shrink-0" />
               <span className="text-muted-foreground">{course.duration}</span>

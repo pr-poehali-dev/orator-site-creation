@@ -146,8 +146,8 @@ export const courses: Course[] = [
     spots: 'Идёт набор',
     image: courseStorytellingCover,
     locationLabel: 'Индивидуальный формат',
-    cardPrice: '24 000 ₽',
-    cardOldPrice: '39 000 ₽'
+    duration: 'Продолжительность занятия — 1 час',
+    cardPrice: '6 000 ₽'
   },
   {
     name: 'Индивидуальный ораторский коучинг',

@@ -136,8 +136,8 @@ const PricingSection = () => {
         'Специалистам помогающих профессий (врачи, юристы, психологи), чтобы клиенты чувствовали их уверенность.',
         'Творческим людям, которые ищут свой уникальный «голос» и хотят избавиться от страха сцены.'
       ],
-      price: '24 000',
-      oldPrice: '39 000'
+      duration: 'Продолжительность занятия — 1 час',
+      price: '6 000'
     }
   ];
 
@@ -204,6 +204,12 @@ const PricingSection = () => {
                 )}
                 {pkg.tagline && (
                   <p className="text-lg font-semibold text-secondary mt-4 leading-relaxed">{pkg.tagline}</p>
+                )}
+                {pkg.duration && (
+                  <p className="text-base text-muted-foreground mt-2 flex items-center justify-center gap-1.5">
+                    <Icon name="Clock" size={16} className="text-primary flex-shrink-0" />
+                    {pkg.duration}
+                  </p>
                 )}
                 <div className="mt-5 md:mt-6">
                   {pkg.promoPrice ? (
