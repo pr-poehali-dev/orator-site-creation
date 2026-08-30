@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
+import CountdownTimer from '@/components/ui/countdown-timer';
 import { trackGoal, GOALS } from '@/utils/goals';
 import { useEffect, useRef, useState } from 'react';
 import ApplicationModal from '@/components/ApplicationModal';
@@ -62,6 +63,7 @@ const PricingSection = () => {
       oldPrice: '24 000',
       promoPrice: '15 990',
       promoDeadline: 'При бронировании до 5 сентября',
+      promoDeadlineDate: '2026-09-05T23:59:59',
       features: [
         '10 занятий (8 групповых и 2 индивидуальных)',
         'Самопрезентация',
@@ -212,6 +214,9 @@ const PricingSection = () => {
                       </div>
                       {pkg.promoDeadline && (
                         <p className="text-red-600 font-semibold text-sm mt-1">{pkg.promoDeadline}</p>
+                      )}
+                      {pkg.promoDeadlineDate && (
+                        <CountdownTimer targetDate={pkg.promoDeadlineDate} className="mt-2" />
                       )}
                     </div>
                   ) : (

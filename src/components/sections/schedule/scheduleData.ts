@@ -31,6 +31,7 @@ export interface Course {
   cardOldPrice?: string;
   promoPrice?: string;
   promoDeadline?: string;
+  promoDeadlineDate?: string;
   isStorytellingCard?: boolean;
   formatLabel?: string;
   tagline?: string;
@@ -92,7 +93,8 @@ export const courses: Course[] = [
     cardPrice: '22 500 ₽',
     cardOldPrice: '24 000 ₽',
     promoPrice: '15 990 ₽',
-    promoDeadline: 'При бронировании до 5 сентября'
+    promoDeadline: 'При бронировании до 5 сентября',
+    promoDeadlineDate: '2026-09-05T23:59:59'
   },
   {
     name: 'Видеокурс по речевой креативности и импровизации',

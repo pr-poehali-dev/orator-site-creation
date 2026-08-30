@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import Icon from '@/components/ui/icon';
+import CountdownTimer from '@/components/ui/countdown-timer';
 import { trackGoal, GOALS } from '@/utils/goals';
 import { Course } from './scheduleData';
 
@@ -98,6 +99,9 @@ const CourseCard = ({
               </div>
               {course.promoDeadline && (
                 <p className="text-red-600 font-semibold text-sm mt-1">{course.promoDeadline}</p>
+              )}
+              {course.promoDeadlineDate && (
+                <CountdownTimer targetDate={course.promoDeadlineDate} className="mt-2" />
               )}
             </div>
           ) : (course.cardPrice || course.oldPrice) && (
