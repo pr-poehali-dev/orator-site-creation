@@ -81,12 +81,44 @@ const HeroSection = () => {
           
           <div className="relative flex justify-center lg:justify-end">
             <div className="relative max-w-md w-full">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-3xl blur-3xl"></div>
-              <img 
-                src="https://cdn.poehali.dev/files/cdb16129-8438-4096-836c-d31dff16e716.JPG" 
-                alt="Ораторское искусство - курс в Краснодаре"
-                className="relative rounded-3xl shadow-2xl w-full h-auto object-cover"
-              />
+              <div className="absolute -inset-6 bg-gradient-to-br from-primary/30 via-secondary/20 to-orange/20 rounded-[2.5rem] blur-3xl"></div>
+              <div className="absolute -top-4 -left-4 w-24 h-24 border-4 border-primary/30 rounded-full hidden sm:block"></div>
+              <div className="absolute -bottom-5 -right-3 w-32 h-32 bg-gradient-to-br from-secondary/20 to-primary/20 rounded-full blur-xl"></div>
+
+              <div className="relative rounded-[2rem] p-[3px] bg-gradient-to-br from-primary via-secondary to-orange shadow-2xl">
+                <div className="relative rounded-[1.85rem] overflow-hidden bg-gradient-to-b from-white to-primary/5">
+                  <img
+                    src="https://cdn.poehali.dev/projects/982ce877-171e-45ff-91a1-ae753687e607/bucket/e61c443e-6030-4ea5-b292-65b2a2fa1665.jpg"
+                    alt="Светлана Кузикова — курсы ораторского искусства в Краснодаре"
+                    className="w-full h-auto object-cover"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 h-28 bg-gradient-to-t from-black/55 to-transparent"></div>
+                  <div className="absolute inset-x-0 bottom-0 p-4 text-white">
+                    <p className="font-bold text-lg leading-tight drop-shadow">Светлана Кузикова</p>
+                    <p className="text-sm text-white/85 leading-snug drop-shadow">Театральный режиссёр и психолог</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="absolute -left-3 top-8 bg-white/95 backdrop-blur shadow-xl rounded-2xl px-3 py-2 flex items-center gap-2 border border-primary/10">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center flex-shrink-0">
+                  <Icon name="Users" size={18} className="text-white" />
+                </div>
+                <div className="leading-tight">
+                  <p className="font-bold text-sm">3000+</p>
+                  <p className="text-[11px] text-muted-foreground">выпускников</p>
+                </div>
+              </div>
+
+              <div className="absolute -right-3 bottom-24 bg-white/95 backdrop-blur shadow-xl rounded-2xl px-3 py-2 flex items-center gap-2 border border-secondary/10">
+                <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-secondary to-orange flex items-center justify-center flex-shrink-0">
+                  <Icon name="Award" size={18} className="text-white" />
+                </div>
+                <div className="leading-tight">
+                  <p className="font-bold text-sm">15 лет</p>
+                  <p className="text-[11px] text-muted-foreground">опыта</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
