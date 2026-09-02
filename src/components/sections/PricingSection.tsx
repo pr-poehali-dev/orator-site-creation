@@ -62,8 +62,8 @@ const PricingSection = () => {
       price: '22 500',
       oldPrice: '22 500',
       promoPrice: '19 500',
-      promoDeadline: 'При бронировании до 10 сентября',
-      promoDeadlineDate: '2026-09-10T23:59:59',
+      promoDeadline: 'При бронировании до 7 сентября',
+      promoDeadlineDate: '2026-09-07T23:59:59',
       features: [
         '10 занятий (8 групповых и 2 индивидуальных)',
         'Самопрезентация',
