@@ -93,8 +93,8 @@ export const courses: Course[] = [
     cardPrice: '22 500 ₽',
     cardOldPrice: '22 500 ₽',
     promoPrice: '19 500 ₽',
-    promoDeadline: 'При бронировании до 10 сентября',
-    promoDeadlineDate: '2026-09-10T23:59:59'
+    promoDeadline: 'При бронировании до 7 сентября',
+    promoDeadlineDate: '2026-09-07T23:59:59'
   },
   {
     name: 'Видеокурс по речевой креативности и импровизации',
