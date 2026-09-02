@@ -91,10 +91,10 @@ export const courses: Course[] = [
     image: courseOratoryCover,
     locationLabel: 'Оффлайн-курс в Краснодаре',
     cardPrice: '22 500 ₽',
-    cardOldPrice: '24 000 ₽',
-    promoPrice: '15 990 ₽',
-    promoDeadline: 'При бронировании до 5 сентября',
-    promoDeadlineDate: '2026-09-05T23:59:59'
+    cardOldPrice: '22 500 ₽',
+    promoPrice: '19 500 ₽',
+    promoDeadline: 'При бронировании до 10 сентября',
+    promoDeadlineDate: '2026-09-10T23:59:59'
   },
   {
     name: 'Видеокурс по речевой креативности и импровизации',
