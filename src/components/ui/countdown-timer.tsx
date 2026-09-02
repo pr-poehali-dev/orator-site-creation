@@ -41,9 +41,9 @@ const CountdownTimer = ({ targetDate, className }: CountdownTimerProps) => {
   ];
 
   return (
-    <div className={`flex items-center gap-1.5 ${className || ''}`}>
+    <div className={`flex flex-wrap items-center justify-center gap-1 max-w-full ${className || ''}`}>
       {units.map((u, idx) => (
-        <div key={idx} className="flex items-baseline gap-0.5 bg-red-600 text-white rounded-md px-2 py-1 min-w-[2.75rem] justify-center">
+        <div key={idx} className="flex items-baseline gap-0.5 bg-red-600 text-white rounded-md px-1.5 py-1 min-w-[2.5rem] justify-center">
           <span className="font-bold text-base tabular-nums">{String(u.value).padStart(2, '0')}</span>
           <span className="text-[10px] uppercase opacity-90">{u.label}</span>
         </div>

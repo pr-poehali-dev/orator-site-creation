@@ -213,10 +213,10 @@ const PricingSection = () => {
                 )}
                 <div className="mt-5 md:mt-6">
                   {pkg.promoPrice ? (
-                    <div className="inline-flex flex-col items-center bg-red-50 border border-red-300 rounded-xl px-4 py-2">
-                      <div className="flex items-baseline justify-center gap-2 flex-nowrap whitespace-nowrap">
-                        <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>
-                        <span className="text-4xl md:text-5xl font-bold text-red-600">{pkg.promoPrice} ₽</span>
+                    <div className="flex flex-col items-center bg-red-50 border border-red-300 rounded-xl px-3 py-3 w-full max-w-full">
+                      <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
+                        <span className="text-lg md:text-xl text-muted-foreground line-through whitespace-nowrap">{pkg.oldPrice} ₽</span>
+                        <span className="text-3xl md:text-4xl font-bold text-red-600 whitespace-nowrap">{pkg.promoPrice} ₽</span>
                       </div>
                       {pkg.promoDeadline && (
                         <p className="text-red-600 font-semibold text-sm mt-1">{pkg.promoDeadline}</p>
