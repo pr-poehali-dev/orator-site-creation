@@ -43,11 +43,11 @@ const Index = () => {
         <div className="container mx-auto max-w-4xl flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
           <div className="flex items-center gap-3 flex-shrink-0">
             <span className="text-3xl">🎓</span>
-            <span className="bg-white/20 text-white text-base font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">02 сентября в 19:00</span>
+            <span className="bg-white/20 text-white text-base font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">16 сентября в 19:00</span>
           </div>
           <div className="flex-1">
-            <p className="font-bold text-xl md:text-2xl leading-tight">Приглашаем на выпускной группы ораторского искусства!</p>
-            <p className="text-white/85 text-lg mt-1">В программе: выступления в стиле TED, импров-тренинг для зрителей. Приходите! ул. Коммунаров, 266, офис 45</p>
+            <p className="font-bold text-xl md:text-2xl leading-tight">Приглашаем на пробное занятие курса ораторского искусства!</p>
+            <p className="text-white/85 text-lg mt-1">Познакомитесь с программой курса и педагогом. Вход свободный. Приходите! ул. Коммунаров, 266, офис 45</p>
           </div>
           <div className="flex-shrink-0 bg-white/20 border border-white/30 text-white text-lg font-bold px-6 py-2.5 rounded-full hover:bg-white/30 transition-colors whitespace-nowrap">
             Записаться →
@@ -57,8 +57,8 @@ const Index = () => {
       <ApplicationModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        courseName="Выпускной группы ораторского искусства"
-        courseDate="02 сентября в 19:00"
+        courseName="Пробное занятие курса ораторского искусства"
+        courseDate="16 сентября (среда) в 19:00"
       />
       <FreeTrialBanner />
       <ScheduleSection />
