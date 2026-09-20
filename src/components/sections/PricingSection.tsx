@@ -1,7 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import Icon from '@/components/ui/icon';
-import CountdownTimer from '@/components/ui/countdown-timer';
 import { trackGoal, GOALS } from '@/utils/goals';
 import { useEffect, useRef, useState } from 'react';
 import ApplicationModal from '@/components/ApplicationModal';
@@ -130,6 +129,27 @@ const PricingSection = () => {
       ],
       duration: 'Продолжительность занятия — 1 час',
       price: '6 000'
+    },
+    {
+      name: 'Индивидуальный ораторский коучинг',
+      badge: 'ОНЛАЙН / ОФЛАЙН',
+      groups: [
+        {
+          label: 'Индивидуальный формат · по согласованию',
+          dates: [] as string[],
+          color: 'purple'
+        }
+      ],
+      features: [
+        'Подготовка к выступлению',
+        'Разбор ваших выступлений',
+        'Работа с голосом, речью, дикцией',
+        'Персональный план развития навыков',
+        'Программа корректируется по запросу'
+      ],
+      duration: 'Продолжительность занятия — 1 час',
+      price: '5 000',
+      priceNote: 'за занятие'
     }
   ];
 
@@ -204,25 +224,11 @@ const PricingSection = () => {
                   </p>
                 )}
                 <div className="mt-5 md:mt-6">
-                  {pkg.promoPrice ? (
-                    <div className="flex flex-col items-center bg-red-50 border border-red-300 rounded-xl px-3 py-3 w-full max-w-full">
-                      <div className="flex flex-wrap items-baseline justify-center gap-x-2 gap-y-1">
-                        <span className="text-lg md:text-xl text-muted-foreground line-through whitespace-nowrap">{pkg.oldPrice} ₽</span>
-                        <span className="text-3xl md:text-4xl font-bold text-red-600 whitespace-nowrap">{pkg.promoPrice} ₽</span>
-                      </div>
-                      {pkg.promoDeadline && (
-                        <p className="text-red-600 font-semibold text-sm mt-1">{pkg.promoDeadline}</p>
-                      )}
-                      {pkg.promoDeadlineDate && (
-                        <CountdownTimer targetDate={pkg.promoDeadlineDate} className="mt-2" />
-                      )}
-                    </div>
-                  ) : (
-                    <div className="flex items-baseline justify-center gap-2 mb-2 flex-nowrap whitespace-nowrap">
-                      <span className={`text-4xl md:text-5xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
-                      {pkg.oldPrice && <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
-                    </div>
-                  )}
+                  <div className="flex items-baseline justify-center gap-2 mb-2 flex-nowrap whitespace-nowrap">
+                    <span className={`text-4xl md:text-5xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
+                    {pkg.priceNote && <span className="text-xl md:text-2xl text-muted-foreground">{pkg.priceNote}</span>}
+                    {pkg.oldPrice && <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
+                  </div>
                 </div>
               </CardHeader>
               <CardContent>
