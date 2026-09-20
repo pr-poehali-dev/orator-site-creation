@@ -63,11 +63,6 @@ export const courses: Course[] = [
     groups: [
       {
         dates: '28 сентября — 28 октября',
-        schedule: 'дневная группа · пн/ср\n14:00–16:00',
-        color: 'purple'
-      },
-      {
-        dates: '28 сентября — 28 октября',
         schedule: 'вечерняя группа · пн/ср\n19:00–21:00',
         color: 'blue'
       }
