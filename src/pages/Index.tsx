@@ -40,7 +40,7 @@ const Index = () => {
         className="bg-gradient-to-r from-primary to-secondary text-white py-4 px-4 cursor-pointer hover:opacity-95 transition-opacity"
         onClick={() => setShowModal(true)}
       >
-        <div className="container mx-auto max-w-4xl flex flex-col sm:flex-row items-center justify-center gap-4 text-center sm:text-left">
+        <div className="container mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 text-left">
           <div className="flex items-center gap-3 flex-shrink-0">
             <span className="text-3xl">🎓</span>
             <span className="bg-white/20 text-white text-base font-bold px-4 py-1.5 rounded-full uppercase tracking-wide whitespace-nowrap">14 октября, среда, 19:00</span>
