@@ -33,9 +33,9 @@ const HeroSection = () => {
         />
       </div>
       <div className="container mx-auto relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-12 items-center">
-          <div className="text-center lg:text-left">
-            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-3 mb-3 md:mb-4">
+        <div className="grid grid-cols-1 md:grid-cols-[1.15fr_0.85fr] gap-8 lg:gap-12 items-center">
+          <div className="text-left">
+            <div className="flex flex-wrap items-center justify-start gap-3 mb-3 md:mb-4">
               <div className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-primary to-secondary rounded-full">
                 <span className="text-white font-semibold text-sm sm:text-base">🎯 Курсы и индивидуально • Онлайн/Офлайн • Краснодар</span>
               </div>
@@ -55,16 +55,16 @@ const HeroSection = () => {
               <br />
               <span className="text-foreground text-2xl md:text-3xl lg:text-4xl xl:text-5xl">для карьеры, бизнеса и жизни</span>
             </h2>
-            <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-5 md:mb-6 max-w-2xl mx-auto lg:mx-0 px-2 lg:px-0">
+            <p className="text-base md:text-lg lg:text-xl text-muted-foreground mb-5 md:mb-6 max-w-2xl">
               Единственный в Краснодаре курс, где сочетаются <span className="font-bold text-primary">групповые тренинги</span> и <span className="font-bold text-secondary">индивидуальные занятия</span> с каждым участником
             </p>
-            <div className="flex justify-center lg:justify-start mb-5 md:mb-6">
+            <div className="flex justify-start mb-5 md:mb-6">
               <div className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full">
                 <Icon name="CheckCircle" className="text-primary" size={22} />
                 <span className="font-semibold text-base md:text-lg">Индивидуальные занятия входят в стоимость</span>
               </div>
             </div>
-            <div className="flex justify-center lg:justify-start">
+            <div className="flex justify-start">
               <Button 
                 size="lg" 
                 className="bg-primary hover:bg-primary/90 text-base sm:text-lg md:text-xl px-5 sm:px-7 py-5 sm:py-6 w-full sm:w-auto"
@@ -79,7 +79,7 @@ const HeroSection = () => {
             </div>
           </div>
           
-          <div className="relative flex justify-center lg:justify-end">
+          <div className="relative flex justify-center md:justify-end">
             <div className="relative max-w-md w-full">
               <div className="absolute -inset-6 bg-gradient-to-br from-primary/30 via-secondary/20 to-orange/20 rounded-[2.5rem] blur-3xl"></div>
               <div className="absolute -top-4 -left-4 w-24 h-24 border-4 border-primary/30 rounded-full hidden sm:block"></div>
