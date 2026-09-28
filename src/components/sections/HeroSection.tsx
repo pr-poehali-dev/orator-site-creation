@@ -48,7 +48,7 @@ const HeroSection = () => {
                 className="rounded"
               />
             </div>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-5 leading-tight">
+            <h2 className="text-[28px] sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 md:mb-5 leading-tight">
               <span className="bg-gradient-to-r from-primary via-secondary to-primary bg-clip-text text-transparent">
                 Курсы ораторского искусства и импровизации
               </span>

@@ -173,7 +173,7 @@ const PricingSection = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 md:mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-8 md:mb-12">
           {packages.map((pkg, index) => (
             <Card
               key={index}
@@ -224,8 +224,8 @@ const PricingSection = () => {
                   </p>
                 )}
                 <div className="mt-5 md:mt-6">
-                  <div className="flex items-baseline justify-center gap-2 mb-2 flex-nowrap whitespace-nowrap">
-                    <span className={`text-4xl md:text-5xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
+                  <div className="flex items-baseline justify-center gap-2 mb-2 flex-wrap">
+                    <span className={`text-3xl sm:text-4xl md:text-5xl font-bold ${pkg.isPopular ? 'text-secondary' : 'text-primary'}`}>{pkg.price} ₽</span>
                     {pkg.priceNote && <span className="text-xl md:text-2xl text-muted-foreground">{pkg.priceNote}</span>}
                     {pkg.oldPrice && <span className="text-xl md:text-2xl text-muted-foreground line-through">{pkg.oldPrice} ₽</span>}
                   </div>

@@ -49,7 +49,7 @@ const ContactSection = () => {
           {selectedCourse ? 'Выберите удобный способ связи:' : 'Или свяжитесь с нами для консультации'}
         </p>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-3 sm:gap-4">
           <Card className="hover:shadow-lg transition-all hover:-translate-y-0.5">
             <CardContent className="pt-4 pb-4 text-center">
               <div className="flex justify-center mb-2">
