@@ -62,8 +62,8 @@ export const courses: Course[] = [
     isCombined: true,
     groups: [
       {
-        dates: '14 октября — 23 ноября',
-        schedule: 'вечерняя группа · пн/ср\n19:00–21:00',
+        dates: '7 ноября — 19 декабря',
+        schedule: 'субботняя группа · сб\n11:00–14:00',
         color: 'blue'
       }
     ],
