@@ -43,11 +43,11 @@ const Index = () => {
         <div className="container mx-auto flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4 text-left">
           <div className="flex items-center gap-3 flex-shrink-0">
             <span className="text-3xl">🎓</span>
-            <span className="bg-white/20 text-white text-sm sm:text-base font-bold px-3 sm:px-4 py-1.5 rounded-full uppercase tracking-wide">14 октября, среда, 19:00</span>
+            <span className="bg-white/20 text-white text-sm sm:text-base font-bold px-3 sm:px-4 py-1.5 rounded-full uppercase tracking-wide">Каждый пн и ср</span>
           </div>
           <div className="flex-1">
-            <p className="font-bold text-lg sm:text-xl md:text-2xl leading-tight">Первое занятие курса ораторского искусства — приходите как на пробное!</p>
-            <p className="text-white/85 text-base sm:text-lg mt-1">Познакомитесь с программой курса и педагогом, а потом решите, продолжать ли. ул. Коммунаров, 266, офис 45</p>
+            <p className="font-bold text-lg sm:text-xl md:text-2xl leading-tight">Пробные занятия проходят каждый понедельник и каждую среду!</p>
+            <p className="text-white/85 text-base sm:text-lg mt-1">А 18 ноября — выпускной, вход свободный. ул. Коммунаров, 266, офис 45</p>
           </div>
           <div className="flex-shrink-0 bg-white/20 border border-white/30 text-white text-base sm:text-lg font-bold px-5 sm:px-6 py-2.5 rounded-full hover:bg-white/30 transition-colors whitespace-nowrap">
             Записаться →
@@ -57,8 +57,8 @@ const Index = () => {
       <ApplicationModal
         isOpen={showModal}
         onClose={() => setShowModal(false)}
-        courseName="Первое (пробное) занятие курса ораторского искусства"
-        courseDate="14 октября (среда) в 19:00"
+        courseName="Пробное занятие курса ораторского искусства"
+        courseDate="Каждый понедельник и среду"
       />
       <FreeTrialBanner />
       <ScheduleSection />
